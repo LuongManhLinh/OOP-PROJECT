@@ -1,0 +1,30 @@
+black                             	đen 
+concrete                          	bê-tông cụ-thể 
+environment                       	môi-trường 
+fire                              	bắn lửa sa-thải 
+fly                               	bay con-ruồi 
+glorious                          	vinh-quang 
+go                                	đi 
+go-behind                         	xem-xét-lại 
+go-forward                        	tiến-triển 
+go-off                            	nổ rung-chuông 
+height                            	chiều-cao 
+high                              	cao 
+last                              	cuối-cùng 
+object                            	vật-thể đối-tượng 
+oil                               	dầu 
+plane                             	máy-bay mặt-phẳng 
+quick                             	nhanh 
+quicksilver                       	thủy-ngân 
+silver                            	bạc 
+stick                             	cây-gậy dính 
+supercalifragilisticexpialidocious	tuyệt-vời 
+tail                              	đuôi 
+take                              	cầm nắm lấy 
+take-after                        	giống 
+take-down                         	sỉ-nhục 
+take-off                          	cất-cánh 
+take-over                         	tiếp-quản 
+tall                              	cao 
+then                              	khi-đó 
+wind                              	gió thổi chảy 
