@@ -15,6 +15,5 @@ public class DictionaryCommandline extends Dictionary {
         {
             StdOut.println("The dictionary is empty!");
         }
-        StdOut.println("Done! Please enter next command:");
     }
 }

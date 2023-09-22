@@ -1,3 +1,5 @@
+alcohol                           	rượu-bia cồn 
+beach                             	bãi-biển 
 black                             	đen 
 concrete                          	bê-tông cụ-thể 
 environment                       	môi-trường 
@@ -11,11 +13,14 @@ go-off                            	nổ rung-chuông
 height                            	chiều-cao 
 high                              	cao 
 last                              	cuối-cùng 
+mice                              	nhiều-con-chuột 
 object                            	vật-thể đối-tượng 
 oil                               	dầu 
 plane                             	máy-bay mặt-phẳng 
 quick                             	nhanh 
 quicksilver                       	thủy-ngân 
+sea                               	biển 
+seal                              	hải-cẩu 
 silver                            	bạc 
 stick                             	cây-gậy dính 
 supercalifragilisticexpialidocious	tuyệt-vời 
@@ -28,3 +33,4 @@ take-over                         	tiếp-quản
 tall                              	cao 
 then                              	khi-đó 
 wind                              	gió thổi chảy 
+wine                              	rượu 

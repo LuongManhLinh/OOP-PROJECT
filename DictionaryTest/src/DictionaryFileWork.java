@@ -26,9 +26,9 @@ public class DictionaryFileWork extends Dictionary
 
                 EnglishKeyWords.add(EnglishWord);
                 Words.put(EnglishWord, key);
-                if (EnglishWord.length() > longestWordLengh)
+                if (EnglishWord.length() > longestWordLength)
                 {
-                    longestWordLengh = EnglishWord.length();
+                    longestWordLength = EnglishWord.length();
                 }
             }
         }
@@ -46,7 +46,7 @@ public class DictionaryFileWork extends Dictionary
           {
               ArrayList<String> meanings = Words.get(eachWord);
               eachWord = eachWord.replace(" ", "-");
-              eachWord = String.format("%-" + longestWordLengh + "s", eachWord);
+              eachWord = String.format("%-" + longestWordLength + "s", eachWord);
 
               StringBuilder allMeanings = new StringBuilder();
 

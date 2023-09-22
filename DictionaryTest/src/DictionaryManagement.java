@@ -15,30 +15,29 @@ public class DictionaryManagement extends Dictionary {
             StdOut.print( (i + 1) + ". Enter English word: ");
             String key = (StdIn.readLine()).toLowerCase().trim();
 
-            if (EnglishKeyWords.contains(key))
+            while (EnglishKeyWords.contains(key))
             {
                 StdOut.println("   The word has been inserted before! ");
+                StdOut.print("    Please enter again: ");
+                key = (StdIn.readLine()).toLowerCase().trim();
             }
-            else
+
+            StdOut.print("   Enter Vietnamese meaning: ");
+            String meaning = (StdIn.readLine()).toLowerCase().trim();
+
+            EnglishKeyWords.add(key);
+
+            ArrayList<String> VNMeaning = WordWork.SeparateWordsInLineByComma(meaning);
+
+            Words.put(key, VNMeaning);
+
+            if (key.length() > longestWordLength)
             {
-                StdOut.print("   Enter Vietnamese meaning: ");
-                String meaning = (StdIn.readLine()).toLowerCase().trim();
-
-                EnglishKeyWords.add(key);
-
-                ArrayList<String> VNMeaning = WordWork.SeparateWordsInLineByComma(meaning);
-
-                Words.put(key, VNMeaning);
-
-                if (key.length() > longestWordLengh)
-                {
-                    longestWordLengh = key.length();
-                }
+                longestWordLength = key.length();
             }
+
 
         }
-
-        StdOut.println("Done! Please enter next command:");
     }
 
     public static void LookUp()
@@ -60,9 +59,6 @@ public class DictionaryManagement extends Dictionary {
         {
             StdOut.println("The word cannot be found!");
         }
-
-        StdOut.println("Done! Please enter next command:");
-
     }
 
     public static void PrintOneWord(String exactWord)
@@ -79,7 +75,7 @@ public class DictionaryManagement extends Dictionary {
 
     public static void ChangeMeaning()
     {
-        StdOut.print("Enter a exact word that will be changed its meaning: ");
+        StdOut.print("Enter an exact word that will be changed its meaning: ");
         String keyWord = (StdIn.readString()).toLowerCase();
         StdIn.readLine();
 
@@ -115,13 +111,11 @@ public class DictionaryManagement extends Dictionary {
         {
             StdOut.println("The word cannot be found!");
         }
-
-        StdOut.println("Done! Please enter next command:");
     }
 
     public static void AddMeaning()
     {
-        StdOut.print("Enter a exact word that will be added meanings: ");
+        StdOut.print("Enter an exact word that will be added meanings: ");
         String keyWord = (StdIn.readString()).toLowerCase().trim();
 
         if (EnglishKeyWords.contains(keyWord))
@@ -144,20 +138,17 @@ public class DictionaryManagement extends Dictionary {
                 }
 
                 meaningContainer.add(newMeaning);
-
             }
         }
         else
         {
             StdOut.println("The word cannot be found!");
         }
-
-        StdOut.println("Done! Please enter next command:");
     }
 
-    public static void FixWord()
+    public static void FixEnglishWord()
     {
-        StdOut.print("Enter a exact word that will be fixed: ");
+        StdOut.print("Enter an exact word that will be fixed: ");
         String keyWord = (StdIn.readString()).toLowerCase().trim();
         StdIn.readLine();
 
@@ -181,8 +172,56 @@ public class DictionaryManagement extends Dictionary {
         {
             StdOut.println("The word cannot be found!");
         }
+    }
 
-        StdOut.println("Done! Please enter next command:");
+    public static void RemoveMeaning()
+    {
+        StdOut.print("Enter an exact word that will be removed meaning: ");
+        String keyWord = (StdIn.readString()).toLowerCase().trim();
+        StdIn.readLine();
+
+        if (EnglishKeyWords.contains(keyWord))
+        {
+            PrintOneWord(keyWord);
+
+            StdOut.print("Enter the meaning that will be removed: ");
+            String removingMeaning = (StdIn.readLine()).toLowerCase().trim();
+            ArrayList<String> meaning = Words.get(keyWord);
+
+            if (meaning.contains(removingMeaning))
+            {
+                meaning.remove(removingMeaning);
+                PrintOneWord(keyWord);
+            }
+            else
+            {
+                StdOut.println("The meaning cannot be found!");
+            }
+        }
+        else
+        {
+            StdOut.println("The word cannot be found!");
+        }
+    }
+
+    public static void RemoveWord()
+    {
+        StdOut.print("Enter an exact word that will be removed: ");
+        String keyWord = (StdIn.readString()).toLowerCase().trim();
+        StdIn.readLine();
+
+        if (EnglishKeyWords.contains(keyWord))
+        {
+            PrintOneWord(keyWord);
+
+            EnglishKeyWords.remove(keyWord);
+            Words.remove(keyWord);
+            StdOut.print("Removed!");
+        }
+        else
+        {
+            StdOut.println("The word cannot be found!");
+        }
     }
 
 }

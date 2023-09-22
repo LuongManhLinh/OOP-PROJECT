@@ -6,7 +6,7 @@ public class Dictionary {
     protected static HashMap<String, ArrayList<String>> Words = new HashMap<>();
     protected static TreeSet<String> EnglishKeyWords = new TreeSet<>();
 
-    protected static int longestWordLengh = 0;
+    protected static int longestWordLength = 0;
 
     protected static String fileContainsWords = "Dictionary\\Dictionary.txt";
 
