@@ -42,8 +42,9 @@ public class DictionaryManagement extends Dictionary {
 
     public static void LookUp()
     {
+        StdIn.readLine();
         StdOut.print("Enter a word that you need: ");
-        String keyWord = (StdIn.readString()).toLowerCase();
+        String keyWord = (StdIn.readLine()).toLowerCase().trim();
 
         boolean found = false;
         for (String eachWord : EnglishKeyWords)
@@ -75,9 +76,9 @@ public class DictionaryManagement extends Dictionary {
 
     public static void ChangeMeaning()
     {
-        StdOut.print("Enter an exact word that will be changed its meaning: ");
-        String keyWord = (StdIn.readString()).toLowerCase();
         StdIn.readLine();
+        StdOut.print("Enter an exact word that will be changed its meaning: ");
+        String keyWord = (StdIn.readLine()).toLowerCase().trim();
 
         if (EnglishKeyWords.contains(keyWord))
         {
@@ -115,8 +116,10 @@ public class DictionaryManagement extends Dictionary {
 
     public static void AddMeaning()
     {
+        StdIn.readLine();
         StdOut.print("Enter an exact word that will be added meanings: ");
-        String keyWord = (StdIn.readString()).toLowerCase().trim();
+        String keyWord = (StdIn.readLine()).toLowerCase().trim();
+
 
         if (EnglishKeyWords.contains(keyWord))
         {
@@ -148,9 +151,9 @@ public class DictionaryManagement extends Dictionary {
 
     public static void FixEnglishWord()
     {
-        StdOut.print("Enter an exact word that will be fixed: ");
-        String keyWord = (StdIn.readString()).toLowerCase().trim();
         StdIn.readLine();
+        StdOut.print("Enter an exact word that will be fixed: ");
+        String keyWord = (StdIn.readLine()).toLowerCase().trim();
 
         if (EnglishKeyWords.contains(keyWord))
         {
@@ -176,9 +179,9 @@ public class DictionaryManagement extends Dictionary {
 
     public static void RemoveMeaning()
     {
-        StdOut.print("Enter an exact word that will be removed meaning: ");
-        String keyWord = (StdIn.readString()).toLowerCase().trim();
         StdIn.readLine();
+        StdOut.print("Enter an exact word that will be removed meaning: ");
+        String keyWord = (StdIn.readLine()).toLowerCase().trim();
 
         if (EnglishKeyWords.contains(keyWord))
         {
@@ -206,9 +209,9 @@ public class DictionaryManagement extends Dictionary {
 
     public static void RemoveWord()
     {
-        StdOut.print("Enter an exact word that will be removed: ");
-        String keyWord = (StdIn.readString()).toLowerCase().trim();
         StdIn.readLine();
+        StdOut.print("Enter an exact word that will be removed: ");
+        String keyWord = (StdIn.readLine()).toLowerCase().trim();
 
         if (EnglishKeyWords.contains(keyWord))
         {
