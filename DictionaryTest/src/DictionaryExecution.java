@@ -31,6 +31,7 @@ public class DictionaryExecution extends Dictionary {
             StdOut.println("Press " + REMOVE_WORD + " to remove a word from the dictionary");
             StdOut.println("Press " + EXIT + " to update file and exit");
 
+//            StdOut.println("If you want to exit function, press -1!");
             command = StdIn.readString();
 
             switch (command)

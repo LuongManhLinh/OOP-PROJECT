@@ -1,8 +1,13 @@
 alcohol                           	rượu-bia cồn 
 beach                             	bãi-biển 
 black                             	đen 
+blue                              	màu-xanh 
+book                              	quyển-sách 
+box                               	cái-hộp 
 concrete                          	bê-tông cụ-thể 
+cái-ô                             	1 
 environment                       	môi-trường 
+fan                               	cái-quạt người-hâm-mộ 
 fire                              	bắn lửa sa-thải 
 fly                               	bay con-ruồi 
 glorious                          	vinh-quang 
@@ -17,6 +22,7 @@ mice                              	nhiều-con-chuột
 object                            	vật-thể đối-tượng 
 oil                               	dầu 
 plane                             	máy-bay mặt-phẳng 
+quay                              	bến-cảng 
 quick                             	nhanh 
 quicksilver                       	thủy-ngân 
 sea                               	biển 
@@ -32,5 +38,7 @@ take-off                          	cất-cánh
 take-over                         	tiếp-quản 
 tall                              	cao 
 then                              	khi-đó 
+umbrella                          	cái-ô 
+white                             	màu-trắng 
 wind                              	gió thổi chảy 
 wine                              	rượu 
