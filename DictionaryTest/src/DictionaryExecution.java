@@ -1,5 +1,4 @@
-import edu.princeton.cs.algs4.StdIn;
-import edu.princeton.cs.algs4.StdOut;
+import java.util.Scanner;
 
 public class DictionaryExecution extends Dictionary {
     private static final String SHOW_ALL = "1";
@@ -19,21 +18,22 @@ public class DictionaryExecution extends Dictionary {
 
         String command;
         boolean isRunning = true;
+        Scanner scanner = new Scanner(System.in);
+
         while(isRunning)
         {
-            StdOut.println("Press " + SHOW_ALL + " to show all words");
-            StdOut.println("Press " + LOOK_UP + " to look up words");
-            StdOut.println("Press " + INSERT + " to insert words");
-            StdOut.println("Press " + CHANGE_MEANING + " to change a word's meaning");
-            StdOut.println("Press " + ADD_MEANING + " to add meanings");
-            StdOut.println("Press " + FIX_WORD + " to fix a English word");
-            StdOut.println("Press " + REMOVE_MEANING + " to remove a meaning in a word");
-            StdOut.println("Press " + REMOVE_WORD + " to remove a word from the dictionary");
-            StdOut.println("Press " + EXIT + " to update file and exit");
+            System.out.println("Press " + SHOW_ALL + " to show all words");
+            System.out.println("Press " + LOOK_UP + " to look up words");
+            System.out.println("Press " + INSERT + " to insert words");
+            System.out.println("Press " + CHANGE_MEANING + " to change a word's meaning");
+            System.out.println("Press " + ADD_MEANING + " to add meanings");
+            System.out.println("Press " + FIX_WORD + " to fix a English word");
+            System.out.println("Press " + REMOVE_MEANING + " to remove a meaning in a word");
+            System.out.println("Press " + REMOVE_WORD + " to remove a word from the dictionary");
+            System.out.println("Press " + EXIT + " to update file and exit");
 
-//            StdOut.println("If you want to exit function, press -1!");
-            command = StdIn.readString();
-
+//            System.out.println("If you want to exit function, press -1!");
+            command = scanner.next();
             switch (command)
             {
                 case SHOW_ALL -> DictionaryCommandline.ShowAllWords();
@@ -48,15 +48,15 @@ public class DictionaryExecution extends Dictionary {
                     isRunning = false;
                     Dictionary.Exit();
                 }
-                default -> StdOut.println("Invalid command! Please enter a valid command!");
+                default -> System.out.println("Invalid command! Please enter a valid command!");
             }
             if (command.equals(EXIT))
             {
-                StdOut.println("Saved! Goodbye!");
+                System.out.println("Saved! Goodbye!");
             }
             else
             {
-                StdOut.println("\nPlease enter next command:");
+                System.out.println("\nPlease enter next command:");
             }
         }
     }

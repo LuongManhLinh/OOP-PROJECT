@@ -1,5 +1,3 @@
-import edu.princeton.cs.algs4.StdOut;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
