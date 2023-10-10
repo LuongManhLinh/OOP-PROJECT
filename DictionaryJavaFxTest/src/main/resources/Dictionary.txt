@@ -1,0 +1,43 @@
+alcohol                           	rượu-bia cồn 
+beach                             	bãi-biển 
+black                             	đen 
+blue                              	màu-xanh 
+book                              	quyển-sách 
+box                               	cái-hộp 
+concrete                          	bê-tông cụ-thể
+environment                       	môi-trường 
+fan                               	cái-quạt người-hâm-mộ 
+fire                              	bắn lửa sa-thải 
+fly                               	bay con-ruồi 
+glorious                          	vinh-quang 
+go                                	đi 
+go-behind                         	xem-xét-lại 
+go-forward                        	tiến-triển 
+go-off                            	nổ rung-chuông 
+height                            	chiều-cao 
+high                              	cao 
+last                              	cuối-cùng 
+mice                              	nhiều-con-chuột 
+object                            	vật-thể đối-tượng 
+oil                               	dầu 
+plane                             	máy-bay mặt-phẳng 
+quay                              	bến-cảng 
+quick                             	nhanh 
+quicksilver                       	thủy-ngân 
+sea                               	biển 
+seal                              	hải-cẩu 
+silver                            	bạc 
+stick                             	cây-gậy dính 
+supercalifragilisticexpialidocious	tuyệt-vời 
+tail                              	đuôi 
+take                              	cầm nắm lấy 
+take-after                        	giống 
+take-down                         	sỉ-nhục 
+take-off                          	cất-cánh 
+take-over                         	tiếp-quản 
+tall                              	cao 
+then                              	khi-đó 
+umbrella                          	cái-ô 
+white                             	màu-trắng 
+wind                              	gió thổi chảy 
+wine                              	rượu 
