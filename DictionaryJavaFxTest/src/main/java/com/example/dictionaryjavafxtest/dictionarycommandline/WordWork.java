@@ -1,41 +1,62 @@
 package com.example.dictionaryjavafxtest.dictionarycommandline;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class WordWork {
-    public static ArrayList<String> SeparateWordsInLineBySpace(String input)
-    {
-        // Type of input: word1 word2 word3
-        ArrayList<String> output = new ArrayList<>();
-        Scanner scanner = new Scanner(input);
-        while(scanner.hasNext())
-        {
-            output.add(scanner.next());
+    public static String engStartKey = "$-";
+    public static String engEndKey = "-$";
+    public static String viStartKey = "$+";
+    public static String viEndKey = "+$";
+    public static String regexEng = "\\$-.+-\\$";
+    public static String regexVi = "\\$\\+.+\\+\\$";
+    public static Pattern engPattern = Pattern.compile(regexEng);
+    public static Pattern viPattern = Pattern.compile(regexVi);
+
+    public static String decodeForm (String input, boolean isEnglish) {
+        String output = "";
+        if (isEnglish) {
+            Matcher engMatcher = engPattern.matcher(input);
+            if (engMatcher.find()) {
+                output = engMatcher.group();
+                output = output.replace(engStartKey, "").replace(engEndKey, "");
+                return output;
+            } else {
+                System.out.println("Cannot find a English form");
+            }
+        }
+
+        Matcher viMatcher = viPattern.matcher(input);
+        if (viMatcher.find()) {
+            output = viMatcher.group();
+            output = output.replace(viStartKey, "").replace(viEndKey, "");
+        } else {
+            System.out.println("Cannot find a Vietnamese form");
         }
 
         return output;
     }
 
-    public static ArrayList<String> SeparateWordsInLineByComma(String input)
-    {
-        // Type of input: word1, word2, word3
-
-        // input = chiến binh,  áo trắng, hai
-
-        input = input.replace(" ", "-");
-        // input = chiến-binh,--áo-trắng,-hai
-
-        input = input.replace(",", " ");
-        // input = chiến-binh --áo-trắng -hai
-
-        ArrayList<String> output = SeparateWordsInLineBySpace(input);
-        for(int i = 0; i < output.size(); i++)
-        {
-            output.set(i, output.get(i).replace("-", " ").trim());
+    public static String encodeForm(String input, boolean isEnglish) {
+        if (isEnglish) {
+            return engStartKey + input + engEndKey;
         }
-        // output = 1.chiến binh 2.áo trắng 3.hai
 
-        return output;
+        return viStartKey + input + viEndKey;
+    }
+
+    public static String getRidOfHTMLForm(String htmlFormString) {
+        htmlFormString = htmlFormString.replace("<br />", "\n");
+        htmlFormString = htmlFormString.replace("<I><Q>", "");
+        htmlFormString = htmlFormString.replace("</Q></I>", "");
+
+        return htmlFormString;
+    }
+
+    public static String toHTMLForm(String input) {
+        input = input.replace("\n", "<br />");
+        input = "<I><Q>" + input + "</Q></I>";
+
+        return input;
     }
 }

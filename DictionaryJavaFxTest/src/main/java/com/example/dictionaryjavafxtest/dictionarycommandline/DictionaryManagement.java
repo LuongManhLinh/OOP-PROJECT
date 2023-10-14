@@ -2,19 +2,30 @@ package com.example.dictionaryjavafxtest.dictionarycommandline;
 
 import com.example.dictionaryjavafxtest.Dictionary;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DictionaryManagement extends Dictionary {
     public static void PrintOneWord(String exactWord)
     {
-        System.out.print(exactWord + ": ");
-        ArrayList<String> meanings = Words.get(exactWord);
-        for (int j = 0; j < meanings.size() - 1; j++)
-        {
-            System.out.print(meanings.get(j) + ", ");
+        System.out.println(exactWord + ": ");
+        String meanings = WordWork.getRidOfHTMLForm(Words.get(exactWord));
+        System.out.println(meanings);
+        System.out.println();
+    }
+
+    public static String getDescriptionCommandline(Scanner scanner) {
+        StringBuilder meaning = new StringBuilder();
+        String line;
+
+        while (!(line = (scanner.nextLine()).toLowerCase().trim()).equals("$")) {
+            if (line.equals("-1")) return "-1";
+
+            meaning.append(line).append("\n");
         }
-        System.out.println(meanings.get(meanings.size() - 1));
+        // delete the last "\n"
+        meaning.setLength(meaning.length() - 1);
+
+        return WordWork.toHTMLForm(meaning.toString());
     }
 
     public static void ShowAllWords()
@@ -23,7 +34,7 @@ public class DictionaryManagement extends Dictionary {
         for (String eachWord : EnglishKeyWords)
         {
             System.out.print(i + ". ");
-            DictionaryManagement.PrintOneWord(eachWord);
+            PrintOneWord(eachWord);
             i++;
         }
         if (i == 1)
@@ -35,47 +46,37 @@ public class DictionaryManagement extends Dictionary {
     public static void InsertFromCommandline()
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter number of words that will be inserted, or enter -1 to exit this function: ");
+        System.out.print("Enter number of words that will be inserted: ");
         int numberInsert = scanner.nextInt();
         if(numberInsert == -1) return;
         scanner.nextLine();
-        System.out.println("If there are many meanings, please separate them by comma ','");
 
         for (int i = 0; i < numberInsert; i++)
         {
-            System.out.print( (i + 1) + ". Enter English word or enter -1 to exit this function: ");
+            System.out.print( (i + 1) + ". Enter English word: ");
             String key = (scanner.nextLine()).toLowerCase().trim();
             if(key.equals("-1")) return;
 
             while (EnglishKeyWords.contains(key))
             {
-                System.out.print("   The word has been inserted before! Please try again: ");
+                System.out.print("   The word are existed! Please enter again: ");
                 key = (scanner.nextLine()).toLowerCase().trim();
                 if(key.equals("-1")) return;
             }
 
-            System.out.print("   Enter Vietnamese meaning: ");
-            String meaning = (scanner.nextLine()).toLowerCase().trim();
-
+            System.out.println("   Describe Vietnamese meaning: ");
+            System.out.println("   **(Note: you have to enter `$` in a simple line to finish describing, or enter `-1` to exit the function)");
+            String meaning = getDescriptionCommandline(scanner);
+            if (meaning.equals("-1")) return;
             EnglishKeyWords.add(key);
-
-            ArrayList<String> VNMeaning = WordWork.SeparateWordsInLineByComma(meaning);
-
-            Words.put(key, VNMeaning);
-
-            if (key.length() > longestWordLength)
-            {
-                longestWordLength = key.length();
-            }
-
-
+            Words.put(key, meaning);
         }
     }
 
     public static void LookUp()
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a word that you need or enter -1 to exit this function: ");
+        System.out.print("Enter a word that you need: ");
         String keyWord;
         boolean found = false;
 
@@ -104,70 +105,11 @@ public class DictionaryManagement extends Dictionary {
             }
         }
     }
-    public static void ChangeMeaning()
-    {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter an exact word that will be changed its meaning, or enter -1 to exit this function: ");
-        String keyWord;
-        boolean foundWord = false;
-
-        while(!foundWord)
-        {
-            keyWord = (scanner.nextLine()).toLowerCase().trim();
-            if (EnglishKeyWords.contains(keyWord))
-            {
-                foundWord = true;
-                PrintOneWord(keyWord);
-                System.out.print("Enter the meaning that will be change, or enter -1 to exit this function: ");
-                String oldMeaning;
-                ArrayList<String> meaning = Words.get(keyWord);
-                boolean foundMeaning = false;
-
-                while(!foundMeaning)
-                {
-                    oldMeaning = (scanner.nextLine()).toLowerCase().trim();
-                    if (meaning.contains(oldMeaning))
-                    {
-                        foundMeaning = true;
-                        System.out.print("Enter new meaning: ");
-                        String newMeaning = (scanner.nextLine()).toLowerCase().trim();
-
-                        while (meaning.contains(newMeaning))
-                        {
-                            System.out.print("The meaning is an old meaning, please try again: ");
-                            newMeaning = (scanner.nextLine()).toLowerCase().trim();
-                        }
-
-                        meaning.remove(oldMeaning);
-                        meaning.add(newMeaning);
-
-                        PrintOneWord(keyWord);
-                    }
-                    else
-                    {
-                        if(oldMeaning.equals("-1"))
-                        {
-                            return;
-                        }
-                        System.out.print("The meaning cannot be found! Please try again: ");
-                    }
-                }
-            }
-            else
-            {
-                if(keyWord.equals("-1"))
-                {
-                    return;
-                }
-                System.out.print("The word cannot be found! Please try again: ");
-            }
-        }
-    }
 
     public static void AddMeaning()
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter an exact word that will be added meanings, or enter -1 to exit this function: ");
+        System.out.print("Enter an exact word that will be added meanings: ");
         String keyWord;
         boolean foundWord = false;
 
@@ -178,24 +120,17 @@ public class DictionaryManagement extends Dictionary {
             {
                 foundWord = true;
                 PrintOneWord(keyWord);
-                System.out.print("Enter number of meaning: ");
-                int numberMeaning = scanner.nextInt();
-                scanner.nextLine();
 
-                System.out.println("Enter meaning:");
-                ArrayList<String> meaningContainer = Words.get(keyWord);
-                for (int i = 0; i < numberMeaning; i++)
-                {
-                    System.out.print((i + 1) + ". ");
-                    String newMeaning = (scanner.nextLine()).toLowerCase().trim();
-                    while (meaningContainer.contains(newMeaning))
-                    {
-                        System.out.println("Existed meaning!");
-                        newMeaning = (scanner.nextLine()).toLowerCase().trim();
-                    }
+                System.out.println("Describe adding Vietnamese meaning: ");
+                System.out.println("**(Note: you have to enter `$` in a simple line to finish describing, or enter `-1` to exit the function)");
+                String meaning = getDescriptionCommandline(scanner);
+                if (meaning.equals("-1")) return;
+                String result = Words.get(keyWord) + "<br />" + meaning;
+                result = WordWork.getRidOfHTMLForm(result);
+                result = WordWork.toHTMLForm(result);
 
-                    meaningContainer.add(newMeaning);
-                }
+                Words.put(keyWord, result);
+
                 PrintOneWord(keyWord);
             }
             else
@@ -212,7 +147,7 @@ public class DictionaryManagement extends Dictionary {
     public static void FixEnglishWord()
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter an exact word that will be fixed, or enter -1 to exit this function: ");
+        System.out.print("Enter an exact word that will be fixed: ");
         String keyWord;
         boolean foundWord = false;
 
@@ -224,12 +159,19 @@ public class DictionaryManagement extends Dictionary {
                 foundWord = true;
                 PrintOneWord(keyWord);
 
-                ArrayList<String> meaning = Words.get(keyWord);
-                EnglishKeyWords.remove(keyWord);
-                Words.remove(keyWord);
+                String oldKeyWord = keyWord;
 
                 System.out.print("Enter new English word: ");
                 keyWord = (scanner.nextLine()).toLowerCase().trim();
+
+                while (keyWord.isEmpty()) {
+                    System.out.print("New English word cannot be empty, please enter again: ");
+                    keyWord = (scanner.nextLine()).toLowerCase().trim();
+                }
+
+                String meaning = Words.get(oldKeyWord);
+                EnglishKeyWords.remove(oldKeyWord);
+                Words.remove(oldKeyWord);
 
                 EnglishKeyWords.add(keyWord);
                 Words.put(keyWord, meaning);
@@ -247,10 +189,10 @@ public class DictionaryManagement extends Dictionary {
         }
     }
 
-    public static void RemoveMeaning()
+    public static void EditMeaning()
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter an exact word that will be removed meaning, or enter -1 to exit this function: ");
+        System.out.print("Enter an exact word that will be edited meaning: ");
         String keyWord;
         boolean foundWord = false;
 
@@ -262,19 +204,16 @@ public class DictionaryManagement extends Dictionary {
                 foundWord = true;
                 PrintOneWord(keyWord);
 
-                System.out.print("Enter the meaning that will be removed: ");
-                String removingMeaning = (scanner.nextLine()).toLowerCase().trim();
-                ArrayList<String> meaning = Words.get(keyWord);
+                System.out.println("Enter the whole new meaning description: ");
+                System.out.println("**(Be careful: the whole old meaning description will be removed by the new one!");
+                System.out.println("**(Note: you have to enter `$` in a simple line to finish describing, or enter `-1` to exit the function)");
 
-                if (meaning.contains(removingMeaning))
-                {
-                    meaning.remove(removingMeaning);
-                    PrintOneWord(keyWord);
-                }
-                else
-                {
-                    System.out.println("The meaning cannot be found!");
-                }
+                String meaning = getDescriptionCommandline(scanner);
+                if (meaning.equals("-1")) return;
+
+                Words.put(keyWord, meaning);
+
+                PrintOneWord(keyWord);
             }
             else
             {
@@ -290,7 +229,7 @@ public class DictionaryManagement extends Dictionary {
     public static void RemoveWord()
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter an exact word that will be removed, or enter -1 to exit this function: ");
+        System.out.print("Enter an exact word that will be removed: ");
         String keyWord;
         boolean foundWord = false;
 
@@ -308,10 +247,8 @@ public class DictionaryManagement extends Dictionary {
             }
             else
             {
-                if(keyWord.equals("-1"))
-                {
-                    return;
-                }
+                if(keyWord.equals("-1")) return;
+
                 System.out.print("The word cannot be found! Please try again: ");
             }
         }

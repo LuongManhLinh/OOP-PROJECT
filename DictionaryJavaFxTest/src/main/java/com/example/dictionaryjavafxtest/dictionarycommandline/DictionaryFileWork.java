@@ -3,11 +3,10 @@ package com.example.dictionaryjavafxtest.dictionarycommandline;
 import com.example.dictionaryjavafxtest.Dictionary;
 
 import java.io.*;
-import java.util.ArrayList;
 
 public class DictionaryFileWork extends Dictionary
 {
-    public static void ImportWords (String filePath)
+    public static void importWords (String filePath)
     {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath)))
         {
@@ -15,20 +14,11 @@ public class DictionaryFileWork extends Dictionary
 
             while ((eachLine = br.readLine()) != null)
             {
-                ArrayList<String> key = WordWork.SeparateWordsInLineBySpace(eachLine);
-                for (int i = 0; i < key.size(); i++)
-                {
-                    key.set(i, key.get(i).replace("-", " "));
-                }
-                String EnglishWord = key.get(0);
-                key.remove(0);
+                String englishKeyWord = WordWork.decodeForm(eachLine, true);
+                String vietnameseMeaning = WordWork.decodeForm(eachLine, false);
 
-                EnglishKeyWords.add(EnglishWord);
-                Words.put(EnglishWord, key);
-                if (EnglishWord.length() > longestWordLength)
-                {
-                    longestWordLength = EnglishWord.length();
-                }
+                EnglishKeyWords.add(englishKeyWord);
+                Words.put(englishKeyWord, vietnameseMeaning);
             }
         }
         catch (IOException e)
@@ -37,31 +27,22 @@ public class DictionaryFileWork extends Dictionary
         }
     }
 
-   public static void ExportAllWords (String filePath)
-   {
-       try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath)))
-       {
-          for (String eachWord : EnglishKeyWords)
-          {
-              ArrayList<String> meanings = Words.get(eachWord);
-              eachWord = eachWord.replace(" ", "-");
-              eachWord = String.format("%-" + longestWordLength + "s", eachWord);
+    public static void exportAllWords (String filePath)
+    {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath)))
+        {
+            for (String eachWord : EnglishKeyWords)
+            {
+                String englishKeyWord = WordWork.encodeForm(eachWord, true);
+                String vietnameseMeaning = WordWork.encodeForm(Words.get(eachWord), false);
 
-              StringBuilder allMeanings = new StringBuilder();
-
-              for (String eachMeaning : meanings)
-              {
-                  allMeanings.append(eachMeaning.replace(" ", "-")).append(" ");
-              }
-
-              bw.write(eachWord + "\t" + allMeanings.toString() + "\n");
-          }
-       }
-       catch (IOException e)
-       {
-           e.printStackTrace();
-       }
-   }
-
+                bw.write(englishKeyWord + " " + vietnameseMeaning + "\n");
+            }
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
 
 }

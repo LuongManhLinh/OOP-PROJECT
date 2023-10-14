@@ -33,12 +33,12 @@ public class MainUISceneController implements Initializable {
             @Override
             public void handle(long l) {
                 String keyWord = wordEnteringField.getText();
+                oldKeyWord = keyWord;
+
                 ArrayList<String> searchingResult = DictionaryManagementForApp.lookUp(keyWord);
                 if (!searchingResult.isEmpty()) {
                     searchingResultList.setVisible(true);
                     searchingResultList.getItems().setAll(searchingResult);
-                    oldKeyWord = keyWord;
-
                     // điều chỉnh khung nhìn chỉ đủ để hiển thị kết quả
                     // nếu số kết quả lớn hơn 10 thì cũng chỉ hiển thị 10
                     searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
@@ -49,13 +49,15 @@ public class MainUISceneController implements Initializable {
         };
 
         // vòng lặp để quản lí sự tìm kiếm của vòng lặp trên
-        AnimationTimer searchManagementTimer = new AnimationTimer() {
+        AnimationTimer searchingManagementTimer = new AnimationTimer() {
             @Override
             public void handle(long l) {
                 // nếu đang tương tác với kết quả hay không thay đổi chuỗi tìm kiếm thì sẽ dừng tìm kiếm
                 if (searchingResultList.isFocused() || oldKeyWord.equals(wordEnteringField.getText())) {
                     wordEnteringTimer.stop();
+                    System.out.println("if");
                 } else {
+                    System.out.println("else");
                     wordEnteringTimer.start();
 
                     // xử lí để khi nhấn enter thì nhảy xuống danh sách kết quả
@@ -75,6 +77,6 @@ public class MainUISceneController implements Initializable {
         };
 
         wordEnteringTimer.start();
-        searchManagementTimer.start();
+        searchingManagementTimer.start();
     }
 }
