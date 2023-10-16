@@ -62,8 +62,26 @@ public class MakeRandom {
         }
 
         ArrayList<Integer> result = new ArrayList<>();
-        for (int i = 0; i < numberRequire; i++) {
+        ArrayList<Integer> remainValue = new ArrayList<>();
 
+        for (int i = min; i <= max; i++) {
+            remainValue.add(i);
+        }
+
+        for (int i = 0; i < numberRequire; i++) {
+            int randomIndex = random(0, remainValue.size() - 1);
+            result.add(remainValue.get(randomIndex));
+            remainValue.remove(randomIndex);
+        }
+
+        return result;
+    }
+
+    public static <T> ArrayList<T> randomElements(T[] array, int numberRequire) {
+        ArrayList<Integer> index = randomManyNumbers(0, array.length - 1, numberRequire);
+        ArrayList<T> result = new ArrayList<>();
+        for (int i : index) {
+            result.add(array[i]);
         }
 
         return result;
