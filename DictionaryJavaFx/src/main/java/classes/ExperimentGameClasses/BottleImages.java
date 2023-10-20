@@ -1,75 +1,142 @@
 package classes.ExperimentGameClasses;
 
-import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 public class BottleImages {
-    public static final InputStream bottleInput;
-    public static final InputStream blueBottleInput;
-    public static final InputStream brownBottleInput;
-    public static final InputStream grayBottleInput;
-    public static final InputStream greenBottleInput;
-    public static final InputStream pinkBottleInput;
-    public static final InputStream purpleBottleInput;
-    public static final InputStream redBottleInput;
-    public static final InputStream whiteBottleInput;
-    public static final InputStream yellowBottleInput;
+    public static ArrayList<InputStream> blueBottleInputs = new ArrayList<>();
+    public static ArrayList<InputStream> brownBottleInputs = new ArrayList<>();
+    public static ArrayList<InputStream> grayBottleInputs = new ArrayList<>();
+    public static ArrayList<InputStream> greenBottleInputs = new ArrayList<>();
+    public static ArrayList<InputStream> pinkBottleInputs = new ArrayList<>();
+    public static ArrayList<InputStream> purpleBottleInputs = new ArrayList<>();
+    public static ArrayList<InputStream> redBottleInputs = new ArrayList<>();
+    public static ArrayList<InputStream> whiteBottleInputs = new ArrayList<>();
+    public static ArrayList<InputStream> yellowBottleInputs = new ArrayList<>();
+
+    public static InputStream mainBottleInput;
+    public static InputStream failedInput;
+    public static InputStream quiteSuccessInput;
+    public static InputStream successInput;
+
+
     static {
         try {
-            bottleInput = new FileInputStream("src/main/resources/gameAssets/ExperimentGame/bottle.png");
-            blueBottleInput = new FileInputStream("src/main/resources/gameAssets/ExperimentGame/blueBottle.png");
-            brownBottleInput = new FileInputStream("src/main/resources/gameAssets/ExperimentGame/brownBottle.png");
-            grayBottleInput = new FileInputStream("src/main/resources/gameAssets/ExperimentGame/grayBottle.png");
-            greenBottleInput = new FileInputStream("src/main/resources/gameAssets/ExperimentGame/greenBottle.png");
-            pinkBottleInput = new FileInputStream("src/main/resources/gameAssets/ExperimentGame/pinkBottle.png");
-            purpleBottleInput = new FileInputStream("src/main/resources/gameAssets/ExperimentGame/purpleBottle.png");
-            redBottleInput = new FileInputStream("src/main/resources/gameAssets/ExperimentGame/redBottle.png");
-            whiteBottleInput = new FileInputStream("src/main/resources/gameAssets/ExperimentGame/whiteBottle.png");
-            yellowBottleInput = new FileInputStream("src/main/resources/gameAssets/ExperimentGame/yellowBottle.png");
+
+            blueBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/blueBottle.png"));
+            blueBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/blue-45.png"));
+            blueBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/blue-90.png"));
+            blueBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/blue-95.png"));
+
+            brownBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/brownBottle.png"));
+            brownBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/brown-45.png"));
+            brownBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/brown-90.png"));
+            brownBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/brown-95.png"));
+
+            grayBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/grayBottle.png"));
+            grayBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/gray-45.png"));
+            grayBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/gray-90.png"));
+            grayBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/gray-95.png"));
+
+            greenBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/greenBottle.png"));
+            greenBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/green-45.png"));
+            greenBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/green-90.png"));
+            greenBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/green-95.png"));
+
+            pinkBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/pinkBottle.png"));
+            pinkBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/pink-45.png"));
+            pinkBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/pink-90.png"));
+            pinkBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/pink-95.png"));
+
+            purpleBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/purpleBottle.png"));
+            purpleBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/purple-45.png"));
+            purpleBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/purple-90.png"));
+            purpleBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/purple-95.png"));
+
+            redBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/redBottle.png"));
+            redBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/red-45.png"));
+            redBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/red-90.png"));
+            redBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/red-95.png"));
+
+            whiteBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/whiteBottle.png"));
+            whiteBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/white-45.png"));
+            whiteBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/white-90.png"));
+            whiteBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/white-95.png"));
+
+            yellowBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/yellowBottle.png"));
+            yellowBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/yellow-45.png"));
+            yellowBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/yellow-90.png"));
+            yellowBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/yellow-95.png"));
+
+            mainBottleInput = new FileInputStream("src/main/resources/gameAssets/ExperimentGame/mainBottle.png");
+            failedInput = new FileInputStream("src/main/resources/gameAssets/ExperimentGame/failed.png");
+            quiteSuccessInput = new FileInputStream("src/main/resources/gameAssets/ExperimentGame/quiteSuccess.png");
+            successInput = new FileInputStream("src/main/resources/gameAssets/ExperimentGame/success.png");
+
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
 
+    public static ArrayList<Image> blueBottles = new ArrayList<>();
+    public static ArrayList<Image> brownBottles = new ArrayList<>();
+    public static ArrayList<Image> grayBottles = new ArrayList<>();
+    public static ArrayList<Image> greenBottles = new ArrayList<>();
+    public static ArrayList<Image> pinkBottles = new ArrayList<>();
+    public static ArrayList<Image> purpleBottles = new ArrayList<>();
+    public static ArrayList<Image> redBottles = new ArrayList<>();
+    public static ArrayList<Image> whiteBottles = new ArrayList<>();
+    public static ArrayList<Image> yellowBottles = new ArrayList<>();
+    public static ArrayList<ArrayList<Image>> allBottles = new ArrayList<>();
 
+    public static Image mainBottle = new Image(mainBottleInput);
+    public static Image failed = new Image(failedInput);
+    public static Image quiteSuccess = new Image(quiteSuccessInput);
+    public static Image success = new Image(successInput);
 
-    public static final Image bottle = new Image(bottleInput);
-    public static final Image blueBottle = new Image(blueBottleInput);
-    public static final Image brownBottle = new Image(brownBottleInput);
-    public static final Image grayBottle = new Image(grayBottleInput);
-    public static final Image greenBottle = new Image(greenBottleInput);
-    public static final Image pinkBottle = new Image(pinkBottleInput);
-    public static final Image purpleBottle = new Image(purpleBottleInput);
-    public static final Image redBottle = new Image(redBottleInput);
-    public static final Image whiteBottle = new Image(whiteBottleInput);
-    public static final Image yellowBottle = new Image(yellowBottleInput);
+    public static void loadData() {
+        for (InputStream inputStream : blueBottleInputs) {
+            blueBottles.add(new Image(inputStream));
+        }
+        for (InputStream inputStream : brownBottleInputs) {
+            brownBottles.add(new Image(inputStream));
+        }
+        for (InputStream inputStream : grayBottleInputs) {
+            grayBottles.add(new Image(inputStream));
+        }
+        for (InputStream inputStream : greenBottleInputs) {
+            greenBottles.add(new Image(inputStream));
+        }
+        for (InputStream inputStream : pinkBottleInputs) {
+            pinkBottles.add(new Image(inputStream));
+        }
+        for (InputStream inputStream : purpleBottleInputs) {
+            purpleBottles.add(new Image(inputStream));
+        }
+        for (InputStream inputStream : redBottleInputs) {
+            redBottles.add(new Image(inputStream));
+        }
+        for (InputStream inputStream : whiteBottleInputs) {
+            whiteBottles.add(new Image(inputStream));
+        }
+        for (InputStream inputStream : yellowBottleInputs) {
+            yellowBottles.add(new Image(inputStream));
+        }
 
-    public static final Image[] containingBottles = {
-            blueBottle,
-            brownBottle,
-            grayBottle,
-            greenBottle,
-            pinkBottle,
-            purpleBottle,
-            redBottle,
-            whiteBottle,
-            yellowBottle
-    };
-    public static final String blueRGB = "rgb(77,109,243)";
-    public static final String brownRGB = "rgb(97,74,10)";
-    public static final String grayRGB = "rgb(180,180,180)";
-    public static final String greenRGB = "rgb(168,230,29)";
-    public static final String pinkRGB = "rgb(255,192,203)";
-    public static final String purpleRGB = "rgb(111,49,152)";
-    public static final String redRGB = "rgb(255,0,0)";
-    public static final String whiteRGB = "rgb(255,255,255)";
-    public static final String yellowRGB = "rgb(245,228,156)";
+        allBottles.add(blueBottles);
+        allBottles.add(brownBottles);
+        allBottles.add(grayBottles);
+        allBottles.add(greenBottles);
+        allBottles.add(pinkBottles);
+        allBottles.add(purpleBottles);
+        allBottles.add(redBottles);
+        allBottles.add(whiteBottles);
+        allBottles.add(yellowBottles);
+
+    }
 
 }

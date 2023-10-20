@@ -77,11 +77,21 @@ public class MakeRandom {
         return result;
     }
 
-    public static <T> ArrayList<T> randomElements(T[] array, int numberRequire) {
-        ArrayList<Integer> index = randomManyNumbers(0, array.length - 1, numberRequire);
+    public static <T> ArrayList<T> randomElement(ArrayList<T> array, int numberRequire) {
+        ArrayList<Integer> index = randomManyNumbers(0, array.size() - 1, numberRequire);
         ArrayList<T> result = new ArrayList<>();
         for (int i : index) {
-            result.add(array[i]);
+            result.add(array.get(i));
+        }
+
+        return result;
+    }
+
+    public static <T> ArrayList<T> randomElements(ArrayList<ArrayList<T>> array, int numberRequire) {
+        ArrayList<Integer> index = randomManyNumbers(0, array.size() - 1, numberRequire);
+        ArrayList<T> result = new ArrayList<>();
+        for (int i : index) {
+            result.add(array.get(i).get(0));
         }
 
         return result;

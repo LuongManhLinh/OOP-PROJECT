@@ -1,5 +1,6 @@
 package classes;
 
+import classes.ExperimentGameClasses.BottleImages;
 import classes.dictionarycommandline.WordWork;
 
 import java.io.FileNotFoundException;
@@ -21,6 +22,7 @@ public class GameData {
     public static void loadData(){
         loadData(EASY_DATA_PATH, easyWords, easyEnglishKeyWords);
         loadData(NOT_EASY_DATA_PATH, notEasyWords, notEasyEnglishKeyWords);
+        BottleImages.loadData();
     }
 
     private static void loadData(String filePath, HashMap<String, String> words, ArrayList<String> englishKeyWords){
