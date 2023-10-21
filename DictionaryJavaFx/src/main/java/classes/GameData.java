@@ -12,16 +12,16 @@ import java.util.Scanner;
 public class GameData {
     private static HashMap<String, String> easyWords = new HashMap<>();
     private static ArrayList<String> easyEnglishKeyWords = new ArrayList<>();
-    private static HashMap<String, String> notEasyWords = new HashMap<>();
-    private static ArrayList<String> notEasyEnglishKeyWords = new ArrayList<>();
+    private static HashMap<String, String> normalWords = new HashMap<>();
+    private static ArrayList<String> normalEnglishKeyWords = new ArrayList<>();
 
     public static final String EASY_DATA_PATH = "src/main/resources/gameAssets/data/easy.txt";
-    public static final String NOT_EASY_DATA_PATH = "src/main/resources/gameAssets/data/notEasy.txt";
+    public static final String NORMAL_DATA_PATH = "src/main/resources/gameAssets/data/normal.txt";
 
 
     public static void loadData(){
         loadData(EASY_DATA_PATH, easyWords, easyEnglishKeyWords);
-        loadData(NOT_EASY_DATA_PATH, notEasyWords, notEasyEnglishKeyWords);
+        loadData(NORMAL_DATA_PATH, normalWords, normalEnglishKeyWords);
         BottleImages.loadData();
     }
 
@@ -50,23 +50,23 @@ public class GameData {
         return easyEnglishKeyWords;
     }
 
-    public static HashMap<String, String> getNotEasyWords() {
-        return notEasyWords;
+    public static HashMap<String, String> getNormalWords() {
+        return normalWords;
     }
 
-    public static ArrayList<String> getNotEasyEnglishKeyWords() {
-        return notEasyEnglishKeyWords;
+    public static ArrayList<String> getNormalEnglishKeyWords() {
+        return normalEnglishKeyWords;
     }
 
     public static HashMap<String, String> getAllWords() {
         HashMap<String, String> result = new HashMap<>(easyWords);
-        result.putAll(notEasyWords);
+        result.putAll(normalWords);
         return result;
     }
 
     public static ArrayList<String> getAllEnglishKeyWords() {
         ArrayList<String> result = new ArrayList<>(easyEnglishKeyWords);
-        result.addAll(notEasyEnglishKeyWords);
+        result.addAll(normalEnglishKeyWords);
         return result;
     }
 }

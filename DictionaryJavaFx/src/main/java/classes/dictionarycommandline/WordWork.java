@@ -37,6 +37,30 @@ public class WordWork {
         return output;
     }
 
+    public static String decodeForm (String input, boolean isEnglish, int line) {
+        String output = "";
+        if (isEnglish) {
+            Matcher engMatcher = engPattern.matcher(input);
+            if (engMatcher.find()) {
+                output = engMatcher.group();
+                output = output.replace(engStartKey, "").replace(engEndKey, "");
+                return output;
+            } else {
+                System.out.println("Cannot find a English form at line " + line);
+            }
+        }
+
+        Matcher viMatcher = viPattern.matcher(input);
+        if (viMatcher.find()) {
+            output = viMatcher.group();
+            output = output.replace(viStartKey, "").replace(viEndKey, "");
+        } else {
+            System.out.println("Cannot find a Vietnamese form at line " + line);
+        }
+
+        return output;
+    }
+
     public static String encodeForm(String input, boolean isEnglish) {
         if (isEnglish) {
             return engStartKey + input + engEndKey;

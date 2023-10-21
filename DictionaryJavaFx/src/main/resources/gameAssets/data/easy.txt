@@ -4,6 +4,7 @@ $-arrive-$ $+đến+$
 $-attend-$ $+tham dự+$
 $-baggage-$ $+hành lý+$
 $-bank-$ $+ngân hàng+$
+$-bar-$ $+thanh, xà+$
 $-bathroom-$ $+phòng tắm+$
 $-beach-$ $+bãi biển+$
 $-bed-$ $+giường+$
@@ -16,6 +17,16 @@ $-book-$ $+sách+$
 $-bookstore-$ $+cửa hàng sách+$
 $-bottle-$ $+chai+$
 $-bread-$ $+bánh mì+$
+$-break a leg-$ $+may mắn+$
+$-break a record-$ $+lập kỷ lục mới+$
+$-break down-$ $+hỏng+$
+$-break in-$ $+đột nhập+$
+$-break out-$ $+bùng phát+$
+$-break the ice-$ $+phá vỡ sự ngại ngùng+$
+$-break the news-$ $+thông báo tin tức quan trọng+$
+$-break the rules-$ $+vi phạm quy tắc+$
+$-break through-$ $+vượt qua trở ngại+$
+$-break up-$ $+chia tay+$
 $-breakfast-$ $+bữa sáng+$
 $-bus-$ $+xe buýt+$
 $-business-$ $+kinh doanh+$
@@ -30,7 +41,6 @@ $-cheese-$ $+phô mai+$
 $-chicken-$ $+gà+$
 $-cinema-$ $+rạp phim+$
 $-city-$ $+thành phố+$
-$-class-$ $+lớp học+$
 $-clean-$ $+sạch sẽ+$
 $-clinic-$ $+phòng khám+$
 $-clock-$ $+đồng hồ+$
@@ -55,21 +65,17 @@ $-dinner-$ $+bữa tối+$
 $-doctor-$ $+bác sĩ+$
 $-dog-$ $+con chó+$
 $-drink-$ $+đồ uống+$
+$-drug-$ $+ma túy+$
 $-eat-$ $+ăn+$
 $-education-$ $+giáo dục+$
 $-elevator-$ $+thang máy+$
-$-email-$ $+thư điện tử+$
 $-engine-$ $+động cơ+$
-$-english-$ $+tiếng anh+$
 $-enjoy-$ $+thưởng thức, thích thú+$
 $-extinct-$ $+tuyệt chủng+$
 $-family-$ $+gia đình+$
 $-fast food-$ $+thức ăn nhanh+$
 $-festival-$ $+lễ hội+$
-$-film-$ $+phim+$
-$-fish-$ $+cá+$
 $-fond of-$ $+thích thú+$
-$-food-$ $+đồ ăn+$
 $-fork-$ $+nĩa+$
 $-friend-$ $+bạn bè+$
 $-fruit-$ $+trái cây+$
@@ -79,17 +85,12 @@ $-glass-$ $+ly+$
 $-goat-$ $+con dê+$
 $-grammar-$ $+ngữ pháp+$
 $-grocery store-$ $+cửa hàng thực phẩm+$
+$-guess-$ $+đoán+$
 $-guest-$ $+khách mời+$
-$-guitar-$ $+đàn ghi ta+$
-$-happy-$ $+hạnh phúc+$
 $-hobby-$ $+sở thích+$
-$-home-$ $+nhà cửa+$
-$-hotel-$ $+khách sạn+$
-$-house-$ $+nhà+$
 $-husband-$ $+chồng+$
 $-ice cream-$ $+kem+$
 $-information-$ $+thông tin+$
-$-internet-$ $+internet+$
 $-invitation-$ $+lời mời+$
 $-job-$ $+công việc+$
 $-juice-$ $+nước trái cây+$
@@ -97,9 +98,21 @@ $-kitchen-$ $+bếp+$
 $-knife-$ $+dao+$
 $-lake-$ $+hồ+$
 $-language-$ $+ngôn ngữ+$
+$-latitude-$ $+vĩ độ+$
 $-letter-$ $+thư+$
 $-library-$ $+thư viện+$
 $-living room-$ $+phòng khách+$
+$-lord-$ $+chúa tể+$
+$-longitude-$ $+kinh độ+$
+$-look after-$ $+chăm sóc+$
+$-look down on-$ $+khinh thường+$
+$-look for-$ $+tìm kiếm+$
+$-look into-$ $+nghiên cứu+$
+$-look out-$ $+chú ý+$
+$-look over-$ $+xem xét+$
+$-look up-$ $+tra cứu+$
+$-look up to-$ $+kính trọng+$
+$-loyalty-$ $+tính trung thành+$
 $-lunch-$ $+bữa trưa+$
 $-map-$ $+bản đồ+$
 $-market-$ $+chợ+$
@@ -107,17 +120,9 @@ $-meat-$ $+thịt+$
 $-medicine-$ $+thuốc+$
 $-meeting-$ $+cuộc họp+$
 $-menu-$ $+thực đơn+$
-$-message-$ $+tin nhắn+$
-$-mobile phone-$ $+điện thoại di động+$
-$-money-$ $+tiền+$
 $-month-$ $+tháng+$
 $-moon-$ $+mặt trăng+$
-$-morning-$ $+buổi sáng+$
 $-mountain-$ $+núi+$
-$-movie-$ $+phim+$
-$-music-$ $+nhạc+$
-$-music player-$ $+máy nghe nhạc+$
-$-name-$ $+tên+$
 $-napkin-$ $+khăn giấy+$
 $-nationality-$ $+quốc tịch+$
 $-news-$ $+tin tức+$
@@ -130,14 +135,18 @@ $-pencil-$ $+bút chì+$
 $-phone-$ $+điện thoại+$
 $-picture-$ $+hình ảnh+$
 $-pillow-$ $+gối+$
-$-pizza-$ $+bánh pizza+$
-$-place-$ $+nơi+$
 $-plate-$ $+đĩa+$
-$-please-$ $+làm ơn+$
 $-police-$ $+cảnh sát+$
 $-pork-$ $+lợn+$
 $-post office-$ $+bưu điện+$
 $-present-$ $+món quà+$
+$-put by-$ $+tiết kiệm+$
+$-put forward-$ $+đề xuất+$
+$-put off-$ $+trì hoãn+$
+$-put on-$ $+mặc vào+$
+$-put out-$ $+dập tắt (lửa)+$
+$-put together-$ $+lắp ráp+$
+$-put up with-$ $+chịu đựng+$
 $-rain-$ $+mưa+$
 $-rat-$ $+con chuột+$
 $-restaurant-$ $+nhà hàng+$
@@ -157,24 +166,43 @@ $-spoon-$ $+muỗng+$
 $-sport-$ $+thể thao+$
 $-squirrel-$ $+con sóc+$
 $-stamp-$ $+tem thư+$
-$-star-$ $+ngôi sao+$
+$-stick-$ $+cái que+$
 $-stream-$ $+dòng suối+$
 $-student-$ $+học sinh, sinh viên+$
-$-sun-$ $+mặt trời+$
+$-solar-$ $+mặt trời+$
 $-table-$ $+bàn+$
+$-take after-$ $+giống+$
+$-take away-$ $+mang đi+$
+$-take care-$ $+quan tâm+$
+$-take off-$ $+cất cánh+$
+$-take on-$ $+tuyển thêm người+$
+$-take over-$ $+tiếp quản+$
+$-take-in-$ $+lừa dối+$
 $-tea-$ $+trà+$
 $-teacher-$ $+giáo viên+$
 $-television-$ $+truyền hình+$
 $-time-$ $+thời gian+$
 $-towel-$ $+khăn tắm+$
 $-train-$ $+tàu hỏa+$
+$-treasures-$ $+báu vật+$
 $-twin-$ $+sinh đôi+$
 $-vegetable-$ $+rau cải+$
 $-watch-$ $+đồng hồ đeo tay+$
 $-water-$ $+nước+$
 $-weather-$ $+thời tiết+$
 $-week-$ $+tuần+$
-$-wind-$ $+gió+$
+$-wind-$ $+chảy+$
 $-wine-$ $+rượu+$
-$-year-$ $+năm+$
 $-zoo-$ $+sở thú+$
+$-announcement-$ $+thông báo+$
+$-debt-$ $+nợ+$
+$-dig-$ $+khai quật+$
+$-nutrition-$ $+dinh dưỡng+$
+$-opportunity-$ $+cơ hội+$
+$-particle-$ $+hạt+$
+$-patience-$ $+sự kiên nhẫn+$
+$-philosophy-$ $+triết học+$
+$-recovery-$ $+phục hồi+$
+$-ruin-$ $+tàn tích+$
+$-tomb-$ $+mộ+$
+$-transparency-$ $+sự minh bạch+$

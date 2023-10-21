@@ -41,6 +41,7 @@ public class ExperimentGameController implements Initializable {
     @FXML private TableColumn<Result, String> trueAnswerColumn;
 
     @FXML private ImageView resultBottle;
+    @FXML private ImageView successLight;
 
     private final int NUMBER_INGAME_BUTTON = 4;
     private final double DROP_POS_X = 310;
@@ -87,6 +88,7 @@ public class ExperimentGameController implements Initializable {
         questionColumn.setCellValueFactory(new PropertyValueFactory<>("question"));
         yourAnswerColumn.setCellValueFactory(new PropertyValueFactory<>("yourAnswer"));
         trueAnswerColumn.setCellValueFactory(new PropertyValueFactory<>("trueAnswer"));
+
         resultsTableView.setRowFactory(new Callback<>() {
             @Override
             public TableRow<Result> call(TableView<Result> resultTableView) {
@@ -119,9 +121,9 @@ public class ExperimentGameController implements Initializable {
         reset();
     }
 
-    public void onNotEasyModeClicked(ActionEvent event) {
-        Words = GameData.getNotEasyWords();
-        EnglishKeyWords = GameData.getNotEasyEnglishKeyWords();
+    public void onNormalModeClicked(ActionEvent event) {
+        Words = GameData.getNormalWords();
+        EnglishKeyWords = GameData.getNormalEnglishKeyWords();
         changeScene(Status.IN_GAME);
         reset();
     }
@@ -167,6 +169,23 @@ public class ExperimentGameController implements Initializable {
                     trueAnswer = result.get(i).getName();
                 }
             }
+        } else {
+            for (int i = 0; i < numberAnswer; i++) {
+                int randomIndex = MakeRandom.random(0, remainIndex.size() - 1);
+                int answerIndex = remainIndex.get(randomIndex);
+                remainIndex.remove(randomIndex);
+
+                String meanings = EnglishKeyWords.get(answerIndex);
+                Answer answer = new Answer(meanings, false);
+                result.add(answer);
+
+                // first answer is the true answer
+                if (i == 0) {
+                    question = Words.get(EnglishKeyWords.get(answerIndex));
+                    result.get(i).setKey(true);
+                    trueAnswer = result.get(i).getName();
+                }
+            }
         }
 
         MakeRandom.shuffle(result);
@@ -174,7 +193,6 @@ public class ExperimentGameController implements Initializable {
         ArrayList<Image> chosenImages = MakeRandom.randomElements(BottleImages.allBottles, 4);
         for (int i = 0; i < NUMBER_INGAME_BUTTON; i++) {
             ((ImageView) inGameButtons.get(i).getGraphic()).setImage(chosenImages.get(i));
-
         }
 
         return result;
@@ -185,7 +203,12 @@ public class ExperimentGameController implements Initializable {
         numberQuestionAnsweredLabel.setText(String.valueOf(numberQuestionAnswered));
 
         if (numberQuestionAnswered <= 10) {
-            answers = generateRandomQuestionAndAnswers(4, true);
+            int randomNumber = MakeRandom.random(0, 1);
+            if (randomNumber == 0) {
+                answers = generateRandomQuestionAndAnswers(4, true);
+            } else {
+                answers = generateRandomQuestionAndAnswers(4, false);
+            }
 
             questionLabel.setText(question);
 
@@ -343,6 +366,9 @@ public class ExperimentGameController implements Initializable {
                 resultBottle.setImage(BottleImages.quiteSuccess);
             }
             case SUCCESS -> {
+                successLight.setVisible(true);
+                successLight.setLayoutX(500 - successLight.getFitWidth() / 2);
+                successLight.setLayoutY(300 - successLight.getFitHeight() / 2);
                 resultBottle.setImage(BottleImages.success);
             }
         }
@@ -383,6 +409,10 @@ public class ExperimentGameController implements Initializable {
             public void handle(long l) {
                 resultBottle.setLayoutX(resultBottle.getLayoutX() + moveDirX * 0.02);
                 resultBottle.setLayoutY(resultBottle.getLayoutY() + moveDirY * 0.02);
+                if (endGameStatus == EndGameStatus.SUCCESS) {
+                    successLight.setLayoutX(successLight.getLayoutX() + moveDirX * 0.02);
+                    successLight.setLayoutY(successLight.getLayoutY() + moveDirY * 0.02);
+                }
 
                 if (Math.abs(resultBottle.getLayoutX() - 150) < 0.05 && Math.abs(resultBottle.getLayoutY() - 320) < 0.05) {
                     stop();
@@ -402,19 +432,35 @@ public class ExperimentGameController implements Initializable {
 
     private void endGameMessaging() {
         String message = "";
+        int randomNumber = MakeRandom.random(0, 1);
         switch (endGameStatus) {
-
             case FAIL -> {
-                message = "Failed!";
+                if (randomNumber == 0) {
+                    message = "Failed!";
+                } else {
+                    message = "Exploded!";
+                }
             }
             case NO_REACTION -> {
-                message = "Nothing happened!";
+                if (randomNumber == 0) {
+                    message = "Nothing happened!";
+                } else {
+                    message = "There's no reaction!";
+                }
             }
             case QUITE_SUCCESS -> {
-                message = "That's pretty good!";
+                if (randomNumber == 0) {
+                    message = "That's pretty good!";
+                } else {
+                    message = "It's so closed!";
+                }
             }
             case SUCCESS -> {
-                message = "Excellent! Successful experiment!";
+                if (randomNumber == 0) {
+                    message = "Excellent! Successful experiment!";
+                } else {
+                    message = "It worked! Well done!";
+                }
             }
         }
         endGameLabel.setText(message);
@@ -435,7 +481,6 @@ public class ExperimentGameController implements Initializable {
                 inGamePane.setVisible(true);
                 endGamePane.setVisible(false);
                 resultBottle.setVisible(true);
-                resultBottle.setImage(BottleImages.mainBottle);
             }
 
             case END_GAME -> {
@@ -454,6 +499,9 @@ public class ExperimentGameController implements Initializable {
     }
 
     private void reset() {
+        resultBottle.setImage(BottleImages.mainBottle);
+        successLight.setVisible(false);
+
         numberQuestionAnswered = 0;
         numberCorrectAnswers = 0;
 
@@ -461,6 +509,7 @@ public class ExperimentGameController implements Initializable {
         for (int i = 0; i < EnglishKeyWords.size(); i++) {
             indexes.add(i);
         }
+
         remainIndex = indexes;
         clearResultTable();
         updateQuestionAndAnswer();
