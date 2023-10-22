@@ -64,25 +64,6 @@
                   <Font size="37.0" />
                </font>
             </Label>
-            <Button fx:id="bottle1" contentDisplay="BOTTOM" focusTraversable="false" layoutX="527.0" layoutY="40.0" mnemonicParsing="false" onAction="#onAnswerClicked" prefHeight="250.0" prefWidth="175.0" stylesheets="@../../Styles.css" text="môi trường sống, nơi sống (của động vật cây cối)" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font size="17.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <graphic>
-                  <ImageView accessibleRole="BUTTON" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../gameAssets/ExperimentGame/greenBottle.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <styleClass>
-                  <String fx:value="table-background" />
-                  <String fx:value="button" />
-               </styleClass>
-            </Button>
             <Button fx:id="bottle2" contentDisplay="BOTTOM" focusTraversable="false" layoutX="781.0" layoutY="40.0" mnemonicParsing="false" onAction="#onAnswerClicked" prefHeight="250.0" prefWidth="175.0" styleClass="table-background" stylesheets="@../../Styles.css" text="môi trường sống, nơi sống (của động vật cây cối)" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="17.0" />
@@ -113,7 +94,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="bottle4" contentDisplay="BOTTOM" focusTraversable="false" layoutX="781.0" layoutY="320.0" mnemonicParsing="false" onAction="#onAnswerClicked" prefHeight="250.0" prefWidth="175.0" styleClass="table-background" stylesheets="@../../Styles.css" text="môi trường sống, nơi sống (của động vật cây cối)" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="bottle4" contentDisplay="BOTTOM" focusTraversable="false" layoutX="781.0" layoutY="320.0" mnemonicParsing="false" onAction="#onAnswerClicked" prefHeight="250.0" prefWidth="175.0" styleClass="table-background" stylesheets="@../../Styles.css" text="lời răn dạy, bài học; (thuộc) đạo đức, phẩm hạnh, có đạo đức" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="17.0" />
                </font>
@@ -128,11 +109,6 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <ImageView fx:id="carrierBottle" fitHeight="150.0" fitWidth="200.0" layoutX="310.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../../gameAssets/ExperimentGame/bottle.png" />
-               </image>
-            </ImageView>
             <Button focusTraversable="false" layoutX="13.0" layoutY="347.0" mnemonicParsing="false" onAction="#onReplayClicked" prefHeight="75.0" prefWidth="57.0" style="-fx-border-color: RED; -fx-border-width: 2.5;" text="QUIT GAME" textAlignment="CENTER" wrapText="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -141,16 +117,41 @@
                   <Font name="System Italic" size="12.0" />
                </font>
             </Button>
+            <Button fx:id="bottle1" contentDisplay="BOTTOM" focusTraversable="false" layoutX="527.0" layoutY="40.0" mnemonicParsing="false" onAction="#onAnswerClicked" prefHeight="250.0" prefWidth="175.0" stylesheets="@../../Styles.css" text="môi trường sống, nơi sống (của động vật cây cối)" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView accessibleRole="BUTTON" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../gameAssets/ExperimentGame/greenBottle.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <styleClass>
+                  <String fx:value="table-background" />
+                  <String fx:value="button" />
+               </styleClass>
+            </Button>
+            <Label fx:id="choosingAnswerLabel" alignment="CENTER" layoutX="478.0" layoutY="4.0" prefHeight="34.0" prefWidth="521.0" text="sự lao xuống, bước liều, sự lao đầu vào (khó khăn, nguy hiểm); nhúng, thọc, lao, đâm sâu vào" visible="false" wrapText="true" />
+            <ImageView fx:id="carrierBottle" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../gameAssets/ExperimentGame/bottle.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="endGamePane" prefHeight="600.0" prefWidth="1000.0" visible="false">
          <children>
-            <Label fx:id="endGameLabel" layoutX="26.0" layoutY="130.0" prefHeight="150.0" prefWidth="463.0" text="Excellent! Successful experiment!" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="endGameLabel" alignment="CENTER" layoutX="279.0" layoutY="14.0" prefHeight="61.0" prefWidth="708.0" text="Excellent! Successful experiment!" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="Bell MT Bold" size="47.0" />
                </font>
             </Label>
-            <TableView fx:id="resultsTableView" editable="true" layoutX="582.0" layoutY="108.0" prefHeight="280.0" prefWidth="319.0" scaleX="1.5" scaleY="1.5" scaleZ="2.0" stylesheets="@../../Styles.css">
+            <TableView fx:id="resultsTableView" editable="true" layoutX="398.0" layoutY="145.0" prefHeight="280.0" prefWidth="472.0" scaleX="1.5" scaleY="1.5" scaleZ="2.0" stylesheets="@../../Styles.css">
               <columns>
                 <TableColumn fx:id="questionColumn" prefWidth="90.44441652297974" text="Question" />
                 <TableColumn fx:id="yourAnswerColumn" prefWidth="110.88883972167969" text="Your Answer" />
@@ -160,19 +161,19 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Button layoutX="660.0" layoutY="493.0" mnemonicParsing="false" onAction="#onReplayClicked" text="REPLAY">
+            <Button layoutX="552.0" layoutY="501.0" mnemonicParsing="false" onAction="#onReplayClicked" text="REPLAY">
                <font>
                   <Font size="35.0" />
                </font>
             </Button>
-            <Label fx:id="numberCorrectLabel" layoutX="44.0" layoutY="38.0" text="x/y correct">
+            <Label fx:id="numberCorrectLabel" layoutX="35.0" layoutY="75.0" text="x/y correct">
                <font>
                   <Font name="System Italic" size="40.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <ImageView fx:id="resultBottle" fitHeight="229.0" fitWidth="221.0" layoutX="180.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="resultBottle" fitHeight="229.0" fitWidth="221.0" layoutX="180.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../gameAssets/ExperimentGame/mainBottle.png" />
          </image>

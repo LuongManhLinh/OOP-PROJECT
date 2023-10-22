@@ -31,6 +31,7 @@ public class ExperimentGameController implements Initializable {
     @FXML private ImageView carrierBottle;
     @FXML private Label questionLabel;
     @FXML private Label numberQuestionAnsweredLabel;
+    @FXML private Label choosingAnswerLabel;
 
     @FXML private AnchorPane endGamePane;
     @FXML private Label endGameLabel;
@@ -79,6 +80,17 @@ public class ExperimentGameController implements Initializable {
         inGameButtons.add(bottle2);
         inGameButtons.add(bottle3);
         inGameButtons.add(bottle4);
+
+        for (Button button : inGameButtons) {
+            button.setOnMouseEntered(event -> {
+                choosingAnswerLabel.setVisible(true);
+                choosingAnswerLabel.setText(button.getText());
+            });
+
+            button.setOnMouseExited(event -> {
+                choosingAnswerLabel.setVisible(false);
+            });
+        }
 
         installTable();
         changeScene(Status.START_GAME);
@@ -401,8 +413,8 @@ public class ExperimentGameController implements Initializable {
     }
 
     private void moveResultBottleBack() {
-        double moveDirX = 150 - resultBottle.getLayoutX();
-        double moveDirY = 320 - resultBottle.getLayoutY();
+        double moveDirX = 30 - resultBottle.getLayoutX();
+        double moveDirY = 265 - resultBottle.getLayoutY();
 
         AnimationTimer moveTimer = new AnimationTimer() {
             @Override
@@ -414,7 +426,7 @@ public class ExperimentGameController implements Initializable {
                     successLight.setLayoutY(successLight.getLayoutY() + moveDirY * 0.02);
                 }
 
-                if (Math.abs(resultBottle.getLayoutX() - 150) < 0.05 && Math.abs(resultBottle.getLayoutY() - 320) < 0.05) {
+                if (Math.abs(resultBottle.getLayoutX() - 30) < 0.05 && Math.abs(resultBottle.getLayoutY() - 265) < 0.05) {
                     stop();
                     endGameMessaging();
                     changeScene(Status.END_GAME);
@@ -500,6 +512,8 @@ public class ExperimentGameController implements Initializable {
 
     private void reset() {
         resultBottle.setImage(BottleImages.mainBottle);
+        resultBottle.setLayoutX(180);
+        resultBottle.setLayoutY(330);
         successLight.setVisible(false);
 
         numberQuestionAnswered = 0;

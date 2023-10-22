@@ -3,6 +3,7 @@ module controllers.dictionaryjavafx {
     requires javafx.fxml;
 
     requires com.almasb.fxgl.all;
+    requires jlayer;
 
     opens controllers.dictionaryjavafx to javafx.fxml;
     exports controllers.dictionaryjavafx;

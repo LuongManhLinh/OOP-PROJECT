@@ -136,7 +136,5 @@ public class BottleImages {
         allBottles.add(redBottles);
         allBottles.add(whiteBottles);
         allBottles.add(yellowBottles);
-
     }
-
 }

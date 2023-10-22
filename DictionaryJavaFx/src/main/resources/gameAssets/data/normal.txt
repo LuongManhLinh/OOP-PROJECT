@@ -33,7 +33,7 @@ $-acquisition-$ $+sự dành được, đạt được+$
 $-acquit-$ $+tha tội, tuyên bố trắng án+$
 $-acre-$ $+mẫu anh (đơn vị đo diện tích)+$
 $-active-$ $+tích cực, nhanh nhẹn, lanh lợi+$
-$-activist-$ $+nhà hoạt động xã hội/chính trị+$
+$-activist-$ $+nhà hoạt động xã hội; chính trị+$
 $-activity-$ $+sự tích cực, hoạt động+$
 $-acute-$ $+cấp tính+$
 $-adamant-$ $+kỷ cương; cứng rắn+$
@@ -276,7 +276,7 @@ $-broadcaster-$ $+phát thanh viên+$
 $-broadly-$ $+nói chung+$
 $-buddy-$ $+bạn+$
 $-buffer-$ $+vật đệm+$
-$-bug-$ $+sâu bọ/lỗi máy tính+$
+$-bug-$ $+sâu bọ; lỗi máy tính+$
 $-bumpy-$ $+gập ghềnh, mấp mô+$
 $-bungalow-$ $+nhà một tầng+$
 $-calamity-$ $+tai họa, thiên tai, tai ương+$
@@ -318,7 +318,7 @@ $-classification-$ $+sự phân loại+$
 $-classify-$ $+phân loại+$
 $-cliff-$ $+vách đá+$
 $-cling-$ $+bám chặt vào+$
-$-clinic-$ $+bệnh viện chuyên khoa, phòng khám+$
+$-clinic-$ $+phòng khám, bệnh viện chuyên khoa+$
 $-clinical-$ $+lâm sàng+$
 $-clip-$ $+đoạn phim ngắn+$
 $-close-$ $+đóng kín, đóng cửa; gần sát+$
@@ -408,7 +408,7 @@ $-courage-$ $+sự can đảm, dũng khí+$
 $-courteous-$ $+lịch sự, nhã nhặn+$
 $-coverage-$ $+sự đưa tin, tường thuật+$
 $-coy-$ $+bẽn lẽn, xấu hổ, rụt rè+$
-$-crack-$ $+làm nứt, rạn/vết nứt, rạn+$
+$-crack-$ $+làm nứt, rạn; vết nứt, rạn+$
 $-crafty-$ $+láu cá, xảo quyệt+$
 $-cram-$ $+sự nhồi sọ, nhồi nhét; tống vào, luyện thi+$
 $-cranky-$ $+kỳ quặc, gàn dở+$
@@ -421,14 +421,14 @@ $-crumble-$ $+vỡ vụn, đổ nát; bẻ vụn, đập vụn+$
 $-crush-$ $+nghiền nát+$
 $-crystal-$ $+khoáng vật trong suốt+$
 $-cue-$ $+ra hiệu+$
-$-cult-$ $+sự thờ cúng/sự ham thích, mốt thịnh hành+$
+$-cult-$ $+sự thờ cúng; sự ham thích, mốt thịnh hành+$
 $-cultivate-$ $+canh tác, trồng trọt+$
 $-cunning-$ $+xảo quyệt, láu cá+$
 $-cupboard-$ $+tủ đựng+$
 $-curb-$ $+sự kiềm chế, sự nén lại; kìm hãm, hạn chế+$
 $-curriculum-$ $+chương trình giảng dạy+$
 $-curse-$ $+sự nguyền rủa, chửi rủa; nguyền rủa, báng bổ+$
-$-cutting-$ $+bài báo cắt ra/cành giâm+$
+$-cutting-$ $+bài báo cắt ra; cành giâm+$
 $-daft-$ $+ngớ ngẩn, mất trí, gàn dở+$
 $-daily-$ $+hằng ngày+$
 $-dainty-$ $+nhã nhặn, xinh xắn, dễ thương+$
@@ -506,7 +506,7 @@ $-disagree-$ $+không khớp, không hợp; bất đồng, không đồng ý+$
 $-disaster-$ $+thảm họa, tai ương+$
 $-disastrous-$ $+tai họa, thảm hại+$
 $-discard-$ $+bỏ, loại bỏ, vứt bỏ+$
-$-discharge-$ $+cho xuất viện/cho giải ngũ+$
+$-discharge-$ $+cho xuất viện; cho giải ngũ+$
 $-disclose-$ $+vạch trần, phơi bày+$
 $-disclosure-$ $+sự tiết lộ+$
 $-discount-$ $+giảm giá+$
@@ -559,7 +559,7 @@ $-dusk-$ $+chạng vạng, lúc tối nha nhem+$
 $-eager-$ $+hăm hở, háo hức+$
 $-ease-$ $+dễ dàng+$
 $-easy-$ $+dễ dàng+$
-$-echo-$ $+dội, vang/tiếng dội, tiếng vang+$
+$-echo-$ $+dội, vang; tiếng dội, tiếng vang+$
 $-ecological-$ $+thuộc sinh thái+$
 $-editorial-$ $+thuộc công tác biên tập+$
 $-educator-$ $+nhà sư phạm+$
@@ -714,7 +714,7 @@ $-frosty-$ $+băng giá, giá rét+$
 $-fuddy-duddy-$ $+người cổ hủ; cổ hủ, lỗi thời+$
 $-fulfillment-$ $+hoàn chỉnh+$
 $-fun-$ $+sự vui đùa, niềm vui thích; vui vẻ+$
-$-function-$ $+chức năng; hoạt động, thực hiện chức năng+$
+$-function-$ $+chức năng; thực hiện chức năng+$
 $-funny-$ $+buồn cười, hài hước+$
 $-furious-$ $+giận dữ, điên tiết+$
 $-future-$ $+tương lai+$
@@ -731,7 +731,6 @@ $-generous-$ $+rộng lượng, khoan thai+$
 $-genuine-$ $+thành thật, chân thật+$
 $-genuinely-$ $+một cách thành thật, chân thật+$
 $-gesture-$ $+điệu bộ, cử chỉ, động tác+$
-$-gig-$ $+(khẩu ngữ) sự biểu diễn một đêm nhạc+$
 $-glad-$ $+vui lòng, sung sướng+$
 $-glare-$ $+nhìn trừng trừng; cái nhìn, ánh nhìn giận dữ; ánh sáng; chiếu sáng+$
 $-glimpse-$ $+cái nhìn lướt qua; nhìn thoáng qua+$
@@ -857,7 +856,7 @@ $-instruct-$ $+chỉ dẫn, bảo+$
 $-instruction-$ $+hướng dẫn+$
 $-insufficient-$ $+không đủ, thiếu thốn+$
 $-intake-$ $+vật lấy vào; số lượng lấy vào+$
-$-intellectual-$ $+thuộc trí tuệ; có tri thức, tài trí/người tri thức+$
+$-intellectual-$ $+thuộc trí tuệ; có tri thức, tài trí; người tri thức+$
 $-intensify-$ $+tăng cường; gia tăng+$
 $-intensity-$ $+cường độ, độ mãnh liệt+$
 $-intensive-$ $+tập trung, câu; cực kỳ kỹ lưỡng+$
@@ -945,13 +944,13 @@ $-maiden-$ $+trinh nữ, cô gái đồng trinh; (thuộc) trinh nữ, thời co
 $-mainly-$ $+chính, chủ yếu, phần lớn+$
 $-mainstream-$ $+thịnh hành+$
 $-maintain-$ $+giữ gìn, duy trì, bảo vệ, bảo dưỡng, kiên định với ý kiến+$
-$-making-$ $+quá trình/ hoạt động sản xuất+$
+$-making-$ $+quá trình;  hoạt động sản xuất+$
 $-malfunction-$ $+sự trục trặc, làm việc sai chức năng+$
 $-malicious-$ $+hiểm độc, có ác tâm+$
 $-man-made-$ $+nhân tạo, do con người tạo ra+$
 $-mansion-$ $+lâu đài, biệt thự+$
 $-manuscript-$ $+bản thảo+$
-$-marine-$ $+(thuộc) biển/ hải quân+$
+$-marine-$ $+(thuộc) biển;  hải quân+$
 $-mask-$ $+mặt nạ+$
 $-mate-$ $+bạn bè, người phụ việc, giúp việc; giao phối (con đực và con cái)+$
 $-mathematical-$ $+[thuộc] toán học+$
@@ -991,17 +990,17 @@ $-mirage-$ $+ảo tưởng, ảo vọng+$
 $-mischievous-$ $+tinh nghịch, tinh quái, ranh mãnh, láu lỉnh+$
 $-misery-$ $+cảnh nghèo khổ, đáng thương, sự đau đớn, khổ sở+$
 $-misleading-$ $+lừa dối, gây lạc hướng+$
-$-miss-$ $+cô gái, thiếu nữ; sự trượt, không trúng đích, sự thiếu vắng; trượt, lỡ, nhỡ+$
-$-mistake-$ $+lỗi, sai lầm, lỗi lầm; phạm sai lầm, hiểu sai, hiểu lầm+$
+$-miss-$ $+cô gái, thiếu nữ; trượt, lỡ, nhỡ+$
+$-mistake-$ $+lỗi, sai lầm; phạm sai lầm, hiểu sai, hiểu lầm+$
 $-mistaken-$ $+sai lầm, bị hiểu sai+$
-$-moderate-$ $+vừa phải, phải chăng, điều độ, ôn hòa, không quá khích; làm cho ôn hòa, giảng hòa, làm dịu nhẹ, tiết chế+$
+$-moderate-$ $+ôn hòa, không quá khích; giảng hòa, làm dịu nhẹ+$
 $-modern-$ $+hiện đại, tân tiến+$
-$-modest-$ $+khiêm tốn, nhún nhường, nhũn nhặn; bình thường, giản dị; thùy mị, nhu mì+$
+$-modest-$ $+khiêm tốn, nhún nhường; bình thường, giản dị;+$
 $-moist-$ $+ẩm; ẩm ướt, ướt lấp nhấp+$
 $-monk-$ $+thầy tu, thầy tăng+$
 $-monster-$ $+quái vật+$
 $-mood-$ $+tâm trạng; tính khí, tâm tính, tính tình+$
-$-moral-$ $+lời răn dạy, bài học; (thuộc) đạo đức, phẩm hạnh, có đạo đức+$
+$-moral-$ $+lời răn dạy; (thuộc) đạo đức, phẩm hạnh+$
 $-mortal-$ $+chết, không bất tử; nguy đến tính mạng+$
 $-mosque-$ $+đền thờ hồi giáo+$
 $-motion-$ $+sự chuyển động+$
@@ -1031,7 +1030,7 @@ $-noise-$ $+tiếng ồn, huyên náo, om sòm+$
 $-nonchalant-$ $+thờ ơ, hờ hững, lãnh đạm, vô tình+$
 $-noon-$ $+trưa, buổi trưa; đỉnh cao nhất trong sự nghiệp+$
 $-normal-$ $+tình trạng bình thường, mức bình thường; thường, thông thường, bình thường+$
-$-notable-$ $+người có danh vọng, người có địa vị uy quyền; có tiếng, trứ danh; đáng kể, đáng chú ý+$
+$-notable-$ $+người có danh vọng; có tiếng, trứ danh; đáng kể, đáng chú ý+$
 $-notebook-$ $+sổ tay+$
 $-notify-$ $+báo, khai báo; thông báo, cho hay, cho biết+$
 $-notorious-$ $+lừng danh, khét tiếng, tai tiếng+$
@@ -1050,7 +1049,7 @@ $-obsolete-$ $+cổ xưa, quá hạn, lỗi thời+$
 $-obstacle-$ $+vật chướng ngại; trở ngại+$
 $-obtain-$ $+đạt được, giành được, thu được+$
 $-occult-$ $+sâu kín, huyền bí; che khuất, che lấp+$
-$-offensive-$ $+cuộc tấn công, thế tấn công; xúc phạm, làm mất lòng; có tính tấn công, công kích+$
+$-offensive-$ $+cuộc tấn công; xúc phạm, làm mất lòng; công kích+$
 $-offering-$ $+sự đề nghị+$
 $-offspring-$ $+con; con cái+$
 $-old-$ $+cổ hủ, lạc hậu, lỗi thời+$
@@ -1069,7 +1068,7 @@ $-originate-$ $+bắt nguồn từ, khởi đầu từ+$
 $-ornament-$ $+đồ trang hoàng, trang trí, trang sức; trang hoàng+$
 $-outfit-$ $+trang phục+$
 $-outgoing-$ $+dễ gần, thoải mái, hòa đồng+$
-$-outrage-$ $+sự xúc phạm, làm tổn thương, sỉ nhục, sự oán hận, giận dữ; xúc phạm, lăng mạ, sỉ nhục+$
+$-outrage-$ $+sự xúc phạm, sự oán hận; xúc phạm, sỉ nhục+$
 $-outrageous-$ $+tàn bạo, vô nhân đạo, quá chừng, thái quá; xúc phạm, làm tổn thương+$
 $-outskirts-$ $+phạm vi ngoài (một vấn đề…), vùng ngoại ô, xa trung tâm+$
 $-outstanding-$ $+nổi bật, đáng chú ý, nổi tiếng, vượt trội+$
@@ -1363,7 +1362,7 @@ $-spoil-$ $+làm hư hỏng+$
 $-sponsorship-$ $+sự tài trợ+$
 $-spotless-$ $+không có đốm, không một vết nhơ; sạch sẽ, tinh tươm+$
 $-spotlight-$ $+ánh đèn sân khấu+$
-$-spouse-$ $+vợ/ chồng+$
+$-spouse-$ $+vợ; chồng+$
 $-sprint-$ $+sự chạy nhanh, sự chạy nước rút; cách chạy nước rút+$
 $-stable-$ $+vững chắc; ổn định; kiên định, kiên quyết+$
 $-stall-$ $+quầy, sạp hàng+$
