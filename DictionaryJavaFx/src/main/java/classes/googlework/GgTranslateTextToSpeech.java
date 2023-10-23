@@ -35,4 +35,10 @@ public class GgTranslateTextToSpeech {
     public static void play(String text, String languageOutput) throws IOException, JavaLayerException {
         play(getAudio(text, languageOutput));
     }
+
+    public static void main(String[] args) throws IOException, JavaLayerException {
+        String text = "In the midst of the bustling city, surrounded by towering skyscrapers and the constant hum of traffic," +
+                " I found solace in a quaint little cafe tucked away on a quiet side street.";
+        play(text, "en");
+    }
 }

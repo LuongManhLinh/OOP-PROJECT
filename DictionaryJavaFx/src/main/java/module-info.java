@@ -4,6 +4,7 @@ module controllers.dictionaryjavafx {
 
     requires com.almasb.fxgl.all;
     requires jlayer;
+    requires javafx.web;
 
     opens controllers.dictionaryjavafx to javafx.fxml;
     exports controllers.dictionaryjavafx;

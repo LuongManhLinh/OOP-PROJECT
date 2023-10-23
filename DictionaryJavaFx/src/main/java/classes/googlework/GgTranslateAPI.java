@@ -25,4 +25,15 @@ public class GgTranslateAPI {
         in.close();
         return response.toString();
     }
+
+    public static void main(String[] args) throws IOException {
+        String langFrom = "en";
+        String langTo = "vi";
+        String text = "Show me your code and conceal your data structures, and I shall" +
+                " continue to be mystified. Show me your data structures, and I won't" +
+                " usually need your code; it'll be obvious.";
+
+        String res = translate(langFrom, langTo, text);
+        System.out.println(res);
+    }
 }

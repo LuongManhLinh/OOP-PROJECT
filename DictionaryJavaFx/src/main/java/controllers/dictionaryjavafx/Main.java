@@ -3,6 +3,7 @@ package controllers.dictionaryjavafx;
 import classes.Dictionary;
 import classes.GameData;
 import classes.dictionarycommandline.DictionaryExecution;
+import classes.googlework.GgTranslateAPI;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -13,7 +14,7 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ExperimentGameScene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("SelectTypeScene.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         stage.setTitle("Dictionary");

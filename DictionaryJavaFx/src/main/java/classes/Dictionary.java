@@ -6,7 +6,7 @@ import java.util.*;
 
 
 public class Dictionary {
-    protected static HashMap<String, String> Words = new HashMap<>();
+    public static HashMap<String, String> Words = new HashMap<>();
     protected static TreeSet<String> EnglishKeyWords = new TreeSet<>();
 
     protected static String fileContainsWords = "src/main/resources/dictionaryData.txt";
