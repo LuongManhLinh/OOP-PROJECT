@@ -25,15 +25,15 @@ public class DictionaryExecution {
 
         while(isRunning)
         {
-            System.out.println("Enter " + LOOK_UP + " to look up words");
-            System.out.println("Enter " + INSERT + " to insert words");
-            System.out.println("Enter " + EDIT_MEANING + " to edit meaning in a word");
-            System.out.println("Enter " + ADD_MEANING + " to add meanings");
-            System.out.println("Enter " + FIX_WORD + " to fix a English word");
-            System.out.println("Enter " + REMOVE_WORD + " to remove a word from the dictionary");
-            System.out.println("Enter " + EXIT + " to update file and exit");
+            System.out.println("Nhập " + LOOK_UP + " để tra từ");
+            System.out.println("Nhập " + INSERT + " để thêm từ");
+            System.out.println("Nhập " + EDIT_MEANING + " để sửa nghĩa của một từ");
+            System.out.println("Nhập " + ADD_MEANING + " để thêm nghĩa cho một từ");
+            System.out.println("Nhập " + FIX_WORD + " để sửa một từ");
+            System.out.println("Nhập " + REMOVE_WORD + " để xóa một từ trong từ điển");
+            System.out.println("Nhập " + EXIT + " để cập nhật dữ liệu và thoát ứng dụng");
 
-            System.out.println("**Note: While executing a function, you can enter `-1` to exit the function!");
+            System.out.println("**Lưu ý: Trong khi đang thực hiện một chức năng, bạn có thể nhập `-1` để thoát khỏi chức năng đó!");
 
             command = scanner.next();
             switch (command)
@@ -48,15 +48,15 @@ public class DictionaryExecution {
                     isRunning = false;
                     EnViDictionary.getInstance().exit();
                 }
-                default -> System.out.println("Invalid command! Please enter a valid command!");
+                default -> System.out.println("Lệnh không hợp lệ! Vui lòng nhập lệnh hợp lệ!");
             }
             if (command.equals(EXIT))
             {
-                System.out.println("Saved! Goodbye!");
+                System.out.println("Đã lưu! Tạm biệt!");
             }
             else
             {
-                System.out.println("\nPlease enter next command:");
+                System.out.println("\nVui lòng nhập lệnh tiếp theo:");
             }
         }
     }

@@ -35,26 +35,26 @@ public class DictionaryManagement {
     public static void insertFromCommandline()
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter number of words that will be inserted: ");
+        System.out.print("Nhập số lượng từ sẽ được thêm vào: ");
         int numberInsert = scanner.nextInt();
         if(numberInsert == -1) return;
         scanner.nextLine();
 
         for (int i = 0; i < numberInsert; i++)
         {
-            System.out.print( (i + 1) + ". Enter English word: ");
+            System.out.print( (i + 1) + ". Nhập từ tiếng Anh: ");
             String key = (scanner.nextLine()).toLowerCase().trim();
             if(key.equals("-1")) return;
 
             while (keyWords.contains(key))
             {
-                System.out.print("   The word are existed! Please enter again: ");
+                System.out.print("   Từ đã tồn tại! Vui lòng nhập lại: ");
                 key = (scanner.nextLine()).toLowerCase().trim();
                 if(key.equals("-1")) return;
             }
 
-            System.out.println("   Describe Vietnamese meaning: ");
-            System.out.println("   **(Note: you have to enter `$` in a simple line to finish describing, or enter `-1` to exit the function)");
+            System.out.println("   nhập nghĩa tiếng Việt: ");
+            System.out.println("   **(Lưu ý: Bạn phải nhập `$` ở một dòng riêng biệt sau khi nhập nghĩa để kết thúc)");
             String meaning = getDescriptionCommandline(scanner);
             if (meaning.equals("-1")) return;
             keyWords.add(key);
@@ -65,7 +65,7 @@ public class DictionaryManagement {
     public static void lookUp()
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a word that you need: ");
+        System.out.print("Nhập từ mà bạn cần tra cứu: ");
         String keyWord;
         boolean found = false;
 
@@ -90,7 +90,7 @@ public class DictionaryManagement {
                 if(keyWord.equals("-1")) {
                     return;
                 }
-                System.out.print("The word cannot be found! Please try again: ");
+                System.out.print("Không tìm thấy từ! Vui lòng nhập lại: ");
             }
         }
     }
@@ -98,7 +98,7 @@ public class DictionaryManagement {
     public static void addMeaning()
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter an exact word that will be added meanings: ");
+        System.out.print("Nhập từ mà bạn muốn thêm nghĩa: ");
         String keyWord;
         boolean foundWord = false;
 
@@ -110,8 +110,8 @@ public class DictionaryManagement {
                 foundWord = true;
                 printOneWord(keyWord);
 
-                System.out.println("Describe adding Vietnamese meaning: ");
-                System.out.println("**(Note: you have to enter `$` in a simple line to finish describing, or enter `-1` to exit the function)");
+                System.out.println("Nhập nghĩa tiếng Việt sẽ được thêm vào: ");
+                System.out.println("**(Lưu ý: Bạn phải nhập `$` ở một dòng riêng biệt sau khi nhập nghĩa để kết thúc)");
                 String meaning = getDescriptionCommandline(scanner);
                 if (meaning.equals("-1")) return;
                 String result = words.get(keyWord) + "<br />" + meaning;
@@ -128,7 +128,7 @@ public class DictionaryManagement {
                 {
                     return;
                 }
-                System.out.print("The word cannot be found! Please try again: ");
+                System.out.print("Không tìm thấy từ! Vui lòng nhập lại: ");
             }
         }
     }
@@ -136,7 +136,7 @@ public class DictionaryManagement {
     public static void fixEnglishWord()
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter an exact word that will be fixed: ");
+        System.out.print("Nhập từ bạn muốn sửa: ");
         String keyWord;
         boolean foundWord = false;
 
@@ -150,11 +150,11 @@ public class DictionaryManagement {
 
                 String oldKeyWord = keyWord;
 
-                System.out.print("Enter new English word: ");
+                System.out.print("Nhập từ tiếng Anh sau khi sửa: ");
                 keyWord = (scanner.nextLine()).toLowerCase().trim();
 
                 while (keyWord.isEmpty()) {
-                    System.out.print("New English word cannot be empty, please enter again: ");
+                    System.out.print("Từ tiếng Anh sau khi sửa không thể rỗng, vui lòng nhập lại: ");
                     keyWord = (scanner.nextLine()).toLowerCase().trim();
                 }
 
@@ -173,7 +173,7 @@ public class DictionaryManagement {
                 {
                     return;
                 }
-                System.out.print("The word cannot be found! Please try again: ");
+                System.out.print("Không tìm thấy từ! Vui lòng nhập lại: ");
             }
         }
     }
@@ -181,7 +181,7 @@ public class DictionaryManagement {
     public static void editMeaning()
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter an exact word that will be edited meaning: ");
+        System.out.print("Nhập từ bạn muốn sửa nghĩa: ");
         String keyWord;
         boolean foundWord = false;
 
@@ -193,9 +193,9 @@ public class DictionaryManagement {
                 foundWord = true;
                 printOneWord(keyWord);
 
-                System.out.println("Enter the whole new meaning description: ");
-                System.out.println("**(Be careful: the whole old meaning description will be removed by the new one!");
-                System.out.println("**(Note: you have to enter `$` in a simple line to finish describing, or enter `-1` to exit the function)");
+                System.out.println("**(Lưu ý: toàn bộ nghĩa cũ sẽ bị thay thế bởi nghĩa mới nhập vào)");
+                System.out.println("**(Lưu ý: Bạn phải nhập `$` ở một dòng riêng biệt sau khi nhập nghĩa để kết thúc)");
+                System.out.println("Nhập nghĩa tiếng Việt mới cho từ: ");
 
                 String meaning = getDescriptionCommandline(scanner);
                 if (meaning.equals("-1")) return;
@@ -210,7 +210,7 @@ public class DictionaryManagement {
                 {
                     return;
                 }
-                System.out.print("The word cannot be found! Please try again: ");
+                System.out.print("Không tìm thấy từ! Vui lòng thử lại: ");
             }
         }
     }
@@ -218,7 +218,7 @@ public class DictionaryManagement {
     public static void removeWord()
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter an exact word that will be removed: ");
+        System.out.print("Nhập từ bạn muốn xóa: ");
         String keyWord;
         boolean foundWord = false;
 
@@ -232,13 +232,13 @@ public class DictionaryManagement {
 
                 keyWords.remove(keyWord);
                 words.remove(keyWord);
-                System.out.println("Removed!");
+                System.out.println("Đã xóa!");
             }
             else
             {
                 if(keyWord.equals("-1")) return;
 
-                System.out.print("The word cannot be found! Please try again: ");
+                System.out.print("Không tìm thấy từ! Vui lòng thử lại: ");
             }
         }
     }
