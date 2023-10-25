@@ -3,7 +3,7 @@ package controllers.dictionaryjavafx;
 import classes.ExperimentGameClasses.Answer;
 import classes.ExperimentGameClasses.BottleImages;
 import classes.ExperimentGameClasses.Result;
-import classes.GameData;
+import classes.data.GameData;
 import classes.makerandom.MakeRandom;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
@@ -72,6 +72,7 @@ public class ExperimentGameController implements Initializable {
     private String trueAnswer;
     private ArrayList<Integer> remainIndex;
 
+    private int mouseIsOnWhichButton = -1;
     EndGameStatus endGameStatus = EndGameStatus.NO_REACTION;
 
     @Override
@@ -81,14 +82,18 @@ public class ExperimentGameController implements Initializable {
         inGameButtons.add(bottle3);
         inGameButtons.add(bottle4);
 
-        for (Button button : inGameButtons) {
+        for (int i = 0; i < NUMBER_INGAME_BUTTON; i++) {
+            int finalI = i;
+            Button button = inGameButtons.get(i);
             button.setOnMouseEntered(event -> {
                 choosingAnswerLabel.setVisible(true);
                 choosingAnswerLabel.setText(button.getText());
+                mouseIsOnWhichButton = finalI;
             });
 
             button.setOnMouseExited(event -> {
                 choosingAnswerLabel.setVisible(false);
+                mouseIsOnWhichButton = -1;
             });
         }
 
@@ -212,9 +217,9 @@ public class ExperimentGameController implements Initializable {
 
     public void updateQuestionAndAnswer() {
         numberQuestionAnswered++;
-        numberQuestionAnsweredLabel.setText(String.valueOf(numberQuestionAnswered));
 
         if (numberQuestionAnswered <= 10) {
+            numberQuestionAnsweredLabel.setText(String.valueOf(numberQuestionAnswered));
             int randomNumber = MakeRandom.random(0, 1);
             if (randomNumber == 0) {
                 answers = generateRandomQuestionAndAnswers(4, true);
@@ -226,6 +231,10 @@ public class ExperimentGameController implements Initializable {
 
             for (int i = 0; i < NUMBER_INGAME_BUTTON; i++) {
                 answers.get(i).setButton(inGameButtons.get(i));
+            }
+
+            if (mouseIsOnWhichButton != -1) {
+                choosingAnswerLabel.setText(inGameButtons.get(mouseIsOnWhichButton).getText());
             }
 
         } else {

@@ -3,18 +3,18 @@ package classes.dictionarycommandline;
 
 
 import classes.Dictionary;
+import classes.EnViDictionary;
 
 import java.util.Scanner;
 
-public class DictionaryExecution extends Dictionary {
-    private static final String SHOW_ALL = "1";
-    private static final String LOOK_UP = "2";
-    private static final String INSERT = "3";
-    private static final String EDIT_MEANING = "4";
-    private static final String ADD_MEANING = "5";
-    private static final String FIX_WORD = "6";
-    private static final String REMOVE_WORD = "7";
-    private static final String EXIT = "8";
+public class DictionaryExecution {
+    private static final String LOOK_UP = "1";
+    private static final String INSERT = "2";
+    private static final String EDIT_MEANING = "3";
+    private static final String ADD_MEANING = "4";
+    private static final String FIX_WORD = "5";
+    private static final String REMOVE_WORD = "6";
+    private static final String EXIT = "7";
 
 
     public static void Run()
@@ -25,7 +25,6 @@ public class DictionaryExecution extends Dictionary {
 
         while(isRunning)
         {
-            System.out.println("Enter " + SHOW_ALL + " to show all words");
             System.out.println("Enter " + LOOK_UP + " to look up words");
             System.out.println("Enter " + INSERT + " to insert words");
             System.out.println("Enter " + EDIT_MEANING + " to edit meaning in a word");
@@ -39,16 +38,15 @@ public class DictionaryExecution extends Dictionary {
             command = scanner.next();
             switch (command)
             {
-                case SHOW_ALL -> DictionaryManagement.ShowAllWords();
-                case LOOK_UP -> DictionaryManagement.LookUp();
-                case INSERT -> DictionaryManagement.InsertFromCommandline();
-                case EDIT_MEANING -> DictionaryManagement.EditMeaning();
-                case ADD_MEANING -> DictionaryManagement.AddMeaning();
-                case FIX_WORD -> DictionaryManagement.FixEnglishWord();
-                case REMOVE_WORD -> DictionaryManagement.RemoveWord();
+                case LOOK_UP -> DictionaryManagement.lookUp();
+                case INSERT -> DictionaryManagement.insertFromCommandline();
+                case EDIT_MEANING -> DictionaryManagement.editMeaning();
+                case ADD_MEANING -> DictionaryManagement.addMeaning();
+                case FIX_WORD -> DictionaryManagement.fixEnglishWord();
+                case REMOVE_WORD -> DictionaryManagement.removeWord();
                 case EXIT -> {
                     isRunning = false;
-                    Dictionary.Exit();
+                    EnViDictionary.getInstance().exit();
                 }
                 default -> System.out.println("Invalid command! Please enter a valid command!");
             }

@@ -1,7 +1,10 @@
 package controllers.dictionaryjavafx;
 
+import classes.Dictionary;
 import classes.DictionaryManagementForApp;
 import javafx.animation.AnimationTimer;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,15 +21,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import static classes.Dictionary.Words;
-
 public class MainUISceneController implements Initializable {
     @FXML private TextField wordEnteringField;
     @FXML private ListView<String> searchingResultList;
     @FXML private ChoiceBox<String> myChoiceBox;
-    @FXML WebView webView;
+    @FXML private WebView webView;
 
-    private String[] functions = {"Show All Words", "Look Up", "Insert Words", "Play Game"};
+    private final String[] functions = {"Show All Words", "Look Up", "Insert Words", "Play Game"};
 
     private String oldKeyWord = "";
 
@@ -40,6 +41,13 @@ public class MainUISceneController implements Initializable {
         // khung nhìn hiển thị được tối đa 10 kết quả, nếu nhiều hơn phải cuộn xuống để xem
         searchingResultList.setMaxHeight(10 * searchingResultList.getFixedCellSize());
 
+        searchingResultList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                //cài đặt hiển thị nghĩa
+            }
+        });
+
         handleSearching();
     }
 
@@ -52,7 +60,7 @@ public class MainUISceneController implements Initializable {
                 oldKeyWord = keyWord;
 //                System.out.println(oldKeyWord);
 
-                ArrayList<String> searchingResult = DictionaryManagementForApp.lookUp(keyWord);
+                ArrayList<String> searchingResult = DictionaryManagementForApp.lookUp(keyWord, Dictionary.Type.EN_VI);
                 if (!searchingResult.isEmpty()) {
                     searchingResultList.setVisible(true);
                     searchingResultList.getItems().setAll(searchingResult);
@@ -74,7 +82,6 @@ public class MainUISceneController implements Initializable {
                     wordEnteringTimer.stop();
 //                    System.out.println("if");
                 } else {
-                    System.out.println("else");
                     wordEnteringTimer.start();
 
                     // xử lí để khi nhấn enter thì nhảy xuống danh sách kết quả
@@ -87,19 +94,19 @@ public class MainUISceneController implements Initializable {
                                 if (!searchingResultList.getItems().isEmpty()) {
                                     searchingResultList.requestFocus();
                                     searchingResultList.getSelectionModel().select(0);
-
                                 }
                             }
                         });
                     }
                 }
+
                 searchingResultList.setOnMouseClicked(mouseEvent ->
                 {
                     if(mouseEvent.getClickCount() == 2) {
                         webView.setVisible(true);
                         String selectedWord = searchingResultList.getSelectionModel().getSelectedItem();
                         if(selectedWord != null) {
-                            String meanings = Words.get(selectedWord);
+                            String meanings = DictionaryManagementForApp.getMeaning(selectedWord, Dictionary.Type.EN_VI);
                             WebEngine webEngine = webView.getEngine();
                             webEngine.loadContent(meanings);
                         }

@@ -1,35 +1,33 @@
 package classes;
 
-import classes.dictionarycommandline.DictionaryFileWork;
-
 import java.util.*;
 
 
-public class Dictionary {
-    public static HashMap<String, String> Words = new HashMap<>();
-    protected static TreeSet<String> EnglishKeyWords = new TreeSet<>();
-
-    protected static String fileContainsWords = "src/main/resources/dictionaryData.txt";
-
-    public static void Awake()
-    {
-        DictionaryFileWork.importWords(fileContainsWords);
+public abstract class Dictionary {
+    public static enum Type {
+        VI_EN,
+        EN_VI
     }
 
-    public static void Exit()
-    {
-        DictionaryFileWork.exportAllWords(fileContainsWords);
+    protected HashMap<String, String> words = new HashMap<>();
+    protected TreeSet<String> keyWords = new TreeSet<>();
+
+    public Dictionary() {
+        awake();
     }
 
-    public static HashMap<String, String> getWords() {
-        return Words;
+    public abstract void awake();
+    public abstract void exit();
+
+    public HashMap<String, String> getWords() {
+        return words;
     }
 
-    public static TreeSet<String> getEnglishKeyWords() {
-        return EnglishKeyWords;
+    public TreeSet<String> getKeyWords() {
+        return keyWords;
     }
 
-    public static ArrayList<String> getEnglishKeyWord() {
-        return new ArrayList<>(EnglishKeyWords);
+    public ArrayList<String> getKeyWordsAsArray() {
+        return new ArrayList<>(keyWords);
     }
 }

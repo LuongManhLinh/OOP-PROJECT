@@ -1,9 +1,8 @@
 package controllers.dictionaryjavafx;
 
-import classes.Dictionary;
-import classes.GameData;
+import classes.data.DictionaryData;
+import classes.data.GameData;
 import classes.dictionarycommandline.DictionaryExecution;
-import classes.googlework.GgTranslateAPI;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -23,7 +22,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        Dictionary.Awake();
+        DictionaryData.loadData();
         GameData.loadData();
         launch();
         if (SelectTypeSceneController.isUsingCommandline) {

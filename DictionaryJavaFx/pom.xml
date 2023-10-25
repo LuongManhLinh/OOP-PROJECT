@@ -11,7 +11,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-<junit.version>5.9.2</junit.version>  </properties>
+    <junit.version>5.9.2</junit.version>
+  </properties>
 
   <dependencies>
     <dependency>
@@ -19,43 +20,51 @@
       <artifactId>javafx-controls</artifactId>
       <version>20.0.1</version>
     </dependency>
+
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
       <version>20.0.1</version>
     </dependency>
+
     <dependency>
       <groupId>javazoom</groupId>
       <artifactId>jlayer</artifactId>
       <version>1.0.1</version>
     </dependency>
+
     <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-media</artifactId>
+      <version>20.0.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.github.almasb</groupId>
+      <artifactId>fxgl</artifactId>
+      <version>17.2</version>
+      <exclusions>
+        <exclusion>
           <groupId>org.openjfx</groupId>
-          <artifactId>javafx-media</artifactId>
-          <version>20.0.1</version>
-        </dependency><dependency>
-          <groupId>com.github.almasb</groupId>
-          <artifactId>fxgl</artifactId>
-          <version>17.2</version>
-          <exclusions>
-            <exclusion>
-              <groupId>org.openjfx</groupId>
-              <artifactId>*</artifactId>
-            </exclusion>
-          </exclusions>
-        </dependency>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-web</artifactId>
