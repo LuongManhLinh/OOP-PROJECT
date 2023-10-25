@@ -1,10 +1,10 @@
 module controllers.dictionaryjavafx {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.web;
 
     requires com.almasb.fxgl.all;
     requires jlayer;
-    requires javafx.web;
 
     opens controllers.dictionaryjavafx to javafx.fxml;
     exports controllers.dictionaryjavafx;
