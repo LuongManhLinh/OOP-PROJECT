@@ -8,7 +8,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class GgTranslateAPI {
-    private static String translate(String langFrom, String langTo, String text) throws IOException {
+    public static String translate(String langFrom, String langTo, String text) throws IOException {
         String urlStr = "https://script.google.com/macros/s/AKfycbxQ0-fILOpnen_t4Sg17ityIpkpgq8aHVGjf-fOedVCYQ3XrNpPVqt8bYUNWK5_CUI-9Q/exec" +
                 "?q=" + URLEncoder.encode(text, "UTF-8") +
                 "&target=" + langTo +
@@ -26,14 +26,14 @@ public class GgTranslateAPI {
         return response.toString();
     }
 
-    public static void main(String[] args) throws IOException {
-        String langFrom = "en";
-        String langTo = "vi";
-        String text = "Show me your code and conceal your data structures, and I shall" +
-                " continue to be mystified. Show me your data structures, and I won't" +
-                " usually need your code; it'll be obvious.";
-
-        String res = translate(langFrom, langTo, text);
-        System.out.println(res);
-    }
+//    public static void main(String[] args) throws IOException {
+//        String langFrom = "en";
+//        String langTo = "vi";
+//        String text = "Show me your code and conceal your data structures, and I shall" +
+//                " continue to be mystified. Show me your data structures, and I won't" +
+//                " usually need your code; it'll be obvious.";
+//
+//        String res = translate(langFrom, langTo, text);
+//        System.out.println(res);
+//    }
 }

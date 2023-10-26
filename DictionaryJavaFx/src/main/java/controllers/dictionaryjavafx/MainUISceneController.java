@@ -135,6 +135,9 @@ public class MainUISceneController implements Initializable {
 
     }
 
+    public void translateText(ActionEvent event) throws IOException{
+        SceneLoaderController.loadScene(event, "translateTextScene.fxml");
+    }
     public void selectExperimentGameFunc(ActionEvent event) throws IOException {
         SceneLoaderController.loadScene(event, "ExperimentGameScene.fxml");
     }
