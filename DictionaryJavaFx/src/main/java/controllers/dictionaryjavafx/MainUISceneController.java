@@ -1,7 +1,8 @@
 package controllers.dictionaryjavafx;
-
+import classes.ExperimentGameClasses.BottleImages;
 import classes.Dictionary;
 import classes.DictionaryManagementForApp;
+import classes.googlework.GgTranslateTextToSpeech;
 import com.almasb.fxgl.entity.action.Action;
 import javafx.animation.AnimationTimer;
 import javafx.beans.value.ChangeListener;
@@ -11,9 +12,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javazoom.jl.decoder.JavaLayerException;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,14 +30,18 @@ public class MainUISceneController implements Initializable {
     @FXML private ListView<String> searchingResultList;
     @FXML private WebView webView;
     @FXML private MenuBar menuBar;
-
+    @FXML private ImageView imageSpeaker;
     private String oldKeyWord = "";
+    private GgTranslateTextToSpeech ggTranslateTextToSpeech;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ggTranslateTextToSpeech = new GgTranslateTextToSpeech();
+        imageSpeaker.setImage(BottleImages.speakerText);
 
         searchingResultList.setVisible(false);
         webView.setVisible(false);
+        imageSpeaker.setVisible(false);
         // khung nhìn hiển thị được tối đa 10 kết quả, nếu nhiều hơn phải cuộn xuống để xem
         searchingResultList.setMaxHeight(10 * searchingResultList.getFixedCellSize());
 
@@ -46,7 +55,7 @@ public class MainUISceneController implements Initializable {
         handleSearching();
     }
 
-    private void handleSearching() {
+    private void handleSearching(){
         // tạo ra vòng lặp để tìm kiếm
         AnimationTimer wordEnteringTimer = new AnimationTimer() {
             @Override
@@ -98,6 +107,7 @@ public class MainUISceneController implements Initializable {
                 searchingResultList.setOnMouseClicked(mouseEvent ->
                 {
                     if(mouseEvent.getClickCount() == 2) {
+                        imageSpeaker.setVisible(true);
                         webView.setVisible(true);
                         String selectedWord = searchingResultList.getSelectionModel().getSelectedItem();
                         if(selectedWord != null) {
@@ -113,6 +123,10 @@ public class MainUISceneController implements Initializable {
         wordEnteringTimer.start();
         searchingManagementTimer.start();
 
+    }
+    public void speakerFunc(MouseEvent event) throws IOException, JavaLayerException {
+        String paragraph = oldKeyWord;
+        ggTranslateTextToSpeech.play(paragraph, "en");
     }
 
     public void selectInsertWordFunc(ActionEvent event) {

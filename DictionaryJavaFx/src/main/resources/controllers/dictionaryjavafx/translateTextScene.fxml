@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -10,5 +11,6 @@
       <Label fx:id="label" alignment="TOP_LEFT" layoutX="500.0" layoutY="89.0" prefHeight="400.0" prefWidth="400.0" textAlignment="JUSTIFY" wrapText="true" AnchorPane.leftAnchor="500.0" AnchorPane.topAnchor="90.0" />
       <Pane fx:id="pane" layoutX="523.0" layoutY="90.0" prefHeight="400.0" prefWidth="400.0" />
       <TextArea fx:id="textTranslate" layoutX="100.0" layoutY="90.0" prefHeight="400.0" prefWidth="400.0" wrapText="true" />
+      <ImageView fx:id="imageSpeaker" fitHeight="50.0" fitWidth="50.0" layoutX="450.0" layoutY="440.0" onMouseClicked="#speakerFunc" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -35,5 +36,6 @@
           </Menu>
         </menus>
       </MenuBar>
+      <ImageView fx:id="imageSpeaker" fitHeight="35.0" fitWidth="42.0" layoutX="475.0" layoutY="28.0" onMouseClicked="#speakerFunc" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
