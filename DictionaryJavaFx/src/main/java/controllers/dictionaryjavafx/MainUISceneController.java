@@ -2,6 +2,7 @@ package controllers.dictionaryjavafx;
 
 import classes.Dictionary;
 import classes.DictionaryManagementForApp;
+import com.almasb.fxgl.entity.action.Action;
 import javafx.animation.AnimationTimer;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -9,9 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -24,17 +23,13 @@ import java.util.ResourceBundle;
 public class MainUISceneController implements Initializable {
     @FXML private TextField wordEnteringField;
     @FXML private ListView<String> searchingResultList;
-    @FXML private ChoiceBox<String> myChoiceBox;
     @FXML private WebView webView;
-
-    private final String[] functions = {"Show All Words", "Look Up", "Insert Words", "Play Game"};
+    @FXML private MenuBar menuBar;
 
     private String oldKeyWord = "";
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        myChoiceBox.getItems().addAll(functions);
-        myChoiceBox.setOnAction(this::selectFunctions);
 
         searchingResultList.setVisible(false);
         webView.setVisible(false);
@@ -119,21 +114,38 @@ public class MainUISceneController implements Initializable {
         searchingManagementTimer.start();
 
     }
-    public void selectFunctions(ActionEvent event) {
-        String myChoice = myChoiceBox.getValue();
-        if(myChoice.equals("Insert Words")) {
-            try {
-                SceneLoaderController.loadScene(event, "InsertScene.fxml");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        if(myChoice.equals("Play Game")) {
-            try {
-                SceneLoaderController.loadScene(event, "ExperimentGameScene.fxml");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
+
+    public void selectInsertWordFunc(ActionEvent event) {
+
+    }
+
+    public void selectFixMeaningFunc(ActionEvent event) {
+
+    }
+
+    public void selectAddMeaningFunc(ActionEvent event) {
+
+    }
+
+    public void selectFixWordFunc(ActionEvent event) {
+
+    }
+
+    public void selectRemoveWordFunc(ActionEvent event) {
+
+    }
+
+    public void selectExperimentGameFunc(ActionEvent event) throws IOException {
+        SceneLoaderController.loadScene(event, "ExperimentGameScene.fxml");
+    }
+
+    public void selectCommandline(ActionEvent event) {
+        SceneLoaderController.exitApp(event);
+        SelectTypeSceneController.setIsUsingCommandline(true);
+    }
+
+    public void selectExitApp(ActionEvent event) {
+        SceneLoaderController sceneLoaderController = new SceneLoaderController();
+        SceneLoaderController.exitApp(event);
     }
 }

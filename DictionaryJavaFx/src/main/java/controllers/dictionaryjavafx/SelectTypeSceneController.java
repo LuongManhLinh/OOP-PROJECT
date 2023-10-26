@@ -16,9 +16,8 @@ public class SelectTypeSceneController {
 
     public static boolean isUsingCommandline = false;
 
-    public void useCommandline(ActionEvent event) {
-        SceneLoaderController.exitApp(event);
-        isUsingCommandline = true;
+    public static void setIsUsingCommandline(boolean isUsingCommandline) {
+        SelectTypeSceneController.isUsingCommandline = isUsingCommandline;
     }
 
     public void useApp(ActionEvent event) throws IOException {
