@@ -1,6 +1,5 @@
 
 package controllers.dictionaryjavafx;
-import classes.ExperimentGameClasses.BottleImages;
 import classes.googlework.GgTranslateAPI;
 import classes.googlework.GgTranslateTextToSpeech;
 import javafx.event.ActionEvent;
@@ -33,18 +32,14 @@ public class SceneTranslateTextController implements Initializable{
 
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle){
-//        textTranslate.setTextFormatter();
-        imageSpeaker.setImage(BottleImages.speakerText);
     }
     public void translateFunc(ActionEvent event) throws IOException {
         String paragraph = textTranslate.getText();
-        GgTranslateAPI ggTranslateAPI = new GgTranslateAPI();
-        String translateParagraph = ggTranslateAPI.translate("en", "vi", paragraph);
+        String translateParagraph = GgTranslateAPI.translate("en", "vi", paragraph);
         label.setText(translateParagraph);
     }
     public void speakerFunc(MouseEvent event) throws IOException, JavaLayerException {
         String paragraph = textTranslate.getText();
-        GgTranslateTextToSpeech ggTranslateTextToSpeech = new GgTranslateTextToSpeech();
-        ggTranslateTextToSpeech.play(paragraph, "en");
+        GgTranslateTextToSpeech.play(paragraph, "en");
     }
 }

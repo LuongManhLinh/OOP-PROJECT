@@ -17,7 +17,6 @@ public class BottleImages {
     public static ArrayList<InputStream> redBottleInputs = new ArrayList<>();
     public static ArrayList<InputStream> whiteBottleInputs = new ArrayList<>();
     public static ArrayList<InputStream> yellowBottleInputs = new ArrayList<>();
-    public static InputStream  speakerTextInputs;
     public static InputStream mainBottleInput;
     public static InputStream failedInput;
     public static InputStream quiteSuccessInput;
@@ -26,7 +25,6 @@ public class BottleImages {
 
     static {
         try {
-            speakerTextInputs = new FileInputStream("src/main/resources/image/speaker.png");
 
             blueBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/blueBottle.png"));
             blueBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/blue-45.png"));
@@ -82,7 +80,6 @@ public class BottleImages {
             throw new RuntimeException(e);
         }
     }
-    public static Image speakerText = new Image(speakerTextInputs);
     public static ArrayList<Image> blueBottles = new ArrayList<>();
     public static ArrayList<Image> brownBottles = new ArrayList<>();
     public static ArrayList<Image> grayBottles = new ArrayList<>();

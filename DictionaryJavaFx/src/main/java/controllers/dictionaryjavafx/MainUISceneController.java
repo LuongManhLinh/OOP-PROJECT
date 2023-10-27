@@ -1,5 +1,4 @@
 package controllers.dictionaryjavafx;
-import classes.ExperimentGameClasses.BottleImages;
 import classes.Dictionary;
 import classes.DictionaryManagementForApp;
 import classes.googlework.GgTranslateTextToSpeech;
@@ -32,12 +31,9 @@ public class MainUISceneController implements Initializable {
     @FXML private MenuBar menuBar;
     @FXML private ImageView imageSpeaker;
     private String oldKeyWord = "";
-    private GgTranslateTextToSpeech ggTranslateTextToSpeech;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ggTranslateTextToSpeech = new GgTranslateTextToSpeech();
-        imageSpeaker.setImage(BottleImages.speakerText);
 
         searchingResultList.setVisible(false);
         webView.setVisible(false);
@@ -62,7 +58,6 @@ public class MainUISceneController implements Initializable {
             public void handle(long l) {
                 String keyWord = wordEnteringField.getText();
                 oldKeyWord = keyWord;
-//                System.out.println(oldKeyWord);
 
                 ArrayList<String> searchingResult = DictionaryManagementForApp.lookUp(keyWord, Dictionary.Type.EN_VI);
                 if (!searchingResult.isEmpty()) {
@@ -110,6 +105,8 @@ public class MainUISceneController implements Initializable {
                         imageSpeaker.setVisible(true);
                         webView.setVisible(true);
                         String selectedWord = searchingResultList.getSelectionModel().getSelectedItem();
+                        oldKeyWord = selectedWord;
+                        wordEnteringField.setText(selectedWord);
                         if(selectedWord != null) {
                             String meanings = DictionaryManagementForApp.getMeaning(selectedWord, Dictionary.Type.EN_VI);
                             WebEngine webEngine = webView.getEngine();
@@ -126,7 +123,7 @@ public class MainUISceneController implements Initializable {
     }
     public void speakerFunc(MouseEvent event) throws IOException, JavaLayerException {
         String paragraph = oldKeyWord;
-        ggTranslateTextToSpeech.play(paragraph, "en");
+        GgTranslateTextToSpeech.play(paragraph, "en");
     }
 
     public void selectInsertWordFunc(ActionEvent event) {
