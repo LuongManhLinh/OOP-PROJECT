@@ -29,6 +29,7 @@ public class SceneTranslateTextController implements Initializable{
     private Button translate;
     @FXML
     private ImageView imageSpeaker;
+    @FXML private Button backButton;
 
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle){
@@ -41,5 +42,9 @@ public class SceneTranslateTextController implements Initializable{
     public void speakerFunc(MouseEvent event) throws IOException, JavaLayerException {
         String paragraph = textTranslate.getText();
         GgTranslateTextToSpeech.play(paragraph, "en");
+    }
+
+    public void backToMainUIScene(ActionEvent event) throws IOException {
+        SceneLoaderController.loadScene(event, "MainUIScene.fxml");
     }
 }

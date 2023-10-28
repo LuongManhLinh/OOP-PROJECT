@@ -1,6 +1,8 @@
 package controllers.dictionaryjavafx;
 import classes.Dictionary;
 import classes.DictionaryManagementForApp;
+import classes.EnViDictionary;
+import classes.data.DictionaryData;
 import classes.googlework.GgTranslateTextToSpeech;
 import com.almasb.fxgl.entity.action.Action;
 import javafx.animation.AnimationTimer;
@@ -49,6 +51,21 @@ public class MainUISceneController implements Initializable {
         });
 
         handleSearching();
+
+        searchingResultList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                //cài đặt hiển thị nghĩa
+                imageSpeaker.setVisible(true);
+                webView.setVisible(true);
+                String selectedWord = searchingResultList.getSelectionModel().getSelectedItem();
+                if(selectedWord != null) {
+                    String meanings = DictionaryManagementForApp.getMeaning(selectedWord, Dictionary.Type.EN_VI);
+                    WebEngine webEngine = webView.getEngine();
+                    webEngine.loadContent(meanings);
+                }
+            }
+        });
     }
 
     private void handleSearching(){
@@ -98,22 +115,6 @@ public class MainUISceneController implements Initializable {
                         });
                     }
                 }
-
-                searchingResultList.setOnMouseClicked(mouseEvent ->
-                {
-                    if(mouseEvent.getClickCount() == 2) {
-                        imageSpeaker.setVisible(true);
-                        webView.setVisible(true);
-                        String selectedWord = searchingResultList.getSelectionModel().getSelectedItem();
-                        oldKeyWord = selectedWord;
-                        wordEnteringField.setText(selectedWord);
-                        if(selectedWord != null) {
-                            String meanings = DictionaryManagementForApp.getMeaning(selectedWord, Dictionary.Type.EN_VI);
-                            WebEngine webEngine = webView.getEngine();
-                            webEngine.loadContent(meanings);
-                        }
-                    }
-                });
             }
         };
 
@@ -127,7 +128,7 @@ public class MainUISceneController implements Initializable {
     }
 
     public void selectInsertWordFunc(ActionEvent event) {
-
+        SceneLoaderController.loadScene(event, "InsertWordsScene.fxml");
     }
 
     public void selectFixMeaningFunc(ActionEvent event) {
@@ -159,7 +160,8 @@ public class MainUISceneController implements Initializable {
     }
 
     public void selectExitApp(ActionEvent event) {
-        SceneLoaderController sceneLoaderController = new SceneLoaderController();
+        DictionaryData.writeData(Dictionary.Type.EN_VI, EnViDictionary.getInstance().getWords(), EnViDictionary.getInstance().getKeyWords());
+        SceneLoaderController.exitApp(event);
         SceneLoaderController.exitApp(event);
     }
 }

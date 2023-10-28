@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.InsertWordsSceneController">
+   <children>
+      <TextField fx:id="enterWordField" layoutX="320.0" layoutY="161.0" prefHeight="26.0" prefWidth="360.0" promptText="Nhập từ muốn thêm" />
+      <TextArea fx:id="enterMeaningArea" layoutX="320.0" layoutY="187.0" prefHeight="247.0" prefWidth="360.0" promptText=" Nhập nghĩa của từ" />
+      <Button fx:id="BacktoMainUIButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUIScene" text="Quay lại" />
+      <Button fx:id="AddWordButton" layoutX="474.0" layoutY="451.0" mnemonicParsing="false" onAction="#enterWordAndMeaning" text="Thêm từ" />
+   </children>
+</AnchorPane>
