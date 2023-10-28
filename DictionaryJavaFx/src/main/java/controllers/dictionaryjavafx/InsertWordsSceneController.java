@@ -1,6 +1,7 @@
 package controllers.dictionaryjavafx;
 
 import classes.EnViDictionary;
+import classes.FXMLFiles;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,7 +22,7 @@ public class InsertWordsSceneController implements Initializable {
 
     }
 
-    public void enterWordAndMeaning(ActionEvent event) throws IOException {
+    public void enterWordAndMeaning(ActionEvent event) {
         String word = enterWordField.getText();
         String wordMeaning = enterMeaningArea.getText();
         if(word.isEmpty() || wordMeaning.isEmpty()) {
@@ -50,7 +51,6 @@ public class InsertWordsSceneController implements Initializable {
     }
 
     private void showMeaningIsEmptyAlert(String word) {
-
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Cảnh báo");
         alert.setHeaderText("Phần nghĩa không được để rỗng");
@@ -66,11 +66,11 @@ public class InsertWordsSceneController implements Initializable {
         alert.showAndWait();
     }
 
-    private void showConfirmationAlert(String word, ActionEvent event) throws IOException {
+    private void showConfirmationAlert(String word, ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Xong!");
         alert.setHeaderText("Bạn đã thêm '" + word + "' vào từ điển");
-        alert.setContentText("Vui lòng nhấn OK để tiếp tục thêm từ hoặc nhấn Cancel để quay lại tìm kiếm!");
+        alert.setContentText("Vui lòng nhấn OK để tiếp tục thêm từ \n hoặc nhấn Cancel để quay lại tìm kiếm!");
 
         ButtonType selectedButton = alert.showAndWait().get();
 
@@ -83,7 +83,7 @@ public class InsertWordsSceneController implements Initializable {
         }
     }
 
-    public void backToMainUIScene(ActionEvent event) throws IOException {
-        SceneLoaderController.loadScene(event, "MainUIScene.fxml");
+    public void backToMainUIScene(ActionEvent event) {
+        SceneLoaderController.loadScene(FXMLFiles.MAIN_UI_SCENE);
     }
 }

@@ -8,32 +8,36 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class GgTranslateAPI {
-    public static String translate(String langFrom, String langTo, String text) throws IOException {
+    private static BufferedReader connect(String langFrom, String langTo, String text) throws IOException {
         String urlStr = "https://script.google.com/macros/s/AKfycbxQ0-fILOpnen_t4Sg17ityIpkpgq8aHVGjf-fOedVCYQ3XrNpPVqt8bYUNWK5_CUI-9Q/exec" +
                 "?q=" + URLEncoder.encode(text, "UTF-8") +
                 "&target=" + langTo +
                 "&source=" + langFrom;
         URL url = new URL(urlStr);
-        StringBuilder response = new StringBuilder();
+
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestProperty("User-Agent", "Mozilla/5.0");
-        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-        String inputLine;
-        while ((inputLine = in.readLine()) != null) {
-            response.append(inputLine);
-        }
-        in.close();
-        return response.toString();
+        BufferedReader webReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        con.disconnect();
+        return webReader;
     }
 
-//    public static void main(String[] args) throws IOException {
-//        String langFrom = "en";
-//        String langTo = "vi";
-//        String text = "Show me your code and conceal your data structures, and I shall" +
-//                " continue to be mystified. Show me your data structures, and I won't" +
-//                " usually need your code; it'll be obvious.";
-//
-//        String res = translate(langFrom, langTo, text);
-//        System.out.println(res);
-//    }
+    public static String translate(String langFrom, String langTo, String text) {
+        BufferedReader in;
+        try {
+            in = connect(langFrom, langTo, text);
+            StringBuilder response = new StringBuilder();
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) {
+                if (inputLine.contains("&#39;")) {
+                    inputLine = inputLine.replace("&#39;", "'");
+                }
+                response.append(inputLine);
+            }
+            in.close();
+            return response.toString();
+        } catch (IOException e) {
+            return "Connection Error!";
+        }
+    }
 }
