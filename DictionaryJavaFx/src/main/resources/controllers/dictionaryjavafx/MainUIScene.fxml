@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.MainUISceneController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.MainUISceneController">
    <children>
       <TextField fx:id="wordEnteringField" layoutX="248.0" layoutY="63.0" prefHeight="35.0" prefWidth="227.0" promptText="Nhập từ cần tra" />
       <ListView fx:id="searchingResultList" fixedCellSize="25.0" layoutX="248.0" layoutY="96.0" prefHeight="225.0" prefWidth="227.0" />
