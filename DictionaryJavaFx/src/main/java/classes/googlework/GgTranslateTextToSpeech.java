@@ -21,24 +21,19 @@ public class GgTranslateTextToSpeech {
         URL url = new URL(urlStr);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         InputStream audioSrc = con.getInputStream();
-        if (audioSrc != null) {
-            return new BufferedInputStream(audioSrc);
-        }
         con.disconnect();
-        return null;
+        return new BufferedInputStream(audioSrc);
     }
 
     public static void play(InputStream sound) throws JavaLayerException {
         new Player(sound).play();
     }
 
-    public static void play(String text, String languageOutput) throws IOException, JavaLayerException {
-        play(getAudio(text, languageOutput));
-    }
-
-    public static void main(String[] args) throws IOException, JavaLayerException {
-        String text = "In the midst of the bustling city, surrounded by towering skyscrapers and the constant hum of traffic," +
-                " I found solace in a quaint little cafe tucked away on a quiet side street.";
-        play(text, "en");
+    public static void play(String text, String languageOutput) {
+        try {
+            play(getAudio(text, languageOutput));
+        } catch (JavaLayerException | IOException e) {
+            e.printStackTrace();
+        }
     }
 }

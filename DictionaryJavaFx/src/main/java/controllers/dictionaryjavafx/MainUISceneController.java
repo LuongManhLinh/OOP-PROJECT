@@ -2,7 +2,9 @@ package controllers.dictionaryjavafx;
 import classes.Dictionary;
 import classes.DictionaryManagementForApp;
 import classes.EnViDictionary;
+import classes.FXMLFiles;
 import classes.data.DictionaryData;
+import classes.dictionarycommandline.DictionaryExecution;
 import classes.googlework.GgTranslateTextToSpeech;
 import com.almasb.fxgl.entity.action.Action;
 import javafx.animation.AnimationTimer;
@@ -122,13 +124,13 @@ public class MainUISceneController implements Initializable {
         searchingManagementTimer.start();
 
     }
-    public void speakerFunc(MouseEvent event) throws IOException, JavaLayerException {
+    public void speakerFunc(MouseEvent event) {
         String paragraph = oldKeyWord;
         GgTranslateTextToSpeech.play(paragraph, "en");
     }
 
     public void selectInsertWordFunc(ActionEvent event) {
-        SceneLoaderController.loadScene(event, "InsertWordsScene.fxml");
+        SceneLoaderController.loadScene(FXMLFiles.INSERT_WORDS_SCENE);
     }
 
     public void selectFixMeaningFunc(ActionEvent event) {
@@ -143,25 +145,25 @@ public class MainUISceneController implements Initializable {
 
     }
 
-    public void selectRemoveWordFunc(ActionEvent event) throws IOException{
-        SceneLoaderController.loadScene(event, "removeWordScene.fxml");
+    public void selectRemoveWordFunc(ActionEvent event) {
+        SceneLoaderController.loadScene(FXMLFiles.REMOVE_WORD_SCENE);
     }
 
-    public void translateText(ActionEvent event) throws IOException{
-        SceneLoaderController.loadScene(event, "translateTextScene.fxml");
+    public void translateText(ActionEvent event) {
+        SceneLoaderController.loadScene(FXMLFiles.TRANSLATE_TEXT_SCENE);
     }
-    public void selectExperimentGameFunc(ActionEvent event) throws IOException {
-        SceneLoaderController.loadScene(event, "ExperimentGameScene.fxml");
+    public void selectExperimentGameFunc(ActionEvent event) {
+        SceneLoaderController.loadScene(FXMLFiles.EXPERIMENT_GAME_SCENE);
     }
 
     public void selectCommandline(ActionEvent event) {
-        SceneLoaderController.exitApp(event);
-        SelectTypeSceneController.setIsUsingCommandline(true);
+        SceneLoaderController.exitApp();
+        DictionaryExecution.Run();
     }
 
     public void selectExitApp(ActionEvent event) {
         DictionaryData.writeData(Dictionary.Type.EN_VI, EnViDictionary.getInstance().getWords(), EnViDictionary.getInstance().getKeyWords());
-        SceneLoaderController.exitApp(event);
-        SceneLoaderController.exitApp(event);
+        SceneLoaderController.exitApp();
+        SceneLoaderController.exitApp();
     }
 }

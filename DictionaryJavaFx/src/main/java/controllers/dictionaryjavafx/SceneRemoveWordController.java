@@ -1,5 +1,6 @@
 package controllers.dictionaryjavafx;
 
+import classes.FXMLFiles;
 import classes.dictionarycommandline.DictionaryExecution;
 import classes.dictionarycommandline.DictionaryManagement;
 import javafx.event.ActionEvent;
@@ -12,8 +13,6 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Dictionary;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class SceneRemoveWordController implements Initializable {
@@ -51,7 +50,7 @@ public class SceneRemoveWordController implements Initializable {
         }
     }
 
-    public void backToMainUIScene(ActionEvent event) throws IOException {
-        SceneLoaderController.loadScene(event, "MainUIScene.fxml");
+    public void backToMainUIScene(ActionEvent event) {
+        SceneLoaderController.loadScene(FXMLFiles.MAIN_UI_SCENE);
     }
 }
