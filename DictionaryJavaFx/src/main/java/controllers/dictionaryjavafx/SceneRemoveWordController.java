@@ -31,7 +31,6 @@ public class SceneRemoveWordController implements Initializable {
         String word = enterWordField.getText();
         word = word.toLowerCase().trim();
         if (DictionaryManagement.keyWords.contains(word)) {
-            System.out.println("aaaa");
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Remove word");
             alert.setHeaderText("Are you sure you want to delete this word?");
