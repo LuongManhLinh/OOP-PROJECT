@@ -12,17 +12,29 @@ import java.io.IOException;
 
 public class SceneLoaderController {
     public static void exitApp(ActionEvent event)  {
-//        Node node = (Node) event.getSource();
-//        Stage stage = (Stage) node.getScene().getWindow();
-        MenuItem menuItem = (MenuItem) event.getSource();
-        Stage stage = (Stage) menuItem.getParentPopup().getOwnerWindow();
+        Stage stage;
+        if (event.getSource() instanceof  Node) {
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        } else {
+            stage = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+        }
         stage.close();
     }
-    public static void loadScene(ActionEvent event, String dotFxmlFile) throws IOException {
-//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Stage stage = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+
+    public static void loadScene(ActionEvent event, String dotFxmlFile) {
+        Stage stage;
+        if (event.getSource() instanceof  Node) {
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        } else {
+            stage = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+        }
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(dotFxmlFile));
-        Scene scene = new Scene(fxmlLoader.load());
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         stage.setScene(scene);
         stage.show();
     }

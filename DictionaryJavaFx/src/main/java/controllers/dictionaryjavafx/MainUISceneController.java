@@ -142,8 +142,8 @@ public class MainUISceneController implements Initializable {
 
     }
 
-    public void selectRemoveWordFunc(ActionEvent event) {
-
+    public void selectRemoveWordFunc(ActionEvent event) throws IOException{
+        SceneLoaderController.loadScene(event, "removeWordScene.fxml");
     }
 
     public void translateText(ActionEvent event) throws IOException{
