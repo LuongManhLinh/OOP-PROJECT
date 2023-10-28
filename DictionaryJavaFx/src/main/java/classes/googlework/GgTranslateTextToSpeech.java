@@ -21,7 +21,6 @@ public class GgTranslateTextToSpeech {
         URL url = new URL(urlStr);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         InputStream audioSrc = con.getInputStream();
-        con.disconnect();
         return new BufferedInputStream(audioSrc);
     }
 

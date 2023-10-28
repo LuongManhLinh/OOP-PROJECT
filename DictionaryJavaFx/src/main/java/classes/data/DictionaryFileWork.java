@@ -7,8 +7,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.TreeSet;
 
-public class DictionaryFileWork
-{
+public class DictionaryFileWork {
     public static void importAllWords(String filePath, HashMap<String, String> words, ArrayList<String> keyWords){
         Scanner fileScanner;
         try {

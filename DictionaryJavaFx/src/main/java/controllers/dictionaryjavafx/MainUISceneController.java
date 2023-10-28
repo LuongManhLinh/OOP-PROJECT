@@ -4,6 +4,7 @@ import classes.DictionaryManagementForApp;
 import classes.EnViDictionary;
 import classes.FXMLFiles;
 import classes.data.DictionaryData;
+import classes.data.WordWork;
 import classes.dictionarycommandline.DictionaryExecution;
 import classes.googlework.GgTranslateTextToSpeech;
 import com.almasb.fxgl.entity.action.Action;
@@ -44,16 +45,6 @@ public class MainUISceneController implements Initializable {
         imageSpeaker.setVisible(false);
         // khung nhìn hiển thị được tối đa 10 kết quả, nếu nhiều hơn phải cuộn xuống để xem
         searchingResultList.setMaxHeight(10 * searchingResultList.getFixedCellSize());
-
-        searchingResultList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                //cài đặt hiển thị nghĩa
-            }
-        });
-
-        handleSearching();
-
         searchingResultList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
@@ -64,10 +55,11 @@ public class MainUISceneController implements Initializable {
                 if(selectedWord != null) {
                     String meanings = DictionaryManagementForApp.getMeaning(selectedWord, Dictionary.Type.EN_VI);
                     WebEngine webEngine = webView.getEngine();
-                    webEngine.loadContent(meanings);
+                    webEngine.loadContent(WordWork.toHTMLMeaningStyle(meanings));
                 }
             }
         });
+        handleSearching();
     }
 
     private void handleSearching(){
