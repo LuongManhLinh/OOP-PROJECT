@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.FixWordSceneController">
+   <children>
+      <Button fx:id="backToMainUIButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUIScene" text="Quay lại" />
+      <TextField fx:id="enterWordField" layoutX="339.0" layoutY="141.0" prefHeight="26.0" prefWidth="321.0" promptText="Nhập từ cần sửa" />
+      <ListView fx:id="searchingResultList" fixedCellSize="25.0" layoutX="339.0" layoutY="167.0" prefHeight="270.0" prefWidth="322.0" />
+      <Button fx:id="fixWordButton" layoutX="670.0" layoutY="141.0" mnemonicParsing="false" onAction="#getOldWord" text="Sửa từ" />
+      <TextField fx:id="enterNewWordField" layoutX="338.0" layoutY="141.0" prefHeight="26.0" prefWidth="322.0" promptText="Nhập từ mới" />
+      <Button fx:id="saveButton" layoutX="482.0" layoutY="182.0" mnemonicParsing="false" onAction="#saveNewWord" text="Lưu" />
+      <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="85.0" prefHeight="0.0" prefWidth="1000.0" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="backToSelectWordButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#setBackToSelectWordButton" text="Quay lại" />
+   </children>
+</AnchorPane>

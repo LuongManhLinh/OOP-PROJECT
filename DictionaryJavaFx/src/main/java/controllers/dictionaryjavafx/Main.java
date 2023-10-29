@@ -12,7 +12,7 @@ public class Main extends Application {
     public void start(Stage stage) {
         stage.setTitle("Dictionary");
         SceneLoaderController.setStage(stage);
-        SceneLoaderController.loadScene(FXMLFiles.MAIN_UI_SCENE);
+        SceneLoaderController. loadScene(FXMLFiles.MAIN_UI_SCENE);
         stage.show();
 
         DictionaryData.loadData();

@@ -7,7 +7,6 @@ import classes.data.DictionaryData;
 import classes.data.WordWork;
 import classes.dictionarycommandline.DictionaryExecution;
 import classes.googlework.GgTranslateTextToSpeech;
-import com.almasb.fxgl.entity.action.Action;
 import javafx.animation.AnimationTimer;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -16,15 +15,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import javazoom.jl.decoder.JavaLayerException;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -32,29 +28,27 @@ import java.util.ResourceBundle;
 public class MainUISceneController implements Initializable {
     @FXML private TextField wordEnteringField;
     @FXML private ListView<String> searchingResultList;
-    @FXML private WebView webView;
+    @FXML private WebView meaningWebView;
     @FXML private MenuBar menuBar;
-    @FXML private ImageView imageSpeaker;
+    @FXML private Button searchingTypeButton;
+    @FXML private Button speakButton;
     private String oldKeyWord = "";
+    private Dictionary.Type searchingType = Dictionary.Type.EN_VI;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        searchingResultList.setVisible(false);
-        webView.setVisible(false);
-        imageSpeaker.setVisible(false);
+        hide();
         // khung nhìn hiển thị được tối đa 10 kết quả, nếu nhiều hơn phải cuộn xuống để xem
-        searchingResultList.setMaxHeight(10 * searchingResultList.getFixedCellSize());
+        searchingResultList.setMaxHeight(20 * searchingResultList.getFixedCellSize());
         searchingResultList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
                 //cài đặt hiển thị nghĩa
-                imageSpeaker.setVisible(true);
-                webView.setVisible(true);
                 String selectedWord = searchingResultList.getSelectionModel().getSelectedItem();
                 if(selectedWord != null) {
-                    String meanings = DictionaryManagementForApp.getMeaning(selectedWord, Dictionary.Type.EN_VI);
-                    WebEngine webEngine = webView.getEngine();
+                    show();
+                    String meanings = DictionaryManagementForApp.getMeaning(selectedWord, searchingType);
+                    WebEngine webEngine = meaningWebView.getEngine();
                     webEngine.loadContent(WordWork.toHTMLMeaningStyle(meanings));
                 }
             }
@@ -69,12 +63,12 @@ public class MainUISceneController implements Initializable {
             public void handle(long l) {
                 String keyWord = wordEnteringField.getText();
                     oldKeyWord = keyWord;
-                ArrayList<String> searchingResult = DictionaryManagementForApp.lookUp(keyWord, Dictionary.Type.EN_VI);
+                ArrayList<String> searchingResult = DictionaryManagementForApp.lookUp(keyWord, searchingType);
                 if (!searchingResult.isEmpty()) {
                     searchingResultList.setVisible(true);
                     searchingResultList.getItems().setAll(searchingResult);
                     // điều chỉnh khung nhìn chỉ đủ để hiển thị kết quả
-                    // nếu số kết quả lớn hơn 10 thì cũng chỉ hiển thị 10
+                    // nếu số kết quả lớn hơn 20 thì cũng chỉ hiển thị 20
                     searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
                 } else {
                     searchingResultList.setVisible(false);
@@ -108,15 +102,48 @@ public class MainUISceneController implements Initializable {
                         });
                     }
                 }
+
+                if (wordEnteringField.getText().isEmpty()) {
+                    hide();
+                }
             }
         };
 
         wordEnteringTimer.start();
         searchingManagementTimer.start();
     }
-    public void speakerFunc(MouseEvent event) {
-        String paragraph = oldKeyWord;
-        GgTranslateTextToSpeech.play(paragraph, "en");
+    
+    public void hide() {
+        meaningWebView.setVisible(false);
+        searchingResultList.setVisible(false);
+        speakButton.setVisible(false);
+    }
+
+    public void show() {
+        meaningWebView.setVisible(true);
+        speakButton.setVisible(true);
+    }
+
+    public void onSearchingTypeChanged(ActionEvent event) {
+        hide();
+        if (searchingType == Dictionary.Type.EN_VI) {
+            searchingType = Dictionary.Type.VI_EN;
+            searchingTypeButton.setText("VIỆT-ANH");
+        } else if (searchingType == Dictionary.Type.VI_EN) {
+            searchingType = Dictionary.Type.EN_VI;
+            searchingTypeButton.setText("ANH-VIỆT");
+        }
+    }
+
+    public void speakerFunc(ActionEvent event) {
+        String paragraph = searchingResultList.getSelectionModel().getSelectedItem();
+        if (paragraph != null && !paragraph.isEmpty()) {
+            if (searchingType == Dictionary.Type.EN_VI) {
+                GgTranslateTextToSpeech.play(paragraph, "en");
+            } else if (searchingType == Dictionary.Type.VI_EN) {
+                GgTranslateTextToSpeech.play(paragraph, "vi");
+            }
+        }
     }
 
     public void selectInsertWordFunc(ActionEvent event) {
@@ -131,7 +158,7 @@ public class MainUISceneController implements Initializable {
     }
 
     public void selectFixWordFunc(ActionEvent event) {
-
+        SceneLoaderController.loadScene(FXMLFiles.FIX_WORD_SCENE);
     }
 
     public void selectRemoveWordFunc(ActionEvent event) {
