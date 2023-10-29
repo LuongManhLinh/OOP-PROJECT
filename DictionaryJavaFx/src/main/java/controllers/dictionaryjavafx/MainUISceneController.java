@@ -134,7 +134,7 @@ public class MainUISceneController implements Initializable {
     }
 
     public void selectFixWordFunc(ActionEvent event) {
-
+        SceneLoaderController.loadScene(FXMLFiles.FIX_WORD_SCENE);
     }
 
     public void selectRemoveWordFunc(ActionEvent event) {
