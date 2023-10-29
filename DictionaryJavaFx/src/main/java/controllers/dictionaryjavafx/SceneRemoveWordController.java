@@ -34,17 +34,20 @@ public class SceneRemoveWordController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         viewRemoveText.setVisible(false);
 //        viewRemoveText.setMaxHeight(10 * viewRemoveText.getFixedCellSize());
-//
-        handleSearching();
+
         viewRemoveText.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
                 //cài đặt hiển thị nghĩa
                 String selectedWord = viewRemoveText.getSelectionModel().getSelectedItem();
-                keyCurrent = selectedWord;
+                if (selectedWord == null) {
+                    keyCurrent = "";
+                } else
+                    keyCurrent = selectedWord;
                 enterWordField.setText(selectedWord);
             }
         });
+        handleSearching();
     }
 
     private void handleSearching() {
@@ -53,11 +56,13 @@ public class SceneRemoveWordController implements Initializable {
             @Override
             public void handle(long l) {
                 String keyWord = enterWordField.getText();
-                keyCurrent = keyWord;
+                if (keyWord == null)
+                    keyCurrent = "";
+                else
+                    keyCurrent = keyWord;
 
                 ArrayList<String> searchingResult = DictionaryManagementForApp.lookUp(keyWord, Dictionary.Type.EN_VI);
                 if (!searchingResult.isEmpty()) {
-                    System.out.println(searchingResult.size());
                     viewRemoveText.setVisible(true);
                     viewRemoveText.getItems().setAll(searchingResult);
                     // điều chỉnh khung nhìn chỉ đủ để hiển thị kết quả
@@ -109,16 +114,16 @@ public class SceneRemoveWordController implements Initializable {
             if (alert.showAndWait().get() == ButtonType.OK) {
                 DictionaryManagement.keyWords.remove(word);
                 DictionaryManagement.words.remove(word);
-                enterWordField.setText("");
-                viewRemoveText.getItems().clear();
                 viewRemoveText.setVisible(false);
+                enterWordField.setText("");
+                keyCurrent = enterWordField.getText();
+                viewRemoveText.getItems().clear();
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Not found");
             alert.setHeaderText("The word you entered is invalid, please try again");
-            if (alert.showAndWait().get() == ButtonType.OK) {
-            }
+            alert.show();
         }
     }
 

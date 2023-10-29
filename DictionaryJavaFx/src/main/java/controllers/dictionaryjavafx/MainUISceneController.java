@@ -52,8 +52,6 @@ public class MainUISceneController implements Initializable {
                 imageSpeaker.setVisible(true);
                 webView.setVisible(true);
                 String selectedWord = searchingResultList.getSelectionModel().getSelectedItem();
-                oldKeyWord = selectedWord;
-                wordEnteringField.setText(selectedWord);
                 if(selectedWord != null) {
                     String meanings = DictionaryManagementForApp.getMeaning(selectedWord, Dictionary.Type.EN_VI);
                     WebEngine webEngine = webView.getEngine();
@@ -70,8 +68,7 @@ public class MainUISceneController implements Initializable {
             @Override
             public void handle(long l) {
                 String keyWord = wordEnteringField.getText();
-                oldKeyWord = keyWord;
-
+                    oldKeyWord = keyWord;
                 ArrayList<String> searchingResult = DictionaryManagementForApp.lookUp(keyWord, Dictionary.Type.EN_VI);
                 if (!searchingResult.isEmpty()) {
                     searchingResultList.setVisible(true);
@@ -116,7 +113,6 @@ public class MainUISceneController implements Initializable {
 
         wordEnteringTimer.start();
         searchingManagementTimer.start();
-
     }
     public void speakerFunc(MouseEvent event) {
         String paragraph = oldKeyWord;
@@ -132,7 +128,6 @@ public class MainUISceneController implements Initializable {
     }
 
     public void selectAddMeaningFunc(ActionEvent event) {
-        SceneLoaderController.loadScene(FXMLFiles.ADD_MEANING_SCENE);
     }
 
     public void selectFixWordFunc(ActionEvent event) {
