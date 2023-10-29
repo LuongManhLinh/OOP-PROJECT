@@ -9,8 +9,9 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.SceneRemoveWordController">
    <children>
-      <TextField fx:id="enterWordField" layoutX="374.0" layoutY="269.0" prefHeight="31.0" prefWidth="244.0" promptText="Nhập từ cần xoá" />
-      <Button fx:id="removeButton" layoutX="464.0" layoutY="300.0" mnemonicParsing="false" onAction="#removeWordFunc" text="remove" />
+      <TextField fx:id="enterWordField" layoutX="263.0" layoutY="207.0" prefHeight="31.0" prefWidth="244.0" promptText="Nhập từ cần xoá" />
+      <Button fx:id="removeButton" layoutX="529.0" layoutY="207.0" mnemonicParsing="false" onAction="#removeWordFunc" text="remove" />
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUIScene" text="back" />
+      <ListView fx:id="viewRemoveText" layoutX="263.0" layoutY="238.0" prefHeight="225.0" prefWidth="244.0" />
    </children>
 </AnchorPane>

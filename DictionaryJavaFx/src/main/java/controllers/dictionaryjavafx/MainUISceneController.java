@@ -140,7 +140,7 @@ public class MainUISceneController implements Initializable {
     }
 
     public void selectAddMeaningFunc(ActionEvent event) {
-        SceneLoaderController.loadScene(event, "addMeaningScene.fxml");
+        SceneLoaderController.loadScene(FXMLFiles.ADD_MEANING_SCENE);
     }
 
     public void selectFixWordFunc(ActionEvent event) {
