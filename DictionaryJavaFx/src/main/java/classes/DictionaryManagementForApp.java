@@ -8,6 +8,7 @@ public class DictionaryManagementForApp {
         if (keyWord != null && !keyWord.isEmpty()) {
             keyWord = keyWord.trim();
             if (type == Dictionary.Type.EN_VI) {
+                keyWord = keyWord.toLowerCase();
                 for (String eachWord : EnViDictionary.getInstance().keyWords) {
                     if (eachWord.indexOf(keyWord) == 0) {
                         result.add(eachWord);

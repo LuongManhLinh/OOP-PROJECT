@@ -38,7 +38,29 @@ public class MainUISceneController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         hide();
-        // khung nhìn hiển thị được tối đa 10 kết quả, nếu nhiều hơn phải cuộn xuống để xem
+
+        wordEnteringField.setOnKeyPressed(keyEvent -> {
+            if (!searchingResultList.getItems().isEmpty()) {
+                if (keyEvent.getCode() == KeyCode.ENTER || keyEvent.getCode() == KeyCode.DOWN) {
+                    searchingResultList.getSelectionModel().select(0);
+                    searchingResultList.requestFocus();
+                }
+            }
+        });
+
+        searchingResultList.setOnKeyPressed(keyEvent -> {
+            if (!searchingResultList.getItems().isEmpty()) {
+                if (keyEvent.getCode() == KeyCode.BACK_SPACE) {
+                    wordEnteringField.requestFocus();
+                } else if (keyEvent.getCode() == KeyCode.UP) {
+                    if (searchingResultList.getSelectionModel().getSelectedIndex() == 0) {
+                        wordEnteringField.requestFocus();
+                    }
+                }
+            }
+        });
+
+        // khung nhìn hiển thị được tối đa 20 kết quả, nếu nhiều hơn phải cuộn xuống để xem
         searchingResultList.setMaxHeight(20 * searchingResultList.getFixedCellSize());
         searchingResultList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -62,11 +84,12 @@ public class MainUISceneController implements Initializable {
             @Override
             public void handle(long l) {
                 String keyWord = wordEnteringField.getText();
-                    oldKeyWord = keyWord;
+                oldKeyWord = keyWord;
                 ArrayList<String> searchingResult = DictionaryManagementForApp.lookUp(keyWord, searchingType);
                 if (!searchingResult.isEmpty()) {
                     searchingResultList.setVisible(true);
                     searchingResultList.getItems().setAll(searchingResult);
+                    searchingResultList.getSelectionModel().select(0);
                     // điều chỉnh khung nhìn chỉ đủ để hiển thị kết quả
                     // nếu số kết quả lớn hơn 20 thì cũng chỉ hiển thị 20
                     searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
@@ -83,24 +106,8 @@ public class MainUISceneController implements Initializable {
                 // nếu đang tương tác với kết quả hay không thay đổi chuỗi tìm kiếm thì sẽ dừng tìm kiếm
                 if (searchingResultList.isFocused() || oldKeyWord.equals(wordEnteringField.getText())) {
                     wordEnteringTimer.stop();
-//                    System.out.println("if");
                 } else {
                     wordEnteringTimer.start();
-
-                    // xử lí để khi nhấn enter thì nhảy xuống danh sách kết quả
-                    if (wordEnteringField.isFocused()) {
-//                        System.out.println("f");
-                        Scene scene = wordEnteringField.getScene();
-                        scene.setOnKeyPressed(event -> {
-                            if (event.getCode() == KeyCode.ENTER ) {
-//                                System.out.println("else");
-                                if (!searchingResultList.getItems().isEmpty()) {
-                                    searchingResultList.requestFocus();
-                                    searchingResultList.getSelectionModel().select(0);
-                                }
-                            }
-                        });
-                    }
                 }
 
                 if (wordEnteringField.getText().isEmpty()) {
@@ -125,6 +132,7 @@ public class MainUISceneController implements Initializable {
     }
 
     public void onSearchingTypeChanged(ActionEvent event) {
+        oldKeyWord = "";
         hide();
         if (searchingType == Dictionary.Type.EN_VI) {
             searchingType = Dictionary.Type.VI_EN;

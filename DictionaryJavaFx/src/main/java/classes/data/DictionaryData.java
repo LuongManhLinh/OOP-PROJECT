@@ -11,8 +11,8 @@ public class DictionaryData {
     private static HashMap<String, String> engWords = new HashMap<>();
     private static TreeSet<String> viKeyWords = new TreeSet<>();
 
-    private static final String EN_VI_PATH = "src/main/resources/anhvietData.txt";
-    private static final String VI_EN_PATH = "src/main/resources/vietanhData.txt";
+    private static final String EN_VI_PATH = "src/main/resources/data/anhvietData.txt";
+    private static final String VI_EN_PATH = "src/main/resources/data/vietanhData.txt";
 
 
 

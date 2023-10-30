@@ -7,4 +7,5 @@ public class FXMLFiles {
     public static String FIX_WORD_SCENE = "FixWordScene.fxml";
     public static String REMOVE_WORD_SCENE = "removeWordScene.fxml";
     public static String TRANSLATE_TEXT_SCENE = "translateTextScene.fxml";
+    public static String LOADING_SCENE = "LoadingScene.fxml";
 }
