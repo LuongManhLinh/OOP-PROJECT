@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.EditMeaningSceneController">
+   <children>
+      <Button fx:id="backToMainUIButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUIScene" text="Quay lại" />
+      <TextField fx:id="wordEnteringField" layoutX="182.0" layoutY="66.0" prefHeight="35.0" prefWidth="227.0" promptText="Nhập từ cần tra" />
+      <ListView fx:id="searchingResultList" fixedCellSize="25.0" layoutX="182.0" layoutY="101.0" prefHeight="500.0" prefWidth="227.0" />
+      <WebView fx:id="meaningWebView" layoutX="419.0" layoutY="66.0" prefHeight="535.0" prefWidth="463.0" />
+      <Button fx:id="FixMeaningButton" layoutX="904.0" layoutY="66.0" mnemonicParsing="false" onAction="#FixMeaning" text="Sửa nghĩa" />
+      <TextArea fx:id="editMeaningArea" layoutX="202.0" layoutY="66.0" prefHeight="398.0" prefWidth="596.0" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
+      <Button fx:id="saveButton" layoutX="817.0" layoutY="66.0" mnemonicParsing="false" onAction="#saveNewMeaning" text="Lưu" />
+      <Button fx:id="backToSelectWordButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToSelectWord" text="Quay lại" />
+      <Label fx:id="noteLabel" alignment="TOP_LEFT" layoutX="202.0" layoutY="479.0" prefHeight="106.0" prefWidth="596.0" text="quy định đặt nghĩa:                                                                                                                                                   @ cộng với tiêu đề của từ                                                                                                                                           * cộng với loại từ (danh từ, động từ...)                                                                                                                          - cộng với nghĩa                                                                                                                                                         = cộng với ví dụ                                                                                                                                                           ! cộng với kiểu mở rộng từ khi kết hợp với từ khác (ví dụ từ take có to take earth)" textFill="#e40e0e" wrapText="true">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

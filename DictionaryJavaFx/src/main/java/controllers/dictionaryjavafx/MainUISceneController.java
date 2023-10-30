@@ -171,7 +171,7 @@ public class MainUISceneController implements Initializable {
     }
 
     public void selectFixMeaningFunc(ActionEvent event) {
-
+        SceneLoaderController.loadScene(FXMLFiles.EDIT_MEANING_SCENE);
     }
 
     public void selectAddMeaningFunc(ActionEvent event) {
