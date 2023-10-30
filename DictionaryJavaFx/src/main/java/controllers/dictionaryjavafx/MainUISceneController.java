@@ -13,11 +13,8 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
@@ -44,6 +41,21 @@ public class MainUISceneController implements Initializable {
                 if (keyEvent.getCode() == KeyCode.ENTER || keyEvent.getCode() == KeyCode.DOWN) {
                     searchingResultList.getSelectionModel().select(0);
                     searchingResultList.requestFocus();
+                }
+            }
+            if (!searchingResultList.isVisible()){
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    String text = wordEnteringField.getText();
+                    if (text != null && !text.isEmpty()) {
+                        SceneLoaderController.loadScene(FXMLFiles.TRANSLATE_TEXT_SCENE);
+                        if (searchingType == Dictionary.Type.EN_VI) {
+                            SceneTranslateTextController.getInstance().setTextAndLang(text,
+                                    SceneTranslateTextController.languages[1], SceneTranslateTextController.languages[0]);
+                        } else if (searchingType == Dictionary.Type.VI_EN) {
+                            SceneTranslateTextController.getInstance().setTextAndLang(text,
+                                    SceneTranslateTextController.languages[0], SceneTranslateTextController.languages[1]);
+                        }
+                    }
                 }
             }
         });

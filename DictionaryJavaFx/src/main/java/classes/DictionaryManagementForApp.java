@@ -20,6 +20,14 @@ public class DictionaryManagementForApp {
                         result.add(eachWord);
                     }
                 }
+                if (result.isEmpty()) {
+                    keyWord = keyWord.toLowerCase();
+                    for (String eachWord : ViEnDictionary.getInstance().keyWords) {
+                        if (eachWord.toLowerCase().indexOf(keyWord) == 0) {
+                            result.add(eachWord);
+                        }
+                    }
+                }
             }
         }
         return result;

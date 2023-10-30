@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
@@ -14,35 +15,94 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
 import java.net.URL;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class SceneTranslateTextController implements Initializable{
-    @FXML
-    private Label label;
-    @FXML
-    private TextArea textTranslate;
-    @FXML
-    private Pane pane;
-    @FXML
-    private Button translate;
-    @FXML
-    private ImageView imageSpeaker;
-    @FXML private Button backButton;
+    @FXML private TextArea textTranslateArea;
+    @FXML private TextArea textResultArea;
+    @FXML private ChoiceBox<String> langFromChoiceBox;
+    @FXML private ChoiceBox<String> langToChoiceBox;
+
+    private String langFrom;
+    private String langTo;
+    private static SceneTranslateTextController instance;
+
+    public static final String[] languages = {
+            "Tiếng Việt",
+            "Tiếng Anh",
+            "Tiếng Pháp",
+            "Tiếng Nhật",
+            "Tiếng Đức",
+            "Tiếng Nga",
+            "Tiếng Tây Ban Nha",
+            "Tiếng Trung"
+    };
+
+    public static final HashMap<String, String> symbol = new HashMap<>();
+    public static SceneTranslateTextController getInstance() {
+        return instance;
+    }
 
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle){
+        instance = this;
+        symbol.put(languages[0], "vi");
+        symbol.put(languages[1], "en");
+        symbol.put(languages[2], "fr");
+        symbol.put(languages[3], "ja");
+        symbol.put(languages[4], "de");
+        symbol.put(languages[5], "ru");
+        symbol.put(languages[6], "es");
+        symbol.put(languages[7], "zh");
+
+        langFromChoiceBox.getItems().setAll(languages);
+        langToChoiceBox.getItems().setAll(languages);
+
+        langFromChoiceBox.setOnAction(event -> {
+            langFrom = symbol.get(langFromChoiceBox.getValue());
+        });
+
+        langToChoiceBox.setOnAction(event -> {
+            langTo = symbol.get(langToChoiceBox.getValue());
+        });
+
+        langFromChoiceBox.getSelectionModel().select(1);
+        langToChoiceBox.getSelectionModel().select(0);
     }
-    public void translateFunc(ActionEvent event) {
-        String paragraph = textTranslate.getText();
-        String translateParagraph = GgTranslateAPI.translate("en", "vi", paragraph);
-        label.setText(translateParagraph);
+
+    public void translate() {
+        String paragraph = textTranslateArea.getText();
+        if (!paragraph.isEmpty()) {
+            String translateParagraph = GgTranslateAPI.translate(langFrom, langTo, paragraph);
+            textResultArea.setText(translateParagraph);
+        }
     }
-    public void speakerFunc(MouseEvent event) {
-        String paragraph = textTranslate.getText();
-        GgTranslateTextToSpeech.play(paragraph, "en");
+    public void translate(ActionEvent event) {
+        translate();
+    }
+
+    public void speakLangFromText(ActionEvent event) {
+        String paragraph = textTranslateArea.getText();
+        if (paragraph != null && !paragraph.isEmpty()) {
+            GgTranslateTextToSpeech.play(paragraph, langFrom);
+        }
+    }
+
+    public void speakLangToText(ActionEvent event) {
+        String paragraph = textResultArea.getText();
+        if (paragraph != null && !paragraph.isEmpty()) {
+            GgTranslateTextToSpeech.play(paragraph, langTo);
+        }
     }
 
     public void backToMainUIScene(ActionEvent event) {
         SceneLoaderController.loadScene(FXMLFiles.MAIN_UI_SCENE);
+    }
+
+    public void setTextAndLang(String text, String langFrom, String langTo) {
+        textTranslateArea.setText(text);
+        langFromChoiceBox.getSelectionModel().select(langFrom);
+        langToChoiceBox.getSelectionModel().select(langTo);
     }
 }

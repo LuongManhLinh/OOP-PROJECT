@@ -6,22 +6,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.LoadingSceneController">
    <children>
-      <Label layoutX="202.0" layoutY="212.0" text="TỪ ĐIỂN HCL">
+      <Label layoutX="97.0" layoutY="154.0" text="TỪ ĐIỂN HCL">
          <font>
             <Font name="System Bold" size="96.0" />
          </font>
       </Label>
-      <Label layoutX="108.0" layoutY="506.0" text="đang tải dữ liệu...">
+      <Label layoutX="163.0" layoutY="429.0" text="đang tải dữ liệu...">
          <font>
             <Font name="System Italic" size="54.0" />
          </font>
       </Label>
-      <ImageView fitHeight="93.0" fitWidth="73.0" layoutX="35.0" layoutY="509.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="93.0" fitWidth="73.0" layoutX="61.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../image/sandClock.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="786.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/icon.png" />
          </image>
       </ImageView>
    </children>
