@@ -3,6 +3,7 @@ package controllers.dictionaryjavafx;
 import classes.ExperimentGameClasses.Answer;
 import classes.ExperimentGameClasses.BottleImages;
 import classes.ExperimentGameClasses.Result;
+import classes.FXMLFiles;
 import classes.data.GameData;
 import classes.makerandom.MakeRandom;
 import javafx.animation.AnimationTimer;
@@ -97,6 +98,15 @@ public class ExperimentGameController implements Initializable {
             });
         }
 
+        questionLabel.setOnMouseEntered(event -> {
+            choosingAnswerLabel.setVisible(true);
+            choosingAnswerLabel.setText(questionLabel.getText());
+        });
+
+        questionLabel.setOnMouseExited(event -> {
+            choosingAnswerLabel.setVisible(false);
+        });
+
         installTable();
         changeScene(Status.START_GAME);
     }
@@ -143,6 +153,10 @@ public class ExperimentGameController implements Initializable {
         EnglishKeyWords = GameData.getNormalEnglishKeyWords();
         changeScene(Status.IN_GAME);
         reset();
+    }
+
+    public void onQuit(ActionEvent event) {
+        SceneLoaderController.loadScene(FXMLFiles.MAIN_UI_SCENE);
     }
 
     public void onAnswerClicked(ActionEvent event) {

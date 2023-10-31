@@ -34,7 +34,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Button fx:id="speakButton" focusTraversable="false" layoutX="409.0" layoutY="5.0" mnemonicParsing="false" onAction="#speakerFunc" stylesheets="@../../ButtonStyles.css">
+      <Button fx:id="speakButton" focusTraversable="false" layoutX="409.0" layoutY="5.0" mnemonicParsing="false" onAction="#speakerFunc" prefHeight="26.0" prefWidth="32.0" stylesheets="@../../ButtonStyles.css">
          <graphic>
             <ImageView fitHeight="95.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                <image>

@@ -12,7 +12,12 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.ExperimentGameController">
    <children>
-      <AnchorPane fx:id="startGamePane" prefHeight="600.0" prefWidth="1000.0" visible="false">
+      <ImageView fx:id="successLight" fitHeight="350.0" fitWidth="350.0" layoutX="100.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../gameAssets/ExperimentGame/light.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="startGamePane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(230, 220, 220);" visible="false">
          <children>
             <Label layoutX="229.0" layoutY="47.0" text="EXPERIMENT GAME">
                <font>
@@ -39,14 +44,19 @@
                   <Image url="@../../gameAssets/ExperimentGame/purple-90.png" />
                </image>
             </ImageView>
-            <Button focusTraversable="false" layoutX="420.0" layoutY="247.0" mnemonicParsing="false" onAction="#onEasyModeClicked" text="EASY">
+            <Button focusTraversable="false" layoutX="419.0" layoutY="219.0" mnemonicParsing="false" onAction="#onEasyModeClicked" text="EASY">
                <font>
                   <Font name="Jokerman" size="40.0" />
                </font>
             </Button>
-            <Button focusTraversable="false" layoutX="379.0" layoutY="401.0" mnemonicParsing="false" onAction="#onNormalModeClicked" text="NORMAL">
+            <Button focusTraversable="false" layoutX="379.0" layoutY="361.0" mnemonicParsing="false" onAction="#onNormalModeClicked" text="NORMAL">
                <font>
                   <Font name="Jokerman" size="40.0" />
+               </font>
+            </Button>
+            <Button focusTraversable="false" layoutX="451.0" layoutY="510.0" mnemonicParsing="false" onAction="#onQuit" text="QUIT">
+               <font>
+                  <Font name="Jokerman" size="25.0" />
                </font>
             </Button>
          </children>
@@ -139,7 +149,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="endGamePane" prefHeight="600.0" prefWidth="1000.0" visible="false">
+      <AnchorPane fx:id="endGamePane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(230, 220, 220);" visible="false">
          <children>
             <Label fx:id="endGameLabel" alignment="CENTER" layoutX="279.0" layoutY="14.0" prefHeight="61.0" prefWidth="708.0" text="Excellent! Successful experiment!" textAlignment="CENTER" wrapText="true">
                <font>
@@ -171,11 +181,6 @@
       <ImageView fx:id="resultBottle" fitHeight="229.0" fitWidth="221.0" layoutX="180.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../gameAssets/ExperimentGame/mainBottle.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="successLight" fitHeight="350.0" fitWidth="350.0" layoutX="100.0" pickOnBounds="true" preserveRatio="true" visible="false">
-         <image>
-            <Image url="@../../gameAssets/ExperimentGame/light.png" />
          </image>
       </ImageView>
    </children>

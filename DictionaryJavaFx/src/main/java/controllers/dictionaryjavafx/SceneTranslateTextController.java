@@ -74,10 +74,15 @@ public class SceneTranslateTextController implements Initializable{
     public void translate() {
         String paragraph = textTranslateArea.getText();
         if (!paragraph.isEmpty()) {
-            String translateParagraph = GgTranslateAPI.translate(langFrom, langTo, paragraph);
-            textResultArea.setText(translateParagraph);
+            if (langFrom.equals(langTo)) {
+                textResultArea.setText(paragraph);
+            } else {
+                String translateParagraph = GgTranslateAPI.translate(langFrom, langTo, paragraph);
+                textResultArea.setText(translateParagraph);
+            }
         }
     }
+
     public void translate(ActionEvent event) {
         translate();
     }
