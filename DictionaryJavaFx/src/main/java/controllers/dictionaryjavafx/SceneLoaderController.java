@@ -1,5 +1,10 @@
 package controllers.dictionaryjavafx;
 
+import classes.Dictionary;
+import classes.EnViDictionary;
+import classes.ViEnDictionary;
+import classes.data.DictionaryData;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -11,10 +16,14 @@ public class SceneLoaderController {
 
     public static void setStage(Stage stage) {
         SceneLoaderController.stage = stage;
+        stage.setOnCloseRequest(event -> {
+//            DictionaryData.writeData(Dictionary.Type.EN_VI, EnViDictionary.getInstance().getWords(), EnViDictionary.getInstance().getKeyWords());
+//            DictionaryData.writeData(Dictionary.Type.VI_EN, ViEnDictionary.getInstance().getWords(), ViEnDictionary.getInstance().getKeyWords());
+        });
     }
 
-    public static void exitApp()  {
-        stage.close();
+    public static void exitApp() {
+        Platform.exit();
     }
 
     public static void loadScene(String dotFxmlFile) {

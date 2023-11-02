@@ -8,6 +8,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class GgTranslateAPI {
+    public static String errorString = "|o!d^x<@";
     private static BufferedReader connect(String langFrom, String langTo, String text) throws IOException {
         String urlStr = "https://script.google.com/macros/s/AKfycbxQ0-fILOpnen_t4Sg17ityIpkpgq8aHVGjf-fOedVCYQ3XrNpPVqt8bYUNWK5_CUI-9Q/exec" +
                 "?q=" + URLEncoder.encode(text, "UTF-8") +
@@ -36,7 +37,7 @@ public class GgTranslateAPI {
             in.close();
             return response.toString();
         } catch (IOException e) {
-            return "Connection Error!";
+            return errorString;
         }
     }
 }

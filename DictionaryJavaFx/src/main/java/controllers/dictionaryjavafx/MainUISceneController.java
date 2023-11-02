@@ -8,6 +8,8 @@ import classes.data.WordWork;
 import classes.dictionarycommandline.DictionaryExecution;
 import classes.googlework.GgTranslateTextToSpeech;
 import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -17,6 +19,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -29,6 +32,7 @@ public class MainUISceneController implements Initializable {
     @FXML private MenuBar menuBar;
     @FXML private Button searchingTypeButton;
     @FXML private Button speakButton;
+    @FXML private Label errorLabel;
     private String oldKeyWord = "";
     private Dictionary.Type searchingType = Dictionary.Type.EN_VI;
 
@@ -158,10 +162,21 @@ public class MainUISceneController implements Initializable {
     public void speakerFunc(ActionEvent event) {
         String paragraph = searchingResultList.getSelectionModel().getSelectedItem();
         if (paragraph != null && !paragraph.isEmpty()) {
+            String response = "";
             if (searchingType == Dictionary.Type.EN_VI) {
-                GgTranslateTextToSpeech.play(paragraph, "en");
+                response = GgTranslateTextToSpeech.play(paragraph, "en");
             } else if (searchingType == Dictionary.Type.VI_EN) {
-                GgTranslateTextToSpeech.play(paragraph, "vi");
+                response = GgTranslateTextToSpeech.play(paragraph, "vi");
+            }
+
+            if (response.equals(GgTranslateTextToSpeech.errorString)) {
+                errorLabel.setVisible(true);
+                Timeline errorTime = new Timeline(
+                        new KeyFrame(Duration.millis(1000), waitEvent -> {
+                            errorLabel.setVisible(false);
+                        })
+                );
+                errorTime.play();
             }
         }
     }
@@ -198,8 +213,6 @@ public class MainUISceneController implements Initializable {
     }
 
     public void selectExitApp(ActionEvent event) {
-        DictionaryData.writeData(Dictionary.Type.EN_VI, EnViDictionary.getInstance().getWords(), EnViDictionary.getInstance().getKeyWords());
-        SceneLoaderController.exitApp();
         SceneLoaderController.exitApp();
     }
 }

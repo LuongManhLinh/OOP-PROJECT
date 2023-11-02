@@ -12,6 +12,7 @@ import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 
 public class GgTranslateTextToSpeech {
+    public static String errorString = "|o!d^x<@";
     public static InputStream getAudio(String text, String languageOutput) throws IOException {
         String urlStr = "https://translate.google.com/translate_tts?ie=UTF-8&tl="
                 + languageOutput
@@ -28,11 +29,12 @@ public class GgTranslateTextToSpeech {
         new Player(sound).play();
     }
 
-    public static void play(String text, String languageOutput) {
+    public static String play(String text, String languageOutput) {
         try {
             play(getAudio(text, languageOutput));
+            return "";
         } catch (JavaLayerException | IOException e) {
-            e.printStackTrace();
+            return errorString;
         }
     }
 }

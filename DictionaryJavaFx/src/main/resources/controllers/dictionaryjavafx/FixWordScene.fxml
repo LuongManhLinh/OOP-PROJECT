@@ -5,6 +5,8 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.FixWordSceneController">
    <children>
@@ -16,5 +18,12 @@
       <Button fx:id="saveButton" layoutX="482.0" layoutY="182.0" mnemonicParsing="false" onAction="#saveNewWord" text="Lưu" />
       <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="85.0" prefHeight="0.0" prefWidth="1000.0" textAlignment="CENTER" wrapText="true" />
       <Button fx:id="backToSelectWordButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#setBackToSelectWordButton" text="Quay lại" />
+      <VBox fx:id="vbox" layoutX="97.0" layoutY="200.0" prefHeight="26.0" prefWidth="101.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\@ cộng với tiêu đề" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="* cộng với loại từ" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="- cộng với nghĩa" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

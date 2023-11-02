@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class FixWordSceneController implements Initializable {
     @FXML private TextField enterWordField;
     @FXML private ListView<String> searchingResultList;
     @FXML private Label label;
+
 
     private String oldKeyWord = "";
     private String oldWord = "";

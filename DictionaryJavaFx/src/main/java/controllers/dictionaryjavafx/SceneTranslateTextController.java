@@ -3,6 +3,8 @@ package controllers.dictionaryjavafx;
 import classes.FXMLFiles;
 import classes.googlework.GgTranslateAPI;
 import classes.googlework.GgTranslateTextToSpeech;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,6 +15,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -23,6 +26,8 @@ public class SceneTranslateTextController implements Initializable{
     @FXML private TextArea textResultArea;
     @FXML private ChoiceBox<String> langFromChoiceBox;
     @FXML private ChoiceBox<String> langToChoiceBox;
+    @FXML private Label errorLabel;
+    private Timeline errorTimeLine;
 
     private String langFrom;
     private String langTo;
@@ -69,6 +74,12 @@ public class SceneTranslateTextController implements Initializable{
 
         langFromChoiceBox.getSelectionModel().select(1);
         langToChoiceBox.getSelectionModel().select(0);
+
+        errorTimeLine = new Timeline(
+                new KeyFrame(Duration.millis(1000), event -> {
+                    errorLabel.setVisible(false);
+                })
+        );
     }
 
     public void translate() {
@@ -78,7 +89,11 @@ public class SceneTranslateTextController implements Initializable{
                 textResultArea.setText(paragraph);
             } else {
                 String translateParagraph = GgTranslateAPI.translate(langFrom, langTo, paragraph);
-                textResultArea.setText(translateParagraph);
+                if (translateParagraph.equals(GgTranslateAPI.errorString)) {
+                    errorShown();
+                } else {
+                    textResultArea.setText(translateParagraph);
+                }
             }
         }
     }
@@ -90,14 +105,20 @@ public class SceneTranslateTextController implements Initializable{
     public void speakLangFromText(ActionEvent event) {
         String paragraph = textTranslateArea.getText();
         if (paragraph != null && !paragraph.isEmpty()) {
-            GgTranslateTextToSpeech.play(paragraph, langFrom);
+            String response = GgTranslateTextToSpeech.play(paragraph, langFrom);
+            if (response.equals(GgTranslateTextToSpeech.errorString)) {
+                errorShown();
+            }
         }
     }
 
     public void speakLangToText(ActionEvent event) {
         String paragraph = textResultArea.getText();
         if (paragraph != null && !paragraph.isEmpty()) {
-            GgTranslateTextToSpeech.play(paragraph, langTo);
+            String response = GgTranslateTextToSpeech.play(paragraph, langTo);
+            if (response.equals(GgTranslateTextToSpeech.errorString)) {
+                errorShown();
+            }
         }
     }
 
@@ -109,5 +130,10 @@ public class SceneTranslateTextController implements Initializable{
         textTranslateArea.setText(text);
         langFromChoiceBox.getSelectionModel().select(langFrom);
         langToChoiceBox.getSelectionModel().select(langTo);
+    }
+
+    private void errorShown() {
+        errorLabel.setVisible(true);
+        errorTimeLine.play();
     }
 }
