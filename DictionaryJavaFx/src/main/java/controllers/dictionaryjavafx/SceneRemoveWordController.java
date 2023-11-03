@@ -109,8 +109,8 @@ public class SceneRemoveWordController implements Initializable {
         word = word.toLowerCase().trim();
         if (DictionaryManagement.keyWords.contains(word)) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Remove word");
-            alert.setHeaderText("Are you sure you want to delete this word?");
+            alert.setTitle("Xóa từ");
+            alert.setHeaderText("Bạn có muốn xóa từ này không?");
             if (alert.showAndWait().get() == ButtonType.OK) {
                 DictionaryManagement.keyWords.remove(word);
                 DictionaryManagement.words.remove(word);
@@ -121,8 +121,8 @@ public class SceneRemoveWordController implements Initializable {
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Not found");
-            alert.setHeaderText("The word you entered is invalid, please try again");
+            alert.setTitle("Không tìm thấy từ");
+            alert.setHeaderText("Từ bạn nhập không hợp lệ, Vui lòng nhập lại");
             alert.show();
         }
     }

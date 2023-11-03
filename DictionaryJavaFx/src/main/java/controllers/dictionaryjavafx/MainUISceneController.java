@@ -1,9 +1,7 @@
 package controllers.dictionaryjavafx;
 import classes.Dictionary;
 import classes.DictionaryManagementForApp;
-import classes.EnViDictionary;
 import classes.FXMLFiles;
-import classes.data.DictionaryData;
 import classes.data.WordWork;
 import classes.dictionarycommandline.DictionaryExecution;
 import classes.googlework.GgTranslateTextToSpeech;
@@ -32,13 +30,16 @@ public class MainUISceneController implements Initializable {
     @FXML private MenuBar menuBar;
     @FXML private Button searchingTypeButton;
     @FXML private Button speakButton;
+    @FXML private Button editWordButton;
     @FXML private Label errorLabel;
     private String oldKeyWord = "";
+    private String selectedWord = "";
     private Dictionary.Type searchingType = Dictionary.Type.EN_VI;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         hide();
+
 
         wordEnteringField.setOnKeyPressed(keyEvent -> {
             if (!searchingResultList.getItems().isEmpty()) {
@@ -82,8 +83,9 @@ public class MainUISceneController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
                 //cài đặt hiển thị nghĩa
-                String selectedWord = searchingResultList.getSelectionModel().getSelectedItem();
+                selectedWord = searchingResultList.getSelectionModel().getSelectedItem();
                 if(selectedWord != null) {
+                    editWordButton.setVisible(true);
                     show();
                     String meanings = DictionaryManagementForApp.getMeaning(selectedWord, searchingType);
                     WebEngine webEngine = meaningWebView.getEngine();
@@ -140,6 +142,7 @@ public class MainUISceneController implements Initializable {
         meaningWebView.setVisible(false);
         searchingResultList.setVisible(false);
         speakButton.setVisible(false);
+        editWordButton.setVisible(false);
     }
 
     public void show() {
@@ -185,8 +188,15 @@ public class MainUISceneController implements Initializable {
         SceneLoaderController.loadScene(FXMLFiles.INSERT_WORDS_SCENE);
     }
 
-    public void selectFixMeaningFunc(ActionEvent event) {
-        SceneLoaderController.loadScene(FXMLFiles.EDIT_MEANING_SCENE);
+    //chọn từ trước khi sửa hoặc xóa
+    public void selectEditWordAndMeaningFunc(ActionEvent event) {
+        SceneLoaderController.loadScene(FXMLFiles.UPDATE_WORD_SCENE);
+    }
+
+    //nhảy thẳng vào sửa hoặc xóa từ
+    public void selectUpdateWordFunc(ActionEvent event) {
+        SceneLoaderController.loadScene(FXMLFiles.UPDATE_WORD_SCENE);
+        UpdateWordSceneController.getInstance().updateWordFromMainUI(selectedWord);
     }
 
     public void selectAddMeaningFunc(ActionEvent event) {

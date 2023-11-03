@@ -9,25 +9,30 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.EditMeaningSceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.UpdateWordSceneController">
    <children>
-      <Button fx:id="backToMainUIButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUIScene" text="Quay lại" />
+      <Button fx:id="backToMainUIButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUIScene" stylesheets="@../../ButtonStyles.css" text="Quay lại" />
       <TextField fx:id="wordEnteringField" layoutX="182.0" layoutY="66.0" prefHeight="35.0" prefWidth="227.0" promptText="Nhập từ cần tra" />
       <ListView fx:id="searchingResultList" fixedCellSize="25.0" layoutX="182.0" layoutY="101.0" prefHeight="500.0" prefWidth="227.0" />
-      <WebView fx:id="meaningWebView" layoutX="419.0" layoutY="66.0" prefHeight="535.0" prefWidth="463.0" />
-      <Button fx:id="FixMeaningButton" layoutX="904.0" layoutY="66.0" mnemonicParsing="false" onAction="#FixMeaning" text="Sửa nghĩa" />
-      <TextArea fx:id="editMeaningArea" layoutX="202.0" layoutY="66.0" prefHeight="398.0" prefWidth="596.0" wrapText="true">
+      <WebView fx:id="meaningWebView" layoutX="415.0" layoutY="66.0" prefHeight="535.0" prefWidth="463.0" />
+      <Button fx:id="FixMeaningButton" layoutX="886.0" layoutY="66.0" mnemonicParsing="false" onAction="#updateWord" stylesheets="@../../ButtonStyles.css" text="Cập nhật từ" />
+      <TextArea fx:id="editMeaningArea" layoutX="202.0" layoutY="98.0" prefHeight="379.0" prefWidth="596.0" wrapText="true">
          <font>
             <Font size="14.0" />
          </font>
       </TextArea>
-      <Button fx:id="saveButton" layoutX="817.0" layoutY="66.0" mnemonicParsing="false" onAction="#saveNewMeaning" text="Lưu" />
-      <Button fx:id="backToSelectWordButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToSelectWord" text="Quay lại" />
+      <Button fx:id="saveButton" layoutX="817.0" layoutY="66.0" mnemonicParsing="false" onAction="#saveNewMeaning" stylesheets="@../../ButtonStyles.css" text="Lưu" />
+      <Button fx:id="backToSelectWordButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToSelectWord" stylesheets="@../../ButtonStyles.css" text="Quay lại" />
       <Label fx:id="noteLabel" alignment="TOP_LEFT" layoutX="202.0" layoutY="479.0" prefHeight="106.0" prefWidth="596.0" text="quy định đặt nghĩa:                                                                                                                                                   @ cộng với tiêu đề của từ                                                                                                                                           * cộng với loại từ (danh từ, động từ...)                                                                                                                          - cộng với nghĩa                                                                                                                                                         = cộng với ví dụ                                                                                                                                                           ! cộng với kiểu mở rộng từ khi kết hợp với từ khác (ví dụ từ take có to take earth)" textFill="#e40e0e" wrapText="true">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
       </Label>
+      <TextField fx:id="editWordField" layoutX="202.0" layoutY="66.0" prefHeight="26.0" prefWidth="596.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Button fx:id="removeButton" layoutX="817.0" layoutY="101.0" mnemonicParsing="false" onAction="#removeWordFunc" stylesheets="@../../ButtonStyles.css" text="Xóa" />
    </children>
 </AnchorPane>

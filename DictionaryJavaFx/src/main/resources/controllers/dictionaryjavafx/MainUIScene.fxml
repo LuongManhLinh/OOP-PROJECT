@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.MainUISceneController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.MainUISceneController">
    <children>
       <TextField fx:id="wordEnteringField" layoutX="172.0" layoutY="56.0" prefHeight="35.0" prefWidth="227.0" promptText="Nhập từ cần tra" />
       <ListView fx:id="searchingResultList" fixedCellSize="25.0" layoutX="172.0" layoutY="91.0" prefHeight="500.0" prefWidth="227.0" />
@@ -24,7 +24,7 @@
           <Menu fx:id="menu" mnemonicParsing="false" text="CHỨC NĂNG">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#selectInsertWordFunc" text="Thêm từ" />
-                  <MenuItem mnemonicParsing="false" onAction="#selectFixMeaningFunc" text="Sửa nghĩa" />
+                  <MenuItem mnemonicParsing="false" onAction="#selectEditWordAndMeaningFunc" text="Sửa nghĩa" />
                   <MenuItem mnemonicParsing="false" onAction="#selectAddMeaningFunc" text="Thêm nghĩa" />
                   <MenuItem mnemonicParsing="false" onAction="#selectFixWordFunc" text="Sửa từ" />
                   <MenuItem mnemonicParsing="false" onAction="#selectRemoveWordFunc" text="Xóa từ" />
@@ -99,5 +99,6 @@
             <Font name="System Italic" size="27.0" />
          </font>
       </Label>
+      <Button fx:id="editWordButton" defaultButton="true" layoutX="52.0" layoutY="327.0" mnemonicParsing="false" onAction="#selectUpdateWordFunc" prefHeight="27.0" prefWidth="55.0" stylesheets="@../../ButtonStyles.css" text="Sửa từ" />
    </children>
 </AnchorPane>
