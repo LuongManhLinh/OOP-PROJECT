@@ -49,6 +49,7 @@ public class UpdateWordSceneController implements Initializable {
         saveButton.setVisible(false);
         noteLabel.setVisible(false);
         removeButton.setVisible(false);
+        meaningWebView.setVisible(false);
 
         // khung nhìn hiển thị được tối đa 10 kết quả, nếu nhiều hơn phải cuộn xuống để xem
         wordEnteringField.setOnKeyPressed(keyEvent -> {
@@ -177,12 +178,12 @@ public class UpdateWordSceneController implements Initializable {
         }
 
         else {
-            meaningWebView.setVisible(false);
             wordEnteringField.setVisible(false);
             FixMeaningButton.setVisible(false);
             backToMainUIButton.setVisible(false);
             searchingResultList.setVisible(false);
 
+            meaningWebView.setVisible(true);
             editMeaningArea.clear();
             editWordField.setVisible(true);
             editMeaningArea.setVisible(true);
@@ -218,6 +219,7 @@ public class UpdateWordSceneController implements Initializable {
                 EnViDictionary.getInstance().getWords().remove(word);
                 editWordField.clear();
                 editMeaningArea.clear();
+                meaningWebView.getEngine().loadContent("");
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -229,7 +231,6 @@ public class UpdateWordSceneController implements Initializable {
 
     public void backToSelectWord() {
 
-        meaningWebView.setVisible(true);
         wordEnteringField.clear();
         wordEnteringField.setVisible(true);
         FixMeaningButton.setVisible(true);
@@ -240,6 +241,7 @@ public class UpdateWordSceneController implements Initializable {
         WebEngine webEngine = meaningWebView.getEngine();
         webEngine.loadContent("");
 
+        meaningWebView.setVisible(false);
         noteLabel.setVisible(false);
         backToSelectWordButton.setVisible(false);
         editMeaningArea.setVisible(false);
@@ -276,7 +278,10 @@ public class UpdateWordSceneController implements Initializable {
     }
 
     public void updateWordFromMainUI(String selectedWordUI) {
-        meaningWebView.setVisible(false);
+        String meanings = DictionaryManagementForApp.getMeaning(selectedWordUI, searchingType);
+        WebEngine webEngine = meaningWebView.getEngine();
+        webEngine.loadContent(WordWork.toHTMLMeaningStyle(meanings));
+
         wordEnteringField.setVisible(false);
         FixMeaningButton.setVisible(false);
         searchingResultList.setVisible(false);
@@ -288,6 +293,7 @@ public class UpdateWordSceneController implements Initializable {
         saveButton.setVisible(true);
         removeButton.setVisible(true);
         backToMainUIButton.setVisible(true);
+        meaningWebView.setVisible(true);
 
         String meaningUI = EnViDictionary.getInstance().getWords().get(selectedWordUI);
         meaningUI = meaningUI.replace("<br />", "\n");
@@ -295,8 +301,6 @@ public class UpdateWordSceneController implements Initializable {
         editWordField.setText(selectedWordUI);
         editMeaningArea.setText(meaningUI);
     }
-
-
 }
 
 

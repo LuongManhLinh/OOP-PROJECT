@@ -1,0 +1,14 @@
+.text-field {
+    -fx-background-radius: 10;
+    -fx-border-color: rgb(100,100,100);
+    -fx-border-radius: 10;
+}
+
+.text-field:focused {
+    -fx-border-color: rgb(0, 150, 201);
+    -fx-background-color: rgb(244, 244, 244);
+}
+
+.text-field:hover {
+    -fx-background-color: rgb(244, 244, 244);
+}

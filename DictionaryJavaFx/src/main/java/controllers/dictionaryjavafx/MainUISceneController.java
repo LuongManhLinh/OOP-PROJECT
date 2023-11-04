@@ -27,7 +27,6 @@ public class MainUISceneController implements Initializable {
     @FXML private TextField wordEnteringField;
     @FXML private ListView<String> searchingResultList;
     @FXML private WebView meaningWebView;
-    @FXML private MenuBar menuBar;
     @FXML private Button searchingTypeButton;
     @FXML private Button speakButton;
     @FXML private Button editWordButton;
@@ -39,7 +38,6 @@ public class MainUISceneController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         hide();
-
 
         wordEnteringField.setOnKeyPressed(keyEvent -> {
             if (!searchingResultList.getItems().isEmpty()) {
@@ -189,21 +187,14 @@ public class MainUISceneController implements Initializable {
     }
 
     //chọn từ trước khi sửa hoặc xóa
-    public void selectEditWordAndMeaningFunc(ActionEvent event) {
+    public void selectUpdateWordFunc(ActionEvent event) {
         SceneLoaderController.loadScene(FXMLFiles.UPDATE_WORD_SCENE);
     }
 
     //nhảy thẳng vào sửa hoặc xóa từ
-    public void selectUpdateWordFunc(ActionEvent event) {
+    public void selectUpdateWordFromMainUIFunc(ActionEvent event) {
         SceneLoaderController.loadScene(FXMLFiles.UPDATE_WORD_SCENE);
         UpdateWordSceneController.getInstance().updateWordFromMainUI(selectedWord);
-    }
-
-    public void selectAddMeaningFunc(ActionEvent event) {
-    }
-
-    public void selectFixWordFunc(ActionEvent event) {
-        SceneLoaderController.loadScene(FXMLFiles.FIX_WORD_SCENE);
     }
 
     public void selectRemoveWordFunc(ActionEvent event) {

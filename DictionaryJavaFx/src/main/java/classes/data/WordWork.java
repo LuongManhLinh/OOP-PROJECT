@@ -23,7 +23,7 @@ public class WordWork {
                 output = output.replace(engStartKey, "").replace(engEndKey, "");
                 return output;
             } else {
-                System.out.println("Cannot find a English form");
+                System.out.println("Cannot find hideMeaningOnWebView English form");
             }
         }
 
@@ -32,7 +32,7 @@ public class WordWork {
             output = viMatcher.group();
             output = output.replace(viStartKey, "").replace(viEndKey, "");
         } else {
-            System.out.println("Cannot find a Vietnamese form");
+            System.out.println("Cannot find hideMeaningOnWebView Vietnamese form");
         }
 
         return output;
@@ -47,7 +47,7 @@ public class WordWork {
                 output = output.replace(engStartKey, "").replace(engEndKey, "");
                 return output;
             } else {
-                System.out.println("Cannot find a English form at line " + line);
+                System.out.println("Cannot find hideMeaningOnWebView English form at line " + line);
             }
         }
 
@@ -56,7 +56,7 @@ public class WordWork {
             output = viMatcher.group();
             output = output.replace(viStartKey, "").replace(viEndKey, "");
         } else {
-            System.out.println("Cannot find a Vietnamese form at line " + line);
+            System.out.println("Cannot find hideMeaningOnWebView Vietnamese form at line " + line);
         }
 
         return output;
