@@ -9,8 +9,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.InsertWordsSceneController">
    <children>
-      <TextField fx:id="enterWordField" layoutX="202.0" layoutY="111.0" prefHeight="27.0" prefWidth="596.0" promptText="Nhập từ muốn thêm" stylesheets="@../../TextFieldStyles.css" />
-      <TextArea fx:id="enterMeaningArea" layoutX="202.0" layoutY="147.0" prefHeight="331.0" prefWidth="596.0" promptText=" Nhập nghĩa của từ" wrapText="true" />
+      <TextField fx:id="enterWordField" layoutX="202.0" layoutY="111.0" prefHeight="27.0" prefWidth="596.0" promptText="Nhập từ muốn thêm" stylesheets="@../../TextFieldStyles.css">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <TextArea fx:id="enterMeaningArea" layoutX="202.0" layoutY="147.0" prefHeight="331.0" prefWidth="596.0" promptText=" Nhập nghĩa của từ" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font></TextArea>
       <Button fx:id="BacktoMainUIButton" focusTraversable="false" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUIScene" stylesheets="@../../ButtonStyles.css" text="Quay lại">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -24,5 +30,10 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </Label>
+      <Button fx:id="addingTypeButton" focusTraversable="false" layoutX="202.0" layoutY="58.0" mnemonicParsing="false" onAction="#onAddingTypeChanged" prefHeight="42.0" prefWidth="122.0" stylesheets="@../../ButtonStyles.css" text="ANH - VIỆT">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -196,7 +196,7 @@ public class MainUISceneController implements Initializable {
     //nhảy thẳng vào sửa hoặc xóa từ
     public void selectUpdateWordFromMainUIFunc(ActionEvent event) {
         SceneLoaderController.loadScene(FXMLFiles.UPDATE_WORD_SCENE);
-        UpdateWordSceneController.getInstance().updateWordFromMainUI(selectedWord);
+        UpdateWordSceneController.getInstance().updateWordFromMainUI(selectedWord, searchingType);
     }
 
     public void translateText(ActionEvent event) {

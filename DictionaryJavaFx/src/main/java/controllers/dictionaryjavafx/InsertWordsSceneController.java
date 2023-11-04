@@ -1,7 +1,9 @@
 package controllers.dictionaryjavafx;
 
+import classes.Dictionary;
 import classes.EnViDictionary;
 import classes.FXMLFiles;
+import classes.ViEnDictionary;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,8 +16,11 @@ import java.util.ResourceBundle;
 public class InsertWordsSceneController implements Initializable {
     @FXML private Button BacktoMainUIButton;
     @FXML private Button AddWordButton;
+    @FXML private Button addingTypeButton;
     @FXML private TextField enterWordField;
     @FXML private TextArea enterMeaningArea;
+
+    private Dictionary.Type addingType = Dictionary.Type.EN_VI;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -30,13 +35,25 @@ public class InsertWordsSceneController implements Initializable {
             else showMeaningIsEmptyAlert(word);
         }
         else {
-            if(EnViDictionary.getInstance().getKeyWords().contains(word)) {
-                showContainAlert();
+            if(addingType == Dictionary.Type.EN_VI) {
+                if(EnViDictionary.getInstance().getKeyWords().contains(word)) {
+                    showContainAlert();
+                }
+                else {
+                    EnViDictionary.getInstance().getKeyWords().add(word);
+                    EnViDictionary.getInstance().getWords().put(word, wordMeaning);
+                    showConfirmationAlert(word, event);
+                }
             }
             else {
-                EnViDictionary.getInstance().getKeyWords().add(word);
-                EnViDictionary.getInstance().getWords().put(word, wordMeaning);
-                showConfirmationAlert(word, event);
+                if(ViEnDictionary.getInstance().getKeyWords().contains(word)) {
+                    showContainAlert();
+                }
+                else {
+                    ViEnDictionary.getInstance().getKeyWords().add(word);
+                    ViEnDictionary.getInstance().getWords().put(word, wordMeaning);
+                    showConfirmationAlert(word, event);
+                }
             }
         }
 
@@ -80,6 +97,16 @@ public class InsertWordsSceneController implements Initializable {
         else if(selectedButton == ButtonType.OK) {
             enterWordField.clear();
             enterMeaningArea.clear();
+        }
+    }
+
+    public void onAddingTypeChanged(ActionEvent event) {
+        if (addingType == Dictionary.Type.EN_VI) {
+            addingType = Dictionary.Type.VI_EN;
+            addingTypeButton.setText("VIỆT-ANH");
+        } else if (addingType == Dictionary.Type.VI_EN) {
+            addingType = Dictionary.Type.EN_VI;
+            addingTypeButton.setText("ANH-VIỆT");
         }
     }
 

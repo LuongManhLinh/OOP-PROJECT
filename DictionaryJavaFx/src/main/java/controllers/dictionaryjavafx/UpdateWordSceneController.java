@@ -1,13 +1,11 @@
 package controllers.dictionaryjavafx;
 
-import classes.Dictionary;
-import classes.DictionaryManagementForApp;
-import classes.EnViDictionary;
-import classes.FXMLFiles;
+import classes.*;
 import classes.data.WordWork;
 import javafx.animation.AnimationTimer;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -23,15 +21,16 @@ import java.util.ResourceBundle;
 public class UpdateWordSceneController implements Initializable {
     @FXML AnchorPane searchingPane;
     @FXML AnchorPane editingPane;
-
     @FXML private TextField wordEnteringField;
     @FXML private ListView<String> searchingResultList;
     @FXML private WebView meaningWebView;
     @FXML private Button FixMeaningButton;
+    @FXML private Button searchingTypeButton;
     @FXML private TextField editWordField;
     @FXML private TextArea editMeaningArea;
     private String oldKeyWord = "";
     private String selectedWord = "";
+    private String firstWord;
     private String firstMeaning;
     private String oldMeaning = "";
     private Dictionary.Type searchingType = Dictionary.Type.EN_VI;
@@ -44,6 +43,7 @@ public class UpdateWordSceneController implements Initializable {
 
         searchingPane.setVisible(true);
         editingPane.setVisible(false);
+        searchingResultList.setVisible(false);
 
         // khung nhìn hiển thị được tối đa 10 kết quả, nếu nhiều hơn phải cuộn xuống để xem
         wordEnteringField.setOnKeyPressed(keyEvent -> {
@@ -51,6 +51,22 @@ public class UpdateWordSceneController implements Initializable {
                 if (keyEvent.getCode() == KeyCode.ENTER || keyEvent.getCode() == KeyCode.DOWN) {
                     searchingResultList.getSelectionModel().select(0);
                     searchingResultList.requestFocus();
+                }
+            }
+
+            if (!searchingResultList.isVisible()){
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    String text = wordEnteringField.getText();
+                    if (text != null && !text.isEmpty()) {
+                        SceneLoaderController.loadScene(FXMLFiles.TRANSLATE_TEXT_SCENE);
+                        if (searchingType == Dictionary.Type.EN_VI) {
+                            SceneTranslateTextController.getInstance().setTextAndLang(text,
+                                    SceneTranslateTextController.languages[1], SceneTranslateTextController.languages[0]);
+                        } else if (searchingType == Dictionary.Type.VI_EN) {
+                            SceneTranslateTextController.getInstance().setTextAndLang(text,
+                                    SceneTranslateTextController.languages[0], SceneTranslateTextController.languages[1]);
+                        }
+                    }
                 }
             }
         });
@@ -76,6 +92,7 @@ public class UpdateWordSceneController implements Initializable {
                 String selectedWord = searchingResultList.getSelectionModel().getSelectedItem();
                 if(selectedWord != null) {
                     FixMeaningButton.setVisible(true);
+
                     String meanings = DictionaryManagementForApp.getMeaning(selectedWord, searchingType);
                     WebEngine webEngine = meaningWebView.getEngine();
                     webEngine.loadContent(WordWork.toHTMLMeaningStyle(meanings));
@@ -134,32 +151,37 @@ public class UpdateWordSceneController implements Initializable {
             selectedWord = searchingResultList.getSelectionModel().getSelectedItem();
         }
 
-        if(selectedWord.isEmpty() || !EnViDictionary.getInstance().getKeyWords().contains(selectedWord)) {
+        if(selectedWord.isEmpty() || (searchingType == Dictionary.Type.EN_VI && !EnViDictionary.getInstance().getKeyWords().contains(selectedWord))) {
+            showInvalidOldWordAlert();
+        }
+        else if(searchingType == Dictionary.Type.VI_EN && !ViEnDictionary.getInstance().getKeyWords().contains(selectedWord)) {
             showInvalidOldWordAlert();
         } else {
             searchingPane.setVisible(false);
             editingPane.setVisible(true);
 
-            String meaning = DictionaryManagementForApp.getMeaning(selectedWord, Dictionary.Type.EN_VI);
+            String meaning = DictionaryManagementForApp.getMeaning(selectedWord, searchingType);
             meaning = WordWork.getRidOfHTMLForm(meaning);
             oldMeaning = meaning;
 
             editWordField.setText(selectedWord);
             editMeaningArea.setText(meaning);
+            firstWord = selectedWord;
             firstMeaning = meaning;
 
             checkDifferenceInMeaning();
         }
     }
 
-    public void updateWordFromMainUI(String selectedWordUI) {
-        String meanings = DictionaryManagementForApp.getMeaning(selectedWordUI, searchingType);
+    public void updateWordFromMainUI(String selectedWordUI, Dictionary.Type Type) {
+        String meanings = DictionaryManagementForApp.getMeaning(selectedWordUI, Type);
 
         searchingPane.setVisible(false);
         editingPane.setVisible(true);
 
         editWordField.setText(selectedWordUI);
         editMeaningArea.setText(WordWork.getRidOfHTMLForm(meanings));
+        firstWord = selectedWordUI;
         firstMeaning = WordWork.getRidOfHTMLForm(meanings);
 
         checkDifferenceInMeaning();
@@ -175,13 +197,20 @@ public class UpdateWordSceneController implements Initializable {
     public void removeWordFunc() {
         String word = editWordField.getText();
         word = word.toLowerCase().trim();
-        if (EnViDictionary.getInstance().getKeyWords().contains(word)) {
+        if ((searchingType == Dictionary.Type.EN_VI && EnViDictionary.getInstance().getKeyWords().contains(word))
+            || (searchingType == Dictionary.Type.VI_EN && ViEnDictionary.getInstance().getKeyWords().contains(word))) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Xóa từ");
             alert.setHeaderText("Bạn có muốn xóa từ này không?");
             if (alert.showAndWait().get() == ButtonType.OK) {
-                EnViDictionary.getInstance().getKeyWords().remove(word);
-                EnViDictionary.getInstance().getWords().remove(word);
+                if(searchingType == Dictionary.Type.EN_VI) {
+                    EnViDictionary.getInstance().getKeyWords().remove(word);
+                    EnViDictionary.getInstance().getWords().remove(word);
+                }
+                else {
+                    ViEnDictionary.getInstance().getKeyWords().remove(word);
+                    ViEnDictionary.getInstance().getWords().remove(word);
+                }
                 editWordField.clear();
                 editMeaningArea.clear();
                 meaningWebView.getEngine().loadContent("");
@@ -219,8 +248,14 @@ public class UpdateWordSceneController implements Initializable {
         alert.setContentText("Ấn 'OK' để lưu nghĩa hoặc ấn 'Cancel' để tiếp tục chỉnh sửa" );
         ButtonType userChoice = alert.showAndWait().get();
         if(userChoice == ButtonType.OK) {
-            EnViDictionary.getInstance().getWords().put(newWord, newMeaning);
-            EnViDictionary.getInstance().getKeyWords().add(newWord);
+            if(searchingType == Dictionary.Type.EN_VI) {
+                EnViDictionary.getInstance().getWords().put(newWord, newMeaning);
+                EnViDictionary.getInstance().getKeyWords().add(newWord);
+            }
+            else {
+                ViEnDictionary.getInstance().getWords().put(newWord, newMeaning);
+                ViEnDictionary.getInstance().getKeyWords().add(newWord);
+            }
         }
     }
 
@@ -253,7 +288,20 @@ public class UpdateWordSceneController implements Initializable {
         checkTimer.start();
     }
 
+    public void onSearchingTypeChanged(ActionEvent event) {
+        oldKeyWord = "";
+        searchingResultList.setVisible(false);
+        if (searchingType == Dictionary.Type.EN_VI) {
+            searchingType = Dictionary.Type.VI_EN;
+            searchingTypeButton.setText("VIỆT-ANH");
+        } else if (searchingType == Dictionary.Type.VI_EN) {
+            searchingType = Dictionary.Type.EN_VI;
+            searchingTypeButton.setText("ANH-VIỆT");
+        }
+    }
+
     public void recoverMeaning() {
+        editWordField.setText(firstWord);
         editMeaningArea.setText(firstMeaning);
     }
 }
