@@ -46,6 +46,7 @@ public class MainUISceneController implements Initializable {
                     searchingResultList.requestFocus();
                 }
             }
+
             if (!searchingResultList.isVisible()){
                 if (keyEvent.getCode() == KeyCode.ENTER) {
                     String text = wordEnteringField.getText();
@@ -91,6 +92,7 @@ public class MainUISceneController implements Initializable {
                 }
             }
         });
+
         handleSearching();
     }
 
@@ -110,7 +112,7 @@ public class MainUISceneController implements Initializable {
                     // nếu số kết quả lớn hơn 20 thì cũng chỉ hiển thị 20
                     searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
                 } else {
-                    searchingResultList.setVisible(false);
+                    hide();
                 }
             }
         };
@@ -197,10 +199,6 @@ public class MainUISceneController implements Initializable {
         UpdateWordSceneController.getInstance().updateWordFromMainUI(selectedWord);
     }
 
-    public void selectRemoveWordFunc(ActionEvent event) {
-        SceneLoaderController.loadScene(FXMLFiles.REMOVE_WORD_SCENE);
-    }
-
     public void translateText(ActionEvent event) {
         SceneLoaderController.loadScene(FXMLFiles.TRANSLATE_TEXT_SCENE);
     }
@@ -209,11 +207,22 @@ public class MainUISceneController implements Initializable {
     }
 
     public void selectCommandline(ActionEvent event) {
-        SceneLoaderController.exitApp();
-        DictionaryExecution.Run();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Bạn có muốn sử dụng bản commandline?");
+        alert.setHeaderText("Sử dụng sẽ thoát ứng dụng từ điển");
+        ButtonType ok = new ButtonType("Tiếp tục dùng bản commandline");
+        ButtonType cancel = new ButtonType("Hủy");
+        alert.getButtonTypes().setAll(ok, cancel);
+
+        if (alert.showAndWait().get() == ok) {
+            SceneLoaderController.exitApp();
+            DictionaryExecution.Run();
+        }
     }
 
     public void selectExitApp(ActionEvent event) {
         SceneLoaderController.exitApp();
     }
+
+
 }

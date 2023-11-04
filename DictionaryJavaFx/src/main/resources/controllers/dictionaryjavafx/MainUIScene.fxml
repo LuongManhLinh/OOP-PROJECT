@@ -42,11 +42,6 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectRemoveWordFunc" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Xóa từ">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
             <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#translateText" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Dịch văn bản">
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -79,6 +74,9 @@
             <Font name="System Italic" size="27.0" />
          </font>
       </Label>
-      <Button fx:id="editWordButton" defaultButton="true" layoutX="52.0" layoutY="327.0" mnemonicParsing="false" onAction="#selectUpdateWordFromMainUIFunc" prefHeight="27.0" prefWidth="55.0" stylesheets="@../../ButtonStyles.css" text="Sửa từ" />
+      <Button fx:id="editWordButton" focusTraversable="false" layoutX="622.0" layoutY="17.0" mnemonicParsing="false" onAction="#selectUpdateWordFromMainUIFunc" prefHeight="28.0" prefWidth="154.0" stylesheets="@../../ButtonStyles.css" text="Cập nhật từ đang chọn">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
    </children>
 </AnchorPane>

@@ -11,9 +11,15 @@
    <children>
       <TextField fx:id="enterWordField" layoutX="202.0" layoutY="111.0" prefHeight="27.0" prefWidth="596.0" promptText="Nhập từ muốn thêm" stylesheets="@../../TextFieldStyles.css" />
       <TextArea fx:id="enterMeaningArea" layoutX="202.0" layoutY="147.0" prefHeight="331.0" prefWidth="596.0" promptText=" Nhập nghĩa của từ" wrapText="true" />
-      <Button fx:id="BacktoMainUIButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUIScene" stylesheets="@../../ButtonStyles.css" text="Quay lại" />
-      <Button fx:id="AddWordButton" layoutX="815.0" layoutY="111.0" mnemonicParsing="false" onAction="#enterWordAndMeaning" stylesheets="@../../ButtonStyles.css" text="Thêm từ" />
-      <Label fx:id="noteLabel" alignment="TOP_LEFT" layoutX="202.0" layoutY="479.0" prefHeight="106.0" prefWidth="596.0" text="quy định đặt nghĩa:                                                                                                                                                   @ cộng với tiêu đề của từ                                                                                                                                           * cộng với loại từ (danh từ, động từ...)                                                                                                                          - cộng với nghĩa                                                                                                                                                         = cộng với ví dụ                                                                                                                                                           ! cộng với kiểu mở rộng từ khi kết hợp với từ khác (ví dụ từ take có to take earth)" textFill="#e40e0e" wrapText="true">
+      <Button fx:id="BacktoMainUIButton" focusTraversable="false" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUIScene" stylesheets="@../../ButtonStyles.css" text="Quay lại">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="AddWordButton" focusTraversable="false" layoutX="815.0" layoutY="111.0" mnemonicParsing="false" onAction="#enterWordAndMeaning" stylesheets="@../../ButtonStyles.css" text="Thêm từ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Label fx:id="noteLabel" alignment="TOP_LEFT" layoutX="202.0" layoutY="479.0" prefHeight="106.0" prefWidth="596.0" text="quy định đặt nghĩa:                                                                                                                                                   @ cộng với tiêu đề của từ                                                                                                                                           * cộng với loại từ (danh từ, động từ...)                                                                                                                          - cộng với nghĩa                                                                                                                                                         = cộng với ví dụ                                                                                                                                                           ! cộng với kiểu mở rộng từ khi kết hợp với từ khác (ví dụ từ take có to take after)" textFill="#e40e0e" wrapText="true">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>

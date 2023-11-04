@@ -11,28 +11,61 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.UpdateWordSceneController">
    <children>
-      <Button fx:id="backToMainUIButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUIScene" stylesheets="@../../ButtonStyles.css" text="Quay lại" />
-      <TextField fx:id="wordEnteringField" layoutX="182.0" layoutY="68.0" prefHeight="30.0" prefWidth="340.0" promptText="Nhập từ cần tra" stylesheets="@../../TextFieldStyles.css" />
-      <Button fx:id="FixMeaningButton" layoutX="549.0" layoutY="70.0" mnemonicParsing="false" onAction="#updateWord" stylesheets="@../../ButtonStyles.css" text="Cập nhật từ" />
-      <TextArea fx:id="editMeaningArea" layoutX="202.0" layoutY="101.0" prefHeight="379.0" prefWidth="298.0" wrapText="true">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextArea>
-      <WebView fx:id="meaningWebView" layoutX="501.0" layoutY="101.0" prefHeight="379.0" prefWidth="298.0" />
-      <ListView fx:id="searchingResultList" fixedCellSize="25.0" layoutX="182.0" layoutY="101.0" prefHeight="500.0" prefWidth="340.0" stylesheets="@../../ListViewStyles.css" />
-      <Button fx:id="saveButton" layoutX="828.0" layoutY="66.0" mnemonicParsing="false" onAction="#saveNewMeaning" stylesheets="@../../ButtonStyles.css" text="Lưu" />
-      <Button fx:id="backToSelectWordButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToSelectWord" stylesheets="@../../ButtonStyles.css" text="Quay lại" />
-      <Label fx:id="noteLabel" alignment="TOP_LEFT" layoutX="202.0" layoutY="479.0" prefHeight="106.0" prefWidth="596.0" text="quy định đặt nghĩa:                                                                                                                                                   @ cộng với tiêu đề của từ                                                                                                                                           * cộng với loại từ (danh từ, động từ...)                                                                                                                          - cộng với nghĩa                                                                                                                                                         = cộng với ví dụ                                                                                                                                                           ! cộng với kiểu mở rộng từ khi kết hợp với từ khác (ví dụ từ take có to take earth)" textFill="#e40e0e" wrapText="true">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </Label>
-      <TextField fx:id="editWordField" layoutX="202.0" layoutY="69.0" prefHeight="26.0" prefWidth="596.0" stylesheets="@../../TextFieldStyles.css">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <Button fx:id="removeButton" layoutX="827.0" layoutY="101.0" mnemonicParsing="false" onAction="#removeWordFunc" stylesheets="@../../ButtonStyles.css" text="Xóa" />
+      <AnchorPane fx:id="searchingPane" prefHeight="600.0" prefWidth="1000.0" visible="false">
+         <children>
+            <Button fx:id="backToMainUIButton" focusTraversable="false" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUIScene" stylesheets="@../../ButtonStyles.css" text="Quay lại">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <TextField fx:id="wordEnteringField" layoutX="226.0" layoutY="49.0" prefHeight="30.0" prefWidth="340.0" promptText="Nhập từ cần cập nhật" stylesheets="@../../TextFieldStyles.css" />
+            <Button fx:id="FixMeaningButton" focusTraversable="false" layoutX="604.0" layoutY="50.0" mnemonicParsing="false" onAction="#updateWord" stylesheets="@../../ButtonStyles.css" text="Cập nhật từ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <ListView fx:id="searchingResultList" fixedCellSize="25.0" layoutX="226.0" layoutY="86.0" prefHeight="500.0" prefWidth="340.0" stylesheets="@../../ListViewStyles.css" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="editingPane" prefHeight="600.0" prefWidth="1000.0">
+         <children>
+            <TextArea fx:id="editMeaningArea" layoutX="20.0" layoutY="96.0" prefHeight="380.0" prefWidth="480.0" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextArea>
+            <WebView fx:id="meaningWebView" layoutX="508.0" layoutY="96.0" prefHeight="380.0" prefWidth="480.0" />
+            <Button fx:id="saveButton" focusTraversable="false" layoutX="508.0" layoutY="54.0" mnemonicParsing="false" onAction="#saveNewMeaning" stylesheets="@../../ButtonStyles.css" text="Lưu">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="backToSelectWordButton" focusTraversable="false" layoutX="20.0" layoutY="22.0" mnemonicParsing="false" onAction="#backToSelectWord" stylesheets="@../../ButtonStyles.css" text="Quay lại">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label fx:id="noteLabel" alignment="CENTER" layoutX="14.0" layoutY="476.0" prefHeight="106.0" prefWidth="596.0" text="quy định đặt nghĩa:                                                                                                                                                   @ cộng với tiêu đề của từ                                                                                                                                           * cộng với loại từ (danh từ, động từ...)                                                                                                                          - cộng với nghĩa                                                                                                                                                         = cộng với ví dụ                                                                                                                                                           ! cộng với kiểu mở rộng từ khi kết hợp với từ khác (ví dụ từ take có to take after)" textFill="#e40e0e" wrapText="true">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="editWordField" layoutX="230.0" layoutY="52.0" prefHeight="32.0" prefWidth="269.0" stylesheets="@../../TextFieldStyles.css">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Button fx:id="removeButton" focusTraversable="false" layoutX="565.0" layoutY="54.0" mnemonicParsing="false" onAction="#removeWordFunc" stylesheets="@../../ButtonStyles.css" text="Xóa từ này khỏi từ điển">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="728.0" layoutY="55.0" mnemonicParsing="false" onAction="#recoverMeaning" stylesheets="@../../ButtonStyles.css" text="Khôi phục nghĩa ban đầu">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

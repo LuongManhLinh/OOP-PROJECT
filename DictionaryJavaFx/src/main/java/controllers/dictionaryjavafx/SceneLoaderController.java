@@ -23,7 +23,9 @@ public class SceneLoaderController {
     }
 
     public static void exitApp() {
-        Platform.exit();
+//        DictionaryData.writeData(Dictionary.Type.EN_VI, EnViDictionary.getInstance().getWords(), EnViDictionary.getInstance().getKeyWords());
+//        DictionaryData.writeData(Dictionary.Type.VI_EN, ViEnDictionary.getInstance().getWords(), ViEnDictionary.getInstance().getKeyWords());
+        stage.close();
     }
 
     public static void loadScene(String dotFxmlFile) {

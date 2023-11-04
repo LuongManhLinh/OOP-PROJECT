@@ -10,9 +10,9 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
@@ -21,21 +21,19 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class UpdateWordSceneController implements Initializable {
-    @FXML
-    private TextField wordEnteringField;
+    @FXML AnchorPane searchingPane;
+    @FXML AnchorPane editingPane;
+
+    @FXML private TextField wordEnteringField;
     @FXML private ListView<String> searchingResultList;
     @FXML private WebView meaningWebView;
-    @FXML private Button backToMainUIButton;
     @FXML private Button FixMeaningButton;
-    @FXML private Button saveButton;
-    @FXML private Button removeButton;
-    @FXML private Button backToSelectWordButton;
     @FXML private TextField editWordField;
     @FXML private TextArea editMeaningArea;
-    @FXML private Label noteLabel;
     private String oldKeyWord = "";
     private String selectedWord = "";
-    private String meaning = "";
+    private String firstMeaning;
+    private String oldMeaning = "";
     private Dictionary.Type searchingType = Dictionary.Type.EN_VI;
 
     private static UpdateWordSceneController instance;
@@ -43,13 +41,9 @@ public class UpdateWordSceneController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         instance = this;
-        backToSelectWordButton.setVisible(false);
-        editWordField.setVisible(false);
-        editMeaningArea.setVisible(false);
-        saveButton.setVisible(false);
-        noteLabel.setVisible(false);
-        removeButton.setVisible(false);
-        meaningWebView.setVisible(false);
+
+        searchingPane.setVisible(true);
+        editingPane.setVisible(false);
 
         // khung nhìn hiển thị được tối đa 10 kết quả, nếu nhiều hơn phải cuộn xuống để xem
         wordEnteringField.setOnKeyPressed(keyEvent -> {
@@ -57,21 +51,6 @@ public class UpdateWordSceneController implements Initializable {
                 if (keyEvent.getCode() == KeyCode.ENTER || keyEvent.getCode() == KeyCode.DOWN) {
                     searchingResultList.getSelectionModel().select(0);
                     searchingResultList.requestFocus();
-                }
-            }
-            if (!searchingResultList.isVisible()){
-                if (keyEvent.getCode() == KeyCode.ENTER) {
-                    String text = wordEnteringField.getText();
-                    if (text != null && !text.isEmpty()) {
-                        SceneLoaderController.loadScene(FXMLFiles.TRANSLATE_TEXT_SCENE);
-                        if (searchingType == Dictionary.Type.EN_VI) {
-                            SceneTranslateTextController.getInstance().setTextAndLang(text,
-                                    SceneTranslateTextController.languages[1], SceneTranslateTextController.languages[0]);
-                        } else if (searchingType == Dictionary.Type.VI_EN) {
-                            SceneTranslateTextController.getInstance().setTextAndLang(text,
-                                    SceneTranslateTextController.languages[0], SceneTranslateTextController.languages[1]);
-                        }
-                    }
                 }
             }
         });
@@ -103,6 +82,7 @@ public class UpdateWordSceneController implements Initializable {
                 }
             }
         });
+
         handleSearching();
     }
     public static UpdateWordSceneController getInstance() {
@@ -138,28 +118,8 @@ public class UpdateWordSceneController implements Initializable {
                 // nếu đang tương tác với kết quả hay không thay đổi chuỗi tìm kiếm thì sẽ dừng tìm kiếm
                 if (searchingResultList.isFocused() || oldKeyWord.equals(wordEnteringField.getText())) {
                     wordEnteringTimer.stop();
-//                    System.out.println("if");
                 } else {
-                    selectedWord = wordEnteringField.getText();
                     wordEnteringTimer.start();
-
-                    // xử lí để khi nhấn enter thì nhảy xuống danh sách kết quả
-                    if (wordEnteringField.isFocused()) {
-//                        System.out.println("f");
-                        Scene scene = wordEnteringField.getScene();
-                        scene.setOnKeyPressed(event -> {
-                            if (event.getCode() == KeyCode.ENTER ) {
-//                                System.out.println("else");
-                                if (!searchingResultList.getItems().isEmpty()) {
-                                    searchingResultList.requestFocus();
-                                    searchingResultList.getSelectionModel().select(0);
-                                }
-                            }
-                        });
-                    }
-                }
-
-                if (wordEnteringField.getText().isEmpty()) {
                 }
             }
         };
@@ -173,37 +133,42 @@ public class UpdateWordSceneController implements Initializable {
         if(searchingResultList.getSelectionModel().getSelectedItem() != null) {
             selectedWord = searchingResultList.getSelectionModel().getSelectedItem();
         }
+
         if(selectedWord.isEmpty() || !EnViDictionary.getInstance().getKeyWords().contains(selectedWord)) {
             showInvalidOldWordAlert();
-        }
+        } else {
+            searchingPane.setVisible(false);
+            editingPane.setVisible(true);
 
-        else {
-            wordEnteringField.setVisible(false);
-            FixMeaningButton.setVisible(false);
-            backToMainUIButton.setVisible(false);
-            searchingResultList.setVisible(false);
-
-            meaningWebView.setVisible(true);
-            editMeaningArea.clear();
-            editWordField.setVisible(true);
-            editMeaningArea.setVisible(true);
-            noteLabel.setVisible(true);
-            backToSelectWordButton.setVisible(true);
-            saveButton.setVisible(true);
-            removeButton.setVisible(true);
-
-            meaning = EnViDictionary.getInstance().getWords().get(selectedWord);
-            meaning = meaning.replace("<br />", "\n");
+            String meaning = DictionaryManagementForApp.getMeaning(selectedWord, Dictionary.Type.EN_VI);
+            meaning = WordWork.getRidOfHTMLForm(meaning);
+            oldMeaning = meaning;
 
             editWordField.setText(selectedWord);
             editMeaningArea.setText(meaning);
+            firstMeaning = meaning;
+
+            checkDifferenceInMeaning();
         }
+    }
+
+    public void updateWordFromMainUI(String selectedWordUI) {
+        String meanings = DictionaryManagementForApp.getMeaning(selectedWordUI, searchingType);
+
+        searchingPane.setVisible(false);
+        editingPane.setVisible(true);
+
+        editWordField.setText(selectedWordUI);
+        editMeaningArea.setText(WordWork.getRidOfHTMLForm(meanings));
+        firstMeaning = WordWork.getRidOfHTMLForm(meanings);
+
+        checkDifferenceInMeaning();
     }
 
     public void saveNewMeaning() {
         String newWord = editWordField.getText();
         String newMeaning = editMeaningArea.getText();
-        newMeaning = newMeaning.replace("\n", "<br />");
+        newMeaning = WordWork.toHTMLForm(newMeaning);
         showSaveNewMeaningAlert(newWord, newMeaning);
     }
 
@@ -224,31 +189,17 @@ public class UpdateWordSceneController implements Initializable {
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Không tìm thấy từ");
-            alert.setHeaderText("Từ bạn nhập không hợp lệ, Vui lòng nhập lại");
+            alert.setHeaderText("Từ bạn nhập không hợp lệ, vui lòng nhập lại");
             alert.show();
         }
     }
 
     public void backToSelectWord() {
-
         wordEnteringField.clear();
-        wordEnteringField.setVisible(true);
-        FixMeaningButton.setVisible(true);
-        backToMainUIButton.setVisible(true);
-        searchingResultList.setVisible(true);
+        searchingPane.setVisible(true);
         searchingResultList.getSelectionModel().clearSelection();
 
-        WebEngine webEngine = meaningWebView.getEngine();
-        webEngine.loadContent("");
-
-        meaningWebView.setVisible(false);
-        noteLabel.setVisible(false);
-        backToSelectWordButton.setVisible(false);
-        editMeaningArea.setVisible(false);
-        saveButton.setVisible(false);
-        removeButton.setVisible(false);
-        backToSelectWordButton.setVisible(false);
-        editWordField.setVisible(false);
+       editingPane.setVisible(false);
     }
 
     private void showInvalidOldWordAlert() {
@@ -277,29 +228,33 @@ public class UpdateWordSceneController implements Initializable {
         SceneLoaderController.loadScene(FXMLFiles.MAIN_UI_SCENE);
     }
 
-    public void updateWordFromMainUI(String selectedWordUI) {
-        String meanings = DictionaryManagementForApp.getMeaning(selectedWordUI, searchingType);
-        WebEngine webEngine = meaningWebView.getEngine();
-        webEngine.loadContent(WordWork.toHTMLMeaningStyle(meanings));
 
-        wordEnteringField.setVisible(false);
-        FixMeaningButton.setVisible(false);
-        searchingResultList.setVisible(false);
+    private void checkDifferenceInMeaning() {
+        AnimationTimer scrollTimer = new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                meaningWebView.getEngine().executeScript("document.body.scrollTop=" + editMeaningArea.scrollTopProperty().get() + ";");
+            }
+        };
 
-        editMeaningArea.clear();
-        editWordField.setVisible(true);
-        editMeaningArea.setVisible(true);
-        noteLabel.setVisible(true);
-        saveButton.setVisible(true);
-        removeButton.setVisible(true);
-        backToMainUIButton.setVisible(true);
-        meaningWebView.setVisible(true);
+        AnimationTimer checkTimer = new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                if (!oldMeaning.equals(editMeaningArea.getText())) {
+                    oldMeaning = editMeaningArea.getText();
+                    meaningWebView.getEngine().loadContent(WordWork.toHTMLMeaningStyle(WordWork.toHTMLForm(oldMeaning)));
+                    scrollTimer.start();
+                } else {
+                    scrollTimer.stop();
+                }
+            }
+        };
 
-        String meaningUI = EnViDictionary.getInstance().getWords().get(selectedWordUI);
-        meaningUI = meaningUI.replace("<br />", "\n");
+        checkTimer.start();
+    }
 
-        editWordField.setText(selectedWordUI);
-        editMeaningArea.setText(meaningUI);
+    public void recoverMeaning() {
+        editMeaningArea.setText(firstMeaning);
     }
 }
 
