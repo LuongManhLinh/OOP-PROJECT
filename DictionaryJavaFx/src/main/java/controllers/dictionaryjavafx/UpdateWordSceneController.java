@@ -3,6 +3,8 @@ package controllers.dictionaryjavafx;
 import classes.*;
 import classes.data.WordWork;
 import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -13,6 +15,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,13 +31,16 @@ public class UpdateWordSceneController implements Initializable {
     @FXML private Button searchingTypeButton;
     @FXML private TextField editWordField;
     @FXML private TextArea editMeaningArea;
+    @FXML private Label savedLabel;
     private String oldKeyWord = "";
     private String selectedWord = "";
     private String firstWord;
     private String firstMeaning;
     private String oldMeaning = "";
+    private Timeline errorTimeLine;
     private Dictionary.Type searchingType = Dictionary.Type.EN_VI;
-
+    private boolean removed = false;
+    private boolean saved = false;
     private static UpdateWordSceneController instance;
 
     @Override
@@ -43,7 +49,11 @@ public class UpdateWordSceneController implements Initializable {
 
         searchingPane.setVisible(true);
         editingPane.setVisible(false);
-        searchingResultList.setVisible(false);
+        errorTimeLine = new Timeline(
+                new KeyFrame(Duration.millis(1000), event -> {
+                    savedLabel.setVisible(false);
+                })
+        );
 
         // khung nhìn hiển thị được tối đa 10 kết quả, nếu nhiều hơn phải cuộn xuống để xem
         wordEnteringField.setOnKeyPressed(keyEvent -> {
@@ -159,10 +169,10 @@ public class UpdateWordSceneController implements Initializable {
         } else {
             searchingPane.setVisible(false);
             editingPane.setVisible(true);
+            savedLabel.setVisible(false);
 
             String meaning = DictionaryManagementForApp.getMeaning(selectedWord, searchingType);
             meaning = WordWork.getRidOfHTMLForm(meaning);
-            oldMeaning = meaning;
 
             editWordField.setText(selectedWord);
             editMeaningArea.setText(meaning);
@@ -178,6 +188,7 @@ public class UpdateWordSceneController implements Initializable {
 
         searchingPane.setVisible(false);
         editingPane.setVisible(true);
+        savedLabel.setVisible(false);
 
         editWordField.setText(selectedWordUI);
         editMeaningArea.setText(WordWork.getRidOfHTMLForm(meanings));
@@ -191,18 +202,34 @@ public class UpdateWordSceneController implements Initializable {
         String newWord = editWordField.getText();
         String newMeaning = editMeaningArea.getText();
         newMeaning = WordWork.toHTMLForm(newMeaning);
-        showSaveNewMeaningAlert(newWord, newMeaning);
+        if(searchingType == Dictionary.Type.EN_VI) {
+            EnViDictionary.getInstance().getWords().remove(selectedWord);
+            EnViDictionary.getInstance().getKeyWords().remove(selectedWord);
+            EnViDictionary.getInstance().getWords().put(newWord, newMeaning);
+            EnViDictionary.getInstance().getKeyWords().add(newWord);
+        }
+        else {
+            ViEnDictionary.getInstance().getWords().remove(selectedWord);
+            ViEnDictionary.getInstance().getKeyWords().remove(selectedWord);
+            ViEnDictionary.getInstance().getWords().put(newWord, newMeaning);
+            ViEnDictionary.getInstance().getKeyWords().add(newWord);
+        }
+        saved = true;
+        savedLabel.setVisible(true);
+        errorTimeLine.play();
     }
 
     public void removeWordFunc() {
         String word = editWordField.getText();
-        word = word.toLowerCase().trim();
         if ((searchingType == Dictionary.Type.EN_VI && EnViDictionary.getInstance().getKeyWords().contains(word))
             || (searchingType == Dictionary.Type.VI_EN && ViEnDictionary.getInstance().getKeyWords().contains(word))) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Xóa từ");
             alert.setHeaderText("Bạn có muốn xóa từ này không?");
-            if (alert.showAndWait().get() == ButtonType.OK) {
+            ButtonType ok = new ButtonType("Có");
+            ButtonType cancel = new ButtonType("Không");
+            alert.getButtonTypes().setAll(ok, cancel);
+            if (alert.showAndWait().get() == ok) {
                 if(searchingType == Dictionary.Type.EN_VI) {
                     EnViDictionary.getInstance().getKeyWords().remove(word);
                     EnViDictionary.getInstance().getWords().remove(word);
@@ -214,6 +241,7 @@ public class UpdateWordSceneController implements Initializable {
                 editWordField.clear();
                 editMeaningArea.clear();
                 meaningWebView.getEngine().loadContent("");
+                removed = true;
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -224,11 +252,31 @@ public class UpdateWordSceneController implements Initializable {
     }
 
     public void backToSelectWord() {
+        String newWord = editWordField.getText();
+        String newMeaning = editMeaningArea.getText();
+        if((!firstWord.equals(newWord) || !firstMeaning.equals(newMeaning)) && !removed && !saved) {
+            showSaveNewMeaningAlert(newWord, newMeaning);
+        }
         wordEnteringField.clear();
         searchingPane.setVisible(true);
         searchingResultList.getSelectionModel().clearSelection();
+        editingPane.setVisible(false);
+        removed = false;
+        saved = false;
+    }
 
-       editingPane.setVisible(false);
+    public void backToMainUISceneFromEditingPane() {
+        String newWord = editWordField.getText();
+        String newMeaning = editMeaningArea.getText();
+        if((!firstWord.equals(newWord) || !firstMeaning.equals(newMeaning)) && !removed && !saved) {
+            showSaveNewMeaningAlert(newWord, newMeaning);
+        }
+        removed = false;
+        saved = false;
+        SceneLoaderController.loadScene(FXMLFiles.MAIN_UI_SCENE);
+    }
+    public void backToMainUISceneFromSearchingPane() {
+        SceneLoaderController.loadScene(FXMLFiles.MAIN_UI_SCENE);
     }
 
     private void showInvalidOldWordAlert() {
@@ -243,24 +291,26 @@ public class UpdateWordSceneController implements Initializable {
 
     private void showSaveNewMeaningAlert(String newWord, String newMeaning) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Xác nhận");
-        alert.setHeaderText("Bạn có muốn lưu nghĩa vừa sửa không?");
-        alert.setContentText("Ấn 'OK' để lưu nghĩa hoặc ấn 'Cancel' để tiếp tục chỉnh sửa" );
+        alert.setTitle("Các chỉnh sửa của bạn chưa được lưu");
+        alert.setHeaderText("Bạn có muốn lưu các chỉnh sửa không?");
+        ButtonType ok = new ButtonType("Lưu");
+        ButtonType cancel = new ButtonType("Không lưu");
+        alert.getButtonTypes().setAll(ok, cancel);
         ButtonType userChoice = alert.showAndWait().get();
-        if(userChoice == ButtonType.OK) {
+        if(userChoice == ok) {
             if(searchingType == Dictionary.Type.EN_VI) {
+                EnViDictionary.getInstance().getWords().remove(selectedWord);
+                EnViDictionary.getInstance().getKeyWords().remove(selectedWord);
                 EnViDictionary.getInstance().getWords().put(newWord, newMeaning);
                 EnViDictionary.getInstance().getKeyWords().add(newWord);
             }
             else {
+                ViEnDictionary.getInstance().getWords().remove(selectedWord);
+                ViEnDictionary.getInstance().getKeyWords().remove(selectedWord);
                 ViEnDictionary.getInstance().getWords().put(newWord, newMeaning);
                 ViEnDictionary.getInstance().getKeyWords().add(newWord);
             }
         }
-    }
-
-    public void backToMainUIScene() {
-        SceneLoaderController.loadScene(FXMLFiles.MAIN_UI_SCENE);
     }
 
 
