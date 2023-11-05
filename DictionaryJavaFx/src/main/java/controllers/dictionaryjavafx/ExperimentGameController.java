@@ -26,6 +26,11 @@ import java.util.*;
 
 public class ExperimentGameController implements Initializable {
     @FXML private AnchorPane startGamePane;
+    @FXML private Button easyButton;
+    @FXML private Button normalButton;
+    @FXML private Button tenButton;
+    @FXML private Button twentyButton;
+    @FXML private Button unlimitedButton;
 
     @FXML private AnchorPane inGamePane;
     @FXML private Button bottle1, bottle2, bottle3, bottle4;
@@ -33,6 +38,8 @@ public class ExperimentGameController implements Initializable {
     @FXML private Label questionLabel;
     @FXML private Label numberQuestionAnsweredLabel;
     @FXML private Label choosingAnswerLabel;
+    @FXML private ProgressBar progressBar;
+    @FXML private Button startPreparingButton;
 
     @FXML private AnchorPane endGamePane;
     @FXML private Label endGameLabel;
@@ -45,10 +52,19 @@ public class ExperimentGameController implements Initializable {
     @FXML private ImageView resultBottle;
     @FXML private ImageView successLight;
 
-    private final int NUMBER_INGAME_BUTTON = 4;
-    private final double DROP_POS_X = 310;
-    private final double DROP_POS_Y = 170;
-    private ArrayList<Button> inGameButtons = new ArrayList<>();
+    private enum Mode {
+        EASY,
+        NORMAL,
+        UNSELECTED
+    }
+
+    private enum Formula {
+        TEN,
+        TWENTY,
+        UNLIMITED,
+        UNSELECTED
+    }
+
     private enum Status {
         START_GAME,
         IN_GAME,
@@ -61,10 +77,28 @@ public class ExperimentGameController implements Initializable {
         QUITE_SUCCESS,
         SUCCESS
     }
+
+    private Mode mode = Mode.UNSELECTED;
+    private Formula formula = Formula.UNSELECTED;
+
+    private EndGameStatus endGameStatus = EndGameStatus.NO_REACTION;
+
+    private final ArrayList<Button> modeButtons = new ArrayList<>();
+    private final ArrayList<Button> formulaButtons = new ArrayList<>();
+
+    private final int NUMBER_INGAME_BUTTON = 4;
+    private final double DROP_POS_X = 380;
+    private final double DROP_POS_Y = 170;
+    private final double MAIN_BOTTLE_POS_X = 250;
+    private final double MAIN_BOTTLE_POS_Y = 330;
+    private final ArrayList<Button> inGameButtons = new ArrayList<>();
+
+
     private HashMap<String, String> Words;
 
     private ArrayList<String> EnglishKeyWords;
 
+    private int numberQuestion;
     private int numberQuestionAnswered;
     private int numberCorrectAnswers;
 
@@ -74,10 +108,16 @@ public class ExperimentGameController implements Initializable {
     private ArrayList<Integer> remainIndex;
 
     private int mouseIsOnWhichButton = -1;
-    EndGameStatus endGameStatus = EndGameStatus.NO_REACTION;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        modeButtons.add(easyButton);
+        modeButtons.add(normalButton);
+
+        formulaButtons.add(tenButton);
+        formulaButtons.add(twentyButton);
+        formulaButtons.add(unlimitedButton);
+
         inGameButtons.add(bottle1);
         inGameButtons.add(bottle2);
         inGameButtons.add(bottle3);
@@ -141,21 +181,96 @@ public class ExperimentGameController implements Initializable {
         });
     }
 
+    private void loadData() {
+        if (mode != Mode.UNSELECTED && formula != Formula.UNSELECTED) {
+            switch (mode) {
+                case EASY -> {
+                    Words = GameData.getEasyWords();
+                    EnglishKeyWords = GameData.getEasyEnglishKeyWords();
+                }
+                case NORMAL -> {
+                    Words = GameData.getNormalWords();
+                    EnglishKeyWords = GameData.getNormalEnglishKeyWords();
+                }
+            }
+
+            switch (formula) {
+                case TEN -> {
+                    numberQuestion = 10;
+                    progressBar.setVisible(true);
+                    startPreparingButton.setVisible(false);
+                }
+                case TWENTY -> {
+                    numberQuestion = 20;
+                    progressBar.setVisible(true);
+                    startPreparingButton.setVisible(false);
+                }
+                case UNLIMITED -> {
+                    numberQuestion = -1;
+                    progressBar.setVisible(false);
+                    startPreparingButton.setVisible(true);
+                }
+            }
+            fadeOut();
+        }
+    }
+
     public void onEasyModeClicked(ActionEvent event) {
-        Words = GameData.getEasyWords();
-        EnglishKeyWords = GameData.getEasyEnglishKeyWords();
-        changeScene(Status.IN_GAME);
-        reset();
+        if (!mode.equals(Mode.EASY)) {
+            mode = Mode.EASY;
+            changeButtonColor((Button) event.getSource(), modeButtons);
+            loadData();
+        } else {
+            mode = Mode.UNSELECTED;
+            resetButtonColor((Button) event.getSource());
+        }
     }
 
     public void onNormalModeClicked(ActionEvent event) {
-        Words = GameData.getNormalWords();
-        EnglishKeyWords = GameData.getNormalEnglishKeyWords();
-        changeScene(Status.IN_GAME);
-        reset();
+        if (!mode.equals(Mode.NORMAL)) {
+            mode = Mode.NORMAL;
+            changeButtonColor((Button) event.getSource(), modeButtons);
+            loadData();
+        } else {
+            mode = Mode.UNSELECTED;
+            resetButtonColor((Button) event.getSource());
+        }
     }
 
-    public void onQuit(ActionEvent event) {
+    public void on10Clicked(ActionEvent event) {
+        if (!formula.equals(Formula.TEN)) {
+            formula = Formula.TEN;
+            changeButtonColor((Button) event.getSource(), formulaButtons);
+            loadData();
+        } else {
+            formula = Formula.UNSELECTED;
+            resetButtonColor((Button) event.getSource());
+        }
+    }
+
+    public void on20Clicked(ActionEvent event) {
+        if (!formula.equals(Formula.TWENTY)) {
+            formula = Formula.TWENTY;
+            changeButtonColor((Button) event.getSource(), formulaButtons);
+            loadData();
+        } else {
+            formula = Formula.UNSELECTED;
+            resetButtonColor((Button) event.getSource());
+        }
+    }
+
+    public void onUnlimitedClicked(ActionEvent event) {
+        if (!formula.equals(Formula.UNLIMITED)) {
+            formula = Formula.UNLIMITED;
+            changeButtonColor((Button) event.getSource(), formulaButtons);
+            loadData();
+        } else {
+            formula = Formula.UNSELECTED;
+            resetButtonColor((Button) event.getSource());
+        }
+    }
+
+    public void onQuit() {
         SceneLoaderController.loadScene(FXMLFiles.MAIN_UI_SCENE);
     }
 
@@ -175,9 +290,38 @@ public class ExperimentGameController implements Initializable {
         addNewItemToResultTable(question, button.getText(), trueAnswer);
     }
 
-    public void onReplayClicked(ActionEvent event) {
+    public void onStartPreparing() {
+        numberQuestion = numberQuestionAnswered - 1;
+        if (numberCorrectAnswers < 0.5 * numberQuestion) {
+            endGameStatus = EndGameStatus.FAIL;
+        } else if (numberCorrectAnswers >= 0.5 * numberQuestion && numberCorrectAnswers <= 0.6 * numberQuestion) {
+            endGameStatus = EndGameStatus.NO_REACTION;
+        } else if (numberCorrectAnswers >= 0.7 * numberQuestion && numberCorrectAnswers <= 0.8 * numberQuestion) {
+            endGameStatus = EndGameStatus.QUITE_SUCCESS;
+        } else {
+            endGameStatus = EndGameStatus.SUCCESS;
+        }
+        resultAnimation();
+    }
+
+    public void onReplayClicked() {
         changeScene(Status.START_GAME);
-        reset();
+    }
+
+    private void fadeOut() {
+        AnimationTimer fadeTimer = new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                startGamePane.setOpacity(startGamePane.getOpacity() - 0.005);
+                if (startGamePane.getOpacity() <= 0) {
+                    stop();
+                    startGamePane.setOpacity(1);
+                    changeScene(Status.IN_GAME);
+                    reset();
+                }
+            }
+        };
+        fadeTimer.start();
     }
 
     private ArrayList<Answer> generateRandomQuestionAndAnswers(int numberAnswer, boolean inVietnamese) {
@@ -231,37 +375,40 @@ public class ExperimentGameController implements Initializable {
 
     public void updateQuestionAndAnswer() {
         numberQuestionAnswered++;
-
-        if (numberQuestionAnswered <= 10) {
-            numberQuestionAnsweredLabel.setText(String.valueOf(numberQuestionAnswered));
-            int randomNumber = MakeRandom.random(0, 1);
-            if (randomNumber == 0) {
-                answers = generateRandomQuestionAndAnswers(4, true);
-            } else {
-                answers = generateRandomQuestionAndAnswers(4, false);
-            }
-
-            questionLabel.setText(question);
-
-            for (int i = 0; i < NUMBER_INGAME_BUTTON; i++) {
-                answers.get(i).setButton(inGameButtons.get(i));
-            }
-
-            if (mouseIsOnWhichButton != -1) {
-                choosingAnswerLabel.setText(inGameButtons.get(mouseIsOnWhichButton).getText());
-            }
-
+        numberQuestionAnsweredLabel.setText(String.valueOf(numberQuestionAnswered));
+        int randomNumber = MakeRandom.random(0, 1);
+        if (randomNumber == 0) {
+            answers = generateRandomQuestionAndAnswers(4, true);
         } else {
-            if (numberCorrectAnswers < 5) {
-                endGameStatus = EndGameStatus.FAIL;
-            } else if (numberCorrectAnswers == 5 || numberCorrectAnswers == 6) {
-                endGameStatus = EndGameStatus.NO_REACTION;
-            } else if (numberCorrectAnswers == 7 || numberCorrectAnswers == 8) {
-                endGameStatus = EndGameStatus.QUITE_SUCCESS;
-            } else {
-                endGameStatus = EndGameStatus.SUCCESS;
+            answers = generateRandomQuestionAndAnswers(4, false);
+        }
+
+        questionLabel.setText(question);
+
+        for (int i = 0; i < NUMBER_INGAME_BUTTON; i++) {
+            answers.get(i).setButton(inGameButtons.get(i));
+        }
+
+        if (mouseIsOnWhichButton != -1) {
+            choosingAnswerLabel.setText(inGameButtons.get(mouseIsOnWhichButton).getText());
+        }
+
+        if (formula.equals(Formula.UNLIMITED)) {
+            progressBar.setProgress((double) (numberQuestionAnswered - 1) / numberQuestion);
+            if (numberQuestionAnswered > numberQuestion) {
+                if (numberCorrectAnswers < 0.5 * numberQuestion) {
+                    endGameStatus = EndGameStatus.FAIL;
+                } else if (numberCorrectAnswers >= 0.5 * numberQuestion && numberCorrectAnswers <= 0.6 * numberQuestion) {
+                    endGameStatus = EndGameStatus.NO_REACTION;
+                } else if (numberCorrectAnswers >= 0.7 * numberQuestion && numberCorrectAnswers <= 0.8 * numberQuestion) {
+                    endGameStatus = EndGameStatus.QUITE_SUCCESS;
+                } else {
+                    endGameStatus = EndGameStatus.SUCCESS;
+                }
+                resultAnimation();
+                System.out.println("re");
+                System.out.println(formula);
             }
-            resultAnimation();
         }
     }
 
@@ -499,7 +646,7 @@ public class ExperimentGameController implements Initializable {
             }
         }
         endGameLabel.setText(message);
-        numberCorrectLabel.setText(numberCorrectAnswers + "/10 correct!");
+        numberCorrectLabel.setText(numberCorrectAnswers + "/" + numberQuestion + " correct!");
     }
 
     private void changeScene(Status status) {
@@ -535,12 +682,23 @@ public class ExperimentGameController implements Initializable {
 
     private void reset() {
         resultBottle.setImage(BottleImages.mainBottle);
-        resultBottle.setLayoutX(180);
-        resultBottle.setLayoutY(330);
+        resultBottle.setLayoutX(MAIN_BOTTLE_POS_X);
+        resultBottle.setLayoutY(MAIN_BOTTLE_POS_Y);
         successLight.setVisible(false);
 
         numberQuestionAnswered = 0;
         numberCorrectAnswers = 0;
+
+        mode = Mode.UNSELECTED;
+        formula = Formula.UNSELECTED;
+
+        for (Button button : modeButtons) {
+            resetButtonColor(button);
+        }
+        for (Button button : formulaButtons) {
+            resetButtonColor(button);
+        }
+
 
         ArrayList<Integer> indexes = new ArrayList<>();
         for (int i = 0; i < EnglishKeyWords.size(); i++) {
@@ -554,5 +712,19 @@ public class ExperimentGameController implements Initializable {
 
     private void clearResultTable() {
         resultsTableView.getItems().clear();
+    }
+
+    private void changeButtonColor(Button targetButton, ArrayList<Button> buttons) {
+        for (Button button : buttons) {
+            if (button.equals(targetButton)) {
+                button.setStyle("-fx-background-color: red");
+            } else {
+                button.setStyle(null);
+            }
+        }
+    }
+
+    private void resetButtonColor(Button button) {
+        button.setStyle(null);
     }
 }
