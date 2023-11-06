@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.MainUISceneController">
+<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.MainUISceneController">
    <children>
       <TextField fx:id="wordEnteringField" layoutX="172.0" layoutY="56.0" prefHeight="35.0" prefWidth="227.0" promptText="Nhập từ cần tra" stylesheets="@../../TextFieldStyles.css" />
       <ListView fx:id="searchingResultList" fixedCellSize="25.0" layoutX="172.0" layoutY="91.0" prefHeight="506.0" prefWidth="227.0" stylesheets="@../../ListViewStyles.css" />
@@ -25,39 +25,39 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="searchingTypeButton" focusTraversable="false" layoutX="172.0" layoutY="10.0" mnemonicParsing="false" onAction="#onSearchingTypeChanged" stylesheets="@../../ButtonStyles.css" text="ANH - VIỆT">
+      <Button fx:id="searchingTypeButton" focusTraversable="false" layoutX="277.0" layoutY="10.0" mnemonicParsing="false" onAction="#onSearchingTypeChanged" stylesheets="@../../ButtonStyles.css" text="ANH - VIỆT">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
       <VBox layoutX="14.0" layoutY="11.0" prefHeight="211.0" prefWidth="154.0" spacing="5.0">
          <children>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectInsertWordFunc" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Thêm từ mới">
+            <Button fx:id="insertWordButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectInsertWordFunc" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Thêm từ mới">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectUpdateWordFunc" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Cập nhật từ">
+            <Button fx:id="updateWordButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectUpdateWordFunc" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Cập nhật từ">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#translateText" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Dịch văn bản">
+            <Button fx:id="translateTextButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#translateText" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Dịch văn bản">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectExperimentGameFunc" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Experiment Game">
+            <Button fx:id="experimentGameButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectExperimentGameFunc" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Experiment Game">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectCommandline" prefHeight="28.0" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Bản Commandline">
+            <Button fx:id="commandlineButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectCommandline" prefHeight="28.0" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Bản Commandline">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectExitApp" prefHeight="25.0" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Thoát ứng dụng">
+            <Button fx:id="exitAppButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectExitApp" prefHeight="25.0" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Thoát ứng dụng">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

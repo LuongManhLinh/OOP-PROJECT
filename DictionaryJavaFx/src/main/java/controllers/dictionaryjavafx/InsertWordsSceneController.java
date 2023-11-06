@@ -1,20 +1,25 @@
 package controllers.dictionaryjavafx;
 
-import classes.Dictionary;
-import classes.EnViDictionary;
-import classes.FXMLFiles;
-import classes.ViEnDictionary;
+import classes.*;
+import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class InsertWordsSceneController implements Initializable {
-    @FXML private Button BacktoMainUIButton;
+    @FXML private AnchorPane anchorPane;
+    @FXML private Button backToMainUIButton;
     @FXML private Button AddWordButton;
     @FXML private Button addingTypeButton;
     @FXML private TextField enterWordField;
@@ -24,8 +29,16 @@ public class InsertWordsSceneController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        setOnKeyPress();
     }
+
+    private void setOnKeyPress() {
+        final KeyCodeCombination backToMainUI = new KeyCodeCombination(KeyCode.ESCAPE);
+        anchorPane.setOnKeyPressed(keyEvent -> {
+            if(backToMainUI.match(keyEvent)) backToMainUIButton.fire();
+        });
+    }
+
 
     public void enterWordAndMeaning(ActionEvent event) {
         String word = enterWordField.getText();
@@ -56,7 +69,6 @@ public class InsertWordsSceneController implements Initializable {
                 }
             }
         }
-
     }
 
     private void showWordIsEmptyAlert() {

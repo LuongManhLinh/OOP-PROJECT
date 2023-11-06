@@ -13,7 +13,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -22,11 +25,13 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class SceneTranslateTextController implements Initializable{
+    @FXML private AnchorPane anchorPane;
     @FXML private TextArea textTranslateArea;
     @FXML private TextArea textResultArea;
     @FXML private ChoiceBox<String> langFromChoiceBox;
     @FXML private ChoiceBox<String> langToChoiceBox;
     @FXML private Label errorLabel;
+    @FXML private Button backToMainUIButton;
     private Timeline errorTimeLine;
 
     private String langFrom;
@@ -51,6 +56,7 @@ public class SceneTranslateTextController implements Initializable{
 
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle){
+        setOnKeyPress();
         instance = this;
         symbol.put(languages[0], "vi");
         symbol.put(languages[1], "en");
@@ -80,6 +86,13 @@ public class SceneTranslateTextController implements Initializable{
                     errorLabel.setVisible(false);
                 })
         );
+    }
+
+    private void setOnKeyPress() {
+        final KeyCodeCombination backToMainUI = new KeyCodeCombination(KeyCode.ESCAPE);
+        anchorPane.setOnKeyPressed(keyEvent -> {
+            if(backToMainUI.match(keyEvent)) backToMainUIButton.fire();
+        });
     }
 
     public void translate() {

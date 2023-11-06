@@ -15,6 +15,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.util.Duration;
@@ -24,6 +27,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class MainUISceneController implements Initializable {
+    @FXML private AnchorPane anchorPane;
     @FXML private TextField wordEnteringField;
     @FXML private ListView<String> searchingResultList;
     @FXML private WebView meaningWebView;
@@ -31,6 +35,13 @@ public class MainUISceneController implements Initializable {
     @FXML private Button speakButton;
     @FXML private Button editWordButton;
     @FXML private Label errorLabel;
+    @FXML private Button insertWordButton;
+    @FXML private Button updateWordButton;
+    @FXML private Button translateTextButton;
+    @FXML private Button experimentGameButton;
+    @FXML private Button commandlineButton;
+    @FXML private Button exitAppButton;
+
     private String oldKeyWord = "";
     private String selectedWord = "";
     private Dictionary.Type searchingType = Dictionary.Type.EN_VI;
@@ -38,7 +49,7 @@ public class MainUISceneController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         hide();
-
+        setOnKeyPress();
         wordEnteringField.setOnKeyPressed(keyEvent -> {
             if (!searchingResultList.getItems().isEmpty()) {
                 if (keyEvent.getCode() == KeyCode.ENTER || keyEvent.getCode() == KeyCode.DOWN) {
@@ -218,6 +229,25 @@ public class MainUISceneController implements Initializable {
             SceneLoaderController.exitApp();
             DictionaryExecution.Run();
         }
+    }
+
+    private void setOnKeyPress() {
+        final KeyCodeCombination goToInsertWord = new KeyCodeCombination(KeyCode.F1);
+        final KeyCodeCombination goToUpdateWord = new KeyCodeCombination(KeyCode.F2);
+        final KeyCodeCombination goToTranslateText = new KeyCodeCombination(KeyCode.F3);
+        final KeyCodeCombination goToExperimentGame = new KeyCodeCombination(KeyCode.F4);
+        final KeyCodeCombination goToCommandline = new KeyCodeCombination(KeyCode.F5);
+        final KeyCodeCombination exitApp = new KeyCodeCombination(KeyCode.ESCAPE);
+        final KeyCodeCombination updateWordFromMainUI = new KeyCodeCombination(KeyCode.U, KeyCombination.CONTROL_DOWN);
+        anchorPane.setOnKeyPressed(keyEvent -> {
+            if (goToInsertWord.match(keyEvent)) insertWordButton.fire();
+            if (goToUpdateWord.match(keyEvent)) updateWordButton.fire();
+            if (goToTranslateText.match(keyEvent)) translateTextButton.fire();
+            if (goToExperimentGame.match(keyEvent)) experimentGameButton.fire();
+            if (goToCommandline.match(keyEvent)) commandlineButton.fire();
+            if (exitApp.match(keyEvent)) exitAppButton.fire();
+            if (updateWordFromMainUI.match(keyEvent)) editWordButton.fire();
+        });
     }
 
     public void selectExitApp(ActionEvent event) {
