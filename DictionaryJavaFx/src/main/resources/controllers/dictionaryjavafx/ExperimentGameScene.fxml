@@ -18,7 +18,7 @@
             <Image url="@../../gameAssets/ExperimentGame/light.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="startGamePane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(230, 220, 220);" visible="false">
+      <AnchorPane fx:id="startGamePane" focusTraversable="true" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(230, 220, 220);" visible="false">
          <children>
             <Label layoutX="229.0" layoutY="47.0" text="EXPERIMENT GAME">
                <font>

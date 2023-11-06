@@ -17,7 +17,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.util.Duration;
 
@@ -145,6 +147,12 @@ public class ExperimentGameController implements Initializable {
 
         questionLabel.setOnMouseExited(event -> {
             choosingAnswerLabel.setVisible(false);
+        });
+
+        startGamePane.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ESCAPE) {
+                onQuit();
+            }
         });
 
         installTable();
