@@ -19,7 +19,7 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button focusTraversable="false" layoutX="428.0" layoutY="27.0" mnemonicParsing="false" onAction="#speakLangFromText" stylesheets="@../../ButtonStyles.css">
+      <Button focusTraversable="false" layoutX="252.0" layoutY="508.0" mnemonicParsing="false" onAction="#speakLangFromText" stylesheets="@../../ButtonStyles.css">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -28,7 +28,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button focusTraversable="false" layoutX="508.0" layoutY="27.0" mnemonicParsing="false" onAction="#speakLangToText" stylesheets="@../../ButtonStyles.css">
+      <Button focusTraversable="false" layoutX="684.0" layoutY="508.0" mnemonicParsing="false" onAction="#speakLangToText" stylesheets="@../../ButtonStyles.css">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>

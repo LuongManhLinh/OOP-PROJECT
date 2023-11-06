@@ -211,6 +211,9 @@ public class ExperimentGameController implements Initializable {
                     startPreparingButton.setVisible(true);
                 }
             }
+            refillRemainIndexes();
+            updateQuestionAndAnswer();
+
             fadeOut();
         }
     }
@@ -305,6 +308,7 @@ public class ExperimentGameController implements Initializable {
     }
 
     public void onReplayClicked() {
+        reset();
         changeScene(Status.START_GAME);
     }
 
@@ -317,7 +321,6 @@ public class ExperimentGameController implements Initializable {
                     stop();
                     startGamePane.setOpacity(1);
                     changeScene(Status.IN_GAME);
-                    reset();
                 }
             }
         };
@@ -332,6 +335,9 @@ public class ExperimentGameController implements Initializable {
                 int randomIndex = MakeRandom.random(0, remainIndex.size() - 1);
                 int answerIndex = remainIndex.get(randomIndex);
                 remainIndex.remove(randomIndex);
+                if (remainIndex.isEmpty()) {
+                    refillRemainIndexes();
+                }
 
                 String meanings = Words.get(EnglishKeyWords.get(answerIndex));
                 Answer answer = new Answer(meanings, false);
@@ -349,6 +355,9 @@ public class ExperimentGameController implements Initializable {
                 int randomIndex = MakeRandom.random(0, remainIndex.size() - 1);
                 int answerIndex = remainIndex.get(randomIndex);
                 remainIndex.remove(randomIndex);
+                if (remainIndex.isEmpty()) {
+                    refillRemainIndexes();
+                }
 
                 String meanings = EnglishKeyWords.get(answerIndex);
                 Answer answer = new Answer(meanings, false);
@@ -375,6 +384,7 @@ public class ExperimentGameController implements Initializable {
 
     public void updateQuestionAndAnswer() {
         numberQuestionAnswered++;
+
         numberQuestionAnsweredLabel.setText(String.valueOf(numberQuestionAnswered));
         int randomNumber = MakeRandom.random(0, 1);
         if (randomNumber == 0) {
@@ -393,7 +403,7 @@ public class ExperimentGameController implements Initializable {
             choosingAnswerLabel.setText(inGameButtons.get(mouseIsOnWhichButton).getText());
         }
 
-        if (formula.equals(Formula.UNLIMITED)) {
+        if (!formula.equals(Formula.UNLIMITED)) {
             progressBar.setProgress((double) (numberQuestionAnswered - 1) / numberQuestion);
             if (numberQuestionAnswered > numberQuestion) {
                 if (numberCorrectAnswers < 0.5 * numberQuestion) {
@@ -406,8 +416,6 @@ public class ExperimentGameController implements Initializable {
                     endGameStatus = EndGameStatus.SUCCESS;
                 }
                 resultAnimation();
-                System.out.println("re");
-                System.out.println(formula);
             }
         }
     }
@@ -699,15 +707,15 @@ public class ExperimentGameController implements Initializable {
             resetButtonColor(button);
         }
 
+        clearResultTable();
+    }
 
+    private void refillRemainIndexes() {
         ArrayList<Integer> indexes = new ArrayList<>();
         for (int i = 0; i < EnglishKeyWords.size(); i++) {
             indexes.add(i);
         }
-
         remainIndex = indexes;
-        clearResultTable();
-        updateQuestionAndAnswer();
     }
 
     private void clearResultTable() {
