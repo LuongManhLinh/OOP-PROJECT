@@ -114,7 +114,7 @@ public class MainUISceneController implements Initializable {
             public void handle(long l) {
                 String keyWord = wordEnteringField.getText();
                 oldKeyWord = keyWord;
-                ArrayList<String> searchingResult = DictionaryManagementForApp.lookUp(keyWord, searchingType);
+                ArrayList<String> searchingResult = DictionaryManagementForApp.binaryLookUp(keyWord, searchingType);
                 if (!searchingResult.isEmpty()) {
                     searchingResultList.setVisible(true);
                     searchingResultList.getItems().setAll(searchingResult);
