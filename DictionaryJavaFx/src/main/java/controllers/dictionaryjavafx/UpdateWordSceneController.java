@@ -12,7 +12,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -34,12 +33,18 @@ public class UpdateWordSceneController implements Initializable {
     @FXML private TextArea editMeaningArea;
     @FXML private Label savedLabel;
     @FXML private Button backToMainUIButton;
+    @FXML private Label EscLabel;
+    @FXML private Label EnterLabel;
+    @FXML private Label EscLabelInEdit;
+    @FXML private Label CtrlELabel;
     private String oldKeyWord = "";
     private String selectedWord = "";
     private String firstWord;
     private String firstMeaning;
+    private String lastSavedWord;
+    private String lastSavedMeaning;
     private String oldMeaning = "";
-    private Timeline errorTimeLine;
+    private Timeline savedTimeLine;
     private Dictionary.Type searchingType = Dictionary.Type.EN_VI;
     private boolean removed = false;
     private boolean saved = false;
@@ -52,7 +57,7 @@ public class UpdateWordSceneController implements Initializable {
 
         searchingPane.setVisible(true);
         editingPane.setVisible(false);
-        errorTimeLine = new Timeline(
+        savedTimeLine = new Timeline(
                 new KeyFrame(Duration.millis(1000), event -> {
                     savedLabel.setVisible(false);
                 })
@@ -111,7 +116,7 @@ public class UpdateWordSceneController implements Initializable {
                 String keyWord = wordEnteringField.getText();
                 oldKeyWord = keyWord;
                 selectedWord = keyWord;
-                ArrayList<String> searchingResult = DictionaryManagementForApp.lookUp(keyWord, searchingType);
+                ArrayList<String> searchingResult = DictionaryManagementForApp.binaryLookUp(keyWord, searchingType);
                 if (!searchingResult.isEmpty()) {
                     searchingResultList.setVisible(true);
                     searchingResultList.getItems().setAll(searchingResult);
@@ -143,13 +148,17 @@ public class UpdateWordSceneController implements Initializable {
     }
 
     private void setOnKeyPress() {
-        final KeyCodeCombination backToMainUI = new KeyCodeCombination(KeyCode.ESCAPE);
-        final KeyCodeCombination goToUpdateWord = new KeyCodeCombination(KeyCode.ENTER);
         searchingPane.setOnKeyPressed(keyEvent -> {
-            if(backToMainUI.match(keyEvent)) backToMainUIButton.fire();
-            if(goToUpdateWord.match(keyEvent)) FixMeaningButton.fire();
+            if(keyEvent.getCode() == KeyCode.ESCAPE) backToMainUISceneFromSearchingPane();
+            if(keyEvent.getCode() == KeyCode.ENTER) updateWord();
+        });
+
+        editingPane.setOnKeyPressed(keyEvent -> {
+            if(keyEvent.getCode() == KeyCode.E && keyEvent.isControlDown()) backToMainUISceneFromEditingPane();
+            if(keyEvent.getCode() == KeyCode.ESCAPE) backToSelectWord();
         });
     }
+
 
     public void updateWord() {
         //nếu ấn chọn từ ở listView thì sẽ sửa nghĩa của từ đó còn không thì sửa nghĩa của từ ở textField
@@ -175,6 +184,9 @@ public class UpdateWordSceneController implements Initializable {
             firstWord = selectedWord;
             firstMeaning = meaning;
 
+            lastSavedWord = selectedWord;
+            lastSavedMeaning = meaning;
+
             checkDifferenceInMeaning();
         }
     }
@@ -191,13 +203,18 @@ public class UpdateWordSceneController implements Initializable {
         firstWord = selectedWordUI;
         firstMeaning = WordWork.getRidOfHTMLForm(meanings);
 
+        lastSavedWord = firstWord;
+        lastSavedMeaning = firstMeaning;
         checkDifferenceInMeaning();
     }
 
     public void saveNewMeaning() {
         String newWord = editWordField.getText();
         String newMeaning = editMeaningArea.getText();
+        lastSavedWord = newWord;
+        lastSavedMeaning = newMeaning;
         newMeaning = WordWork.toHTMLForm(newMeaning);
+
         if(searchingType == Dictionary.Type.EN_VI) {
             EnViDictionary.getInstance().getWords().remove(selectedWord);
             EnViDictionary.getInstance().getKeyWords().remove(selectedWord);
@@ -212,7 +229,7 @@ public class UpdateWordSceneController implements Initializable {
         }
         saved = true;
         savedLabel.setVisible(true);
-        errorTimeLine.play();
+        savedTimeLine.play();
     }
 
     public void removeWordFunc() {
@@ -250,7 +267,7 @@ public class UpdateWordSceneController implements Initializable {
     public void backToSelectWord() {
         String newWord = editWordField.getText();
         String newMeaning = editMeaningArea.getText();
-        if((!firstWord.equals(newWord) || !firstMeaning.equals(newMeaning)) && !removed && !saved) {
+        if((!lastSavedWord.equals(newWord) || !lastSavedMeaning.equals(newMeaning)) && !removed) {
             showSaveNewMeaningAlert(newWord, newMeaning);
         }
         wordEnteringField.clear();
@@ -264,7 +281,7 @@ public class UpdateWordSceneController implements Initializable {
     public void backToMainUISceneFromEditingPane() {
         String newWord = editWordField.getText();
         String newMeaning = editMeaningArea.getText();
-        if((!firstWord.equals(newWord) || !firstMeaning.equals(newMeaning)) && !removed && !saved) {
+        if((!lastSavedWord.equals(newWord) || !lastSavedMeaning.equals(newMeaning)) && !removed) {
             showSaveNewMeaningAlert(newWord, newMeaning);
         }
         removed = false;
@@ -349,5 +366,30 @@ public class UpdateWordSceneController implements Initializable {
     public void recoverMeaning() {
         editWordField.setText(firstWord);
         editMeaningArea.setText(firstMeaning);
+    }
+
+    public void showEsc() {
+        EscLabel.setVisible(true);
+    }
+    public void hideEsc() {
+        EscLabel.setVisible(false);
+    }
+    public void showEnter() {
+        EnterLabel.setVisible(true);
+    }
+    public void hideEnter() {
+        EnterLabel.setVisible(false);
+    }
+    public void showEscInEdit() {
+        EscLabelInEdit.setVisible(true);
+    }
+    public void hideEscInEdit() {
+        EscLabelInEdit.setVisible(false);
+    }
+    public void showCtrlE() {
+        CtrlELabel.setVisible(true);
+    }
+    public void hideCtrlE() {
+        CtrlELabel.setVisible(false);
     }
 }

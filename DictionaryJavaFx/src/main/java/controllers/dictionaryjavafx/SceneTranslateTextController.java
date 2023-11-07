@@ -31,6 +31,7 @@ public class SceneTranslateTextController implements Initializable{
     @FXML private ChoiceBox<String> langFromChoiceBox;
     @FXML private ChoiceBox<String> langToChoiceBox;
     @FXML private Label errorLabel;
+    @FXML private Label EscLabel;
     @FXML private Button backToMainUIButton;
     private Timeline errorTimeLine;
 
@@ -89,9 +90,8 @@ public class SceneTranslateTextController implements Initializable{
     }
 
     private void setOnKeyPress() {
-        final KeyCodeCombination backToMainUI = new KeyCodeCombination(KeyCode.ESCAPE);
         anchorPane.setOnKeyPressed(keyEvent -> {
-            if(backToMainUI.match(keyEvent)) backToMainUIButton.fire();
+            if(keyEvent.getCode() == KeyCode.ESCAPE) backToMainUIScene();
         });
     }
 
@@ -135,7 +135,7 @@ public class SceneTranslateTextController implements Initializable{
         }
     }
 
-    public void backToMainUIScene(ActionEvent event) {
+    public void backToMainUIScene() {
         SceneLoaderController.loadScene(FXMLFiles.MAIN_UI_SCENE);
     }
 
@@ -148,5 +148,12 @@ public class SceneTranslateTextController implements Initializable{
     private void errorShown() {
         errorLabel.setVisible(true);
         errorTimeLine.play();
+    }
+
+    public void showEsc() {
+        EscLabel.setVisible(true);
+    }
+    public void hideEsc() {
+        EscLabel.setVisible(false);
     }
 }

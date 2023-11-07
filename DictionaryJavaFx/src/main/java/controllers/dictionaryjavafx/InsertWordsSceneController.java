@@ -21,6 +21,7 @@ public class InsertWordsSceneController implements Initializable {
     @FXML private AnchorPane anchorPane;
     @FXML private Button backToMainUIButton;
     @FXML private Button AddWordButton;
+    @FXML private Label EscLabel;
     @FXML private Button addingTypeButton;
     @FXML private TextField enterWordField;
     @FXML private TextArea enterMeaningArea;
@@ -29,6 +30,7 @@ public class InsertWordsSceneController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        EscLabel.setVisible(false);
         setOnKeyPress();
     }
 
@@ -120,6 +122,13 @@ public class InsertWordsSceneController implements Initializable {
             addingType = Dictionary.Type.EN_VI;
             addingTypeButton.setText("ANH-VIỆT");
         }
+    }
+
+    public void showEsc() {
+        EscLabel.setVisible(true);
+    }
+    public void hideEsc() {
+        EscLabel.setVisible(false);
     }
 
     public void backToMainUIScene(ActionEvent event) {

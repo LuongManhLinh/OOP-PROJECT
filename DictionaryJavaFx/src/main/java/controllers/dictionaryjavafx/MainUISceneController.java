@@ -35,6 +35,13 @@ public class MainUISceneController implements Initializable {
     @FXML private Button speakButton;
     @FXML private Button editWordButton;
     @FXML private Label errorLabel;
+    @FXML private Label F1Label;
+    @FXML private Label F2Label;
+    @FXML private Label F3Label;
+    @FXML private Label F4Label;
+    @FXML private Label F5Label;
+    @FXML private Label EscLabel;
+    @FXML private Label CtrlULabel;
     @FXML private Button insertWordButton;
     @FXML private Button updateWordButton;
     @FXML private Button translateTextButton;
@@ -48,6 +55,7 @@ public class MainUISceneController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        hideLabel();
         hide();
         setOnKeyPress();
         wordEnteringField.setOnKeyPressed(keyEvent -> {
@@ -156,6 +164,16 @@ public class MainUISceneController implements Initializable {
         editWordButton.setVisible(false);
     }
 
+    public void hideLabel() {
+        F1Label.setVisible(false);
+        F2Label.setVisible(false);
+        F3Label.setVisible(false);
+        F4Label.setVisible(false);
+        F5Label.setVisible(false);
+        EscLabel.setVisible(false);
+        CtrlULabel.setVisible(false);
+    }
+
     public void show() {
         meaningWebView.setVisible(true);
         speakButton.setVisible(true);
@@ -251,8 +269,61 @@ public class MainUISceneController implements Initializable {
     }
 
     public void selectExitApp(ActionEvent event) {
-        SceneLoaderController.exitApp();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Thoát ứng dụng");
+        alert.setHeaderText("Bạn có muốn thoát ứng dụng không?");
+        ButtonType co = new ButtonType("Có");
+        ButtonType khong = new ButtonType("Không");
+        alert.getButtonTypes().setAll(co, khong);
+        if(alert.showAndWait().get() == co) {
+            SceneLoaderController.exitApp();
+        }
+    }
+    public void showF1() {
+        F1Label.setVisible(true);
+    }
+    public void hideF1() {
+        F1Label.setVisible(false);
     }
 
+    public void showF2() {
+        F2Label.setVisible(true);
+    }
+    public void hideF2() {
+        F2Label.setVisible(false);
+    }
 
+    public void showF3() {
+        F3Label.setVisible(true);
+    }
+    public void hideF3() {
+        F3Label.setVisible(false);
+    }
+
+    public void showF4() {
+        F4Label.setVisible(true);
+    }
+    public void hideF4() {
+        F4Label.setVisible(false);
+    }
+
+    public void showF5() {
+        F5Label.setVisible(true);
+    }
+    public void hideF5() {
+        F5Label.setVisible(false);
+    }
+    public void showEsc() {
+        EscLabel.setVisible(true);
+    }
+    public void hideEsc() {
+        EscLabel.setVisible(false);
+    }
+
+    public void showCtrlU() {
+        CtrlULabel.setVisible(true);
+    }
+    public void hideCtrlU() {
+        CtrlULabel.setVisible(false);
+    }
 }

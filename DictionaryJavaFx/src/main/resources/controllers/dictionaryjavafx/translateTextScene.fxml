@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.SceneTranslateTextController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.SceneTranslateTextController">
    <children>
       <TextArea fx:id="textTranslateArea" layoutX="76.0" layoutY="90.0" prefHeight="400.0" prefWidth="421.0" promptText="Nhập văn bản cần dịch" wrapText="true">
          <font>
             <Font size="24.0" />
          </font></TextArea>
-      <Button fx:id="backToMainUIButton" focusTraversable="false" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUIScene" stylesheets="@../../ButtonStyles.css" text="Quay lại">
+      <Button fx:id="backToMainUIButton" focusTraversable="false" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUIScene" onMouseEntered="#showEsc" onMouseExited="#hideEsc" stylesheets="@../../ButtonStyles.css" text="Quay lại">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
@@ -52,6 +52,11 @@
       <Label fx:id="errorLabel" layoutX="440.0" layoutY="280.0" opacity="0.3" style="-fx-background-color: black;" text="Lỗi kết nối" textFill="WHITE" visible="false">
          <font>
             <Font name="System Italic" size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="EscLabel" layoutX="84.0" layoutY="19.0" opacity="0.75" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="Esc" visible="false">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
    </children>

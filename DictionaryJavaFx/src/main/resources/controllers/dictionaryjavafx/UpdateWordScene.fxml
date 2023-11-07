@@ -9,16 +9,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.UpdateWordSceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.UpdateWordSceneController">
    <children>
       <AnchorPane fx:id="searchingPane" prefHeight="600.0" prefWidth="1000.0" visible="false">
          <children>
-            <Button fx:id="backToMainUIButton" focusTraversable="false" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUISceneFromSearchingPane" stylesheets="@../../ButtonStyles.css" text="Quay lại">
+            <Button fx:id="backToMainUIButton" focusTraversable="false" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUISceneFromSearchingPane" onMouseEntered="#showEsc" onMouseExited="#hideEsc" stylesheets="@../../ButtonStyles.css" text="Quay lại">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="FixMeaningButton" focusTraversable="false" layoutX="604.0" layoutY="56.0" mnemonicParsing="false" onAction="#updateWord" stylesheets="@../../ButtonStyles.css" text="Cập nhật từ">
+            <Button fx:id="FixMeaningButton" focusTraversable="false" layoutX="604.0" layoutY="56.0" mnemonicParsing="false" onAction="#updateWord" onMouseEntered="#showEnter" onMouseExited="#hideEnter" stylesheets="@../../ButtonStyles.css" text="Cập nhật từ">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -30,6 +30,16 @@
             </Button>
             <TextField fx:id="wordEnteringField" layoutX="226.0" layoutY="56.0" prefHeight="30.0" prefWidth="340.0" promptText="Nhập từ cần cập nhật" stylesheets="@../../TextFieldStyles.css" />
             <ListView fx:id="searchingResultList" fixedCellSize="25.0" layoutX="226.0" layoutY="91.0" prefHeight="494.0" prefWidth="340.0" stylesheets="@../../ListViewStyles.css" />
+            <Label fx:id="EnterLabel" layoutX="696.0" layoutY="59.0" opacity="0.75" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="Enter" visible="false">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="EscLabel" layoutX="82.0" layoutY="19.0" opacity="0.75" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="Esc" visible="false">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="editingPane" prefHeight="600.0" prefWidth="1000.0">
@@ -45,7 +55,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="backToSelectWordButton" focusTraversable="false" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToSelectWord" stylesheets="@../../ButtonStyles.css" text="Quay lại">
+            <Button fx:id="backToSelectWordButton" focusTraversable="false" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToSelectWord" onMouseEntered="#showEscInEdit" onMouseExited="#hideEscInEdit" stylesheets="@../../ButtonStyles.css" text="Quay lại">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -75,11 +85,21 @@
                   <Font size="27.0" />
                </font>
             </Label>
-            <Button layoutX="86.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUISceneFromEditingPane" stylesheets="@../../ButtonStyles.css" text="Quay lại giao diện chính">
+            <Button layoutX="108.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUISceneFromEditingPane" onMouseEntered="#showCtrlE" onMouseExited="#hideCtrlE" stylesheets="@../../ButtonStyles.css" text="Quay lại giao diện chính">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
+            <Label fx:id="EscLabelInEdit" layoutX="83.0" layoutY="19.0" opacity="0.75" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="Esc" visible="false">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="CtrlELabel" layoutX="268.0" layoutY="19.0" opacity="0.75" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="Ctrl+E" visible="false">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

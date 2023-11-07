@@ -32,32 +32,32 @@
       </Button>
       <VBox layoutX="14.0" layoutY="11.0" prefHeight="211.0" prefWidth="154.0" spacing="5.0">
          <children>
-            <Button fx:id="insertWordButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectInsertWordFunc" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Thêm từ mới">
+            <Button fx:id="insertWordButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectInsertWordFunc" onMouseEntered="#showF1" onMouseExited="#hideF1" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Thêm từ mới" textAlignment="JUSTIFY">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="updateWordButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectUpdateWordFunc" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Cập nhật từ">
+            <Button fx:id="updateWordButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectUpdateWordFunc" onMouseEntered="#showF2" onMouseExited="#hideF2" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Cập nhật từ">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="translateTextButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#translateText" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Dịch văn bản">
+            <Button fx:id="translateTextButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#translateText" onMouseEntered="#showF3" onMouseExited="#hideF3" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Dịch văn bản">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="experimentGameButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectExperimentGameFunc" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Experiment Game">
+            <Button fx:id="experimentGameButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectExperimentGameFunc" onMouseEntered="#showF4" onMouseExited="#hideF4" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Experiment Game (F4)">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="commandlineButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectCommandline" prefHeight="28.0" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Bản Commandline">
+            <Button fx:id="commandlineButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectCommandline" onMouseEntered="#showF5" onMouseExited="#hideF5" prefHeight="28.0" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Bản Commandline">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="exitAppButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectExitApp" prefHeight="25.0" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Thoát ứng dụng">
+            <Button fx:id="exitAppButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectExitApp" onMouseEntered="#showEsc" onMouseExited="#hideEsc" prefHeight="25.0" prefWidth="130.0" stylesheets="@../../ButtonStyles.css" text="Thoát ứng dụng">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -74,9 +74,38 @@
             <Font name="System Italic" size="27.0" />
          </font>
       </Label>
-      <Button fx:id="editWordButton" focusTraversable="false" layoutX="622.0" layoutY="17.0" mnemonicParsing="false" onAction="#selectUpdateWordFromMainUIFunc" prefHeight="28.0" prefWidth="154.0" stylesheets="@../../ButtonStyles.css" text="Cập nhật từ đang chọn">
+      <Button fx:id="editWordButton" focusTraversable="false" layoutX="622.0" layoutY="17.0" mnemonicParsing="false" onAction="#selectUpdateWordFromMainUIFunc" onMouseEntered="#showCtrlU" onMouseExited="#hideCtrlU" prefHeight="28.0" prefWidth="154.0" stylesheets="@../../ButtonStyles.css" text="Cập nhật từ đang chọn">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
+      <Label fx:id="F1Label" layoutX="150.0" layoutY="17.0" opacity="0.75" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="F1">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="F2Label" layoutX="150.0" layoutY="48.0" opacity="0.75" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="F2">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="F3Label" layoutX="150.0" layoutY="79.0" opacity="0.75" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="F3">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="F4Label" layoutX="150.0" layoutY="111.0" opacity="0.75" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="F4">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="F5Label" layoutX="150.0" layoutY="143.0" opacity="0.75" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="F5">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="EscLabel" layoutX="150.0" layoutY="175.0" opacity="0.75" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="Esc">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Label>
+      <Label fx:id="CtrlULabel" layoutX="782.0" layoutY="22.0" opacity="0.75" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="Ctrl+u">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
