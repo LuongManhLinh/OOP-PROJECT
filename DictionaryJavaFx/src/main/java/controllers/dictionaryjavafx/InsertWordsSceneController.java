@@ -8,13 +8,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.input.KeyCombination;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
-import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class InsertWordsSceneController implements Initializable {
@@ -25,6 +21,7 @@ public class InsertWordsSceneController implements Initializable {
     @FXML private Button addingTypeButton;
     @FXML private TextField enterWordField;
     @FXML private TextArea enterMeaningArea;
+    @FXML private Label warningLabel;
 
     private Dictionary.Type addingType = Dictionary.Type.EN_VI;
 
@@ -32,6 +29,41 @@ public class InsertWordsSceneController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         EscLabel.setVisible(false);
         setOnKeyPress();
+
+        enterWordField.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER || keyEvent.getCode() == KeyCode.DOWN) {
+                enterMeaningArea.requestFocus();
+            }
+        });
+
+        AnimationTimer checkTimer = new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                if (enterWordField.isFocused()) {
+                    String text = enterWordField.getText().trim();
+                    if (!text.isEmpty()) {
+                        if (addingType == Dictionary.Type.EN_VI) {
+                            if (EnViDictionary.getInstance().getKeyWords().contains(text)) {
+                                startWarning();
+                            } else {
+                                stopWarning();
+                            }
+                        } else if (addingType == Dictionary.Type.VI_EN) {
+                            if (ViEnDictionary.getInstance().getKeyWords().contains(text)) {
+                                startWarning();
+                            } else {
+                                stopWarning();
+                            }
+                        }
+                    } else {
+                        stopWarning();
+                    }
+                }
+
+            }
+        };
+
+        checkTimer.start();
     }
 
     private void setOnKeyPress() {
@@ -55,8 +87,7 @@ public class InsertWordsSceneController implements Initializable {
                     showContainAlert();
                 }
                 else {
-                    EnViDictionary.getInstance().getKeyWords().add(word);
-                    EnViDictionary.getInstance().getWords().put(word, wordMeaning);
+                    DictionaryManagementForApp.insert(word, wordMeaning, Dictionary.Type.EN_VI);
                     showConfirmationAlert(word, event);
                 }
             }
@@ -65,8 +96,7 @@ public class InsertWordsSceneController implements Initializable {
                     showContainAlert();
                 }
                 else {
-                    ViEnDictionary.getInstance().getKeyWords().add(word);
-                    ViEnDictionary.getInstance().getWords().put(word, wordMeaning);
+                    DictionaryManagementForApp.insert(word, wordMeaning, Dictionary.Type.VI_EN);
                     showConfirmationAlert(word, event);
                 }
             }
@@ -117,10 +147,10 @@ public class InsertWordsSceneController implements Initializable {
     public void onAddingTypeChanged(ActionEvent event) {
         if (addingType == Dictionary.Type.EN_VI) {
             addingType = Dictionary.Type.VI_EN;
-            addingTypeButton.setText("VIỆT-ANH");
+            addingTypeButton.setText("VIỆT - ANH");
         } else if (addingType == Dictionary.Type.VI_EN) {
             addingType = Dictionary.Type.EN_VI;
-            addingTypeButton.setText("ANH-VIỆT");
+            addingTypeButton.setText("ANH - VIỆT");
         }
     }
 
@@ -133,5 +163,15 @@ public class InsertWordsSceneController implements Initializable {
 
     public void backToMainUIScene(ActionEvent event) {
         SceneLoaderController.loadScene(FXMLFiles.MAIN_UI_SCENE);
+    }
+
+    public void startWarning() {
+        warningLabel.setVisible(true);
+        enterWordField.setStyle("-fx-border-color:red;");
+    }
+
+    private void stopWarning() {
+        warningLabel.setVisible(false);
+        enterWordField.setStyle(null);
     }
 }

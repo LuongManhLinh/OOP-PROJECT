@@ -87,7 +87,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="inGamePane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(230, 220, 220);">
+      <AnchorPane fx:id="inGamePane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(230, 220, 220);" visible="false">
          <children>
             <Label fx:id="questionLabel" layoutX="38.0" layoutY="116.0" maxHeight="190.0" maxWidth="430.0" style="-fx-background-color: rgb(0,255,0); -fx-border-color: rgb(255,0,0); -fx-background-radius: 10; -fx-border-radius: 10;" text="Question" wrapText="true">
                <font>
@@ -181,7 +181,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="endGamePane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(230, 220, 220);" visible="false">
+      <AnchorPane fx:id="endGamePane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(230, 220, 220);">
          <children>
             <Label fx:id="endGameLabel" alignment="CENTER" layoutX="279.0" layoutY="14.0" prefHeight="61.0" prefWidth="708.0" text="Excellent! Successful experiment!" textAlignment="CENTER" wrapText="true">
                <font>
@@ -200,12 +200,12 @@
             </TableView>
             <Button layoutX="552.0" layoutY="501.0" mnemonicParsing="false" onAction="#onReplayClicked" text="REPLAY">
                <font>
-                  <Font size="35.0" />
+                  <Font name="Jokerman" size="35.0" />
                </font>
             </Button>
-            <Label fx:id="numberCorrectLabel" layoutX="35.0" layoutY="75.0" text="x/y correct">
+            <Label fx:id="numberCorrectLabel" layoutX="32.0" layoutY="61.0" text="x/y correct">
                <font>
-                  <Font name="System Italic" size="40.0" />
+                  <Font name="Bell MT Italic" size="52.0" />
                </font>
             </Label>
          </children>

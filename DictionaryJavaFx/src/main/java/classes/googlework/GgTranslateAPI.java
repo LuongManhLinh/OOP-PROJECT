@@ -18,8 +18,7 @@ public class GgTranslateAPI {
 
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestProperty("User-Agent", "Mozilla/5.0");
-        BufferedReader webReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
-        return webReader;
+        return new BufferedReader(new InputStreamReader(con.getInputStream()));
     }
 
     public static String translate(String langFrom, String langTo, String text) {

@@ -2,13 +2,13 @@ package classes.dictionarycommandline;
 import classes.EnViDictionary;
 import classes.data.WordWork;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
-import java.util.TreeSet;
 
 public class DictionaryManagement {
     public static HashMap<String, String> words = EnViDictionary.getInstance().getWords();
-    public static TreeSet<String> keyWords = EnViDictionary.getInstance().getKeyWords();
+    public static ArrayList<String> keyWords = EnViDictionary.getInstance().getKeyWords();
 
     public static void printOneWord(String exactWord) {
         System.out.println(exactWord + ": ");

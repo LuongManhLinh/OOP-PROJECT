@@ -91,6 +91,14 @@ public class MainUISceneController implements Initializable {
                     if (searchingResultList.getSelectionModel().getSelectedIndex() == 0) {
                         wordEnteringField.requestFocus();
                     }
+                } else if (keyEvent.getCode() == KeyCode.ENTER) {
+                    int selectedIndex = searchingResultList.getSelectionModel().getSelectedIndex();
+                    if (selectedIndex < searchingResultList.getItems().size() - 1) {
+                        searchingResultList.getSelectionModel().selectNext();
+                        if (selectedIndex >= 19) {
+                            searchingResultList.scrollTo(selectedIndex + 1);
+                        }
+                    }
                 }
             }
         });
@@ -122,7 +130,7 @@ public class MainUISceneController implements Initializable {
             public void handle(long l) {
                 String keyWord = wordEnteringField.getText();
                 oldKeyWord = keyWord;
-                ArrayList<String> searchingResult = DictionaryManagementForApp.binaryLookUp(keyWord, searchingType);
+                ArrayList<String> searchingResult = DictionaryManagementForApp.lookUp(keyWord, searchingType);
                 if (!searchingResult.isEmpty()) {
                     searchingResultList.setVisible(true);
                     searchingResultList.getItems().setAll(searchingResult);
@@ -184,10 +192,10 @@ public class MainUISceneController implements Initializable {
         hide();
         if (searchingType == Dictionary.Type.EN_VI) {
             searchingType = Dictionary.Type.VI_EN;
-            searchingTypeButton.setText("VIỆT-ANH");
+            searchingTypeButton.setText("VIỆT - ANH");
         } else if (searchingType == Dictionary.Type.VI_EN) {
             searchingType = Dictionary.Type.EN_VI;
-            searchingTypeButton.setText("ANH-VIỆT");
+            searchingTypeButton.setText("ANH - VIỆT");
         }
     }
 

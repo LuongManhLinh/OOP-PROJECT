@@ -1,6 +1,7 @@
 package controllers.dictionaryjavafx;
 
 import classes.*;
+import classes.data.DictionaryData;
 import classes.data.WordWork;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
@@ -63,28 +64,6 @@ public class UpdateWordSceneController implements Initializable {
                 })
         );
 
-        // khung nhìn hiển thị được tối đa 10 kết quả, nếu nhiều hơn phải cuộn xuống để xem
-        wordEnteringField.setOnKeyPressed(keyEvent -> {
-            if (!searchingResultList.getItems().isEmpty()) {
-                if (keyEvent.getCode() == KeyCode.DOWN) {
-                    searchingResultList.getSelectionModel().select(0);
-                    searchingResultList.requestFocus();
-                }
-            }
-        });
-
-        searchingResultList.setOnKeyPressed(keyEvent -> {
-            if (!searchingResultList.getItems().isEmpty()) {
-                if (keyEvent.getCode() == KeyCode.BACK_SPACE) {
-                    wordEnteringField.requestFocus();
-                } else if (keyEvent.getCode() == KeyCode.UP) {
-                    if (searchingResultList.getSelectionModel().getSelectedIndex() == 0) {
-                        wordEnteringField.requestFocus();
-                    }
-                }
-            }
-        });
-
         // khung nhìn hiển thị được tối đa 20 kết quả, nếu nhiều hơn phải cuộn xuống để xem
         searchingResultList.setMaxHeight(20 * searchingResultList.getFixedCellSize());
         searchingResultList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
@@ -116,7 +95,7 @@ public class UpdateWordSceneController implements Initializable {
                 String keyWord = wordEnteringField.getText();
                 oldKeyWord = keyWord;
                 selectedWord = keyWord;
-                ArrayList<String> searchingResult = DictionaryManagementForApp.binaryLookUp(keyWord, searchingType);
+                ArrayList<String> searchingResult = DictionaryManagementForApp.lookUp(keyWord, searchingType);
                 if (!searchingResult.isEmpty()) {
                     searchingResultList.setVisible(true);
                     searchingResultList.getItems().setAll(searchingResult);
@@ -156,6 +135,36 @@ public class UpdateWordSceneController implements Initializable {
         editingPane.setOnKeyPressed(keyEvent -> {
             if(keyEvent.getCode() == KeyCode.E && keyEvent.isControlDown()) backToMainUISceneFromEditingPane();
             if(keyEvent.getCode() == KeyCode.ESCAPE) backToSelectWord();
+            if (keyEvent.getCode() == KeyCode.ESCAPE) {
+                backToMainUISceneFromSearchingPane();
+            }
+        });
+
+        wordEnteringField.setOnKeyPressed(keyEvent -> {
+            if (!searchingResultList.getItems().isEmpty()) {
+                if (keyEvent.getCode() == KeyCode.DOWN) {
+                    searchingResultList.getSelectionModel().select(0);
+                    searchingResultList.requestFocus();
+                } else if (keyEvent.getCode() == KeyCode.ENTER) {
+                    updateWord();
+                }
+            }
+        });
+
+        searchingResultList.setOnKeyPressed(keyEvent -> {
+            if (!searchingResultList.getItems().isEmpty()) {
+                if (keyEvent.getCode() == KeyCode.BACK_SPACE) {
+                    wordEnteringField.requestFocus();
+                } else if (keyEvent.getCode() == KeyCode.UP) {
+                    if (searchingResultList.getSelectionModel().getSelectedIndex() == 0) {
+                        wordEnteringField.requestFocus();
+                    }
+                } else if (keyEvent.getCode() == KeyCode.ENTER) {
+                    updateWord();
+                } else if (keyEvent.getCode() == KeyCode.ESCAPE) {
+                    backToMainUISceneFromSearchingPane();
+                }
+            }
         });
     }
 
@@ -216,16 +225,12 @@ public class UpdateWordSceneController implements Initializable {
         newMeaning = WordWork.toHTMLForm(newMeaning);
 
         if(searchingType == Dictionary.Type.EN_VI) {
-            EnViDictionary.getInstance().getWords().remove(selectedWord);
-            EnViDictionary.getInstance().getKeyWords().remove(selectedWord);
-            EnViDictionary.getInstance().getWords().put(newWord, newMeaning);
-            EnViDictionary.getInstance().getKeyWords().add(newWord);
+            DictionaryManagementForApp.remove(selectedWord, Dictionary.Type.EN_VI);
+            DictionaryManagementForApp.insert(newWord, newMeaning, Dictionary.Type.EN_VI);
         }
         else {
-            ViEnDictionary.getInstance().getWords().remove(selectedWord);
-            ViEnDictionary.getInstance().getKeyWords().remove(selectedWord);
-            ViEnDictionary.getInstance().getWords().put(newWord, newMeaning);
-            ViEnDictionary.getInstance().getKeyWords().add(newWord);
+            DictionaryManagementForApp.remove(selectedWord, Dictionary.Type.VI_EN);
+            DictionaryManagementForApp.insert(newWord, newMeaning, Dictionary.Type.VI_EN);
         }
         saved = true;
         savedLabel.setVisible(true);
@@ -244,12 +249,10 @@ public class UpdateWordSceneController implements Initializable {
             alert.getButtonTypes().setAll(ok, cancel);
             if (alert.showAndWait().get() == ok) {
                 if(searchingType == Dictionary.Type.EN_VI) {
-                    EnViDictionary.getInstance().getKeyWords().remove(word);
-                    EnViDictionary.getInstance().getWords().remove(word);
+                    DictionaryManagementForApp.remove(word, Dictionary.Type.EN_VI);
                 }
                 else {
-                    ViEnDictionary.getInstance().getKeyWords().remove(word);
-                    ViEnDictionary.getInstance().getWords().remove(word);
+                    DictionaryManagementForApp.remove(word, Dictionary.Type.VI_EN);
                 }
                 editWordField.clear();
                 editMeaningArea.clear();
@@ -351,15 +354,15 @@ public class UpdateWordSceneController implements Initializable {
         checkTimer.start();
     }
 
-    public void onSearchingTypeChanged(ActionEvent event) {
+    public void onSearchingTypeChanged() {
         oldKeyWord = "";
         searchingResultList.setVisible(false);
         if (searchingType == Dictionary.Type.EN_VI) {
             searchingType = Dictionary.Type.VI_EN;
-            searchingTypeButton.setText("VIỆT-ANH");
+            searchingTypeButton.setText("VIỆT - ANH");
         } else if (searchingType == Dictionary.Type.VI_EN) {
             searchingType = Dictionary.Type.EN_VI;
-            searchingTypeButton.setText("ANH-VIỆT");
+            searchingTypeButton.setText("ANH - VIỆT");
         }
     }
 

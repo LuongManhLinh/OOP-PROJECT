@@ -3,13 +3,13 @@ package classes.data;
 import classes.Dictionary;
 
 import java.util.HashMap;
-import java.util.TreeSet;
+import java.util.ArrayList;
 
 public class DictionaryData {
     private static HashMap<String, String> viWords = new HashMap<>();
-    private static TreeSet<String> engKeyWords = new TreeSet<>();
+    private static ArrayList<String> engKeyWords = new ArrayList<>();
     private static HashMap<String, String> engWords = new HashMap<>();
-    private static TreeSet<String> viKeyWords = new TreeSet<>();
+    private static ArrayList<String> viKeyWords = new ArrayList<>();
 
     private static final String EN_VI_PATH = "src/main/resources/data/anhvietData.txt";
     private static final String VI_EN_PATH = "src/main/resources/data/vietanhData.txt";
@@ -21,7 +21,7 @@ public class DictionaryData {
         DictionaryFileWork.importAllWords(VI_EN_PATH, engWords, viKeyWords);
     }
 
-    public static void writeData(Dictionary.Type type, HashMap<String, String> words, TreeSet<String> keyWords) {
+    public static void writeData(Dictionary.Type type, HashMap<String, String> words, ArrayList<String> keyWords) {
         if (type == Dictionary.Type.EN_VI) {
             DictionaryFileWork.exportAllWords(EN_VI_PATH, words, keyWords);
         } else if (type == Dictionary.Type.VI_EN) {
@@ -33,7 +33,7 @@ public class DictionaryData {
         return viWords;
     }
 
-    public static TreeSet<String> getEngKeyWords() {
+    public static ArrayList<String> getEngKeyWords() {
         return engKeyWords;
     }
 
@@ -41,7 +41,7 @@ public class DictionaryData {
         return engWords;
     }
 
-    public static TreeSet<String> getViKeyWords() {
+    public static ArrayList<String> getViKeyWords() {
         return viKeyWords;
     }
 }

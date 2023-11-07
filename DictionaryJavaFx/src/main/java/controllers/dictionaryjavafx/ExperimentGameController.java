@@ -227,7 +227,7 @@ public class ExperimentGameController implements Initializable {
     }
 
     public void onEasyModeClicked(ActionEvent event) {
-        if (!mode.equals(Mode.EASY)) {
+        if (mode != Mode.EASY) {
             mode = Mode.EASY;
             changeButtonColor((Button) event.getSource(), modeButtons);
             loadData();
@@ -238,7 +238,7 @@ public class ExperimentGameController implements Initializable {
     }
 
     public void onNormalModeClicked(ActionEvent event) {
-        if (!mode.equals(Mode.NORMAL)) {
+        if (mode != Mode.NORMAL) {
             mode = Mode.NORMAL;
             changeButtonColor((Button) event.getSource(), modeButtons);
             loadData();
@@ -249,7 +249,7 @@ public class ExperimentGameController implements Initializable {
     }
 
     public void on10Clicked(ActionEvent event) {
-        if (!formula.equals(Formula.TEN)) {
+        if (formula != Formula.TEN) {
             formula = Formula.TEN;
             changeButtonColor((Button) event.getSource(), formulaButtons);
             loadData();
@@ -260,7 +260,7 @@ public class ExperimentGameController implements Initializable {
     }
 
     public void on20Clicked(ActionEvent event) {
-        if (!formula.equals(Formula.TWENTY)) {
+        if (formula != Formula.TWENTY) {
             formula = Formula.TWENTY;
             changeButtonColor((Button) event.getSource(), formulaButtons);
             loadData();
@@ -271,7 +271,7 @@ public class ExperimentGameController implements Initializable {
     }
 
     public void onUnlimitedClicked(ActionEvent event) {
-        if (!formula.equals(Formula.UNLIMITED)) {
+        if (formula != Formula.UNLIMITED) {
             formula = Formula.UNLIMITED;
             changeButtonColor((Button) event.getSource(), formulaButtons);
             loadData();
@@ -411,7 +411,7 @@ public class ExperimentGameController implements Initializable {
             choosingAnswerLabel.setText(inGameButtons.get(mouseIsOnWhichButton).getText());
         }
 
-        if (!formula.equals(Formula.UNLIMITED)) {
+        if (formula != Formula.UNLIMITED) {
             progressBar.setProgress((double) (numberQuestionAnswered - 1) / numberQuestion);
             if (numberQuestionAnswered > numberQuestion) {
                 if (numberCorrectAnswers < 0.5 * numberQuestion) {

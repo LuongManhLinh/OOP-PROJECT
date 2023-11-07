@@ -4,13 +4,13 @@ import java.util.*;
 
 
 public abstract class Dictionary {
-    public static enum Type {
+    public enum Type {
         VI_EN,
         EN_VI
     }
 
     protected HashMap<String, String> words = new HashMap<>();
-    protected TreeSet<String> keyWords = new TreeSet<>();
+    protected ArrayList<String> keyWords = new ArrayList<>();
 
     public Dictionary() {
         awake();
@@ -23,11 +23,8 @@ public abstract class Dictionary {
         return words;
     }
 
-    public TreeSet<String> getKeyWords() {
+    public ArrayList<String> getKeyWords() {
         return keyWords;
     }
 
-    public ArrayList<String> getKeyWordsAsArray() {
-        return new ArrayList<>(keyWords);
-    }
 }

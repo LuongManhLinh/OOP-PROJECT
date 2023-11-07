@@ -4,12 +4,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.InsertWordsSceneController">
    <children>
-      <TextField fx:id="enterWordField" layoutX="202.0" layoutY="111.0" prefHeight="27.0" prefWidth="596.0" promptText="Nhập từ muốn thêm" stylesheets="@../../TextFieldStyles.css">
+      <TextField fx:id="enterWordField" layoutX="287.0" layoutY="111.0" prefHeight="32.0" prefWidth="441.0" promptText="Nhập từ muốn thêm" stylesheets="@../../TextFieldStyles.css">
          <font>
             <Font size="14.0" />
          </font></TextField>
@@ -21,24 +22,32 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button fx:id="AddWordButton" focusTraversable="false" layoutX="815.0" layoutY="111.0" mnemonicParsing="false" onAction="#enterWordAndMeaning" stylesheets="@../../ButtonStyles.css" text="Thêm từ">
+      <Button fx:id="AddWordButton" focusTraversable="false" layoutX="730.0" layoutY="111.0" mnemonicParsing="false" onAction="#enterWordAndMeaning" prefHeight="32.0" prefWidth="67.0" stylesheets="@../../ButtonStyles.css" text="Thêm từ">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Label fx:id="noteLabel" alignment="TOP_LEFT" layoutX="202.0" layoutY="479.0" prefHeight="106.0" prefWidth="596.0" text="quy định đặt nghĩa:                                                                                                                                                   @ cộng với tiêu đề của từ                                                                                                                                           * cộng với loại từ (danh từ, động từ...)                                                                                                                          - cộng với nghĩa                                                                                                                                                         = cộng với ví dụ                                                                                                                                                           ! cộng với kiểu mở rộng từ khi kết hợp với từ khác (ví dụ từ take có to take after)" textFill="#e40e0e" wrapText="true">
+      <Label fx:id="noteLabel" alignment="TOP_LEFT" layoutX="202.0" layoutY="479.0" prefHeight="106.0" prefWidth="596.0" text="quy định đặt nghĩa:                                                                                                                                                   @ cộng với tiêu đề của từ                                                                                                                                           * cộng với loại từ (danh từ, động từ...)                                                                                                                          - cộng với nghĩa                                                                                                                                                         = cộng với ví dụ                                                                                                                                                           ! cộng với kiểu mở rộng từ khi kết hợp với từ khác (ví dụ từ take có to take after)" textFill="#f20202" wrapText="true">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="addingTypeButton" focusTraversable="false" layoutX="202.0" layoutY="58.0" mnemonicParsing="false" onAction="#onAddingTypeChanged" prefHeight="42.0" prefWidth="122.0" stylesheets="@../../ButtonStyles.css" text="ANH - VIỆT">
+      <Button fx:id="addingTypeButton" focusTraversable="false" layoutX="202.0" layoutY="113.0" mnemonicParsing="false" onAction="#onAddingTypeChanged" stylesheets="@../../ButtonStyles.css" text="ANH - VIỆT">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
       </Button>
       <Label fx:id="EscLabel" layoutX="84.0" layoutY="19.0" opacity="0.75" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="Esc">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
+      </Label>
+      <Label fx:id="warningLabel" alignment="CENTER_RIGHT" focusTraversable="false" layoutX="193.0" layoutY="42.0" prefHeight="70.0" prefWidth="614.0" text="Từ đã tồn tại trong từ điển, khuyến nghị dùng chức năng sửa từ" textFill="RED">
+         <font>
+            <Font name="System Italic" size="22.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect>
       </Label>
    </children>
 </AnchorPane>

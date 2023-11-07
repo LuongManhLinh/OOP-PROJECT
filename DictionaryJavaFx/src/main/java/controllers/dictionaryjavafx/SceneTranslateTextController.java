@@ -103,7 +103,7 @@ public class SceneTranslateTextController implements Initializable{
             } else {
                 String translateParagraph = GgTranslateAPI.translate(langFrom, langTo, paragraph);
                 if (translateParagraph.equals(GgTranslateAPI.errorString)) {
-                    errorShown();
+                    logError();
                 } else {
                     textResultArea.setText(translateParagraph);
                 }
@@ -120,7 +120,7 @@ public class SceneTranslateTextController implements Initializable{
         if (paragraph != null && !paragraph.isEmpty()) {
             String response = GgTranslateTextToSpeech.play(paragraph, langFrom);
             if (response.equals(GgTranslateTextToSpeech.errorString)) {
-                errorShown();
+                logError();
             }
         }
     }
@@ -130,7 +130,7 @@ public class SceneTranslateTextController implements Initializable{
         if (paragraph != null && !paragraph.isEmpty()) {
             String response = GgTranslateTextToSpeech.play(paragraph, langTo);
             if (response.equals(GgTranslateTextToSpeech.errorString)) {
-                errorShown();
+                logError();
             }
         }
     }
@@ -145,7 +145,7 @@ public class SceneTranslateTextController implements Initializable{
         langToChoiceBox.getSelectionModel().select(langTo);
     }
 
-    private void errorShown() {
+    private void logError() {
         errorLabel.setVisible(true);
         errorTimeLine.play();
     }

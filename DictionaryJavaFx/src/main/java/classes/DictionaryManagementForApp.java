@@ -1,38 +1,10 @@
 package classes;
 
+import javafx.scene.control.Button;
+
 import java.util.ArrayList;
 
 public class DictionaryManagementForApp {
-    public static ArrayList<String> lookUp(String keyWord, Dictionary.Type type) {
-        ArrayList<String> result = new ArrayList<>();
-        if (keyWord != null && !keyWord.isEmpty()) {
-            keyWord = keyWord.trim();
-            if (type == Dictionary.Type.EN_VI) {
-                keyWord = keyWord.toLowerCase();
-                for (String eachWord : EnViDictionary.getInstance().keyWords) {
-                    if (eachWord.indexOf(keyWord) == 0) {
-                        result.add(eachWord);
-                    }
-                }
-            } else if (type == Dictionary.Type.VI_EN) {
-                for (String eachWord : ViEnDictionary.getInstance().keyWords) {
-                    if (eachWord.indexOf(keyWord) == 0) {
-                        result.add(eachWord);
-                    }
-                }
-                if (result.isEmpty()) {
-                    keyWord = keyWord.toLowerCase();
-                    for (String eachWord : ViEnDictionary.getInstance().keyWords) {
-                        if (eachWord.toLowerCase().indexOf(keyWord) == 0) {
-                            result.add(eachWord);
-                        }
-                    }
-                }
-            }
-        }
-        return result;
-    }
-
     public static String getMeaning(String keyWord, Dictionary.Type type) {
         String meaning = "";
         if (type == Dictionary.Type.EN_VI) {
@@ -43,13 +15,13 @@ public class DictionaryManagementForApp {
         return meaning;
     }
 
-    public static ArrayList<String> binaryLookUp(String keyWord, Dictionary.Type type) {
+    public static ArrayList<String> lookUp(String keyWord, Dictionary.Type type) {
         ArrayList<String> result = new ArrayList<>();
         if (keyWord != null && !keyWord.isEmpty()) {
             keyWord = keyWord.trim();
             if (type == Dictionary.Type.EN_VI) {
                 keyWord = keyWord.toLowerCase();
-                ArrayList<String> keyWords = EnViDictionary.getInstance().getKeyWordsAsArray();
+                ArrayList<String> keyWords = EnViDictionary.getInstance().getKeyWords();
                 int pos = binarySearch(keyWord, keyWords);
                 if (pos == -1) {
                     return result;
@@ -62,7 +34,7 @@ public class DictionaryManagementForApp {
                     }
                 }
             } else if (type == Dictionary.Type.VI_EN) {
-                ArrayList<String> keyWords = ViEnDictionary.getInstance().getKeyWordsAsArray();
+                ArrayList<String> keyWords = ViEnDictionary.getInstance().getKeyWords();
                 int pos = binarySearch(keyWord, keyWords);
                 if (pos == -1) {
                     keyWord = keyWord.toLowerCase();
@@ -81,6 +53,26 @@ public class DictionaryManagementForApp {
             }
         }
         return result;
+    }
+
+    public static void insert(String keyWord, String meaning, Dictionary.Type type) {
+        if (type == Dictionary.Type.EN_VI) {
+            binaryInsert(keyWord, EnViDictionary.getInstance().getKeyWords());
+            EnViDictionary.getInstance().getWords().put(keyWord, meaning);
+        } else if (type == Dictionary.Type.VI_EN) {
+            binaryInsert(keyWord, ViEnDictionary.getInstance().getKeyWords());
+            ViEnDictionary.getInstance().getWords().put(keyWord, meaning);
+        }
+    }
+
+    public static void remove(String keyWord, Dictionary.Type type) {
+        if (type == Dictionary.Type.EN_VI) {
+            EnViDictionary.getInstance().getWords().remove(keyWord);
+            EnViDictionary.getInstance().getKeyWords().remove(keyWord);
+        } else if (type == Dictionary.Type.VI_EN) {
+            ViEnDictionary.getInstance().getWords().remove(keyWord);
+            ViEnDictionary.getInstance().getKeyWords().remove(keyWord);
+        }
     }
 
     private static int binarySearch(String keyWord, ArrayList<String> words) {
@@ -112,5 +104,44 @@ public class DictionaryManagementForApp {
         }
 
         return result;
+    }
+
+    private static void binaryInsert(String keyWord, ArrayList<String> words) {
+        if (keyWord == null || keyWord.isEmpty()) {
+            return;
+        }
+
+        int left = 0;
+        int right = words.size() - 1;
+
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (mid == 0) {
+                if (words.get(mid).compareTo(keyWord) < 0) {
+                    words.add(mid + 1, keyWord);
+                } else {
+                    words.add(mid, keyWord);
+                }
+                return;
+            }
+
+            if (mid == words.size() - 1) {
+                if (words.get(mid).compareTo(keyWord) < 0) {
+                    words.add(keyWord);
+                } else {
+                    words.add(mid, keyWord);
+                }
+                return;
+            }
+
+            if (words.get(mid).compareTo(keyWord) > 0 && words.get(mid - 1).compareTo(keyWord) < 0) {
+                words.add(mid, keyWord);
+                return;
+            } else if (words.get(mid).compareTo(keyWord) < 0) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
     }
 }
