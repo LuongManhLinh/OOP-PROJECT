@@ -14,9 +14,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -31,8 +33,8 @@ public class MainUISceneController implements Initializable {
     @FXML private TextField wordEnteringField;
     @FXML private ListView<String> searchingResultList;
     @FXML private WebView meaningWebView;
-    @FXML private Button searchingTypeButton;
-    @FXML private Button speakButton;
+    @FXML private ImageView engLeft, engRight, vieLeft, vieRight, tuongDuong, speaker;
+
     @FXML private Button editWordButton;
     @FXML private Label errorLabel;
     @FXML private Label F1Label;
@@ -55,6 +57,10 @@ public class MainUISceneController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        engLeft.setVisible(true);
+        engRight.setVisible(false);
+        vieRight.setVisible(true);
+        vieLeft.setVisible(false);
         hideLabel();
         hide();
         setOnKeyPress();
@@ -168,8 +174,8 @@ public class MainUISceneController implements Initializable {
     public void hide() {
         meaningWebView.setVisible(false);
         searchingResultList.setVisible(false);
-        speakButton.setVisible(false);
         editWordButton.setVisible(false);
+        speaker.setVisible(false);
     }
 
     public void hideLabel() {
@@ -184,22 +190,29 @@ public class MainUISceneController implements Initializable {
 
     public void show() {
         meaningWebView.setVisible(true);
-        speakButton.setVisible(true);
+        speaker.setVisible(true);
     }
 
-    public void onSearchingTypeChanged(ActionEvent event) {
+    public void onSearchingTypeChanged(MouseEvent event) {
         oldKeyWord = "";
         hide();
-        if (searchingType == Dictionary.Type.EN_VI) {
-            searchingType = Dictionary.Type.VI_EN;
-            searchingTypeButton.setText("VIỆT - ANH");
-        } else if (searchingType == Dictionary.Type.VI_EN) {
+        if(engLeft.isVisible()){
+            engLeft.setVisible(false);
+            vieRight.setVisible(false);
+            engRight.setVisible(true);
+            vieLeft.setVisible(true);
             searchingType = Dictionary.Type.EN_VI;
-            searchingTypeButton.setText("ANH - VIỆT");
+        }
+        else {
+            engLeft.setVisible(true);
+            vieRight.setVisible(true);
+            engRight.setVisible(false);
+            vieLeft.setVisible(false);
+            searchingType = Dictionary.Type.VI_EN;
         }
     }
 
-    public void speakerFunc(ActionEvent event) {
+    public void speakerFunc(MouseEvent event) {
         String paragraph = searchingResultList.getSelectionModel().getSelectedItem();
         if (paragraph != null && !paragraph.isEmpty()) {
             String response = "";
