@@ -33,7 +33,7 @@ public class MainUISceneController implements Initializable {
     @FXML private TextField wordEnteringField;
     @FXML private ListView<String> searchingResultList;
     @FXML private WebView meaningWebView;
-    @FXML private ImageView engLeft, engRight, vieLeft, vieRight, tuongDuong, speaker;
+    @FXML private ImageView engImage, viImage, speaker;
 
     @FXML private Button editWordButton;
     @FXML private Label errorLabel;
@@ -57,10 +57,6 @@ public class MainUISceneController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        engLeft.setVisible(true);
-        engRight.setVisible(false);
-        vieRight.setVisible(true);
-        vieLeft.setVisible(false);
         hideLabel();
         hide();
         setOnKeyPress();
@@ -110,7 +106,6 @@ public class MainUISceneController implements Initializable {
         });
 
         // khung nhìn hiển thị được tối đa 20 kết quả, nếu nhiều hơn phải cuộn xuống để xem
-        searchingResultList.setMaxHeight(20 * searchingResultList.getFixedCellSize());
         searchingResultList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
@@ -193,22 +188,20 @@ public class MainUISceneController implements Initializable {
         speaker.setVisible(true);
     }
 
+    private void switchImage() {
+        double viPosX = viImage.getLayoutX();
+        viImage.setLayoutX(engImage.getLayoutX());
+        engImage.setLayoutX(viPosX);
+    }
     public void onSearchingTypeChanged(MouseEvent event) {
         oldKeyWord = "";
         hide();
-        if(engLeft.isVisible()){
-            engLeft.setVisible(false);
-            vieRight.setVisible(false);
-            engRight.setVisible(true);
-            vieLeft.setVisible(true);
-            searchingType = Dictionary.Type.EN_VI;
-        }
-        else {
-            engLeft.setVisible(true);
-            vieRight.setVisible(true);
-            engRight.setVisible(false);
-            vieLeft.setVisible(false);
+        if (searchingType == Dictionary.Type.EN_VI) {
+            switchImage();
             searchingType = Dictionary.Type.VI_EN;
+        } else if (searchingType == Dictionary.Type.VI_EN) {
+            switchImage();
+            searchingType = Dictionary.Type.EN_VI;
         }
     }
 
