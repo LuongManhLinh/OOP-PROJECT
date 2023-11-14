@@ -5,7 +5,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
-import java.util.TreeSet;
 
 public class DictionaryFileWork {
     public static void importAllWords(String filePath, HashMap<String, String> words, ArrayList<String> keyWords){
@@ -21,10 +20,10 @@ public class DictionaryFileWork {
                 words.put(key, meaning);
                 keyWords.add(key);
             }
+            fileScanner.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
     public static void exportAllWords (String filePath, HashMap<String, String> words, ArrayList<String> keyWords) {
@@ -39,5 +38,4 @@ public class DictionaryFileWork {
             e.printStackTrace();
         }
     }
-
 }

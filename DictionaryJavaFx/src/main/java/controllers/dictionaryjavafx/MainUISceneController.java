@@ -54,6 +54,7 @@ public class MainUISceneController implements Initializable {
     private String oldKeyWord = "";
     private String selectedWord = "";
     private Dictionary.Type searchingType = Dictionary.Type.EN_VI;
+    private boolean isSwitchingLang = false;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -150,7 +151,7 @@ public class MainUISceneController implements Initializable {
             @Override
             public void handle(long l) {
                 // nếu đang tương tác với kết quả hay không thay đổi chuỗi tìm kiếm thì sẽ dừng tìm kiếm
-                if (searchingResultList.isFocused() || oldKeyWord.equals(wordEnteringField.getText())) {
+                if (searchingResultList.isFocused() || oldKeyWord.equals(wordEnteringField.getText()) || isSwitchingLang) {
                     wordEnteringTimer.stop();
                 } else {
                     wordEnteringTimer.start();
@@ -188,21 +189,39 @@ public class MainUISceneController implements Initializable {
         speaker.setVisible(true);
     }
 
-    private void switchImage() {
+    private void switchLanguage(Dictionary.Type type) {
         double viPosX = viImage.getLayoutX();
-        viImage.setLayoutX(engImage.getLayoutX());
-        engImage.setLayoutX(viPosX);
+        isSwitchingLang = true;
+
+        double mpl = 5;
+        AnimationTimer switchTimer = new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                if (type == Dictionary.Type.EN_VI) {
+                    engImage.setLayoutX(engImage.getLayoutX() + mpl);
+                    viImage.setLayoutX(viImage.getLayoutX() - mpl);
+                    if (Math.abs(engImage.getLayoutX() - viPosX) < mpl) {
+                        searchingType = Dictionary.Type.VI_EN;
+                        isSwitchingLang = false;
+                        stop();
+                    }
+                } else if (type == Dictionary.Type.VI_EN) {
+                    engImage.setLayoutX(engImage.getLayoutX() - mpl);
+                    viImage.setLayoutX(viImage.getLayoutX() + mpl);
+                    if (Math.abs(engImage.getLayoutX() - viPosX) < mpl) {
+                        searchingType = Dictionary.Type.EN_VI;
+                        isSwitchingLang = false;
+                        stop();
+                    }
+                }
+            }
+        };
+        switchTimer.start();
     }
-    public void onSearchingTypeChanged(MouseEvent event) {
+    public void onSearchingTypeChanged() {
         oldKeyWord = "";
         hide();
-        if (searchingType == Dictionary.Type.EN_VI) {
-            switchImage();
-            searchingType = Dictionary.Type.VI_EN;
-        } else if (searchingType == Dictionary.Type.VI_EN) {
-            switchImage();
-            searchingType = Dictionary.Type.EN_VI;
-        }
+        switchLanguage(this.searchingType);
     }
 
     public void speakerFunc(MouseEvent event) {

@@ -2,7 +2,7 @@
     -fx-background-color: rgba(0,0,0,0);
 }
 .button:hover {
-    -fx-background-color: #00CCFF;
+    -fx-background-color: rgba(0, 204, 255, 0.2);
 }
 
 .button:pressed {

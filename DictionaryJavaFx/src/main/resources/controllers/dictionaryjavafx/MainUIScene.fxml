@@ -19,24 +19,28 @@
             <TextField fx:id="wordEnteringField" layoutX="205.0" layoutY="25.0" prefHeight="35.0" prefWidth="227.0" promptText="Nhập từ cần tra" stylesheets="@../../TextFieldStyles.css" AnchorPane.topAnchor="25.0" />
             <AnchorPane layoutX="446.0" layoutY="-68.0" prefHeight="0.0" prefWidth="227.0">
                <children>
-                  <ImageView fx:id="engImage" fitHeight="70.0" fitWidth="50.0" layoutX="14.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="engImage" fitHeight="70.0" fitWidth="50.0" layoutX="15.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../image/eng.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="viImage" fitHeight="70.0" fitWidth="50.0" layoutX="151.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="viImage" fitHeight="70.0" fitWidth="50.0" layoutX="150.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../image/vie.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="28.0" fitWidth="37.0" layoutX="89.0" layoutY="118.0" onMouseClicked="#onSearchingTypeChanged" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../image/tuonduong.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
+                  <Button focusTraversable="false" layoutX="82.0" layoutY="119.0" mnemonicParsing="false" onAction="#onSearchingTypeChanged" styleClass="default" stylesheets="@../../SwitchLanguege.css">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../image/tuonduong.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </AnchorPane>
             <Button fx:id="editWordButton" focusTraversable="false" layoutX="690.0" layoutY="29.0" mnemonicParsing="false" onAction="#selectUpdateWordFromMainUIFunc" onMouseEntered="#showCtrlU" onMouseExited="#hideCtrlU" prefHeight="28.0" prefWidth="154.0" stylesheets="@../../ButtonStyles.css" text="Cập nhật từ đang chọn">
@@ -44,16 +48,11 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Label fx:id="CtrlULabel" layoutX="854.0" layoutY="37.0" opacity="0.75" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="Ctrl+u">
+            <Label fx:id="CtrlULabel" layoutX="854.0" layoutY="37.0" opacity="0.75" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="Ctrl+U">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Label>
-            <ImageView fx:id="speaker" fitHeight="48.0" fitWidth="72.0" layoutX="920.0" layoutY="22.0" onMouseClicked="#speakerFunc" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="22.0">
-               <image>
-                  <Image url="@../../image/speakerver2.png" />
-               </image>
-            </ImageView>
             <ImageView fitHeight="63.0" fitWidth="60.0" layoutX="16.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/icon.png" />
@@ -64,66 +63,118 @@
                   <Font name="System Italic" size="27.0" />
                </font>
             </Label>
+            <Button focusTraversable="false" layoutX="926.0" layoutY="15.0" mnemonicParsing="false" styleClass="default" stylesheets="@../../SwitchLanguege.css">
+               <graphic>
+                  <ImageView fx:id="speaker" fitHeight="48.0" fitWidth="72.0" onMouseClicked="#speakerFunc" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../image/speakerver2.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
       <ListView fx:id="searchingResultList" fixedCellSize="25.0" layoutX="205.0" layoutY="56.0" maxHeight="550.0" prefHeight="550.0" prefWidth="227.0" stylesheets="@../../ListViewStyles.css" />
       <WebView fx:id="meaningWebView" layoutX="437.0" layoutY="82.0" prefHeight="522.0" prefWidth="577.0" stylesheets="@../../WebViewStyles.css" AnchorPane.topAnchor="82.0" />
-      <VBox layoutY="80.0" prefHeight="528.0" prefWidth="189.0" spacing="5.0" style="-fx-background-color: red;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="825.0">
+      <VBox layoutY="80.0" prefHeight="528.0" prefWidth="205.0" style="-fx-background-color: red;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="809.0">
          <children>
-            <Button fx:id="insertWordButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectInsertWordFunc" onMouseEntered="#showF1" onMouseExited="#hideF1" prefHeight="40.0" prefWidth="203.0" stylesheets="@../../mouse1.css" text="Thêm từ mới" textAlignment="JUSTIFY">
+            <Button fx:id="insertWordButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectInsertWordFunc" onMouseEntered="#showF1" onMouseExited="#hideF1" prefHeight="51.0" prefWidth="234.0" stylesheets="@../../mouse1.css" text="   Thêm từ mới" textAlignment="JUSTIFY">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../image/addWord.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="updateWordButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectUpdateWordFunc" onMouseEntered="#showF2" onMouseExited="#hideF2" prefHeight="40.0" prefWidth="200.0" stylesheets="@../../mouse1.css" text="Cập nhật từ">
+            <Button fx:id="updateWordButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectUpdateWordFunc" onMouseEntered="#showF2" onMouseExited="#hideF2" prefHeight="51.0" prefWidth="208.0" stylesheets="@../../mouse1.css" text="   Cập nhật từ">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../image/update.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="translateTextButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#translateText" onMouseEntered="#showF3" onMouseExited="#hideF3" prefHeight="40.0" prefWidth="195.0" stylesheets="@../../mouse1.css" text="Dịch văn bản">
+            <Button fx:id="translateTextButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#translateText" onMouseEntered="#showF3" onMouseExited="#hideF3" prefHeight="51.0" prefWidth="250.0" stylesheets="@../../mouse1.css" text="   Dịch văn bản">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../image/translate.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="experimentGameButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectExperimentGameFunc" onMouseEntered="#showF4" onMouseExited="#hideF4" prefHeight="40.0" prefWidth="200.0" stylesheets="@../../mouse1.css" text="Experiment Game">
+            <Button fx:id="experimentGameButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectExperimentGameFunc" onMouseEntered="#showF4" onMouseExited="#hideF4" prefHeight="69.0" prefWidth="209.0" stylesheets="@../../mouse1.css" text="   Experiment Game">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="59.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../gameAssets/ExperimentGame/blueBottle.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="commandlineButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectCommandline" onMouseEntered="#showF5" onMouseExited="#hideF5" prefHeight="40.0" prefWidth="199.0" stylesheets="@../../mouse1.css" text="Bản Commandline">
+            <Button fx:id="commandlineButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectCommandline" onMouseEntered="#showF5" onMouseExited="#hideF5" prefHeight="51.0" prefWidth="216.0" stylesheets="@../../mouse1.css" text="   Bản Commandline">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../image/commandline.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label prefHeight="200.0" />
+            <Button fx:id="exitAppButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#selectExitApp" onMouseEntered="#showEsc" onMouseExited="#hideEsc" prefHeight="51.0" prefWidth="208.0" stylesheets="@../../mouse1.css" text="   Thoát ứng dụng">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../image/exit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
       </VBox>
-      <Label fx:id="F1Label" layoutX="177.0" layoutY="82.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="F1">
+      <Label fx:id="F1Label" layoutX="202.0" layoutY="95.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="F1">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font></Label>
-      <Label fx:id="F2Label" layoutX="176.0" layoutY="134.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="F2">
+      <Label fx:id="F2Label" layoutX="202.0" layoutY="142.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="F2">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font></Label>
-      <Label fx:id="F3Label" layoutX="177.0" layoutY="177.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="F3">
+      <Label fx:id="F3Label" layoutX="202.0" layoutY="196.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="F3">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font></Label>
-      <Label fx:id="F4Label" layoutX="177.0" layoutY="225.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="F4" AnchorPane.topAnchor="225.0">
+      <Label fx:id="F4Label" layoutX="202.0" layoutY="254.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="F4" AnchorPane.topAnchor="254.0">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font></Label>
-      <Label fx:id="F5Label" layoutX="177.0" layoutY="267.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="F5">
+      <Label fx:id="F5Label" layoutX="202.0" layoutY="318.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="F5">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="exitAppButton" alignment="TOP_LEFT" layoutY="568.0" mnemonicParsing="false" onAction="#selectExitApp" onMouseEntered="#showEsc" onMouseExited="#hideEsc" prefHeight="40.0" prefWidth="189.0" stylesheets="@../../mouse1.css" text="Thoát ứng dụng">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Button>
-      <Label fx:id="EscLabel" layoutX="151.0" layoutY="575.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="Esc" AnchorPane.topAnchor="575.0">
+      <Label fx:id="EscLabel" layoutX="202.0" layoutY="568.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="Esc" AnchorPane.topAnchor="568.0">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
