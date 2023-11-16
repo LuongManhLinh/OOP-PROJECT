@@ -137,9 +137,6 @@ public class MainUISceneController implements Initializable {
                     searchingResultList.setVisible(true);
                     searchingResultList.getItems().setAll(searchingResult);
                     searchingResultList.getSelectionModel().select(0);
-                    // điều chỉnh khung nhìn chỉ đủ để hiển thị kết quả
-                    // nếu số kết quả lớn hơn 20 thì cũng chỉ hiển thị 20
-                    searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
                 } else {
                     hide();
                 }

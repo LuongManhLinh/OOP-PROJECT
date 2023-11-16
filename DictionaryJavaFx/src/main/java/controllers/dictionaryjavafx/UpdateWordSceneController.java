@@ -135,9 +135,6 @@ public class UpdateWordSceneController implements Initializable {
         editingPane.setOnKeyPressed(keyEvent -> {
             if(keyEvent.getCode() == KeyCode.E && keyEvent.isControlDown()) backToMainUISceneFromEditingPane();
             if(keyEvent.getCode() == KeyCode.ESCAPE) backToSelectWord();
-            if (keyEvent.getCode() == KeyCode.ESCAPE) {
-                backToMainUISceneFromSearchingPane();
-            }
         });
 
         wordEnteringField.setOnKeyPressed(keyEvent -> {
