@@ -101,11 +101,11 @@ public class WordWork {
                         line = line.replace(pronounce, "").trim();
 
                         line = "<p style=\"margin:0; color:red; font-size:30\"><b>" + line + "</p></b>"
-                                + "<hr style=\"height:2px; background-color:rgb(93,47,193)\"><br />"
+                                + "<hr style=\"height:2px; background-color:rgb(93,47,193)\">"
                                 + pronounce;
                     } else {
                         line = "<p style=\"margin:0; color:red; font-size:30px\"><b>" + line + "</p></b>";
-                        line += "<hr style=\"height:2px; background-color:rgb(93,47,193)\"><br />";
+                        line += "<hr style=\"height:2px; background-color:rgb(93,47,193)\">";
                     }
                 } else if (line.charAt(0) == '*') {
                     line = line.replace("*", "").trim();

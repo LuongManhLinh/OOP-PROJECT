@@ -33,7 +33,8 @@ public class MainUISceneController implements Initializable {
     @FXML private TextField wordEnteringField;
     @FXML private ListView<String> searchingResultList;
     @FXML private WebView meaningWebView;
-    @FXML private ImageView engImage, viImage, speaker;
+    @FXML private Label engImage, viImage;
+    @FXML private Button speaker;
 
     @FXML private Button editWordButton;
     @FXML private Label errorLabel;
@@ -50,6 +51,9 @@ public class MainUISceneController implements Initializable {
     @FXML private Button experimentGameButton;
     @FXML private Button commandlineButton;
     @FXML private Button exitAppButton;
+
+    private final double FLAG_POS_X_LEFT = 15;
+    private final double FLAG_POS_X_RIGHT = 150;
 
     private String oldKeyWord = "";
     private String selectedWord = "";
@@ -200,6 +204,8 @@ public class MainUISceneController implements Initializable {
                     if (Math.abs(engImage.getLayoutX() - viPosX) < mpl) {
                         searchingType = Dictionary.Type.VI_EN;
                         isSwitchingLang = false;
+                        viImage.setLayoutX(FLAG_POS_X_LEFT);
+                        engImage.setLayoutX(FLAG_POS_X_RIGHT);
                         stop();
                     }
                 } else if (type == Dictionary.Type.VI_EN) {
@@ -208,6 +214,8 @@ public class MainUISceneController implements Initializable {
                     if (Math.abs(engImage.getLayoutX() - viPosX) < mpl) {
                         searchingType = Dictionary.Type.EN_VI;
                         isSwitchingLang = false;
+                        viImage.setLayoutX(FLAG_POS_X_RIGHT);
+                        engImage.setLayoutX(FLAG_POS_X_LEFT);
                         stop();
                     }
                 }
@@ -216,12 +224,14 @@ public class MainUISceneController implements Initializable {
         switchTimer.start();
     }
     public void onSearchingTypeChanged() {
-        oldKeyWord = "";
-        hide();
-        switchLanguage(this.searchingType);
+        if (!isSwitchingLang) {
+            oldKeyWord = "";
+            hide();
+            switchLanguage(this.searchingType);
+        }
     }
 
-    public void speakerFunc(MouseEvent event) {
+    public void speakerFunc() {
         String paragraph = searchingResultList.getSelectionModel().getSelectedItem();
         if (paragraph != null && !paragraph.isEmpty()) {
             String response = "";

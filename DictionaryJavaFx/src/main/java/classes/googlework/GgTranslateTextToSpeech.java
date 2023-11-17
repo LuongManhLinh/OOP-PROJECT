@@ -1,6 +1,7 @@
 package classes.googlework;
 
 import java.io.BufferedInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -25,7 +26,7 @@ public class GgTranslateTextToSpeech {
         return new BufferedInputStream(audioSrc);
     }
 
-    public static void play(InputStream sound) throws JavaLayerException {
+    public static void play(InputStream sound) throws JavaLayerException, IOException {
         new Player(sound).play();
     }
 
@@ -37,4 +38,5 @@ public class GgTranslateTextToSpeech {
             return errorString;
         }
     }
+
 }
