@@ -15,7 +15,7 @@ public class GameData {
     public static final String NORMAL_DATA_PATH = "src/main/resources/gameAssets/data/normal.txt";
 
 
-    public static void loadData(){
+    public static void loadData() {
         DictionaryFileWork.importAllWords(EASY_DATA_PATH, easyWords, easyEnglishKeyWords);
         DictionaryFileWork.importAllWords(NORMAL_DATA_PATH, normalWords, normalEnglishKeyWords);
         BottleImages.loadData();

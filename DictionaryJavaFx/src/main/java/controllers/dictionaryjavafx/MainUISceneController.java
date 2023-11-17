@@ -141,6 +141,7 @@ public class MainUISceneController implements Initializable {
                     searchingResultList.setVisible(true);
                     searchingResultList.getItems().setAll(searchingResult);
                     searchingResultList.getSelectionModel().select(0);
+                    searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
                 } else {
                     hide();
                 }
