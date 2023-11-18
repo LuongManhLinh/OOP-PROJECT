@@ -1,6 +1,7 @@
 package classes.ShootingGameClasses;
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public abstract class Target extends GameObject {
     private int score;
@@ -17,21 +18,10 @@ public abstract class Target extends GameObject {
     }
 
     public void loadView() {
-        String path;
-        if(color == Color.RED) {
-            path = "src/main/resources/gameAssets/ShootingGame/target_red.png";
-        }
-        else if(color == Color.BLUE) {
-            path = "src/main/resources/gameAssets/ShootingGame/target_blue.png";
-        }
-        else {
-            path = "src/main/resources/gameAssets/ShootingGame/target_green.png";
-        }
-        try {
-
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-            System.err.println("Error loading target image: " + path);
+        switch (color) {
+            case RED -> objectView.setObject(new ImageView(ObjectImages.redTarget));
+            case BLUE -> objectView.setObject(new ImageView(ObjectImages.blueTarget));
+            case GREEN -> objectView.setObject(new ImageView(ObjectImages.greenTarget));
         }
     }
 }

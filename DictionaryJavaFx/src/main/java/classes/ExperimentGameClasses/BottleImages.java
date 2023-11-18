@@ -8,22 +8,37 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class BottleImages {
-    public static ArrayList<InputStream> blueBottleInputs = new ArrayList<>();
-    public static ArrayList<InputStream> brownBottleInputs = new ArrayList<>();
-    public static ArrayList<InputStream> grayBottleInputs = new ArrayList<>();
-    public static ArrayList<InputStream> greenBottleInputs = new ArrayList<>();
-    public static ArrayList<InputStream> pinkBottleInputs = new ArrayList<>();
-    public static ArrayList<InputStream> purpleBottleInputs = new ArrayList<>();
-    public static ArrayList<InputStream> redBottleInputs = new ArrayList<>();
-    public static ArrayList<InputStream> whiteBottleInputs = new ArrayList<>();
-    public static ArrayList<InputStream> yellowBottleInputs = new ArrayList<>();
-    public static InputStream mainBottleInput;
-    public static InputStream failedInput;
-    public static InputStream quiteSuccessInput;
-    public static InputStream successInput;
+    public static ArrayList<Image> blueBottles = new ArrayList<>();
+    public static ArrayList<Image> brownBottles = new ArrayList<>();
+    public static ArrayList<Image> grayBottles = new ArrayList<>();
+    public static ArrayList<Image> greenBottles = new ArrayList<>();
+    public static ArrayList<Image> pinkBottles = new ArrayList<>();
+    public static ArrayList<Image> purpleBottles = new ArrayList<>();
+    public static ArrayList<Image> redBottles = new ArrayList<>();
+    public static ArrayList<Image> whiteBottles = new ArrayList<>();
+    public static ArrayList<Image> yellowBottles = new ArrayList<>();
+    public static ArrayList<ArrayList<Image>> allBottles = new ArrayList<>();
 
+    public static Image mainBottle;
+    public static Image failed;
+    public static Image quiteSuccess;
+    public static Image success;
 
-    static {
+    public static void loadData() {
+        ArrayList<InputStream> blueBottleInputs = new ArrayList<>();
+        ArrayList<InputStream> brownBottleInputs = new ArrayList<>();
+        ArrayList<InputStream> grayBottleInputs = new ArrayList<>();
+        ArrayList<InputStream> greenBottleInputs = new ArrayList<>();
+        ArrayList<InputStream> pinkBottleInputs = new ArrayList<>();
+        ArrayList<InputStream> purpleBottleInputs = new ArrayList<>();
+        ArrayList<InputStream> redBottleInputs = new ArrayList<>();
+        ArrayList<InputStream> whiteBottleInputs = new ArrayList<>();
+        ArrayList<InputStream> yellowBottleInputs = new ArrayList<>();
+        InputStream mainBottleInput;
+        InputStream failedInput;
+        InputStream quiteSuccessInput;
+        InputStream successInput;
+
         try {
 
             blueBottleInputs.add(new FileInputStream("src/main/resources/gameAssets/ExperimentGame/blueBottle.png"));
@@ -76,62 +91,49 @@ public class BottleImages {
             quiteSuccessInput = new FileInputStream("src/main/resources/gameAssets/ExperimentGame/quiteSuccess.png");
             successInput = new FileInputStream("src/main/resources/gameAssets/ExperimentGame/success.png");
 
+            for (InputStream inputStream : blueBottleInputs) {
+                blueBottles.add(new Image(inputStream));
+            }
+            for (InputStream inputStream : brownBottleInputs) {
+                brownBottles.add(new Image(inputStream));
+            }
+            for (InputStream inputStream : grayBottleInputs) {
+                grayBottles.add(new Image(inputStream));
+            }
+            for (InputStream inputStream : greenBottleInputs) {
+                greenBottles.add(new Image(inputStream));
+            }
+            for (InputStream inputStream : pinkBottleInputs) {
+                pinkBottles.add(new Image(inputStream));
+            }
+            for (InputStream inputStream : purpleBottleInputs) {
+                purpleBottles.add(new Image(inputStream));
+            }
+            for (InputStream inputStream : redBottleInputs) {
+                redBottles.add(new Image(inputStream));
+            }
+            for (InputStream inputStream : whiteBottleInputs) {
+                whiteBottles.add(new Image(inputStream));
+            }
+            for (InputStream inputStream : yellowBottleInputs) {
+                yellowBottles.add(new Image(inputStream));
+            }
+            allBottles.add(blueBottles);
+            allBottles.add(brownBottles);
+            allBottles.add(grayBottles);
+            allBottles.add(greenBottles);
+            allBottles.add(pinkBottles);
+            allBottles.add(purpleBottles);
+            allBottles.add(redBottles);
+            allBottles.add(whiteBottles);
+            allBottles.add(yellowBottles);
+
+            mainBottle = new Image(mainBottleInput);
+            failed = new Image(failedInput);
+            quiteSuccess = new Image(quiteSuccessInput);
+            success = new Image(successInput);
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
-    }
-    public static ArrayList<Image> blueBottles = new ArrayList<>();
-    public static ArrayList<Image> brownBottles = new ArrayList<>();
-    public static ArrayList<Image> grayBottles = new ArrayList<>();
-    public static ArrayList<Image> greenBottles = new ArrayList<>();
-    public static ArrayList<Image> pinkBottles = new ArrayList<>();
-    public static ArrayList<Image> purpleBottles = new ArrayList<>();
-    public static ArrayList<Image> redBottles = new ArrayList<>();
-    public static ArrayList<Image> whiteBottles = new ArrayList<>();
-    public static ArrayList<Image> yellowBottles = new ArrayList<>();
-    public static ArrayList<ArrayList<Image>> allBottles = new ArrayList<>();
-
-    public static Image mainBottle = new Image(mainBottleInput);
-    public static Image failed = new Image(failedInput);
-    public static Image quiteSuccess = new Image(quiteSuccessInput);
-    public static Image success = new Image(successInput);
-
-    public static void loadData() {
-        for (InputStream inputStream : blueBottleInputs) {
-            blueBottles.add(new Image(inputStream));
-        }
-        for (InputStream inputStream : brownBottleInputs) {
-            brownBottles.add(new Image(inputStream));
-        }
-        for (InputStream inputStream : grayBottleInputs) {
-            grayBottles.add(new Image(inputStream));
-        }
-        for (InputStream inputStream : greenBottleInputs) {
-            greenBottles.add(new Image(inputStream));
-        }
-        for (InputStream inputStream : pinkBottleInputs) {
-            pinkBottles.add(new Image(inputStream));
-        }
-        for (InputStream inputStream : purpleBottleInputs) {
-            purpleBottles.add(new Image(inputStream));
-        }
-        for (InputStream inputStream : redBottleInputs) {
-            redBottles.add(new Image(inputStream));
-        }
-        for (InputStream inputStream : whiteBottleInputs) {
-            whiteBottles.add(new Image(inputStream));
-        }
-        for (InputStream inputStream : yellowBottleInputs) {
-            yellowBottles.add(new Image(inputStream));
-        }
-        allBottles.add(blueBottles);
-        allBottles.add(brownBottles);
-        allBottles.add(grayBottles);
-        allBottles.add(greenBottles);
-        allBottles.add(pinkBottles);
-        allBottles.add(purpleBottles);
-        allBottles.add(redBottles);
-        allBottles.add(whiteBottles);
-        allBottles.add(yellowBottles);
     }
 }

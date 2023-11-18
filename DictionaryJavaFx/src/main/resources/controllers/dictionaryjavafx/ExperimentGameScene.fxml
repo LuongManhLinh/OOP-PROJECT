@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.ExperimentGameController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(230, 220, 220);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.ExperimentGameController">
    <children>
       <ImageView fx:id="successLight" fitHeight="350.0" fitWidth="350.0" layoutX="100.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
@@ -198,7 +198,7 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Button layoutX="552.0" layoutY="501.0" mnemonicParsing="false" onAction="#onReplayClicked" text="REPLAY">
+            <Button layoutX="423.0" layoutY="501.0" mnemonicParsing="false" onAction="#onReplayClicked" text="REPLAY">
                <font>
                   <Font name="Jokerman" size="35.0" />
                </font>
@@ -208,6 +208,11 @@
                   <Font name="Bell MT Italic" size="52.0" />
                </font>
             </Label>
+            <Button layoutX="665.0" layoutY="501.0" mnemonicParsing="false" onAction="#onQuit" text="QUIT">
+               <font>
+                  <Font name="Jokerman" size="35.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
       <ImageView fx:id="resultBottle" fitHeight="229.0" fitWidth="221.0" layoutX="250.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true">

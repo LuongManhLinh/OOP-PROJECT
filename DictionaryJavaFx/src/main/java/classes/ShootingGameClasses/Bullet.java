@@ -1,6 +1,7 @@
 package classes.ShootingGameClasses;
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class Bullet extends GameObject{
     private String keyText;
@@ -12,21 +13,10 @@ public class Bullet extends GameObject{
 
     @Override
     public void loadView() {
-        String path;
-        if(color == Color.RED) {
-            path = "src/main/resources/gameAssets/ShootingGame/bullet_red.png";
-        }
-        else if(color == Color.BLUE) {
-            path = "src/main/resources/gameAssets/ShootingGame/bullet_blue.png";
-        }
-        else {
-            path = "src/main/resources/gameAssets/ShootingGame/bullet_green.png";
-        }
-        try {
-
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-            System.err.println("Error loading bullet image: " + path);
+        switch (color) {
+            case RED -> objectView.setObject(new ImageView(ObjectImages.redBullet));
+            case BLUE -> objectView.setObject(new ImageView(ObjectImages.blueBullet));
+            case GREEN -> objectView.setObject(new ImageView(ObjectImages.greenBullet));
         }
     }
 }
