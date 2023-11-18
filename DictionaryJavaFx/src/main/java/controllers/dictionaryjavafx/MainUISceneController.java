@@ -290,6 +290,10 @@ public class MainUISceneController implements Initializable {
         }
     }
 
+    public void selectShootingGame(ActionEvent event) {
+        SceneLoaderController.loadScene(FXMLFiles.SHOOTING_GAME_SCENE);
+    }
+
     private void setOnKeyPress() {
         final KeyCodeCombination goToInsertWord = new KeyCodeCombination(KeyCode.F1);
         final KeyCodeCombination goToUpdateWord = new KeyCodeCombination(KeyCode.F2);

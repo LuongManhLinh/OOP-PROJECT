@@ -1,0 +1,33 @@
+package classes.ShootingGameClasses;
+
+public abstract class GameObject {
+    public enum Color {
+        RED,
+        GREEN,
+        BLUE
+    }
+
+    protected Color color;
+    protected ObjectView objectView;
+    protected String showText;
+
+    public GameObject(Color color, String showText) {
+        this.color = color;
+        this.showText = showText;
+        loadView(color);
+    }
+
+    public Color getCounterColor() {
+        if(color == Color.RED) return Color.GREEN;
+        else if(color == Color.GREEN) return Color.BLUE;
+        else return Color.RED;
+    }
+
+    public Color getColorBeCountered() {
+        if(color == Color.RED) return Color.BLUE;
+        else if(color == Color.GREEN) return Color.RED;
+        else return Color.GREEN;
+    }
+
+    public abstract void loadView(Color color);
+}
