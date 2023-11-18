@@ -14,20 +14,20 @@ public abstract class GameObject {
     public GameObject(Color color, String showText) {
         this.color = color;
         this.showText = showText;
-        loadView(color);
+        loadView();
     }
 
-    public Color getCounterColor() {
+    public Color getColorToCounter() {
         if(color == Color.RED) return Color.GREEN;
         else if(color == Color.GREEN) return Color.BLUE;
         else return Color.RED;
     }
 
-    public Color getColorBeCountered() {
+    public Color getColorToBeCountered() {
         if(color == Color.RED) return Color.BLUE;
         else if(color == Color.GREEN) return Color.RED;
         else return Color.GREEN;
     }
 
-    public abstract void loadView(Color color);
+    public abstract void loadView();
 }

@@ -16,7 +16,7 @@ public abstract class Target extends GameObject {
         return score;
     }
 
-    public void loadView(Color color) {
+    public void loadView() {
         String path;
         if(color == Color.RED) {
             path = "src/main/resources/gameAssets/ShootingGame/target_red.png";
@@ -28,8 +28,7 @@ public abstract class Target extends GameObject {
             path = "src/main/resources/gameAssets/ShootingGame/target_green.png";
         }
         try {
-            Image bulletImage = new Image(path);
-            objectView.object.setImage(bulletImage);
+
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
             System.err.println("Error loading target image: " + path);

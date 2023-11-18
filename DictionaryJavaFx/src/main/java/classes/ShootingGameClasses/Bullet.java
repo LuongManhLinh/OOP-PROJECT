@@ -11,7 +11,7 @@ public class Bullet extends GameObject{
     }
 
     @Override
-    public void loadView(Color color) {
+    public void loadView() {
         String path;
         if(color == Color.RED) {
             path = "src/main/resources/gameAssets/ShootingGame/bullet_red.png";
@@ -23,8 +23,7 @@ public class Bullet extends GameObject{
             path = "src/main/resources/gameAssets/ShootingGame/bullet_green.png";
         }
         try {
-            Image bulletImage = new Image(path);
-            objectView.object.setImage(bulletImage);
+
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
             System.err.println("Error loading bullet image: " + path);
