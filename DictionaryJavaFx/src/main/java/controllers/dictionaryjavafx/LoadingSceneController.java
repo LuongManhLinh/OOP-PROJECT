@@ -12,7 +12,6 @@ public class LoadingSceneController {
         Timeline waitTimeLine = new Timeline(
                 new KeyFrame(Duration.millis(50), event -> {
                     DictionaryData.loadData();
-                    GameData.loadData();
                     SceneLoaderController.loadScene(FXMLFiles.MAIN_UI_SCENE);
                 })
         );

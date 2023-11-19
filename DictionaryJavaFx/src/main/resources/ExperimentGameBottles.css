@@ -1,0 +1,8 @@
+.table-background {
+    -fx-background-image:  url('gameAssets/ExperimentGame/table.png');
+}
+
+.button:hover {
+    -fx-border-color: red;
+    -fx-border-width: 4;
+}

@@ -9,6 +9,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(230, 220, 220);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.ExperimentGameController">
@@ -18,7 +19,7 @@
             <Image url="@../../gameAssets/ExperimentGame/light.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="startGamePane" focusTraversable="true" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(230, 220, 220);" visible="false">
+      <AnchorPane fx:id="startGamePane" focusTraversable="true" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(230, 220, 220);">
          <children>
             <Label layoutX="229.0" layoutY="47.0" text="EXPERIMENT GAME">
                <font>
@@ -45,32 +46,32 @@
                   <Image url="@../../gameAssets/ExperimentGame/purple-90.png" />
                </image>
             </ImageView>
-            <Button fx:id="easyButton" focusTraversable="false" layoutX="208.0" layoutY="300.0" mnemonicParsing="false" onAction="#onEasyModeClicked" text="EASY">
+            <Button fx:id="easyButton" focusTraversable="false" layoutX="208.0" layoutY="300.0" mnemonicParsing="false" onAction="#onEasyModeClicked" stylesheets="@../../ExperimentGameButtons.css" text="EASY">
                <font>
                   <Font name="Jokerman" size="40.0" />
                </font>
             </Button>
-            <Button fx:id="normalButton" focusTraversable="false" layoutX="208.0" layoutY="471.0" mnemonicParsing="false" onAction="#onNormalModeClicked" text="NORMAL">
+            <Button fx:id="normalButton" focusTraversable="false" layoutX="208.0" layoutY="471.0" mnemonicParsing="false" onAction="#onNormalModeClicked" stylesheets="@../../ExperimentGameButtons.css" text="NORMAL">
                <font>
                   <Font name="Jokerman" size="40.0" />
                </font>
             </Button>
-            <Button focusTraversable="false" layoutX="21.0" layoutY="19.0" mnemonicParsing="false" onAction="#onQuit" text="QUIT">
+            <Button focusTraversable="false" layoutX="21.0" layoutY="19.0" mnemonicParsing="false" onAction="#onQuit" stylesheets="@../../ExperimentGameButtons.css" text="QUIT">
                <font>
                   <Font name="Jokerman" size="25.0" />
                </font>
             </Button>
-            <Button fx:id="tenButton" focusTraversable="false" layoutX="702.0" layoutY="255.0" mnemonicParsing="false" onAction="#on10Clicked" styleClass="unselected" stylesheets="@../../FirstGameSceneStyle.css" text="10">
+            <Button fx:id="tenButton" focusTraversable="false" layoutX="702.0" layoutY="255.0" mnemonicParsing="false" onAction="#on10Clicked" styleClass="button2" stylesheets="@../../ExperimentGameButtons.css" text="10">
                <font>
                   <Font name="Jokerman" size="40.0" />
                </font>
             </Button>
-            <Button fx:id="twentyButton" focusTraversable="false" layoutX="696.0" layoutY="368.0" mnemonicParsing="false" onAction="#on20Clicked" styleClass="unselected" stylesheets="@../../FirstGameSceneStyle.css" text="20">
+            <Button fx:id="twentyButton" focusTraversable="false" layoutX="696.0" layoutY="360.0" mnemonicParsing="false" onAction="#on20Clicked" styleClass="button2" stylesheets="@../../ExperimentGameButtons.css" text="20">
                <font>
                   <Font name="Jokerman" size="40.0" />
                </font>
             </Button>
-            <Button fx:id="unlimitedButton" focusTraversable="false" layoutX="556.0" layoutY="471.0" mnemonicParsing="false" onAction="#onUnlimitedClicked" styleClass="unselected" stylesheets="@../../FirstGameSceneStyle.css" text="Unlimited">
+            <Button fx:id="unlimitedButton" focusTraversable="false" layoutX="556.0" layoutY="471.0" mnemonicParsing="false" onAction="#onUnlimitedClicked" styleClass="button2" stylesheets="@../../ExperimentGameButtons.css" text="Unlimited">
                <font>
                   <Font name="Jokerman" size="40.0" />
                </font>
@@ -83,6 +84,11 @@
             <Label layoutX="208.0" layoutY="183.0" style="-fx-background-color: rgb(232, 180, 114); -fx-border-color: rgb(159, 156, 156);" text="Mode">
                <font>
                   <Font name="Jokerman" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="326.0" layoutY="135.0" stylesheets="@../../ButtonStyles.css" text="Please select mode and number of formulas" underline="true">
+               <font>
+                  <Font name="System Italic" size="18.0" />
                </font>
             </Label>
          </children>
@@ -99,7 +105,7 @@
                   <Font size="37.0" />
                </font>
             </Label>
-            <Button fx:id="bottle2" contentDisplay="BOTTOM" focusTraversable="false" layoutX="781.0" layoutY="40.0" mnemonicParsing="false" onAction="#onAnswerClicked" prefHeight="250.0" prefWidth="175.0" styleClass="table-background" stylesheets="@../../Styles.css" text="môi trường sống, nơi sống (của động vật cây cối)" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="bottle2" contentDisplay="BOTTOM" focusTraversable="false" layoutX="781.0" layoutY="40.0" mnemonicParsing="false" onAction="#onAnswerClicked" prefHeight="250.0" prefWidth="200.0" styleClass="table-background" stylesheets="@../../ExperimentGameBottles.css" text="môi trường sống, nơi sống (của động vật cây cối)" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="17.0" />
                </font>
@@ -114,7 +120,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="bottle3" contentDisplay="BOTTOM" focusTraversable="false" layoutX="527.0" layoutY="320.0" mnemonicParsing="false" onAction="#onAnswerClicked" prefHeight="250.0" prefWidth="175.0" styleClass="table-background" stylesheets="@../../Styles.css" text="môi trường sống, nơi sống (của động vật cây cối)" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="bottle3" contentDisplay="BOTTOM" focusTraversable="false" layoutX="527.0" layoutY="320.0" mnemonicParsing="false" onAction="#onAnswerClicked" prefHeight="250.0" prefWidth="200.0" styleClass="table-background" stylesheets="@../../ExperimentGameBottles.css" text="môi trường sống, nơi sống (của động vật cây cối)" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="17.0" />
                </font>
@@ -129,7 +135,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="bottle4" contentDisplay="BOTTOM" focusTraversable="false" layoutX="781.0" layoutY="320.0" mnemonicParsing="false" onAction="#onAnswerClicked" prefHeight="250.0" prefWidth="175.0" styleClass="table-background" stylesheets="@../../Styles.css" text="lời răn dạy, bài học; (thuộc) đạo đức, phẩm hạnh, có đạo đức" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="bottle4" contentDisplay="BOTTOM" focusTraversable="false" layoutX="781.0" layoutY="320.0" mnemonicParsing="false" onAction="#onAnswerClicked" prefHeight="250.0" prefWidth="200.0" styleClass="table-background" stylesheets="@../../ExperimentGameBottles.css" text="lời răn dạy, bài học; (thuộc) đạo đức, phẩm hạnh, có đạo đức" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="17.0" />
                </font>
@@ -144,15 +150,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button focusTraversable="false" layoutX="23.0" layoutY="494.0" mnemonicParsing="false" onAction="#onReplayClicked" prefHeight="75.0" prefWidth="57.0" style="-fx-border-color: RED; -fx-border-width: 2.5;" text="QUIT GAME" textAlignment="CENTER" wrapText="true">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="bottle1" contentDisplay="BOTTOM" focusTraversable="false" layoutX="527.0" layoutY="40.0" mnemonicParsing="false" onAction="#onAnswerClicked" prefHeight="250.0" prefWidth="175.0" styleClass="table-background" stylesheets="@../../Styles.css" text="môi trường sống, nơi sống (của động vật cây cối)" textAlignment="CENTER" wrapText="true">
+            <Button fx:id="bottle1" contentDisplay="BOTTOM" focusTraversable="false" layoutX="527.0" layoutY="40.0" mnemonicParsing="false" onAction="#onAnswerClicked" prefHeight="250.0" prefWidth="200.0" styleClass="table-background" stylesheets="@../../ExperimentGameBottles.css" text="môi trường sống, nơi sống (của động vật cây cối)" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="17.0" />
                </font>
@@ -167,7 +165,14 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Label fx:id="choosingAnswerLabel" alignment="CENTER" layoutX="478.0" layoutY="4.0" prefHeight="34.0" prefWidth="521.0" style="-fx-background-color: rgb(200,200,200);" text="sự lao xuống, bước liều, sự lao đầu vào (khó khăn, nguy hiểm); nhúng, thọc, lao, đâm sâu vào" visible="false" wrapText="true" />
+            <Button focusTraversable="false" layoutX="23.0" layoutY="533.0" mnemonicParsing="false" onAction="#onReplayClicked" prefHeight="54.0" prefWidth="57.0" stylesheets="@../../ExperimentGameButtons.css" text="QUIT GAME" textAlignment="CENTER" wrapText="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
             <ImageView fx:id="carrierBottle" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../gameAssets/ExperimentGame/bottle.png" />
@@ -179,6 +184,15 @@
                   <Font name="System Bold Italic" size="21.0" />
                </font>
             </Button>
+            <VBox alignment="CENTER" layoutX="457.0" prefHeight="35.0" prefWidth="556.0">
+               <children>
+                  <Label fx:id="choosingAnswerLabel" alignment="CENTER" prefHeight="20.0" style="-fx-background-color: rgb(200,200,200);" text="Hiển thị nội dung đc chọn" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="endGamePane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(230, 220, 220);">
@@ -188,7 +202,7 @@
                   <Font name="Bell MT Bold" size="47.0" />
                </font>
             </Label>
-            <TableView fx:id="resultsTableView" editable="true" layoutX="398.0" layoutY="145.0" prefHeight="280.0" prefWidth="472.0" scaleX="1.5" scaleY="1.5" scaleZ="2.0" stylesheets="@../../Styles.css">
+            <TableView fx:id="resultsTableView" editable="true" layoutX="398.0" layoutY="145.0" prefHeight="280.0" prefWidth="472.0" scaleX="1.5" scaleY="1.5" scaleZ="2.0" stylesheets="@../../ExperimentGameTable.css">
               <columns>
                 <TableColumn fx:id="questionColumn" prefWidth="90.44441652297974" text="Question" />
                 <TableColumn fx:id="yourAnswerColumn" prefWidth="110.88883972167969" text="Your Answer" />
@@ -198,24 +212,24 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Button layoutX="423.0" layoutY="501.0" mnemonicParsing="false" onAction="#onReplayClicked" text="REPLAY">
+            <Button layoutX="423.0" layoutY="501.0" mnemonicParsing="false" onAction="#onReplayClicked" stylesheets="@../../ExperimentGameButtons.css" text="REPLAY">
                <font>
                   <Font name="Jokerman" size="35.0" />
                </font>
             </Button>
-            <Label fx:id="numberCorrectLabel" layoutX="32.0" layoutY="61.0" text="x/y correct">
+            <Label fx:id="numberCorrectLabel" layoutX="14.0" layoutY="61.0" text="100/100">
                <font>
                   <Font name="Bell MT Italic" size="52.0" />
                </font>
             </Label>
-            <Button layoutX="665.0" layoutY="501.0" mnemonicParsing="false" onAction="#onQuit" text="QUIT">
+            <Button layoutX="665.0" layoutY="501.0" mnemonicParsing="false" onAction="#onQuit" stylesheets="@../../ExperimentGameButtons.css" text="QUIT">
                <font>
                   <Font name="Jokerman" size="35.0" />
                </font>
             </Button>
          </children>
       </AnchorPane>
-      <ImageView fx:id="resultBottle" fitHeight="229.0" fitWidth="221.0" layoutX="250.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="resultBottle" fitHeight="229.0" fitWidth="221.0" layoutX="250.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../gameAssets/ExperimentGame/mainBottle.png" />
          </image>

@@ -113,6 +113,8 @@ public class ExperimentGameController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        GameData.loadExperimentGameData();
+
         modeButtons.add(easyButton);
         modeButtons.add(normalButton);
 
@@ -423,7 +425,12 @@ public class ExperimentGameController implements Initializable {
                 } else {
                     endGameStatus = EndGameStatus.SUCCESS;
                 }
-                resultAnimation();
+                Timeline waitToSeeProgress = new Timeline(
+                        new KeyFrame(Duration.millis(100), event -> {
+                            resultAnimation();
+                        })
+                );
+                waitToSeeProgress.play();
             }
         }
     }
@@ -662,7 +669,7 @@ public class ExperimentGameController implements Initializable {
             }
         }
         endGameLabel.setText(message);
-        numberCorrectLabel.setText(numberCorrectAnswers + "/" + numberQuestion + " correct!");
+        numberCorrectLabel.setText(numberCorrectAnswers + "/" + numberQuestion);
     }
 
     private void changeScene(Status status) {

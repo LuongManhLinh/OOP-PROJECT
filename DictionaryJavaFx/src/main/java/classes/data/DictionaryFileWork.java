@@ -38,4 +38,22 @@ public class DictionaryFileWork {
             e.printStackTrace();
         }
     }
+
+    public static void importAllWordsForShootingGame(String filePath, HashMap<String, ArrayList<String>> words, ArrayList<String> keyWords) {
+        try {
+            Scanner fileScanner = new Scanner(new FileReader(filePath));
+            String line, key, meaning;
+            while (fileScanner.hasNext()) {
+                line = fileScanner.nextLine();
+                key = WordWork.decodeForm(line, true);
+                meaning = WordWork.decodeForm(line, false);
+
+                keyWords.add(key);
+                words.put(key, WordWork.separateMeaningForShootingGame(meaning));
+            }
+            fileScanner.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }

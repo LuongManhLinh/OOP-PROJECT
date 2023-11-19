@@ -1,0 +1,1776 @@
+$-animal-$ $+động-vật+$
+$-apartment-$ $+căn-hộ+$
+$-arrive-$ $+đến-nơi đạt-tới+$
+$-attend-$ $+dự có-mặt+$
+$-baggage-$ $+hành-lý+$
+$-bank-$ $+ngân-hàng+$
+$-bar-$ $+quầy-bán-rượu+$
+$-bathroom-$ $+phòng-tắm+$
+$-beach-$ $+bãi-biển+$
+$-bed-$ $+giường+$
+$-bedroom-$ $+phòng-ngủ+$
+$-beef-$ $+bò+$
+$-beer-$ $+bia+$
+$-bicycle-$ $+xe-đạp+$
+$-blanket-$ $++$
+$-book-$ $+sách+$
+$-bookstore-$ $+cửa-hàng-sách+$
+$-bottle-$ $+chai+$
+$-bread-$ $+miếng-ăn kế-sinh-nhai+$
+$-break a leg-$ $+may-mắn+$
+$-break a record-$ $+lập-kỷ-lục-mới+$
+$-break down-$ $+hỏng+$
+$-break in-$ $+đột-nhập+$
+$-break out-$ $+bùng-phát+$
+$-break the ice-$ $+phá-vỡ-sự-ngại-ngùng+$
+$-break the news-$ $+thông-báo-tin-tức-quan-trọng+$
+$-break the rules-$ $+vi-phạm-quy-tắc+$
+$-break through-$ $+vượt-qua-trở-ngại+$
+$-break up-$ $+chia-tay+$
+$-breakfast-$ $+bữa-sáng+$
+$-bus-$ $+xe-buýt+$
+$-business-$ $+kinh-doanh+$
+$-calendar-$ $+lịch+$
+$-snore-$ $+ngáy+$
+$-capital-$ $+thủ-đô+$
+$-car-$ $+xe-hơi+$
+$-card-$ $+thẻ+$
+$-cash-$ $+tiền-mặt+$
+$-chair-$ $+ghế+$
+$-cheese-$ $+phô-mai+$
+$-chicken-$ $+gà+$
+$-cinema-$ $+rạp-phim+$
+$-city-$ $+thành-phố+$
+$-clean-$ $+sạch-sẽ+$
+$-clinic-$ $+phòng-khám bệnh-viện-chuyên-khoa+$
+$-clock-$ $+đồng-hồ+$
+$-cloud-$ $+mây+$
+$-coat-$ $+áo-khoác+$
+$-coffee-$ $+cà-phê+$
+$-color-$ $+màu-sắc+$
+$-computer-$ $+máy-tính+$
+$-concert-$ $+buổi-hòa-nhạc+$
+$-coral-$ $+san-hô+$
+$-couch-$ $+người-nghiện-xem-tv+$
+$-country-$ $+quốc-gia+$
+$-credit card-$ $+thẻ-tín-dụng+$
+$-culture-$ $+văn-hóa+$
+$-cup-$ $+cốc+$
+$-currency-$ $+tiền-tệ+$
+$-dance-$ $+nhảy-múa+$
+$-date-$ $+ngày-hẹn-hò+$
+$-dentist-$ $+nha-sĩ+$
+$-department-$ $+bộ-phận+$
+$-dinner-$ $+bữa-tối+$
+$-doctor-$ $+bác-sĩ+$
+$-dog-$ $+con-chó+$
+$-drink-$ $+đồ-uống+$
+$-drug-$ $+ma-túy+$
+$-eat-$ $+ăn+$
+$-education-$ $+giáo-dục+$
+$-elevator-$ $+thang-máy+$
+$-engine-$ $+động-cơ+$
+$-enjoy-$ $+thích-thú khoái+$
+$-extinct-$ $+tuyệt-chủng tuyệt-giống+$
+$-family-$ $+gia-đình+$
+$-fast food-$ $+thức-ăn-nhanh+$
+$-festival-$ $+lễ-hội+$
+$-fond of-$ $+thích-thú+$
+$-fork-$ $+nĩa+$
+$-friend-$ $+bạn-bè+$
+$-fruit-$ $+trái-cây+$
+$-garden-$ $+vườn+$
+$-gift-$ $+quà-tặng+$
+$-glass-$ $+ly+$
+$-goat-$ $+con-dê+$
+$-grammar-$ $+ngữ-pháp+$
+$-grocery store-$ $+cửa-hàng-thực-phẩm+$
+$-guess-$ $+đoán+$
+$-guest-$ $+khách-mời+$
+$-hobby-$ $+sở-thích+$
+$-husband-$ $+chồng+$
+$-ice cream-$ $+kem+$
+$-information-$ $+thông-tin+$
+$-invitation-$ $+lời-mời+$
+$-job-$ $+công-việc+$
+$-juice-$ $+nước-trái-cây+$
+$-kitchen-$ $+bếp+$
+$-knife-$ $+dao+$
+$-lake-$ $+hồ+$
+$-language-$ $+ngôn-ngữ+$
+$-latitude-$ $+vĩ-độ+$
+$-letter-$ $+thư+$
+$-library-$ $+thư-viện+$
+$-living room-$ $+phòng-khách+$
+$-lord-$ $+chúa-tể+$
+$-longitude-$ $+kinh-độ+$
+$-look after-$ $+chăm-sóc+$
+$-look down on-$ $+khinh-thường+$
+$-look for-$ $+tìm-kiếm+$
+$-look into-$ $+nghiên-cứu+$
+$-look out-$ $+chú-ý+$
+$-look over-$ $+xem-xét+$
+$-look up-$ $+tra-cứu+$
+$-look up to-$ $+kính-trọng+$
+$-loyalty-$ $+tính-trung-thành+$
+$-lunch-$ $+bữa-trưa+$
+$-map-$ $+bản-đồ+$
+$-market-$ $+chợ+$
+$-meat-$ $+thịt+$
+$-medicine-$ $+thuốc+$
+$-meeting-$ $+cuộc-họp+$
+$-menu-$ $+thực-đơn+$
+$-month-$ $+tháng+$
+$-moon-$ $+mặt-trăng+$
+$-mountain-$ $+núi+$
+$-napkin-$ $+khăn-giấy+$
+$-nationality-$ $+quốc-tịch+$
+$-news-$ $+tin-tức+$
+$-office-$ $+văn-phòng+$
+$-park-$ $+công-viên+$
+$-partner-$ $+đối-tác+$
+$-passport-$ $+hộ-chiếu+$
+$-pen-$ $+bút+$
+$-pencil-$ $+bút-chì+$
+$-phone-$ $+điện-thoại+$
+$-picture-$ $+hình-ảnh+$
+$-pillow-$ $+gối+$
+$-plate-$ $+đĩa+$
+$-police-$ $+cảnh-sát+$
+$-pork-$ $+lợn+$
+$-post office-$ $+bưu-điện+$
+$-present-$ $+món-quà+$
+$-put by-$ $+tiết-kiệm+$
+$-put forward-$ $+đề-xuất+$
+$-put off-$ $+trì-hoãn+$
+$-put on-$ $+mặc-vào+$
+$-put out-$ $+dập-tắt-(lửa)+$
+$-put together-$ $+lắp-ráp+$
+$-put up with-$ $+chịu-đựng+$
+$-rain-$ $+mưa+$
+$-rat-$ $+chuột+$
+$-restaurant-$ $+nhà-hàng+$
+$-river-$ $+sông+$
+$-rule-$ $+cai-trị+$
+$-salad-$ $+sa-lát+$
+$-school-$ $+trường-học+$
+$-sea-$ $+biển+$
+$-shop-$ $+cửa-hàng+$
+$-singer-$ $+ca-sĩ+$
+$-sister-$ $+chị-gái-hoặc-em-gái+$
+$-sky-$ $+bầu-trời+$
+$-snack-$ $+món-ăn-nhẹ+$
+$-snow-$ $+tuyết+$
+$-soup-$ $+súp+$
+$-spoon-$ $+muỗng+$
+$-sport-$ $+thể-thao+$
+$-squirrel-$ $+con-sóc+$
+$-stamp-$ $+tem-thư+$
+$-stick-$ $+cái-que+$
+$-stream-$ $+dòng-suối+$
+$-student-$ $+học-sinh sinh-viên+$
+$-solar-$ $+mặt-trời+$
+$-table-$ $+bàn+$
+$-take after-$ $+giống+$
+$-take away-$ $+mang-đi+$
+$-take care-$ $+quan-tâm+$
+$-take off-$ $+cất-cánh+$
+$-take on-$ $+tuyển-thêm-người+$
+$-take over-$ $+tiếp-quản+$
+$-take-in-$ $+lừa-dối+$
+$-tea-$ $+trà+$
+$-teacher-$ $+giáo-viên+$
+$-television-$ $+truyền-hình+$
+$-time-$ $+thời-gian+$
+$-towel-$ $+khăn-tắm+$
+$-train-$ $+tàu-hỏa+$
+$-treasures-$ $+báu-vật+$
+$-twin-$ $+sinh-đôi+$
+$-vegetable-$ $+rau-cải+$
+$-watch-$ $+đồng-hồ-đeo-tay+$
+$-water-$ $+nước+$
+$-weather-$ $+thời-tiết+$
+$-week-$ $+tuần+$
+$-wind-$ $+chảy+$
+$-wine-$ $+rượu+$
+$-zoo-$ $+sở-thú+$
+$-announcement-$ $+thông-báo+$
+$-debt-$ $+nợ+$
+$-dig-$ $+khai-quật+$
+$-nutrition-$ $+sự-dinh-dưỡng+$
+$-opportunity-$ $+cơ-hội thời-cơ dịp+$
+$-particle-$ $+hạt+$
+$-patience-$ $+sự-kiên-nhẫn+$
+$-philosophy-$ $+triết-học+$
+$-recovery-$ $+phục-hồi+$
+$-ruin-$ $+sự-đổ-nát sự-hư-hại-nghiêm-trọng làm-hỏng làm-tan-nát tàn-phá+$
+$-tomb-$ $+mộ+$
+$-transparency-$ $+sự-minh-bạch+$
+$-abandon-$ $+từ-bỏ bỏ-rơi ruồng-bỏ+$
+$-abode-$ $+nơi-ở sự-lưu-trú+$
+$-abort-$ $+sẩy-thai làm-sẩy-thai phá-thai bỏ-dở+$
+$-abortion-$ $+sự-sẩy-thai sự-phá-thai sự-nạo-thai+$
+$-abroad-$ $+ở-nước-ngoài ra-nước-ngoài+$
+$-absent-$ $+vắng-mặt đi-nghỉ+$
+$-absorb-$ $+hấp-thu+$
+$-abstract-$ $+trừu-tượng+$
+$-abstraction-$ $+sự-trừu-tượng cái-nhìn-trừu-tượng+$
+$-absurd-$ $+vô-lý ngu-xuẩn ngớ-ngẩn+$
+$-abundance-$ $+sự-phong-phú+$
+$-abuse-$ $+sự-lạm-dụng+$
+$-academic-$ $+(thuộc)-học-viện (thuộc)-trường-đại-học+$
+$-academy-$ $+học-viện+$
+$-accelerate-$ $+tăng-tốc+$
+$-accent-$ $+giọng+$
+$-access-$ $+lối-vào cửa-vào đường-vào+$
+$-accidentally-$ $+một-cách-tình-cờ bất-ngờ+$
+$-accomplish-$ $+hoàn-thành làm-xong đạt-được-(mục-tiêu…)+$
+$-accomplishment-$ $+thành-tựu thành-tích+$
+$-accord-$ $+phù-hợp hòa-hợp+$
+$-account-$ $+sự-tính-toán tính-toán+$
+$-accountant-$ $+nhân-viên-kế-toán người-giữ-sổ-sách-kế-toán+$
+$-accumulate-$ $+tích-lũy tích-tụ+$
+$-accumulation-$ $+sự-tích-lũy tích-tụ+$
+$-accurate-$ $+đúng-đắn chính-xác xác-đáng+$
+$-accuse-$ $+buộc-tội kết-tội tố-cáo+$
+$-accused-$ $+bị-cáo+$
+$-achieve-$ $+đạt-được giành-được+$
+$-acid-$ $+(hoá-học)-axit chua+$
+$-acknowledge-$ $+nhận thừa-nhận công-nhận+$
+$-acquisition-$ $+sự-dành-được đạt-được+$
+$-acquit-$ $+tha-tội tuyên-bố-trắng-án+$
+$-acre-$ $+mẫu-anh-(đơn-vị-đo-diện-tích)+$
+$-active-$ $+tích-cực nhanh-nhẹn lanh-lợi+$
+$-activist-$ $+nhà-hoạt-động-xã-hội chính-trị+$
+$-activity-$ $+sự-tích-cực hoạt-động+$
+$-acute-$ $+cấp-tính+$
+$-adamant-$ $+kỷ-cương cứng-rắn+$
+$-adaptation-$ $+sự-thich-nghi thich-ứng+$
+$-add-$ $+thêm-vào làm-tăng-thêm+$
+$-addiction-$ $+sự-nghiện-ngập+$
+$-address-$ $+địa-chỉ+$
+$-adequate-$ $+đủ đầy-đủ tương-xứng xứng-đáng+$
+$-adhere-$ $+tuân-thủ+$
+$-adjust-$ $+sửa-lại-cho-đúng điều-chỉnh+$
+$-administration-$ $+sự-trông-nom sự-quản-lý sự-cai-quản sự-cai-trị+$
+$-admission-$ $+sự-thu-nạp kết-nạp+$
+$-admit-$ $+nhận-vào thừa-nhận thú-nhận+$
+$-adopt-$ $+nhận-làm-con-nuôi+$
+$-adoption-$ $+nhận-làm-con-nuôi+$
+$-adore-$ $+ngưỡng-vọng kính-yêu+$
+$-adroit-$ $+khéo-léo khéo-tay+$
+$-adult-$ $+người-lớn+$
+$-adverse-$ $+bất-lợi có-hại+$
+$-adversity-$ $+sự-bất-hạnh nghịch-cảnh+$
+$-advocate-$ $+người-tán-thành ủng-hộ+$
+$-aesthetic-$ $+thẩm-mỹ+$
+$-affect-$ $+làm-ảnh-hưởng-đến làm-tác-động-đến chạm-đến+$
+$-affection-$ $+sự-làm-ảnh-hưởng-đến sự-làm-tác-động-đến+$
+$-affectionate-$ $+thương-yêu trìu-mến+$
+$-afford-$ $+kính-yêu kính-mến+$
+$-agency-$ $+tác-dụng lực+$
+$-agenda-$ $+những-việc-phải-làm+$
+$-aggressive-$ $+hay-gây-hấn hung-hãn hung-hăng+$
+$-agility-$ $+sự-nhanh-nhẹn lanh-lợi+$
+$-agitate-$ $+khích-động làm-xúc-động+$
+$-agree-$ $+đồng-ý chấp-thuận+$
+$-agreement-$ $+hiệp-định hiệp-nghị+$
+$-agricultural-$ $+thuộc-nông-nghiệp+$
+$-agriculture-$ $+nông-nghiệp+$
+$-aid-$ $+sự-giúp-đỡ sự-viện-trợ cứu-trợ+$
+$-aisle-$ $+cánh gian-bên-trong+$
+$-alarm-$ $+sự-báo-động sự-báo-nguy+$
+$-album-$ $+tập-ảnh quyển-album+$
+$-alien-$ $+xa-lạ+$
+$-alike-$ $+tương-tự giống-nhau như-nhau+$
+$-alliance-$ $+sự-liên-minh khối-liên-minh+$
+$-allocate-$ $+chỉ-định chia-phần+$
+$-allocation-$ $+sự-chỉ-định chia-phần+$
+$-allow-$ $+cho-phép để-cho+$
+$-allowance-$ $+liều-lượng-cho-phép+$
+$-allure-$ $+sức-quyến-rũ cám-dỗ+$
+$-ally-$ $+nước-đồng-minh liên-kết liên-minh+$
+$-alone-$ $+một-mình trơ-trọi cô-đơn đơn-độc+$
+$-alteration-$ $+sự-thay-đổi điều-chỉnh+$
+$-alternative-$ $+xen-nhau thay-đổi-nhau thay-phiên-nhau+$
+$-always-$ $+luôn-luôn mọi-lúc+$
+$-amateur-$ $+người-nghiệp-dư có-tính-chất-nghiệp-dư+$
+$-amaze-$ $+làm-kinh-ngạc làm-sửng-sốt+$
+$-ambassador-$ $+đại-sứ+$
+$-ambience-$ $+môi-trường không-khí-ở-một-địa-điểm+$
+$-ambition-$ $+đam-mê khát-vọng tham-vọng+$
+$-ambitious-$ $+có-nhiều-khát-vọng tham-vọng+$
+$-ambulance-$ $+xe-cứu-thương xe-cấp-cứu+$
+$-amiable-$ $+đáng-mến dễ-thương+$
+$-amicable-$ $+thân-ái thân-mật thân-tình+$
+$-amount-$ $+số-lượng lượng cộng-dồn-lên-đến+$
+$-ample-$ $+phong-phú nhiều+$
+$-amusing-$ $+có-tính-giải-trí buồn-cười+$
+$-analogy-$ $+sự-tương-tự giống-nhau+$
+$-ancestor-$ $+tổ-tiên+$
+$-angel-$ $+thiên-thần thiên-sứ+$
+$-angelic-$ $+tốt-bụng thánh-thiện-như-thiên-thần+$
+$-angry-$ $+cáu-giận tức-giận+$
+$-anguish-$ $+nỗi-đau-đớn khổ-não+$
+$-animation-$ $+hoạt-hình+$
+$-anniversary-$ $+ngày-kỷ-niệm lễ-kỷ-niệm+$
+$-annoy-$ $+quấy-rầy làm-phiền+$
+$-annual-$ $+hàng-năm từng-năm+$
+$-anonymous-$ $+giấu-tên ẩn-danh nặc-danh+$
+$-answer-$ $+câu-trả-lời hồi-đáp trả-lời+$
+$-anticipate-$ $+dự-đoán lường-trước+$
+$-antiquated-$ $+cổ-xưa cũ-kỹ không-hợp-thời+$
+$-antique-$ $+cổ cổ-xưa theo-lối-cổ+$
+$-anxiety-$ $+mối-lo mối-lo-âu mối-băn-khoăn sự-lo-lắng+$
+$-anxious-$ $+lo-âu băn-khoăn+$
+$-anyhow-$ $+thế-nào-cũng-được cách-nào-cũng-được+$
+$-apart-$ $+về-một-bên qua-một-bên riêng-ra xa-ra+$
+$-apology-$ $+lời-xin-lỗi+$
+$-appeal-$ $+sự-kêu-gọi lời-kêu-gọi+$
+$-appetite-$ $+sự-ngon-miệng sự-thèm-ăn+$
+$-apply-$ $+gắn-vào áp-vào ghép-vào đính-vào+$
+$-appointment-$ $+sự-bổ-nhiệm chức-vụ-được-bổ-nhiệm+$
+$-appreciate-$ $+đánh-giá cảm-kích+$
+$-appreciation-$ $+sự-đánh-giá-cao sự-cảm-kích+$
+$-approach-$ $+sự-đến-gần sự-lại-gần+$
+$-appropriate-$ $+thích-hợp thích-đáng+$
+$-approval-$ $+sự-tán-thành sự-đồng-ý sự-chấp-thuận+$
+$-approve-$ $+tán-thành chấp-thuận bằng-lòng+$
+$-area-$ $+diện-tích khu-vực lĩnh-vực+$
+$-argue-$ $+chứng-tỏ chỉ-rõ+$
+$-array-$ $+dãy chuỗi+$
+$-arrive-$ $+đến-nơi đạt-tới+$
+$-arrogant-$ $+kiêu-ngạo kiêu-căng ngạo-mạn+$
+$-article-$ $+bài-báo+$
+$-articulate-$ $+giải-thích-rõ-ràng+$
+$-artwork-$ $+ảnh-và-minh-họa-trên-sách-báo+$
+$-ash-$ $+tro+$
+$-ashamed-$ $+xấu-hổ ngượng-ngùng+$
+$-aside-$ $+về-một-bên sang-một-bên+$
+$-ask-$ $+hỏi yêu-cầu+$
+$-aspirin-$ $+(dược-học)-atpirin+$
+$-aspiring-$ $+thiết-tha mong-mỏi khao-khát+$
+$-assault-$ $+cuộc-tấn-công đột-kích tấn-công công-kích+$
+$-assembly-$ $+cuộc-họp dây-chuyền+$
+$-assert-$ $+xác-nhận khẳng-định-một-cách-quả-quyết+$
+$-assertion-$ $+sự-xác-nhận khẳng-định-một-cách-quả-quyết+$
+$-assertive-$ $+quả-quyết quyết-đoán+$
+$-assess-$ $+định-giá đánh-giá+$
+$-asset-$ $+tài-sản món-quý+$
+$-assign-$ $+phân-công+$
+$-assist-$ $+giúp giúp-đỡ+$
+$-associate-$ $+kết-giao kết-hợp+$
+$-assume-$ $+mang khoác có lấy+$
+$-assurance-$ $+sự-chắc-chắn đảm-bảo+$
+$-assure-$ $+quả-quyết cam-đoan+$
+$-astonishing-$ $+gây-bất-ngờ làm-ngạc-nhiên+$
+$-atrocious-$ $+hung-bạo tàn-ác tồi-tệ+$
+$-attack-$ $+sự-tấn-công tấn-công+$
+$-attain-$ $+đạt-được giành-được+$
+$-attempt-$ $+sự-cố-gắng sự-thử+$
+$-attend-$ $+dự có-mặt+$
+$-attendance-$ $+sự-có-mặt+$
+$-attire-$ $+quần-áo đồ-trang-điểm mặc-quần-áo+$
+$-attitude-$ $+thái-độ quan-điểm+$
+$-attorney-$ $+người-được-ủy-quyền-đại-diện+$
+$-attract-$ $+thu-hút hấp-dẫn+$
+$-attractive-$ $+hút thu-hút hấp-dẫn+$
+$-auction-$ $+sự-bán-đấu-giá+$
+$-audacious-$ $+trơ-tráo táo-bạo+$
+$-audience-$ $+người-nghe thính-giả người-xem khán-giả+$
+$-audio-$ $+thuộc-về-âm-thanh+$
+$-authentic-$ $+đích-thực xác-thực+$
+$-authority-$ $+uy-quyền quyền-lực quyền-thế+$
+$-available-$ $+sẵn-có có-thể-dùng-được+$
+$-avenge-$ $+trả-thù báo-thù+$
+$-avoid-$ $+tránh tránh-xa ngăn-ngừa+$
+$-aware-$ $+biết nhận-thấy nhận-thức-thấy+$
+$-awareness-$ $+nhận-thức+$
+$-away-$ $+rời-xa đi-xa biến-đi+$
+$-awful-$ $+đáng-sợ khủng-khiếp cực-kỳ+$
+$-awkward-$ $+vụng-về lúng-túng ngượng-ngịu+$
+$-baby-$ $+đứa-trẻ+$
+$-bachelor-$ $+người-chưa-vợ người-có-bằng-cử-nhân+$
+$-backdrop-$ $+khung-cảnh-nền+$
+$-backward-$ $+về-phía-sau giật-lùi+$
+$-bacon-$ $+thịt-lưng-lợn-muối-xông-khói+$
+$-badge-$ $+huy-hiệu phù-hiệu quân-hàm+$
+$-baggage-$ $+hành-lý+$
+$-bait-$ $+mồi bả+$
+$-bake-$ $+bỏ-lò nướng-bằng-lò+$
+$-balance-$ $+cái-cân sự-thăng-bằng+$
+$-balanced-$ $+cân-bằng+$
+$-balcony-$ $+ban-công+$
+$-bald-$ $+hói-đầu trọc-trụi+$
+$-ballet-$ $+ba-lê kịch-múa+$
+$-band-$ $+dải băng đai nẹp buộc-dải buộc-băng+$
+$-bane-$ $+nguyên-do nỗi-khổ+$
+$-bang-$ $+tóc-mái đánh-mạnh đánh-đập+$
+$-banner-$ $+ngọn-cờ+$
+$-bar-$ $+quầy-bán-rượu+$
+$-barbecue-$ $++$
+$-bare-$ $+trần trần-truồng trọc trần-trụi+$
+$-barely-$ $+công-khai rõ-ràng+$
+$-bargain-$ $+sự-mặc-cả sự-thoả-thuận-mua-bán+$
+$-barn-$ $+kho-thóc+$
+$-barrel-$ $+thùng-tròn lớn+$
+$-baseball-$ $+(thể-dục,thể-thao)-bóng-chày+$
+$-basement-$ $+nền-móng móng-(của-một-bức-tường…)+$
+$-bashful-$ $+rụt-rè bẽn-lẽn+$
+$-bass1-$ $+m-trầm+$
+$-battery-$ $+bộ-pin ắc-quy+$
+$-bay-$ $+hồng vịnh+$
+$-beam-$ $+xà dầm+$
+$-bear-$ $+mang cầm vác đội đeo ôm chịu-đựng+$
+$-bearing-$ $+sự-chịu-đựng sự-sinh-đẻ+$
+$-beast-$ $+thú-vật+$
+$-beat-$ $+sự-đập tiếng-đập+$
+$-beaten-$ $+đập nện-(nền-đường…)+$
+$-beautiful-$ $+xinh-đẹp tuyệt-vời+$
+$-beg-$ $+ăn-xin xin-xỏ cầu-xin+$
+$-begin-$ $+bắt-đầu khởi-đầu+$
+$-beginning-$ $+lúc-bắt-đầu căn-nguyên+$
+$-behalf-$ $+thay-mặt-cho-ai-đó+$
+$-behave-$ $+ăn-ở đối-xử cư-xử+$
+$-behoove-$ $+có-nhiệm-vụ+$
+$-believe-$ $+tin-tưởng cho-rằng nghĩ-rằng+$
+$-belly-$ $+bụng dạ-dày phồng-ra-(cánh-buồm…)+$
+$-beloved-$ $+được-yêu-mến được-yêu-quý người-yêu-dấu người-yêu-quý+$
+$-below-$ $+ở-dưới cấp-dưới thấp-hơn+$
+$-benchmark-$ $+sự-kiểm-chuẩn+$
+$-bend-$ $+chỗ-uốn chỗ-cong cúi-xuống uốn-cong+$
+$-beneficial-$ $+có-ích có-lợi+$
+$-beneficiary-$ $+người-hưởng-lợi+$
+$-benefit-$ $+lợi lợi-ích+$
+$-benevolent-$ $+nhân-từ từ-thiện+$
+$-bent-$ $+khiếu sở-thích xu-hướng khuynh-hướng+$
+$-berserk-$ $+nổi-quạu cáu-tiết+$
+$-bet-$ $+đánh-cược sự-đánh-cược+$
+$-betray-$ $+phản-bội phụ-bạc tiết-lộ để-lộ+$
+$-bias-$ $+thành-kiến sự-thiên-vị hướng-(ý-kiến) gây-thành-kiến+$
+$-bid-$ $+sự-đặt-giá trả-giá+$
+$-big-$ $+to-lớn+$
+$-big-hearted-$ $+rộng-lượng hào-hiệp+$
+$-bigoted-$ $+mù-quáng+$
+$-biography-$ $+tiểu-sử+$
+$-birth-$ $+sự-sinh-đẻ ra-đời+$
+$-bishop-$ $+giám-mục+$
+$-bite-$ $+cắn sự-cắn miếng-cắn+$
+$-bizarre-$ $+kỳ-quái kỳ-dị+$
+$-blameless-$ $+không-thể-chê-được+$
+$-blank-$ $+chỗ-trống để-trống trống-rỗng bần-thần+$
+$-blanket-$ $++$
+$-blasé-$ $+dửng-dưng quá-quen-rồi+$
+$-bleed-$ $+chảy-máu+$
+$-blend-$ $+hỗn-hợp trộn-lẫn pha-trộn+$
+$-bless-$ $+ban-phước+$
+$-blessing-$ $+phúc-lành+$
+$-blossom-$ $+hoa ra-hoa trổ-hoa+$
+$-blot-$ $+vết-nhơ vết-nhục bôi-nhọ làm-bẩn+$
+$-blunder-$ $+điều-sai-lầm điều-ngớ-ngẩn mắc-lỗi-ngớ-ngẩn+$
+$-boat-$ $+tàu-thủy thuyền+$
+$-bold-$ $+táo-bạo gan-dạ+$
+$-bottom-$ $+phần-đáy dưới-cùng+$
+$-bow1-$ $+cúi-chào+$
+$-brave-$ $+gan-dạ dũng-cảm bất-chấp đương-đầu-với+$
+$-bravery-$ $+tính-gan-dạ sự-dũng-cảm+$
+$-bread-$ $+miếng-ăn kế-sinh-nhai+$
+$-break-$ $+chỗ-vỡ sự-rạn-vỡ làm-gãy làm-đổ-vỡ ngắt gián-đoạn+$
+$-breakdown-$ $+sự-thất-bại sự-sụp-độ+$
+$-breed-$ $+sinh đẻ nhân-giống+$
+$-brief-$ $+ngắn vắn-tắt bản-tóm-tắt+$
+$-broad-$ $+rộng bao-la mênh-mông+$
+$-broadcaster-$ $+phát-thanh-viên+$
+$-broadly-$ $+nói-chung+$
+$-buddy-$ $+bạn+$
+$-buffer-$ $+vật-đệm+$
+$-bug-$ $+sâu-bọ lỗi-máy-tính+$
+$-bumpy-$ $+gập-ghềnh mấp-mô+$
+$-bungalow-$ $+nhà-một-tầng+$
+$-calamity-$ $+tai-họa thiên-tai tai-ương+$
+$-calendar-$ $+lịch+$
+$-calm-$ $+bình-tĩnh điềm-đạm+$
+$-canal-$ $+kênh sông-đào+$
+$-candid-$ $+thật-thà ngay-thẳng không-xếp-đặt+$
+$-carbon-$ $+cacbon+$
+$-carriage-$ $+xe-ngựa sự-chuyên-chở-hàng-hóa+$
+$-casual-$ $+tự-nhiên như-thường-lệ bình-thường quần-áo-bình-thường không-trang-trọng+$
+$-cater-$ $+phục-vụ-ăn-uống+$
+$-cattle-$ $+gia-súc+$
+$-cave-$ $+hang-động+$
+$-cease-$ $+thôi ngừng+$
+$-center-$ $+trung-tâm đặt-làm-trung-tâm+$
+$-certain-$ $+chắc-chắn+$
+$-certificate-$ $+chứng-chỉ bằng văn-bằng+$
+$-change-$ $+sự-thay-đổi biến-đổi thay-đổi+$
+$-chaos-$ $+sự-hỗn-loạn lộn-xộn+$
+$-charismatic-$ $+có-sức-hút lôi-cuốn+$
+$-chatterbox-$ $+người-ba-hoa nói-nhiều+$
+$-chiefly-$ $+chủ-yếu-là trước-nhất+$
+$-chilly-$ $+lạnh-lẽo giá-lạnh+$
+$-chocolate-$ $+sô-cô-la+$
+$-choice-$ $+lựa-chọn sự-chọn-lựa chất-lượng-tốt+$
+$-choir-$ $+đội-hát+$
+$-choosy-$ $+khó-chiều kén-chọn+$
+$-chop-$ $+bổ chặt+$
+$-chronic-$ $+mãn-tính kinh-niên+$
+$-chubby-$ $+mũm-mĩm mập-mạp+$
+$-chunk-$ $+khúc tảng+$
+$-circuit-$ $+chu-vi đường-vòng-quanh đi-vòng-quanh+$
+$-circulate-$ $+lưu-thông+$
+$-circulation-$ $+sự-lưu-thông+$
+$-civil-$ $+(thuộc)-công-dân lễ-phép lịch-sự+$
+$-clarify-$ $+làm-sáng-tỏ giải-thích+$
+$-clarity-$ $+sự-rõ-ràng sáng-sủa+$
+$-classification-$ $+sự-phân-loại+$
+$-classify-$ $+phân-loại+$
+$-cliff-$ $+vách-đá+$
+$-cling-$ $+bám-chặt-vào+$
+$-clinic-$ $+phòng-khám bệnh-viện-chuyên-khoa+$
+$-clinical-$ $+lâm-sàng+$
+$-clip-$ $+đoạn-phim-ngắn+$
+$-close-$ $+đóng-kín đóng-cửa gần-sát+$
+$-cluster-$ $+cụm+$
+$-coarse-$ $+thô-(da,-vải…)+$
+$-coastal-$ $+thuộc-bờ-biển ven-biển+$
+$-cocktail-$ $+rượu-cốc-tay+$
+$-collect-$ $+tập-hợp thu-lượm thu-thập+$
+$-collision-$ $+sự-va-đụng xung-đột+$
+$-colossal-$ $+khổng-lồ to-lớn+$
+$-colourful-$ $+sặc-sỡ+$
+$-combative-$ $+hiếu-chiến thích-gây-gổ+$
+$-combine-$ $+kết-hợp phối-hợp+$
+$-comical-$ $+hài-hước khôi-hài+$
+$-commence-$ $+khởi-đầu bắt-đầu+$
+$-comment-$ $+lời-bình-luận bình-luận chỉ-trích+$
+$-commerce-$ $+sự-buôn-bán giao-thương thương-nghiệp+$
+$-commotion-$ $+sự-rung-chuyển chấn-động+$
+$-companion-$ $+bạn-đồng-hành+$
+$-compassion-$ $+lòng-thương-cảm lòng-trắc-ẩn+$
+$-complement-$ $+phần-bổ-sung+$
+$-complex-$ $+khu-phức-hợp phức-tạp rắc-rối+$
+$-complicated-$ $+phức-tạp tinh-vi+$
+$-complication-$ $+biến-chứng+$
+$-compliment-$ $+lời-khen khen-ngợi ca-tụng+$
+$-comply-$ $+tuân-theo đồng-ý-làm-theo+$
+$-compose-$ $+sáng-tác+$
+$-composer-$ $+nhà-soạn-nhạc+$
+$-composition-$ $+bài-sáng-tác+$
+$-compound-$ $+hợp-chất+$
+$-compress-$ $+ép nén đè+$
+$-comprise-$ $+bao-gồm gồm-có+$
+$-compromise-$ $+sự-thỏa-hiệp+$
+$-compulsion-$ $+sự-cưỡng-bức ép-buộc+$
+$-compulsory-$ $+bắt-buộc+$
+$-conceal-$ $+giấu-diếm+$
+$-concede-$ $+thừa-nhận+$
+$-concise-$ $+ngắn-gọn súc-tích-(văn)+$
+$-confess-$ $+thú-tội nhận-tội+$
+$-confine-$ $+giam-giữ nhốt-giữ-lại+$
+$-confirmation-$ $+sự-xác-nhận+$
+$-conflict-$ $+sự-xung-đột cuộc-va-chạm mâu-thuẫn chống-đối+$
+$-conform-$ $+thích-ứng-với thích-nghi+$
+$-confront-$ $+chạm-trán đối-đầu+$
+$-confrontation-$ $+sự-chạm-trán đối-đầu+$
+$-confuse-$ $+nhầm-lẫn gây-khó-hiểu+$
+$-congested-$ $+đông-nghịt chật-ních+$
+$-congratulate-$ $+chúc-mừng+$
+$-congregation-$ $+giáo-đoàn+$
+$-connect-$ $+nối-lại kết-nối+$
+$-conquer-$ $+đoạt xâm-chiếm chinh-phục+$
+$-consciousness-$ $+ý-thức+$
+$-consent-$ $+sự-đồng-tình ưng-thuận+$
+$-conservation-$ $+sự-bảo-tồn+$
+$-conserve-$ $+bảo-tồn+$
+$-considerable-$ $+rất-lớn to-tát+$
+$-considerably-$ $+một-cách-rất-lớn nhiều+$
+$-considerate-$ $+ân-cần chu-đáo+$
+$-constraint-$ $+sự-bắt-ép cưỡng-ép sự-đè-nén+$
+$-consult-$ $+hỏi-ý-kiến+$
+$-consultant-$ $+chuyên-viên-tham-vấn+$
+$-consultation-$ $+sự-hỏi-ý-kiến+$
+$-consumption-$ $+sự-tiêu-thụ+$
+$-contaminate-$ $+làm-bẩn gây-ô-nhiễm làm-hư-hỏng+$
+$-contemporary-$ $+đương-thời đương-đại người-cùng-thời+$
+$-contrary-$ $+trái-ngược+$
+$-contributor-$ $+người-đóng-góp+$
+$-control-$ $+quyền-hành sự-điều-khiển kiểm-soát kiềm-chế+$
+$-convert-$ $+người-cải-đạo đổi biến-đổi+$
+$-convey-$ $+diễn-đạt+$
+$-cope-$ $+đối-phó đương-đầu-với-khó-khăn+$
+$-copyright-$ $+bản-quyền+$
+$-cordial-$ $+thân-mật chân-thành+$
+$-correct-$ $+sửa hiệu-chỉnh đúng chính-xác+$
+$-correlate-$ $+có-tương-quan-với+$
+$-correlation-$ $+sự-tương-quan+$
+$-correspond-$ $+trao-đổi-thư-từ+$
+$-correspondence-$ $+thư-từ+$
+$-correspondent-$ $+người-trao-đổi-thư-từ+$
+$-couch-$ $+người-nghiện-xem-tv+$
+$-counsel-$ $+sự-bàn-bạc lời-khuyên lời-chỉ-bảo khuyên-răn khuyên-bảo+$
+$-counselling-$ $+khuyên-bảo chỉ-bảo+$
+$-counsellor-$ $+cố-vấn+$
+$-counter-$ $+phản-đối chống-lại+$
+$-countless-$ $+vô-số+$
+$-courage-$ $+sự-can-đảm dũng-khí+$
+$-courteous-$ $+lịch-sự nhã-nhặn+$
+$-coverage-$ $+sự-đưa-tin tường-thuật+$
+$-coy-$ $+bẽn-lẽn xấu-hổ rụt-rè+$
+$-crack-$ $+làm-nứt rạn vết-nứt rạn+$
+$-crafty-$ $+láu-cá xảo-quyệt+$
+$-cram-$ $+sự-nhồi-sọ nhồi-nhét tống-vào luyện-thi+$
+$-cranky-$ $+kỳ-quặc gàn-dở+$
+$-crazy-$ $+điên-rồ mất-trí+$
+$-creation-$ $+sự-tạo-thành hình-thành tác-phẩm+$
+$-creative-$ $+sáng-tạo+$
+$-creativity-$ $+óc-sáng-tạo sự-sáng-tạo+$
+$-cruel-$ $+độc-ác tàn-bạo tàn-nhẫn+$
+$-crumble-$ $+vỡ-vụn đổ-nát bẻ-vụn đập-vụn+$
+$-crush-$ $+nghiền-nát+$
+$-crystal-$ $+khoáng-vật-trong-suốt+$
+$-cue-$ $+ra-hiệu+$
+$-cult-$ $+sự-thờ-cúng sự-ham-thích mốt-thịnh-hành+$
+$-cultivate-$ $+canh-tác trồng-trọt+$
+$-cunning-$ $+xảo-quyệt láu-cá+$
+$-cupboard-$ $+tủ-đựng+$
+$-curb-$ $+sự-kiềm-chế sự-nén-lại kìm-hãm hạn-chế+$
+$-curriculum-$ $+chương-trình-giảng-dạy+$
+$-curse-$ $+sự-nguyền-rủa chửi-rủa nguyền-rủa báng-bổ+$
+$-cutting-$ $+bài-báo-cắt-ra cành-giâm+$
+$-daft-$ $+ngớ-ngẩn mất-trí gàn-dở+$
+$-daily-$ $+hằng-ngày+$
+$-dainty-$ $+nhã-nhặn xinh-xắn dễ-thương+$
+$-dairy-$ $+bơ-sữa+$
+$-dam-$ $+đập+$
+$-damaging-$ $+tổn-hại+$
+$-daring-$ $+táo-bạo mạnh-bạo+$
+$-dash-$ $+sự-va-đụng va-chạm+$
+$-dated-$ $+lỗi-thời cũ-kỹ+$
+$-dawn-$ $+bình-minh rạng-đông bắt-đầu-rạng lóe-lên-trong-tâm-trí+$
+$-daybreak-$ $+lúc-tảng-sáng rạng-đông+$
+$-deadly-$ $+làm-chết-người trí-mạng chí-tử+$
+$-dearth-$ $+sự-khan-hiếm đói-kém+$
+$-debate-$ $+cuộc-tranh-luận tranh-luận+$
+$-debris-$ $+mảnh-vỡ mảnh-vụn đống-đổ-nát+$
+$-debut-$ $++$
+$-deceased-$ $+đã-chết qua-đời+$
+$-decoration-$ $+sự-trang-hoàng trang-trí+$
+$-dedicated-$ $+tận-tâm tận-tụy+$
+$-deduct-$ $+trừ-đi khấu-trừ+$
+$-defect-$ $+thiếu-sót sai-sót khuyết-tật+$
+$-defend-$ $+bảo-vệ biện-hộ+$
+$-deficiency-$ $+sự-thiếu-sót+$
+$-deficit-$ $+sự-thiếu-hụt+$
+$-defy-$ $+thách-thức thách-đố bất-chấp+$
+$-deliberate-$ $+chủ-tâm cố-ý cân-nhắc tính-toán-kỹ-lưỡng+$
+$-delicate-$ $+thanh-nhã thanh-tú tinh-tế khéo-léo+$
+$-delight-$ $+sự-vui-sướng rạng-rỡ+$
+$-delighted-$ $+vui-mừng vui-sướng+$
+$-demeanor-$ $+phong-thái cử-chỉ+$
+$-demerit-$ $+điều-lầm-lỗi đáng-trách+$
+$-democracy-$ $+nền-dân-chủ chế-độ-dân-chủ+$
+$-democrat-$ $+người-theo-chế-độ-dân-chủ+$
+$-demolish-$ $+phá-hủy đánh-đổ+$
+$-demon-$ $+quỷ ma-quỷ+$
+$-demonstration-$ $+sự-thấu-hiểu biểu-hiện sự-chứng-minh thuyết-minh cuộc-biểu-tình tuần-hành+$
+$-dense-$ $+dày-đặc đông-đúc rậm-rạp+$
+$-deny-$ $+từ-chối phủ-nhận+$
+$-dependence-$ $+sự-tùy-thuộc phụ-thuộc+$
+$-dependent-$ $+dựa-vào tùy-thuộc phụ-thuộc+$
+$-depict-$ $+tả mô-tả+$
+$-depression-$ $+sự-trầm-cảm+$
+$-deprive-$ $+lấy-đi tước-đi+$
+$-deputy-$ $+người-được-ủy-quyền người-đại-diện+$
+$-descendant-$ $+hậu-duệ con-cháu+$
+$-designate-$ $+chỉ-định+$
+$-desperate-$ $+tuyệt-vọng hết-hy-vọng+$
+$-despise-$ $+xem-thường khinh-thường+$
+$-destiny-$ $+vận-số số-mệnh+$
+$-destitute-$ $+thiếu-thốn nghèo-túng+$
+$-destroy-$ $+phá-hoại phá-huỷ tàn-phá+$
+$-destruction-$ $+sự-phá-hoại hủy-hoại+$
+$-destructive-$ $+mang-tính-phá-hoại hủy-diệt+$
+$-detain-$ $+ngăn-cản cản-trở+$
+$-deter-$ $+ngăn-cản cản-trở+$
+$-deteriorate-$ $+hư-hỏng giảm-giá-trị+$
+$-determined-$ $+đã-xác-định-rõ quyết-tâm kiên-quyết+$
+$-detest-$ $+ghét-cay-đắng ghê-tởm+$
+$-devastate-$ $+tàn-phá phá-huỷ+$
+$-devil-$ $+ma quỷ+$
+$-diagnose-$ $+chẩn-đoán+$
+$-diagnosis-$ $+sự-chẩn-đoán kết-quả-chẩn-đoán+$
+$-dialogue-$ $+cuộc-đối-thoại đoạn-đối-thoại+$
+$-differ-$ $+không-tán-thành không-giống+$
+$-differentiate-$ $+phân-biệt+$
+$-difficulty-$ $+trở-ngại điều-khó-khăn+$
+$-dilemma-$ $+thế-tiến-thoái-lưỡng-nan tình-trạng-khó-xử+$
+$-diminish-$ $+bớt giảm-bớt+$
+$-dip-$ $+nhúng dìm+$
+$-direction-$ $+phương-hướng chiều sự-chỉ-bảo hướng-dẫn+$
+$-dirty-$ $+dơ-bẩn đê-tiện+$
+$-disability-$ $+sự-tàn-tật+$
+$-disabled-$ $+người-tàn-tật+$
+$-disagree-$ $+không-khớp không-hợp bất-đồng không-đồng-ý+$
+$-disaster-$ $+thảm-họa tai-ương+$
+$-disastrous-$ $+tai-họa thảm-hại+$
+$-discard-$ $+bỏ loại-bỏ vứt-bỏ+$
+$-discharge-$ $+cho-xuất-viện cho-giải-ngũ+$
+$-disclose-$ $+vạch-trần phơi-bày+$
+$-disclosure-$ $+sự-tiết-lộ+$
+$-discount-$ $+giảm-giá+$
+$-discourage-$ $+làm-nản-lòng can-ngăn ngăn-cản+$
+$-disgrace-$ $+sự-ô-nhục hổ-thẹn làm-nhục-nhã+$
+$-dishonor-$ $+vô-danh-dự thiếu-uy-tín+$
+$-disobedient-$ $+không-tuân-thủ làm-trái+$
+$-disorder-$ $+sự-rối-loạn+$
+$-disposal-$ $+sự-vứt-bỏ+$
+$-dispose-$ $+vứt-bỏ+$
+$-dispute-$ $+cuộc-tranh-cãi bàn-cãi tranh-luận+$
+$-distant-$ $+xa-cách lạnh-nhạt+$
+$-distinct-$ $+khác-biệt+$
+$-distinction-$ $+sự-phân-biệt+$
+$-distinctive-$ $+đặc-biệt+$
+$-distinguish-$ $+phân-biệt+$
+$-distort-$ $+làm-méo-mó bóp-méo+$
+$-distress-$ $+nỗi-đau-khổ buồn-bực làm-đau-khổ đau-đớn+$
+$-disturb-$ $+quấy-rầy khuấy-động+$
+$-disturbance-$ $+sự-nhiễu-loạn náo-động+$
+$-diverse-$ $+đa-dạng linh-tinh+$
+$-diversity-$ $+sự-đa-dạng+$
+$-divide-$ $+chia-cắt-ra phân-cắt+$
+$-divine-$ $+thuộc-thần-thánh+$
+$-divorce-$ $+ly-hôn+$
+$-divulge-$ $+để-lộ-ra+$
+$-docile-$ $+dễ-bảo dễ-sai-khiến+$
+$-doctrine-$ $+học-thuyết chủ-nghĩa+$
+$-donation-$ $+sự-biếu-tặng quyên-góp+$
+$-donor-$ $+người-cho-tặng người-biếu+$
+$-dose-$ $+liều-(thuốc)+$
+$-doubtful-$ $+ngờ-vực hồ-nghi+$
+$-drab-$ $+đều-đều buồn-tẻ xám-xịt+$
+$-drain-$ $+làm-ráo-nước+$
+$-dreadful-$ $+kinh-khiếp tồi-tệ+$
+$-dream-$ $+giấc-mơ nằm-mơ-thấy mơ-ước tưởng-tượng+$
+$-dreary-$ $+tồi-tàn ảm-đạm thê-lương+$
+$-driving-$ $+mạnh-mẽ có-ảnh-hưởng-lớn+$
+$-drought-$ $+hạn-hán+$
+$-drown-$ $+chết-đuối+$
+$-drowsy-$ $+mơ-màng ngủ-gà-ngủ-gật uể-oải+$
+$-dub-$ $+gán-cho-một-biệt-danh+$
+$-dubious-$ $+lờ-mờ mơ-hồ không-minh-bạch rõ-ràng+$
+$-dull-$ $+chậm-hiểu tối-dạ làm-cho-đần-độn đục mờ cùn+$
+$-dumb-$ $+câm không-có-tiếng-nói làm-điếng-người+$
+$-dump-$ $+vứt-bỏ đổ-thành-đống+$
+$-duo-$ $+đôi cặp-biểu-diễn+$
+$-duplicate-$ $+bản-sao+$
+$-dusk-$ $+chạng-vạng lúc-tối-nha-nhem+$
+$-eager-$ $+hăm-hở háo-hức+$
+$-ease-$ $+dễ-dàng+$
+$-easy-$ $+dễ-dàng+$
+$-echo-$ $+dội vang tiếng-dội tiếng-vang+$
+$-ecological-$ $+thuộc-sinh-thái+$
+$-editorial-$ $+thuộc-công-tác-biên-tập+$
+$-educator-$ $+nhà-sư-phạm+$
+$-elaborate-$ $+tỉ-mỉ công-phu chi-tiết chau-chuốt+$
+$-elated-$ $+phấn-khích phấn-khởi+$
+$-elbow-$ $+khuỷu-tay+$
+$-elective-$ $+chọn-lọc-bằng-bầu-cử+$
+$-elegant-$ $+thanh-lịch tao-nhã đoan-trang+$
+$-elementary-$ $+sơ-cấp sơ-đẳng+$
+$-elevate-$ $+nâng-lên đưa-lên nâng-cao+$
+$-eliminate-$ $+loại-ra loại-bỏ+$
+$-elite-$ $+tinh-tú ưu-tú+$
+$-elusive-$ $+hay-lảng-tránh thoái-thác khó-nắm-bắt+$
+$-embarrass-$ $+làm-xấu-hổ lúng-túng+$
+$-embed-$ $+ăn-sâu cắm-chặt+$
+$-embrace-$ $+ôm+$
+$-emission-$ $+sự-phát-ra bốc-ra tỏa-ra+$
+$-emphatically-$ $+mạnh-mẽ dứt-khoát+$
+$-empty-$ $+trống rỗng trống-không+$
+$-encourage-$ $+khuyên-khích cổ-vũ+$
+$-encouragement-$ $+sự-khuyến-khích khích-lệ cổ-vũ+$
+$-encouraging-$ $+khích-lệ cổ-vũ+$
+$-endorse-$ $+chứng-thực xác-nhận tán-thành+$
+$-endure-$ $+chịu-đựng+$
+$-engagement-$ $+sự-đính-hôn hứa-hôn+$
+$-engrossing-$ $+choán-hết-thời-gian quá-cuốn-hút+$
+$-enjoy-$ $+thích-thú khoái+$
+$-enlarge-$ $+mở-rộng phóng-to+$
+$-enormous-$ $+to-lớn khổng-lồ+$
+$-enquire-$ $+điều-tra thẩm-tra+$
+$-enraged-$ $+nổi-giận nổi-khùng+$
+$-enrich-$ $+làm-giàu-thêm+$
+$-enrol-$ $+ghi-tên-vào kết-nạp-vào+$
+$-entertaining-$ $+có-tính-giải-trí thú-vị+$
+$-entrance-$ $+sự-đi-vào cổng-vào lối-vào sự-gia-nhập quyền-tham-gia+$
+$-entrepreneur-$ $+người-phụ-trách-hãng-buôn+$
+$-envelope-$ $+bao-bì phong-bì+$
+$-envious-$ $+thèm-muốn đố-kỵ ghen-tị+$
+$-envisage-$ $+dự-tính nhìn-trước+$
+$-envy-$ $+sự-thèm-muốn nỗi-ghen-tỵ them-muốn đố-kỵ+$
+$-epidemic-$ $+bệnh-dịch+$
+$-epitome-$ $+bản-tóm-tắt+$
+$-equip-$ $+trang-bị+$
+$-equivalent-$ $+vật-tương-đương tương-đương+$
+$-erupt-$ $+phun-trào+$
+$-escalate-$ $+leo-thang-(nghĩa-bóng)+$
+$-essence-$ $+thực-chất bản-chất+$
+$-essential-$ $+(thuộc)-bản-chất thiết-yếu cốt-yếu+$
+$-essentially-$ $+về-cơ-bản+$
+$-eternal-$ $+đời-đời vĩnh-viễn bất-diệt+$
+$-ethical-$ $+(thuộc)-đạo-đức luân-thường-đạo-lý+$
+$-evacuate-$ $+sơ-tán+$
+$-evaluate-$ $+ước-lượng định-giá+$
+$-evident-$ $+hiển-nhiên rõ-rệt+$
+$-evil-$ $+xấu-xa ác-độc+$
+$-evoke-$ $+gợi-lên gợi-nhớ+$
+$-exactly-$ $+chính-xác đúng-như-vậy+$
+$-exaggerate-$ $+thổi-phồng phóng-đại làm-quá-lên+$
+$-examine-$ $+khám-xét khảo-sát+$
+$-excellence-$ $+sự-trội sự-xuất-sắc+$
+$-except-$ $+trừ-ra không-kể-đến+$
+$-exceptional-$ $+khác-thường ngoại-lệ+$
+$-excess-$ $+sự-quá-mức số-lượng-vượt-quá+$
+$-excessive-$ $+thái-quá+$
+$-exclude-$ $+loại-trừ+$
+$-exclusion-$ $+sự-ngăn-chặn không-cho-vào+$
+$-exclusive-$ $+riêng-biệt dành-riêng+$
+$-exclusively-$ $+chỉ-riêng-cho+$
+$-execute-$ $+thực-hiện thi-hành+$
+$-exemplary-$ $+gương-mẫu mẫu-mực+$
+$-exempt-$ $+được-miễn-(thuế…) không-phải-thực-hiện+$
+$-exhaust-$ $+làm-kiệt-quệ dốc-cạn-sức-lực+$
+$-exhibit-$ $+trưng-bày triển-lãm+$
+$-exotic-$ $+kỳ-lạ+$
+$-experimental-$ $+dựa-trên-thí-nghiệm+$
+$-expert-$ $+chuyên-môn thành-thạo thông-thạo+$
+$-explain-$ $+giải-thích lý-giải+$
+$-explicit-$ $+rõ-ràng rành-mạch+$
+$-explicitly-$ $+một-cách-rõ-ràng rành-mạch+$
+$-exposure-$ $+sự-phơi-nhiễm+$
+$-extinct-$ $+tuyệt-chủng tuyệt-giống+$
+$-extra-$ $+thêm phụ-vào thêm-vào phần-phụ-thêm+$
+$-extract-$ $+đoạn-trích+$
+$-extravagant-$ $+quá-mức quá-độ+$
+$-extremism-$ $+chủ-nghĩa-cực-đoan+$
+$-eye-opener-$ $+điều-làm-cho-tỉnh-ngộ khai-sáng+$
+$-fabric-$ $+vải+$
+$-fabulous-$ $+tuyệt-vời+$
+$-facilitate-$ $+làm-cho-dễ-dàng tạo-điều-kiện-dễ-dàng+$
+$-faculty-$ $+khoa+$
+$-fade-$ $+nhạt phai+$
+$-fair-$ $+hội-chợ đúng hợp-lý công-bằng+$
+$-fairly-$ $+công-bằng không-thiên-vị kha-khá+$
+$-faithful-$ $+trung-thành chung-thủy+$
+$-fake-$ $+giả+$
+$-fame-$ $+danh-tiếng tiếng-tăm+$
+$-famous-$ $+nổi-tiếng trứ-danh+$
+$-fanatic-$ $+người-cuồng-tín+$
+$-fantastic-$ $+tuyệt-vời vô-cùng-tốt+$
+$-far-$ $+xa-rộng+$
+$-fast-$ $+nhanh-chóng mau+$
+$-fat-$ $+chất-béo béo-phì thừa-cân+$
+$-fatal-$ $+tiền-định không-tránh-được tai-hại gây-tai-họa chí-mạng+$
+$-fate-$ $+định-mệnh số-phận+$
+$-fatigue-$ $+sự-mệt-mỏi mệt-nhọc+$
+$-feasible-$ $+khả-thi có-thể-thực-hiện-được+$
+$-feeble-$ $+yếu-đuối nhu-nhược+$
+$-ferry-$ $+phà chở-bằng-phà+$
+$-fetch-$ $+tìm-về đem-về đấm-thụi thọi+$
+$-fever-$ $+cơn-sốt+$
+$-fibre-$ $+chất-xơ+$
+$-fiction-$ $+điều-hư-cấu tưởng-tượng tiểu-thuyết+$
+$-fill-$ $+làm-đầy nhồi-đầy+$
+$-film-$ $+phim-ảnh+$
+$-film-maker-$ $+nhà-làm-phim+$
+$-fine-$ $+tốt khỏe+$
+$-finish-$ $+sự-kết-liễu phần-kết-thúc hoàn-thành kết-thúc+$
+$-fire-$ $+lửa ánh-lửa đốt-cháy sa-thải+$
+$-firework-$ $+pháo-hoa+$
+$-firm-$ $+hãng công-ty chắc-chắn vững-chắc+$
+$-fit-$ $+cơn trận+$
+$-fitting-$ $+phù-hợp thích-hợp+$
+$-flavour-$ $+mùi-thơm vị-ngon mùi-vị+$
+$-flaw-$ $+thiếu-sót sai-lầm+$
+$-flawless-$ $+hoàn-hảo không-tì-vết+$
+$-flesh-$ $+thịt+$
+$-flinch-$ $+chùn-bước nao-núng+$
+$-flippant-$ $+suồng-sã nhả-nhớt+$
+$-flourish-$ $+nét-trang-trí-hoa-mỹ thịnh-vượng phát-đạt+$
+$-fluid-$ $+chất-lỏng+$
+$-fluke-$ $+sự-may-mắn+$
+$-fond-$ $+yêu-mến yêu-dấu+$
+$-footage-$ $+đoạn-phim+$
+$-forbid-$ $+cấm ngăn-cấm+$
+$-forcefully-$ $+mạnh-mẽ sinh-động+$
+$-forecast-$ $+dự-đoán+$
+$-formerly-$ $+trước-đây thuở-xưa+$
+$-fortunate-$ $+may-mắn thuận-lợi+$
+$-foster-$ $+khuyến-khích cổ-vũ+$
+$-fraction-$ $+phần-nhỏ miếng-nhỏ+$
+$-fracture-$ $+(y-học)-sự-gãy chỗ-gãy-(xương)+$
+$-fragile-$ $+dễ-vỡ yếu-ớt+$
+$-fragment-$ $+mảnh-vỡ mảnh mẩu+$
+$-frankly-$ $+một-cách-thẳng-thắn thật-tình+$
+$-fraud-$ $+sự-gian-lận lừa-dối+$
+$-freak-$ $+quái-vật thứ-dị-thường quái-dị+$
+$-freezing-$ $+giá-lạnh rét-mướt+$
+$-frequently-$ $+thường-xuyên+$
+$-frigid-$ $+giá-lạnh nhạt-nhẽo+$
+$-frivolous-$ $+phù-phiếm nhẹ-dạ+$
+$-frosty-$ $+băng-giá giá-rét+$
+$-fuddy-duddy-$ $+người-cổ-hủ cổ-hủ lỗi-thời+$
+$-fulfillment-$ $+hoàn-chỉnh+$
+$-fun-$ $+sự-vui-đùa niềm-vui-thích vui-vẻ+$
+$-function-$ $+chức-năng thực-hiện-chức-năng+$
+$-funny-$ $+buồn-cười hài-hước+$
+$-furious-$ $+giận-dữ điên-tiết+$
+$-future-$ $+tương-lai+$
+$-gain-$ $+lợi-lộc lợi-ích đạt-được+$
+$-garbage-$ $+rác-rưởi+$
+$-garish-$ $+lòe-loẹt sặc-sỡ+$
+$-gather-$ $+tập-hợp tụ-họp hái lượm+$
+$-gathering-$ $+sự-tụ-tập cuộc-họp-mặt-(đông-người)+$
+$-gaudy-$ $+lòe-loẹt cầu-kỳ+$
+$-gaunt-$ $+hoang-vắng thê-lương buồn-thảm+$
+$-gaze-$ $+nhìn-chằm-chằm+$
+$-gender-$ $+giống giới-tính+$
+$-generous-$ $+rộng-lượng khoan-thai+$
+$-genuine-$ $+thành-thật chân-thật+$
+$-genuinely-$ $+một-cách-thành-thật chân-thật+$
+$-gesture-$ $+điệu-bộ cử-chỉ động-tác+$
+$-glad-$ $+vui-lòng sung-sướng+$
+$-glare-$ $+nhìn-trừng-trừng cái-nhìn ánh-nhìn-giận-dữ ánh-sáng chiếu-sáng+$
+$-glimpse-$ $+cái-nhìn-lướt-qua nhìn-thoáng-qua+$
+$-glitter-$ $+lấp-lánh+$
+$-gloomy-$ $+tối-tăm u-ám ảm-đạm+$
+$-glossy-$ $+bóng-loáng hào-nhoáng+$
+$-golden-$ $+bằng-vàng có-màu-vàng+$
+$-gorgeous-$ $+lộng-lẫy+$
+$-government-$ $+sự-cai-trị thống-trị chính-phủ chính-quyền+$
+$-grab-$ $+sự-chộp túm-lấy vồ giật+$
+$-grace-$ $+vẻ-duyên-dáng yểu-điệu+$
+$-gracious-$ $+hòa-nhã lịch-thiệp+$
+$-grasp-$ $+túm-lấy ngoạm-lấy chộp-lấy+$
+$-great-$ $+to-lớn vĩ-đại+$
+$-greenhouse-$ $+nhà-kính-(trồng-cây)+$
+$-gregarious-$ $+thích-đàn-đúm giao-du+$
+$-grief-$ $+nỗi-sầu-khổ+$
+$-grim-$ $+dữ-tợn nhẫn-tâm+$
+$-grind-$ $+xay nghiền tán+$
+$-grouse-$ $+sự-càu-nhàu cằn-nhằn càu-nhàu+$
+$-gruesome-$ $+khủng-khiếp kinh-khủng+$
+$-grumble-$ $+sự-càu-nhàu cằn-nhằn càu-nhàu+$
+$-guarantee-$ $+sự-bảo-đảm cam-đoan bảo-lãnh hứa-chắc-chắn cam-đoan bảo-đảm+$
+$-guard-$ $+sự-đề-phòng bảo-vệ canh-giữ+$
+$-guidance-$ $+sự-chỉ-đạo hướng-dẫn+$
+$-guideline-$ $+nguyên-tắc-chỉ-đạo đường-lối-chỉ-đạo+$
+$-guilt-$ $+tội-lỗi+$
+$-guiltless-$ $+không-phạm-tội không-biết-tí-gì không-có-tí-nào+$
+$-habitat-$ $+môi-trường-sống+$
+$-hallucination-$ $+ảo-giác+$
+$-halt-$ $+sự-dừng-lại tạm-nghỉ cho-dừng-lại lưỡng-lự do-dự+$
+$-handful-$ $+một-nhúm một-nắm+$
+$-handover-$ $+sự-bàn-giao+$
+$-handsome-$ $+đẹp-trai ưa-nhìn+$
+$-handy-$ $+thuận-tiện sẵn-tiện+$
+$-hard-$ $+cứng rắn hà-khắc khắc-nghiệt hết-sức+$
+$-harmless-$ $+vô-hại không-làm-hại-ai-được+$
+$-harmony-$ $+sự-hòa-thuận hòa-hợp hài-hòa+$
+$-harvest-$ $+vụ-thu-hoạch vụ-gặt+$
+$-havoc-$ $+sự-tàn-phá+$
+$-hazard-$ $+sự-may-rủi mối-nguy phó-thác-cho-may-rủi đánh-bạo+$
+$-hazy-$ $+lờ-mờ mơ-hồ ngà-ngà-say+$
+$-heal-$ $+chữa-khỏi-(bệnh) làm-lành-(vết-thương)+$
+$-healthcare-$ $+dịch-vụ-chăm-sóc-sức-khỏe+$
+$-heartless-$ $+vô-tâm nhẫn-tâm+$
+$-heed-$ $+chú-ý sự-lưu-ý sự-để-ý+$
+$-helpful-$ $+có-ích giúp-ích+$
+$-herb-$ $+dược-thảo+$
+$-heritage-$ $+di-sản+$
+$-heroic-$ $+tính-chất-anh-hùng quả-cảm can-đảm+$
+$-hesitant-$ $+do-dự ngập-ngừng lưỡng-lự+$
+$-hidden-$ $+ẩn khuất+$
+$-hint-$ $+lời-gợi-ý bóng-gió gợi-ý ám-chỉ+$
+$-hire-$ $+sự-cho-thuê cho-thuê mướn+$
+$-honest-$ $+trung-thực chân-thật+$
+$-honorable-$ $+đáng-tôn-kính đáng-kính-trọng+$
+$-hop-$ $+bước-nhảy nhảy-cẫng+$
+$-horizon-$ $+chân-trời+$
+$-horn-$ $+sừng gạc+$
+$-horrible-$ $+xấu-xa khủng-khiếp+$
+$-huge-$ $+to-lớn đồ-sộ+$
+$-humble-$ $+khiêm-tốn nhún-nhường+$
+$-humiliate-$ $+làm-nhục làm-bẽ-mặt+$
+$-hurry-$ $+sự-vội-vàng hấp-tấp thúc-giục bắt-làm-gấp+$
+$-hypnotize-$ $+thôi-miên+$
+$-identical-$ $+y-hệt giống-nhau+$
+$-identification-$ $+sự-nhận-diện nhận-dạng+$
+$-idiot-$ $+đồ-ngốc+$
+$-ignore-$ $+phớt-lờ bỏ-qua+$
+$-illusion-$ $+ảo-tưởng ảo-giác+$
+$-imagery-$ $+hình-tượng+$
+$-imitate-$ $+theo-gương noi-theo mô-phỏng+$
+$-immaculate-$ $+trong-trắng không-vết không-khuyết-điểm+$
+$-immediate-$ $+trực-tiếp ngay-tức-thì ngay-lập-tức+$
+$-imminent-$ $+sắp-xảy-ra+$
+$-immune-$ $+miễn-dịch+$
+$-impact-$ $+tác-động ảnh-hưởng+$
+$-impaired-$ $+suy-yếu khiếm-khuyết+$
+$-impartial-$ $+công-bằng không-thiên-vị+$
+$-impish-$ $+nghèo-túng thiếu-thốn+$
+$-implore-$ $+cầu-khẩn khẩn-nài+$
+$-impoverished-$ $+làm-mất-công-dụng+$
+$-inadequate-$ $+không-tương-xứng không-thích-đáng+$
+$-inappropriate-$ $+không-thích-hợp+$
+$-incarnation-$ $+hiện-thân sự-tạo-hình+$
+$-incorrect-$ $+không-đúng sai+$
+$-increase-$ $+sự-tăng-lên tăng-cao tăng-lên+$
+$-index-$ $+bảng-mục-lục+$
+$-indication-$ $+sự-biểu-thị dấu-hiệu+$
+$-indicator-$ $+người-chỉ vật-chỉ vật-biểu-thị+$
+$-indifferent-$ $+lãnh-đạm thờ-ơ+$
+$-indigenous-$ $+bản-xứ+$
+$-indistinct-$ $+không-rõ-ràng lờ-mờ+$
+$-individual-$ $+cá-nhân người cá-thể riêng-lẻ cá-nhân tách-biệt+$
+$-industrious-$ $+cần-cù siêng-năng+$
+$-inevitable-$ $+không-thể-tránh-được chắc-chắn-xảy-ra+$
+$-inevitably-$ $+một-cách-không-thể-tránh-khỏi+$
+$-infamous-$ $+tai-tiếng ô-nhục+$
+$-infant-$ $+đứa-bé-còn-ẵm-ngửa+$
+$-infect-$ $+nhiễm lan-truyền+$
+$-inferior-$ $+thấp cấp-dưới+$
+$-influential-$ $+có-ảnh-hưởng tác-động có-uy-thế quyền-lực+$
+$-inform-$ $+báo-tin cho-biết+$
+$-infuriate-$ $+làm-cho-ai-điên-tiết nổi-cáu+$
+$-ingenious-$ $+khéo-léo tài-tình mưu-trí+$
+$-inhabitant-$ $+người-ở dân-cư người-cư-trú+$
+$-inherit-$ $+thừa-kế thừa-hưởng+$
+$-inhibit-$ $+ngăn-chặn kiềm-chế ức-chế+$
+$-initiate-$ $+người-đã-được-vỡ-lòng khai-tâm bắt-đầu khởi-xướng+$
+$-inject-$ $+tiêm chích+$
+$-injection-$ $+mũi-tiêm+$
+$-ink-$ $+mực+$
+$-innocent-$ $+vô-tội ngây-thơ+$
+$-inroad-$ $+sự-xâm-nhập đột-nhập+$
+$-insert-$ $+cài-vào lồng-vào+$
+$-insertion-$ $+sự-cài-vào lồng-vào+$
+$-insight-$ $+sự-hiểu-thấu sự-thật-ngầm-hiểu+$
+$-insomnia-$ $+chứng-mất-ngủ+$
+$-inspect-$ $+xét-kỹ thanh-tra+$
+$-inspiration-$ $+cảm-hứng+$
+$-instantly-$ $+ngay-khi ngay-lập-tức+$
+$-instruct-$ $+chỉ-dẫn bảo+$
+$-instruction-$ $+hướng-dẫn+$
+$-insufficient-$ $+không-đủ thiếu-thốn+$
+$-intake-$ $+vật-lấy-vào số-lượng-lấy-vào+$
+$-intellectual-$ $+thuộc-trí-tuệ có-tri-thức tài-trí người-tri-thức+$
+$-intensify-$ $+tăng-cường gia-tăng+$
+$-intensity-$ $+cường-độ độ-mãnh-liệt+$
+$-intensive-$ $+tập-trung câu cực-kỳ-kỹ-lưỡng+$
+$-interact-$ $+tương-tác+$
+$-interaction-$ $+sự-tương-tác+$
+$-interactive-$ $+mang-tính-tương-tác+$
+$-interesting-$ $+thú-vị gây-chú-ý+$
+$-interfere-$ $+can-thiệp-vào xen-vào+$
+$-interference-$ $+sự-can-thiệp+$
+$-intermediate-$ $+trung-cấp+$
+$-intolerant-$ $+không-dung-thứ không-chịu-được+$
+$-intrude-$ $+xâm-nhập xâm-phạm+$
+$-invade-$ $+xâm-lược xâm-chiếm+$
+$-inventory-$ $+sự-kiểm-kê bản-kiểm-kê+$
+$-investigate-$ $+điều-tra-nghiên-cứu+$
+$-invincible-$ $+vô-địch bất-khả-chiến-bại+$
+$-ironic-$ $+mỉa-mai châm-biếm+$
+$-ironically-$ $+một-cách-mỉa-mai châm-biếm+$
+$-irony-$ $+sự-mỉa-mai sự-châm-biếm+$
+$-irrelevant-$ $+không-thích-đáng không-liên-quan+$
+$-irritable-$ $+dễ-cáu cáu-kỉnh+$
+$-isolate-$ $+cách-li+$
+$-isolated-$ $+cô-lập bị-cách-ly+$
+$-jealous-$ $+ghen-tị đố-kỵ+$
+$-jolly-$ $+vui-tươi vui-vẻ hết-sức lắm quá tán-tỉnh+$
+$-journalism-$ $+nghề-làm-báo+$
+$-jovial-$ $+vui-vẻ vui-tính+$
+$-joy-$ $+sự-vui-mừng hân-hoan+$
+$-joyful-$ $+vui-mừng hân-hoan+$
+$-jubilant-$ $+vui-sướng mừng-rỡ+$
+$-junior-$ $+người-ít-tuổi ít-thâm-niên-hơn trẻ-tuổi ở-cấp-dưới+$
+$-kidney-$ $+quả-cật+$
+$-killing-$ $+sự-giết-chóc tàn-sát+$
+$-kind-hearted-$ $+tốt-bụng có-lòng-tốt+$
+$-kit-$ $+dụng-cụ-làm-việc bộ-đồ-nghề+$
+$-laborious-$ $+cần-cù khó-nhọc gian-khổ+$
+$-lackadaisical-$ $+đa-sầu đa-cảm yếu-đuối ủy-mị+$
+$-lap-$ $+lòng+$
+$-large-scale-$ $+có-quy-mô phạm-vi-lớn+$
+$-leaflet-$ $+tờ-quảng-cáo-rời+$
+$-leave-$ $+sự-cho-phép để-lại bỏ-lại bỏ-quên bỏ-đi rời-đi+$
+$-legacy-$ $+di-sản+$
+$-lengthy-$ $+dài dài-dòng+$
+$-lenient-$ $+nhân-hậu hiền-hậu khoan-dung+$
+$-lethal-$ $+làm-chết-người gây-chết-người+$
+$-lethargic-$ $+thờ-ơ lờ-phờ+$
+$-liable-$ $+khả-thi có-khả-năng-xảy-ra+$
+$-liberal-$ $+rộng-rãi hào-phóng tự-do+$
+$-libertarian-$ $+người-theo-chủ-nghĩa-tự-do+$
+$-license-$ $+sự-cho-phép giấy-phép bằng chứng-chỉ cho-phép cấp-giấy-phép+$
+$-lifelong-$ $+suốt-đời+$
+$-limb-$ $+tay chân+$
+$-limitation-$ $+sự-hạn-chế hạn-định+$
+$-line-up-$ $+hàng-người đội-ngũ+$
+$-listing-$ $+sự-lập-danh-sách+$
+$-listless-$ $+bơ-phờ lờ-phờ+$
+$-literacy-$ $+sự-biết-viết-biết-đọc+$
+$-literary-$ $+(thuộc)-văn-chương có-tính-văn-chương nghĩa-bóng+$
+$-litre-$ $+lít-(đơn-vị-đo-thể-tích)+$
+$-litter-$ $++$
+$-little-$ $+nhỏ-bé ít-ỏi+$
+$-livelihood-$ $+cách-sinh-nhai sinh-kế+$
+$-liver-$ $+gan-(của-người,-của-súc-vật)+$
+$-load-$ $+gánh-nặng trọng-tải chất chở chồng-chất+$
+$-loathe-$ $+ghê-tởm kinh-hãi+$
+$-local-$ $+tính-địa-phương người-dân-địa-phương+$
+$-lofty-$ $+cao-ngất sừng-sững kiêu-căng kiêu-kỳ+$
+$-log-$ $+(n):-khúc-củi+$
+$-logical-$ $+hợp-lý hợp-với-logic+$
+$-logo-$ $+biểu-tượng+$
+$-loiter-$ $+đi-tha-thẩn la-cà+$
+$-long-standing-$ $+[tồn-tại]-lâu-dài lâu-đời+$
+$-long-time-$ $+lâu-ngày+$
+$-loom-$ $+hiện-ra-lờ-mờ+$
+$-loyal-$ $+trung-thành trung-kiên+$
+$-lucid-$ $+tỉnh-táo+$
+$-lunar-$ $+(thuộc)-mặt-trăng+$
+$-luxurious-$ $+sang-trọng lộng-lẫy+$
+$-lyric-$ $+(thường-số-nhiều)-lời-ca+$
+$-magical-$ $+có-phép-màu kì-diệu+$
+$-magnanimous-$ $+hào-hiệp cao-thượng+$
+$-magnificent-$ $+tráng-lễ lộng-lẫy+$
+$-magnify-$ $+làm-to-ra phóng-to mở-rộng khuếch-đại+$
+$-maiden-$ $+trinh-nữ cô-gái-đồng-trinh (thuộc)-trinh-nữ thời-con-gái+$
+$-mainly-$ $+chính chủ-yếu phần-lớn+$
+$-mainstream-$ $+thịnh-hành+$
+$-maintain-$ $+giữ-gìn duy-trì bảo-vệ bảo-dưỡng kiên-định-với-ý-kiến+$
+$-making-$ $+quá-trình hoạt-động-sản-xuất+$
+$-malfunction-$ $+sự-trục-trặc làm-việc-sai-chức-năng+$
+$-malicious-$ $+hiểm-độc có-ác-tâm+$
+$-man-made-$ $+nhân-tạo do-con-người-tạo-ra+$
+$-mansion-$ $+lâu-đài biệt-thự+$
+$-manuscript-$ $+bản-thảo+$
+$-marine-$ $+(thuộc)-biển hải-quân+$
+$-mask-$ $+mặt-nạ+$
+$-mate-$ $+bạn-bè người-phụ-việc giúp-việc+$
+$-mathematical-$ $+[thuộc]-toán-học+$
+$-mature-$ $+chín thuần-thục trưởng-thành làm-cho-chín làm-cho-hoàn-thiện+$
+$-meager-$ $+gầy-gò khẳng-khiu hom-hem nghèo-nàn đạm-bạc+$
+$-mean-$ $+xấu-tính hèn-hạ bần-tiện bủn-xỉn muốn-nói có-ý-định có-ý-muốn dự-định+$
+$-meaningful-$ $+có-ý-nghĩa đầy-ý-nghĩa+$
+$-medication-$ $+sự-bốc-thuốc sự-cho-thuốc+$
+$-meditation-$ $+sự-suy-ngẫm sự-trầm-tư+$
+$-melody-$ $+giai-điệu+$
+$-memento-$ $+vật-kỷ-niệm vật-lưu-niệm+$
+$-memoir-$ $+ký-sự+$
+$-memorize-$ $+học-thuộc ghi-nhớ+$
+$-mental-$ $+(thuộc)-tâm-thần tinh-thần trí-tuệ trí-óc+$
+$-mentor-$ $+người-cố-vấn người-hướng-dẫn+$
+$-merit-$ $+giá-trị+$
+$-merry-$ $+vui-vẻ thú-vị dễ-chịu+$
+$-mesmerize-$ $+thôi-miên mê-hoặc quyến-rũ+$
+$-messy-$ $+hỗn-độn lộn-xộn bừa-bãi+$
+$-metaphor-$ $+phép-ẩn-dụ+$
+$-methodology-$ $+phương-pháp-học+$
+$-midday-$ $+buổi-trưa giữa-ngày+$
+$-middle-$ $+giữa ở-giữa+$
+$-mighty-$ $+mạnh hùng-cường hùng-mạnh to-lớn vĩ-đại hùng-vĩ+$
+$-mild-$ $+nhẹ-nhàng êm-dịu dịu-dàng hòa-nhã+$
+$-militant-$ $+người-chiến-đấu chiến-đấu+$
+$-mill-$ $+xưởng nhà-máy-(giấy,-xẻ-gỗ)+$
+$-mimic-$ $+giả bắt-chước+$
+$-mind-$ $+tinh-thần trí-tuệ đầu-óc+$
+$-miniature-$ $+bức-tiểu-họa hình-thu-nhỏ nhỏ thu-nhỏ-lại+$
+$-minimal-$ $+tối-thiểu+$
+$-minimize-$ $+giảm-đến-mức-tối-thiểu+$
+$-minnow-$ $+cá-tuế-(họ-cá-chép)+$
+$-minute-$ $++$
+$-miracle-$ $+phép-màu phép-kì-diệu+$
+$-mirage-$ $+ảo-tưởng ảo-vọng+$
+$-mischievous-$ $+tinh-nghịch tinh-quái ranh-mãnh láu-lỉnh+$
+$-misery-$ $+cảnh-nghèo-khổ đáng-thương sự-đau-đớn khổ-sở+$
+$-misleading-$ $+lừa-dối gây-lạc-hướng+$
+$-miss-$ $+cô-gái thiếu-nữ trượt lỡ nhỡ+$
+$-mistake-$ $+lỗi sai-lầm phạm-sai-lầm hiểu-sai hiểu-lầm+$
+$-mistaken-$ $+sai-lầm bị-hiểu-sai+$
+$-moderate-$ $+ôn-hòa không-quá-khích giảng-hòa làm-dịu-nhẹ+$
+$-modern-$ $+hiện-đại tân-tiến+$
+$-modest-$ $+khiêm-tốn nhún-nhường bình-thường giản-dị+$
+$-moist-$ $+ẩm ẩm-ướt ướt-lấp-nhấp+$
+$-monk-$ $+thầy-tu thầy-tăng+$
+$-monster-$ $+quái-vật+$
+$-mood-$ $+tâm-trạng tính-khí tâm-tính tính-tình+$
+$-moral-$ $+lời-răn-dạy (thuộc)-đạo-đức phẩm-hạnh+$
+$-mortal-$ $+chết không-bất-tử nguy-đến-tính-mạng+$
+$-mosque-$ $+đền-thờ-hồi-giáo+$
+$-motion-$ $+sự-chuyển-động+$
+$-motorist-$ $+người-lái-xe-hơi+$
+$-mum-$ $+lặng-yên giữ-kín+$
+$-mural-$ $+tranh-tường+$
+$-mutual-$ $+lẫn-nhau+$
+$-myriad-$ $+vô-số lớn nhiều-vô-cùng+$
+$-mysterious-$ $+huyền-bí khó-hiểu bí-ẩn+$
+$-myth-$ $+thần-thoại chuyện-hoang-đường lời-đồn+$
+$-naked-$ $+trần-truồng+$
+$-narrative-$ $+chuyện-kể bài-tường-thuật+$
+$-nasty-$ $+bẩn-thỉu dơ-dáy+$
+$-native-$ $+người-gốc thổ-dân (thuộc)-địa-phương+$
+$-nausea-$ $+sự-buồn-nôn sự-kinh-tởm+$
+$-necessary-$ $+cần-thiết thiết-yếu+$
+$-needy-$ $+nghèo-túng thiếu-thốn+$
+$-neglect-$ $+sao-lãng lơ-là+$
+$-negligible-$ $+không-đáng-kể+$
+$-nervous-$ $+lo-lắng bồn-chồn+$
+$-nest-$ $+tổ+$
+$-neutral-$ $+trung-lập không-có-tính-chất-rõ-ràng+$
+$-newsletter-$ $+bản-tin+$
+$-niche-$ $+chỗ-thích-hợp+$
+$-nippy-$ $+nhanh-nhẹn lanh-lẹ hoạt-bát+$
+$-noise-$ $+tiếng-ồn huyên-náo om-sòm+$
+$-nonchalant-$ $+thờ-ơ hờ-hững lãnh-đạm vô-tình+$
+$-noon-$ $+trưa buổi-trưa đỉnh-cao-nhất-trong-sự-nghiệp+$
+$-normal-$ $+tình-trạng-bình-thường mức-bình-thường thường thông-thường bình-thường+$
+$-notable-$ $+người-có-danh-vọng có-tiếng trứ-danh đáng-kể đáng-chú-ý+$
+$-notebook-$ $+sổ-tay+$
+$-notify-$ $+báo khai-báo thông-báo cho-hay cho-biết+$
+$-notorious-$ $+lừng-danh khét-tiếng tai-tiếng+$
+$-novelist-$ $+người-viết-tiểu-thuyết+$
+$-nuisance-$ $+sự-phiền-hà mối-phiền-toái gây-khó-chịu+$
+$-nursery-$ $+nhà-trẻ+$
+$-nursing-$ $++$
+$-nurture-$ $+sự-nuôi-dưỡng giáo-dục nuôi-nấng dưỡng-giục+$
+$-nutrition-$ $+sự-dinh-dưỡng+$
+$-obesity-$ $+sự-béo-phì+$
+$-obey-$ $+vâng-lời tuân-theo tuân-lệnh+$
+$-obscure-$ $+mờ-mịt tối-tăm không-rõ-nghĩa mơ-hồ khó-hiểu không-có-tiếng-tăm vô-danh+$
+$-observe-$ $+quan-sát theo-dõi tuân-theo tôn-trọng+$
+$-obsession-$ $+sự-ám-ảnh nỗi-ám-ảnh+$
+$-obsolete-$ $+cổ-xưa quá-hạn lỗi-thời+$
+$-obstacle-$ $+vật-chướng-ngại trở-ngại+$
+$-obtain-$ $+đạt-được giành-được thu-được+$
+$-occult-$ $+sâu-kín huyền-bí che-khuất che-lấp+$
+$-offensive-$ $+cuộc-tấn-công xúc-phạm làm-mất-lòng công-kích+$
+$-offering-$ $+sự-đề-nghị+$
+$-offspring-$ $+con con-cái+$
+$-old-$ $+cổ-hủ lạc-hậu lỗi-thời+$
+$-opera-$ $+opera nhạc-kịch+$
+$-operate-$ $+hoạt-động đang-làm-việc thi-hành+$
+$-opportunity-$ $+cơ-hội thời-cơ dịp+$
+$-opposite-$ $+điều-trái-ngược sự-đối-lập đối-ngược trái-nhau trước-mặt đối-diện+$
+$-opt-$ $+chọn+$
+$-optional-$ $+tùy-ý không-bắt-buộc+$
+$-oral-$ $+bằng-lời-nói nói-miệng+$
+$-orchestra-$ $+dàn-nhạc+$
+$-ordinary-$ $+bình-thường thông-thường điều-bình-thường thông-thường+$
+$-organic-$ $+hữu-cơ+$
+$-original-$ $+(thuộc)-gốc căn-nguyên đầu-tiên độc-đáo nguyên-bản+$
+$-originate-$ $+bắt-nguồn-từ khởi-đầu-từ+$
+$-ornament-$ $+đồ-trang-hoàng trang-trí trang-sức trang-hoàng+$
+$-outfit-$ $+trang-phục+$
+$-outgoing-$ $+dễ-gần thoải-mái hòa-đồng+$
+$-outrage-$ $+sự-xúc-phạm sự-oán-hận xúc-phạm sỉ-nhục+$
+$-outrageous-$ $+tàn-bạo vô-nhân-đạo quá-chừng thái-quá xúc-phạm làm-tổn-thương+$
+$-outskirts-$ $+phạm-vi-ngoài-(một-vấn-đề) vùng-ngoại-ô xa-trung-tâm+$
+$-outstanding-$ $+nổi-bật đáng-chú-ý nổi-tiếng vượt-trội+$
+$-overjoyed-$ $+vui-mừng-khôn-xiết+$
+$-overlook-$ $+trông-nom quan-sát xem-xét bỏ-qua tha-thứ+$
+$-overly-$ $+(trước-tính-từ,-động-từ)-quá quá-mức+$
+$-overseas-$ $+nước-ngoài ngang-qua-biển+$
+$-oversee-$ $+trông-nom giám-thị quan-sát+$
+$-overturned-$ $+sự-lật-đổ đảo-lộn lật-úp đánh-đổ lật-ngược+$
+$-overwhelm-$ $+áp-đảo lất-át làm-choáng-ngợp tràn-ngập làm-chôn-vùi+$
+$-pack-$ $+túi-đeo ba-lô đàn-bầy gói-ghém đóng-gói đóng-hộp xếp-chặt ních-người+$
+$-pad-$ $+tập-giấy+$
+$-pail-$ $+cái-thùng xô lượng-đựng-trong-xô+$
+$-parish-$ $+xứ-đạo giáo-khu+$
+$-part-$ $+phần bộ-phận phần-việc nhiệm-vụ vai-trò chia-thành-từng-phần chia-tách+$
+$-partially-$ $+một-phần+$
+$-participation-$ $+sự-tham-gia sự-tham-dự+$
+$-particular-$ $+riêng-biệt cá-biệt đặc-thù ngoại-lệ tường-tận tỉ-mỉ chi-tiết+$
+$-passion-$ $+cảm-xúc-mãnh-liệt sự-đam-mê say-mê+$
+$-passionate-$ $+say-đắm+$
+$-passive-$ $+bị-động thụ-động+$
+$-passport-$ $+hộ-chiếu+$
+$-pastor-$ $+mục-sư+$
+$-patch-$ $+miếng-vá+$
+$-patient-$ $+bệnh-nhân kiên-nhẫn nhẫn-nại bền-chí+$
+$-patriotic-$ $+yêu-nước ái-quốc+$
+$-pause-$ $+(sự)-tạm-nghỉ tạm-ngừng+$
+$-peaceful-$ $+hòa-bình thái-bình yên-tĩnh+$
+$-peal-$ $+tràng-hồi-(sấm,-cười) rung đánh-từng-hồi+$
+$-peasant-$ $+nông-dân+$
+$-pedestrian-$ $+người-đi-bộ khách-bộ-hành bằng-chân đi-bộ chán-ngắt tẻ-nhạt+$
+$-peer-$ $+người-ngang-địa-vị người-ngang-hàng+$
+$-penniless-$ $+không-có-tiền không-xu-dính-túi nghèo-túng+$
+$-pensive-$ $+trầm-ngâm sâu-sắc+$
+$-perception-$ $+sự-nhận-thức am-hiểu sự-sáng-suốt+$
+$-perhaps-$ $+có-lẽ có-thể+$
+$-permit-$ $+giấy-phép sự-cho-phép cho-phép cho-cơ-hội+$
+$-personal-$ $+cá-nhân riêng-tư+$
+$-philosopher-$ $+nhà-triết-học triết-gia+$
+$-philosophical-$ $+(thuộc)-triết-học theo-triết-học+$
+$-photo-$ $+bức-ảnh tấm-ảnh+$
+$-physician-$ $+thầy-thuốc+$
+$-pill-$ $+(dược-phẩm)-viên-tròn+$
+$-pinnacle-$ $+cực-điểm đỉnh-cao-nhọn-(núi,-tảng-đá) điểm-cao-nhất đỉnh-cao-(sự-nghiệp)+$
+$-pleasant-$ $+làm-thích-ý vừa-ý vui-vẻ dễ-thương+$
+$-pluck-$ $+nhổ bứt hái+$
+$-plump-$ $+thẳng-thừng không-quanh-co úp-mở bụ-bẫm phúng-phính đầy-đặn+$
+$-plunge-$ $+sự-lao-xuống thọc lao đâm-sâu-vào+$
+$-podium-$ $++$
+$-polite-$ $+lễ-phép lịch-thiệp lịch-sự+$
+$-pond-$ $+cái-ao+$
+$-portion-$ $+phần-chia khẩu-phần chia-phần phân-phát+$
+$-portray-$ $+vẽ-chân-dung-(của-ai)+$
+$-possess-$ $+có chiếm-hữu sở-hữu+$
+$-possibility-$ $+khả-năng sự-có-thể triển-vọng tiềm-năng+$
+$-postpone-$ $+hoãn+$
+$-posture-$ $+tư-thế dáng-điệu+$
+$-potent-$ $+có-hiệu-lực có-hiệu-nghiệm có-uy-lực có-sức-thuyết-phục+$
+$-potentially-$ $+tiềm-năng tiềm-tàng+$
+$-powerful-$ $+hùng-mạnh hùng-cường có-sức-mạnh-lớn có-tác-động-mạnh+$
+$-practice-$ $+thói-quen thông-lệ sự-thực-hành thực-tiễn thực-hành luyện-tập+$
+$-practitioner-$ $+người-thực-hành-một-kỹ-năng người-hành-nghề+$
+$-preach-$ $+thuyết-giáo giảng-đạo khuyên-răn+$
+$-precede-$ $+đi-trước đến-trước xảy-ra-trước+$
+$-precedent-$ $+quyết-định sự-kiện tiền-lệ+$
+$-precious-$ $+quý-giá cầu-kì đẹp-tuyệt+$
+$-precisely-$ $+đúng chính-xác một-cách-chính-xác+$
+$-predator-$ $+dã-thú động-vật-ăn-thịt+$
+$-pregnancy-$ $+sự-có-thai mang-thai+$
+$-prejudiced-$ $+có-thành-kiến biểu-lộ-thành-kiến+$
+$-preliminary-$ $+mở-đầu sơ-bộ dẫn-nhập+$
+$-premise-$ $+giả-thuyết tiền-đề+$
+$-preposterous-$ $+vô-lý-hết-sức phi-lý ngược-đời ngớ-ngẩn lố-bịch+$
+$-prescribe-$ $+kê-đơn-thuốc+$
+$-prescription-$ $+đơn-thuốc toa-thuốc thuốc-được-kê+$
+$-preservation-$ $+sự-bảo-tồn duy-trì+$
+$-preserve-$ $+bảo-quản giữ-gìn lưu-giữ bảo-tồn+$
+$-prestigious-$ $+có-uy-tín có-thanh-thế đem-lại-uy-tín đem-lại-thanh-thế+$
+$-prevail-$ $+thắng-thế chiếm-ưu-thế đánh-bại thịnh-hành phổ-biến-khắp lan-khắp thường-xảy-ra-nhiều+$
+$-prevent-$ $+ngăn-cản ngăn-chặn ngăn-ngừa+$
+$-previously-$ $+trước trước-đây+$
+$-prior-$ $+trước trước-khi quan-trọng-hơn+$
+$-private-$ $+riêng-tư cá-nhân tư-nhân+$
+$-privilege-$ $+đặc-ân đặc-quyền+$
+$-prize-$ $+giải-thưởng phần-thưởng+$
+$-probe-$ $+dò-xét thăm-dò+$
+$-procedure-$ $+thủ-tục chuỗi-hành-động+$
+$-process-$ $+quá-trình quy-trình sự-tiến-triển chế-biến xử-lý+$
+$-processing-$ $+sự-chế-biến gia-công+$
+$-produce-$ $+sản-lương sản-vật sản-phẩm kết-quả trình-ra đưa-ra giơ-ra+$
+$-progressive-$ $+lũy-tiến tăng-tiến+$
+$-promote-$ $+thăng-chức xúc-tiến khuyến-khích+$
+$-prompt-$ $+mau lẹ nhanh-chóng ngay-lập-tức xúi-giục thúc-giục thúc-đẩy+$
+$-propel-$ $+đẩy-tới thúc-đẩy+$
+$-propose-$ $+đề-nghị đề-xuất đưa-ra đề-cử tiến-cử cầu-hôn+$
+$-prosper-$ $+thịnh-vượng làm-cho-thịnh-vượng+$
+$-protein-$ $+pro-tê-in chất-đạm+$
+$-prototype-$ $+nguyên-mẫu mẫu-đầu-tiên người vật-đầu-tiên+$
+$-provocative-$ $+khiêu-khích trêu-chọc kích-thích khêu-gợi+$
+$-provoke-$ $+khích xúi-giục khêu-gợi+$
+$-prudent-$ $+thận-trọng cẩn-thận khôn-ngoan+$
+$-psychiatric-$ $+(thuộc)-bệnh-tâm-thần+$
+$-psychological-$ $+(thuộc)-tâm-lý tâm-lý-học+$
+$-publicity-$ $+sự-công-khai làm-cho-mọi-người-biết-đến+$
+$-publishing-$ $+công-việc-xuất-bản ngành-xuất-bản+$
+$-pudgy-$ $+(thông-tục)-ngắn-và-béo béo-lùn mập-lùn+$
+$-pulse-$ $+mạch+$
+$-punch-$ $+một-cú-đấm+$
+$-punctual-$ $+đúng-giờ đúng-thời-điểm+$
+$-punishment-$ $+sự-trừng-trị sự-bị-trừng-phạt+$
+$-punk-$ $++$
+$-purchase-$ $+sự-mua-sắm vật-mua-được mua sắm tậu trả-giá+$
+$-pure-$ $+nguyên-chất tinh-khiết trong-lành thanh-khiết+$
+$-puzzle-$ $+câu-đố+$
+$-quake-$ $+sự-run-rẩy động-đất rung-động run rẩy+$
+$-quantity-$ $+lượng số-lượng khối-lượng+$
+$-query-$ $+câu-hỏi chất-vấn thắc-mắc+$
+$-questionable-$ $+đáng-ngờ có-vấn-đề+$
+$-quickness-$ $+sự-nhanh sự-mau-chóng+$
+$-racket-$ $+tiếng-ồn cảnh-nhộn-nhịp huyên-náo+$
+$-ranking-$ $+sự-xếp-hạng vị-trí-xếp-hạng+$
+$-rat-$ $+chuột+$
+$-ratify-$ $+thông-qua phê-chuẩn+$
+$-rating-$ $+sự-đánh-giá xếp-loại+$
+$-ratio-$ $+tỷ-số tỷ-lệ+$
+$-rational-$ $+có-lý-trí dựa-trên-lý-trí+$
+$-ravage-$ $+sự-tàn-phá+$
+$-raze-$ $+phá-bằng san-bằng phá-trụi+$
+$-realization-$ $+sự-nhận-thức+$
+$-recent-$ $+gần-đây xảy-ra-gần-đây mới-đây mới-xảy-ra+$
+$-recipient-$ $+người-nhận nước-nhận+$
+$-reciprocate-$ $+trả đền-đáp-lại đáp-lại+$
+$-reduction-$ $+sự-thu-nhỏ sự-giảm-bớt+$
+$-refined-$ $+nguyên-chất đã-lọc đã-tinh-chế+$
+$-refresh-$ $+làm-khoẻ-người làm-tỉnh-táo+$
+$-registration-$ $+sự-đăng-kí+$
+$-regret-$ $+lòng-thương-tiếc hối-tiếc tiếc+$
+$-rehabilitation-$ $+sự-phục-hồi+$
+$-rejuvenate-$ $+làm-(ai)-trẻ-lại làm-(ai)-khoẻ-lại+$
+$-relax-$ $+nới-lỏng buông-lỏng lơi-ra+$
+$-relieve-$ $+làm-dịu-đi làm-nhẹ-bớt-cơn-đau+$
+$-remainder-$ $+phần-còn-lại+$
+$-remains-$ $+đồ-ăn-thừa+$
+$-remark-$ $+sự-để-ý sự-chú-ý nhận-xét bình-luận+$
+$-remedy-$ $+phương-thuốc-chữa-bệnh+$
+$-reminder-$ $+sự-nhắc-nhở+$
+$-remorse-$ $+sự-ăn-năn sự-hối-hận+$
+$-remote-$ $+xa xa-xôi hẻo-lánh+$
+$-removal-$ $+sự-cắt-bỏ+$
+$-renew-$ $+thay-mới làm-mới-lại+$
+$-renowned-$ $+nổi-tiếng lừng-danh+$
+$-reportedly-$ $+theo-như-tường-trình theo-như-đưa-tin+$
+$-reporting-$ $+bản-tin-(báo-chí)+$
+$-represent-$ $+đại-diện biểu-trưng+$
+$-reproduce-$ $+sinh-sôi-nảy-nở+$
+$-reproduction-$ $+sự-sinh-sôi-nảy-nở+$
+$-republican-$ $+cộng-hòa người-ủng-hộ-chế-độ-cộng-hòa+$
+$-repulsive-$ $+ghê-tởm đáng-ghét kinh-tởm+$
+$-reputable-$ $+có-danh-tiếng-tốt đáng-kính-trọng đáng-tin+$
+$-resemble-$ $+giống-ai+$
+$-reside-$ $+sinh-sống cư-trú+$
+$-residence-$ $+sự-sinh-sống cư-trú+$
+$-residential-$ $+thuộc-nhà-riêng+$
+$-residue-$ $+phần-còn-lại+$
+$-resilient-$ $+bật-nảy co-giãn đàn-hồi+$
+$-resist-$ $+kháng-cự chống-lại chất-cản-màu+$
+$-respond-$ $+hưởng-ứng+$
+$-response-$ $+sự-trả-lời câu-trả-lời+$
+$-restrict-$ $+hạn-chế giới-hạn+$
+$-retaliate-$ $+trả-đũa trả-miếng trả-thù+$
+$-retrograde-$ $+lùi-lại thụt-lùi+$
+$-reveal-$ $+bộc-lộ tiết-lộ làm-lộ-ra+$
+$-revelation-$ $+sự-tiết-lộ+$
+$-revenge-$ $+(sự)-trả-thù báo-thù+$
+$-revival-$ $+sự-phục-hồi hồi-sinh-lại+$
+$-rich-$ $+giàu giàu-có dồi-dào phong-phú+$
+$-ridiculous-$ $+trông-buồn-cười lố-bịch+$
+$-righteous-$ $+ngay-thẳng đạo-đức công-bằng-(người)+$
+$-ritual-$ $+trình-tự-hành-lễ nghi-lễ+$
+$-robust-$ $+tráng-kiện cường-tráng có-sức-khoẻ+$
+$-rock-$ $+[làm]-rung-chuyển làm-náo-động+$
+$-romance-$ $+không-khí-lãng-mạn tình-cảm-lãng-mạn+$
+$-rookie-$ $+lính-mới tân-binh+$
+$-rose-$ $+hoa-hồng cây-hoa-hồng+$
+$-roster-$ $+bảng-phân-công+$
+$-rough-$ $+ráp nhám xù-xì miền-đất-gồ-ghề+$
+$-routine-$ $+công-việc thói-quen-thường-ngày thường-lệ thường-làm-đều-đặn+$
+$-rude-$ $+khiếm-nhã bất-lịch-sự+$
+$-ruin-$ $+sự-đổ-nát sự-hư-hại-nghiêm-trọng làm-hỏng làm-tan-nát tàn-phá+$
+$-rush-$ $+cây-bấc cây-cói xông-lên lao-vào+$
+$-sack-$ $+bao-tải bao-bố bỏ-vào-bao đóng-bao+$
+$-sacred-$ $+thần-thánh của-thần thiêng-liêng+$
+$-sacrifice-$ $+sự-cúng-thần sự-tế-lễ vật-hiến-tế+$
+$-safety-$ $+sự-an-toàn chắc-chắn+$
+$-saint-$ $+thánh thần+$
+$-sake-$ $+mục-đích lợi-ích+$
+$-sane-$ $+lành-mạnh đúng-mực+$
+$-satellite-$ $+vệ-tinh vệ-tinh-nhân-tạo tay-sai người-hầu+$
+$-scandal-$ $+vụ-bê-bối vụ-tai-tiếng+$
+$-scanty-$ $+ít-ỏi thiếu không-đủ+$
+$-scarcity-$ $+sự-hiếm-có+$
+$-scattered-$ $+lác-đác lưa-thưa rải-rác+$
+$-scenario-$ $+viễn-cảnh viễn-tưởng+$
+$-scholar-$ $+nhà-nghiên-cứu học-giả+$
+$-scholarship-$ $+học-bổng+$
+$-scratch-$ $+noun:-vết-xước vết-thương-nhẹ+$
+$-scrawny-$ $+gầy-nhẳng gầy-giơ-xương+$
+$-screening-$ $++$
+$-scribble-$ $+viết-nguệch-ngoạc chữ-viết-cẩu-thả+$
+$-scrutinize-$ $+nhìn-chăm-chú nhìn-kỹ+$
+$-secluded-$ $+hẻo-lánh+$
+$-secret-$ $+thầm-kín bí-mật điều-bí-mật+$
+$-section-$ $+bộ-phận chia-thành-phần+$
+$-sector-$ $+khu-vực lĩnh-vực+$
+$-secular-$ $+trường-kỳ muôn-thuở+$
+$-secure-$ $+chắc-chắn bảo-đảm làm-kiên-cố+$
+$-segment-$ $+đoạn khúc đốt miếng phân-đoạn phân-đốt+$
+$-seize-$ $+nắm bắt chộp+$
+$-seldom-$ $+hiếm-khi+$
+$-select-$ $+tuyển được-lựa-chọn+$
+$-selective-$ $+có-tuyển-chọn dựa-trên-sự-tuyển-chọn+$
+$-selfless-$ $+không-ích-kỷ vị-tha luôn-nghĩ-đến-người-khác+$
+$-seminar-$ $+hội-nghị-chuyên-đề+$
+$-senior-$ $+người-lớn-tuổi-hơn người-có-thâm-niên kinh-nghiệm-nhiều cao-hơn-về-tuổi kinh-nghiệm+$
+$-sensible-$ $+có-óc-xét-đoán biểu-lộ-óc-xét-đoán+$
+$-separate-$ $+khác-nhau riêng-biệt độc-lập+$
+$-separation-$ $+sự-phân-ly sự-chia-tay sự-ly-thân+$
+$-serene-$ $+trong sáng-sủa quang-tạnh trầm-lặng thanh-bình thanh-thản+$
+$-settled-$ $+không-thay-đổi không-có-khả-năng-thay-đổi+$
+$-severe-$ $+khắt-khe gay-gắt+$
+$-severely-$ $+khắc-khe gay-gắt+$
+$-sewer-$ $+người-khâu người-may-vá+$
+$-sexy-$ $+gợi-cảm+$
+$-shaped-$ $++$
+$-sheer-$ $+không-giới-hạn không-kiểm-soát thẳng-đứng vuông-góc+$
+$-shield-$ $+cái-mộc cái-khiên che-chở bảo-vệ+$
+$-shiny-$ $+sáng-chói bóng+$
+$-shiver-$ $+(sự)-run sự-rùng-mình+$
+$-shocking-$ $+gây-ra-căm-phẫn làm-ghê-tởm+$
+$-shore-$ $+bờ-biển bờ-hồ-lớn+$
+$-shout-$ $+sự-la-hét sự-hò-hét tiếng-gọi tiếng-kêu-thét-lớn+$
+$-shove-$ $+xô-đẩy-thô-bạo+$
+$-showy-$ $+loè-loẹt phô-trương+$
+$-shrewd-$ $+khôn-ngoan sắc-sảo+$
+$-shrine-$ $+mồ hòm-đựng-thánh-cốt+$
+$-sibling-$ $+anh-chị-em-ruột+$
+$-sightseeing-$ $+sự-tham-quan+$
+$-significant-$ $+đầy-ý-nghĩa có-tính-chất-gợi-ý+$
+$-silly-$ $+ngờ-nghệch ngớ-ngẩn+$
+$-simplify-$ $+làm-đơn-giản đơn-giản-hoá+$
+$-simultaneously-$ $+đồng-thời xảy-ra-cùng-một-lúc+$
+$-sin-$ $+tội-lỗi+$
+$-sincere-$ $+thành-thật ngay-thật chân-thật thật không-giả-vờ+$
+$-skeptical-$ $+hoài-nghi đa-nghi hay-ngờ-vực+$
+$-sketch-$ $+bức-vẽ-phác bức-phác-hoạ+$
+$-skillful-$ $+khéo-tay tài-giỏi+$
+$-skinny-$ $+gầy-nhom gầy-trơ-xương rất-gầy+$
+$-skip-$ $+nhảy bỏ-qua+$
+$-skull-$ $+bộ-óc đầu-óc+$
+$-slam-$ $+đóng-sầm+$
+$-slap-$ $+vỗ phát vả+$
+$-slash-$ $+chém rạch cắt khía+$
+$-sleeplessness-$ $+sự-khó-ngủ sự-không-ngủ-được+$
+$-slender-$ $+mảnh-khảnh mảnh-dẻ mảnh-mai+$
+$-slick-$ $+bóng mượt trơn tài-tình khéo-léo nhanh-nhẹn+$
+$-slogan-$ $+khẩu-hiệu+$
+$-sluggish-$ $+chậm-chạp không-nhanh-nhẹn không-hoạt-bát uể-oải lờ-đờ lờ-phờ+$
+$-smash-$ $+vỡ-ra-từng-mảnh+$
+$-snap-$ $+táp đớp+$
+$-snub-$ $+hếch ngắn-và-hơi-vểnh-lên-ở-chót+$
+$-soak-$ $+nhúng ngâm-nước+$
+$-sociable-$ $+dễ-gần-gũi dễ-chan-hoà hoà-đồng+$
+$-soil-$ $+đất-trồng vết-bẩn vết-nhơ làm-bẩn làm-dơ vấy-bẩn+$
+$-solemn-$ $+trọng-thể chính-thức+$
+$-solo-$ $+đơn-ca độc-tấu+$
+$-sorrow-$ $+sự-đau-khổ sự-buồn-phiền cảm-thấy-buồn-bã+$
+$-souvenir-$ $+vật-kỷ-niệm đồ-lưu-niệm+$
+$-spam-$ $+thư-rác+$
+$-sparkle-$ $+(sự)-toé-lửa nhấp-nháy lấp-lánh+$
+$-sparse-$ $+thưa-thớt rải-rác lơ-thơ rải-mỏng-ra+$
+$-specific-$ $+rành-mạch rõ-ràng cụ-thể đặc-trưng riêng-biệt+$
+$-spectacle-$ $+sự-trình-diễn sự-biểu-diễn+$
+$-spectacular-$ $+hùng-vĩ ngoạn-mục+$
+$-spell-$ $+sự-thu-hút sự-làm-say-mê+$
+$-spice-$ $+đồ-gia-vị gia-vị+$
+$-spill-$ $+(sự)-tràn-ra chảy-ra đổ-ra+$
+$-spin-$ $+sự-quay-tròn sự-xoay-tròn+$
+$-spine-$ $+xương-sống+$
+$-split-$ $+nứt nẻ chia-ra tách-ra+$
+$-spoil-$ $+làm-hư-hỏng+$
+$-sponsorship-$ $+sự-tài-trợ+$
+$-spotless-$ $+không-có-đốm không-một-vết-nhơ sạch-sẽ tinh-tươm+$
+$-spotlight-$ $+ánh-đèn-sân-khấu+$
+$-spouse-$ $+vợ chồng+$
+$-sprint-$ $+sự-chạy-nhanh sự-chạy-nước-rút cách-chạy-nước-rút+$
+$-stable-$ $+vững-chắc ổn-định kiên-định kiên-quyết+$
+$-stall-$ $+quầy sạp-hàng+$
+$-state-$ $+trạng-thái tình-trạng quốc-gia nhà-nước+$
+$-steady-$ $+vững vững-chắc vững-vàng làm-cho-vững+$
+$-stern-$ $+nghiêm-nghị nghiêm-khắc lạnh-lùng+$
+$-stiff-$ $+cứng cứng-rắn kiên-quyết+$
+$-stigma-$ $+vết-nhơ điều-sỉ-nhục+$
+$-stimulate-$ $+khuyến-khích thúc-đẩy-ai-đó+$
+$-stimulus-$ $+sự-khuyến-khích+$
+$-stir-$ $+khuấy quấy-trộn-cái-gì+$
+$-stock-$ $+kho-dự-trữ hàng-cất-trong-kho cung-cấp có-sẵn-trong-kho+$
+$-stoic-$ $+người-khắc-kỷ+$
+$-stout-$ $+chắc khoẻ bền người-chắc-mập người-mập-mạp+$
+$-strait-$ $+hẹp chặt-chẽ tình-cảnh-khó-khăn+$
+$-strand-$ $+sợi+$
+$-strangle-$ $+siết-cổ-chết bóp-nghẹt+$
+$-strenuous-$ $+hăm-hở tích-cực hăng-hái rất-cố-gắng+$
+$-strike-$ $+cuộc-đình-công bãi-công đánh đập tấn-công+$
+$-striking-$ $+nổi-bật thu-hút-sự-chú-ý+$
+$-stringent-$ $+nghiêm-ngặt nghiêm-khắc+$
+$-strive-$ $+cố-gắng phấn-đấu-làm-gì+$
+$-stroke-$ $+cơn-đột-quỵ+$
+$-struggle-$ $+sự-đấu-tranh cuộc-đấu-tranh cuộc-chiến-đấu đấu-tranh chống-lại+$
+$-study-$ $+sự-tìm-tòi sự-nghiên-cứu sự-điều-tra-về-một-vấn-đề học nghiên-cứu xem-rất-cẩn-thận+$
+$-stumble-$ $+vấp sẩy-chân+$
+$-stunned-$ $+làm-choáng-váng đánh-bất-tỉnh+$
+$-subtle-$ $+phảng-phất huyền-ảo tinh-vi tinh-tế+$
+$-subtract-$ $+trừ+$
+$-success-$ $+sự-thành-công sự-thắng-lợi sự-thành-đạt+$
+$-suck-$ $+bú mút+$
+$-suggest-$ $+đề-nghị đề-xuất gợi-ý+$
+$-summit-$ $+đỉnh-(núi...)+$
+$-super-$ $+tuyệt-vời cực-kì-tốt+$
+$-superb-$ $+tuyệt-vời tài-giỏi+$
+$-supervise-$ $+giám-sát quản-lý kiểm-soát+$
+$-supplement-$ $+thực-phẩm-bổ-sung+$
+$-support-$ $+sự-ủng-hộ người-ủng-hộ hỗ-trợ+$
+$-supportive-$ $+khuyến-khích đem-lại-sự-giúp-đỡ+$
+$-surge-$ $+sự-tràn tràn-(như)-sóng+$
+$-surgeon-$ $+bác-sĩ-phẫu-thuật+$
+$-surgical-$ $+thuộc-về-phẫu-thuật+$
+$-surplus-$ $+số-dư số-thừa số-thặng-dư+$
+$-surprising-$ $+làm-ngạc-nhiên làm-kinh-ngạc đáng-sửng-sốt+$
+$-survival-$ $+sự-sống-sót+$
+$-survivor-$ $+người-sống-sót+$
+$-suspend-$ $+đình-chỉ-(học,-công-tác)+$
+$-suspension-$ $+sự-đình-chỉ-(học,-công-tác)+$
+$-sustain-$ $+đỡ chống-đỡ+$
+$-sustainable-$ $+bền-vững không-gây-hại-đến-môi-trường+$
+$-swallow-$ $+nuốt-(đồ-ăn)+$
+$-swift-$ $+mau nhanh lẹ+$
+$-symbolic-$ $+mang-tính-đại-diện+$
+$-symbolize-$ $+tượng-trưng biểu-tượng-hóa+$
+$-syndrome-$ $+hội-chứng+$
+$-talkative-$ $+thích-nói hay-nói lắm-mồm ba-hoa bép-xép+$
+$-tall-$ $+cao cao-hơn-trung-bình+$
+$-tame-$ $+thuần-hóa đã-thuần-hoá-(thú-rừng..)+$
+$-tandem-$ $++$
+$-tangible-$ $+hữu-hình có-thể-sờ-mó-được+$
+$-taut-$ $+căng không-bị-chùng+$
+$-tavern-$ $+quán-rượu quán-trọ+$
+$-temper-$ $+tính-tình tình-khí tâm-tính+$
+$-temporary-$ $+tạm-thời nhất-thời lâm-thời+$
+$-tender-$ $+mềm dễ-nhai không-dai-(thịt)+$
+$-tenet-$ $+nguyên-lý giáo-lý chủ-nghĩa+$
+$-tense-$ $+căng căng-thẳng bồn-chồn làm-cho-căng-thẳng hồi-hộp+$
+$-tenure-$ $+thời-gian-nắm-giữ-chức-vụ+$
+$-terminal-$ $+giai-đoạn-cuối+$
+$-terminate-$ $+kết-thúc chấm-dứt+$
+$-terrain-$ $+địa-hình+$
+$-terrible-$ $+khủng-khiếp gây-khiếp-sợ+$
+$-testing-$ $+thử kiểm-định thí-nghiệm+$
+$-textbook-$ $+sách-giáo-khoa+$
+$-texture-$ $+kết-cấu cách-dệt lối-dệt-(vải)+$
+$-theatrical-$ $+thuộc-sân-khấu+$
+$-theology-$ $+thần-học+$
+$-therapist-$ $+bác-sĩ-điều-trị-chuyên-khoa+$
+$-thesis-$ $+luận-đề luận-cương luận-văn luận-án+$
+$-thorough-$ $+kỹ-lưỡng tỉ-mỉ+$
+$-thoroughly-$ $+một-cách-hoàn-toàn+$
+$-thought-provoking-$ $+đáng-suy-nghĩ kích-thích-tư-duy+$
+$-thoughtless-$ $+không-suy-nghĩ vô-tư-lự+$
+$-thread-$ $+chỉ sợi+$
+$-thrifty-$ $+tiết-kiệm tằn-tiện+$
+$-thrive-$ $+thịnh-vượng phát-triển-mạnh+$
+$-thumb-$ $+ngón-tay-cái+$
+$-thumping-$ $+to-lớn khổng-lồ hết-mức cực-kỳ+$
+$-tide-$ $+thủy-triều+$
+$-tight-$ $+chặt bó-khít+$
+$-timely-$ $+xảy-ra-đúng-lúc hợp-thời+$
+$-timid-$ $+rụt-rè nhút-nhát bẽn-lẽn dễ-sợ-hãi+$
+$-tip-$ $+đầu mút đỉnh chóp+$
+$-tissue-$ $+giấy-lau+$
+$-tobacco-$ $+thuốc-lá-(cây-lá)+$
+$-toilet-$ $+nhà-vệ-sinh bệ-xí phòng-có-nhà-vệ-sinh+$
+$-toxic-$ $+độc+$
+$-traffic-$ $+sự-đi-lại giao-thông vận-tải+$
+$-tragedy-$ $+bi-kịch+$
+$-tragic-$ $+bi-kịch như-bi-kịch theo-kiểu-bi-kịch+$
+$-tranquil-$ $+yên-tĩnh yên-bình lặng-lẽ không-bị-quấy-rầy+$
+$-tranquility-$ $+thay-đổi+$
+$-transform-$ $+ngắn-ngủi phù-du bóng-chớp+$
+$-transformation-$ $+sự-biến-đổi+$
+$-transitory-$ $+ngắn-ngủi phù-du bóng-chớp+$
+$-transmission-$ $+sự-truyền+$
+$-transmit-$ $+truyền+$
+$-trap-$ $+cái-bẫy+$
+$-trauma-$ $+chấn-thương tổn-thương+$
+$-tremble-$ $+sự-run cảm-giác-run động-tác-run+$
+$-tribal-$ $+thuộc-về-bộ-lạc+$
+$-tribe-$ $+bộ-tộc bộ-lạc+$
+$-trigger-$ $+gây-ra+$
+$-trio-$ $+bộ-ba+$
+$-triumph-$ $+sự-chiến-thắng thành-công-lớn chiến-thắng+$
+$-trivial-$ $+tầm-thường không-đáng-kể ít-quan-trọng+$
+$-trustworthy-$ $+đáng-tin-cậy+$
+$-tsunami-$ $+sóng-thần+$
+$-tuition-$ $+sự-dạy-học sự-kèm-học+$
+$-twist-$ $+quấn xoắn+$
+$-ultrasound-$ $+siêu-âm sóng-siêu-âm+$
+$-umbrella-$ $+ô dù sự-bảo-vệ thế-lực-bảo-vệ+$
+$-unchanging-$ $+không-thay-đổi không-đổi+$
+$-unconquerable-$ $+không-thể-chinh-phục-được không-thể-chế-ngự-được+$
+$-uncooked-$ $+chưa-nấu-chín còn-sống+$
+$-undergo-$ $+trải-qua+$
+$-undergraduate-$ $+sinh-viên-đại-học+$
+$-undertake-$ $+đảm-nhận thực-hiện-cái-gì+$
+$-unfold-$ $+để-lộ làm-bộc-lộ+$
+$-unfortunate-$ $+không-may rủi-ro bất-hạnh+$
+$-unimportant-$ $+không-quan-trọng không-đáng-kể+$
+$-unintelligent-$ $+không-thông-minh tối-dạ+$
+$-unkind-$ $+không-tốt độc-ác tàn-nhẫn+$
+$-unlucky-$ $+không-gặp-may không-may-mắn đem-lại-vận-rủi bất-hạnh xui rủi đen-đủi+$
+$-unoccupied-$ $+nhàn-rỗi rảnh-rỗi không-bận-(thời-gian) không-có-người-ở trống bỏ-không-(đất…)+$
+$-unpretentious-$ $+không-khoe-khoang không-phô-trương khiêm-tốn+$
+$-unrelated-$ $+không-kể-lại không-thuật-lại không-có-liên-quan+$
+$-unstoppable-$ $+quyết-tâm+$
+$-unusual-$ $+hiếm không-thông-thường lạ khác-thường đáng-chú-ý đặc-sắc đặc-biệt+$
+$-unwilling-$ $+không-muốn không-có-ý-định không-sẵn-lòng miễn-cưỡng+$
+$-update-$ $+cập-nhật hiện-đại-hóa sự-cập-nhật+$
+$-upstanding-$ $+dựng-ngược dựng-đứng-lên+$
+$-urge-$ $+sự-thúc-đẩy thôi-thúc thúc-giục+$
+$-urgent-$ $+gấp khẩn-cấp cấp-bách+$
+$-useless-$ $+vô-dụng+$
+$-utilize-$ $+dùng sử-dụng tận-dụng+$
+$-vacant-$ $+trống rỗng+$
+$-vague-$ $+mơ-hồ lờ-mờ mập-mờ+$
+$-valiant-$ $+anh-dũng anh-hùng+$
+$-valour-$ $++$
+$-vanquish-$ $+thắng đánh-bại chế-ngự khắc-phục vượt-qua+$
+$-variable-$ $+biến-động hay-thay-đổi+$
+$-variation-$ $+sự-biến-động sự-thay-đổi+$
+$-varied-$ $+đa-dạng khác-nhau+$
+$-variety-$ $+sự-đa-dạng nhiều-thứ đủ-loại những-thứ-khác-nhau+$
+$-vary-$ $+biến-đổi thay-đổi khác-nhau+$
+$-vast-$ $+rộng-lớn mênh-mông bao-la+$
+$-vein-$ $+tĩnh-mạch+$
+$-vendor-$ $+người-bán-dạo+$
+$-verdict-$ $+lời-tuyên-án lời-phán-quyết+$
+$-versatile-$ $+nhiều-mặt nhiều-phương-diện toàn-diện+$
+$-verse-$ $+thơ+$
+$-vertical-$ $+thẳng-đứng+$
+$-viable-$ $+có-thể-làm-được khả-thi+$
+$-victory-$ $+sự-chiến-thắng sự-thắng-lợi+$
+$-vigorous-$ $+sôi-nổi mãnh-liệt mạnh-mẽ hoạt-bát đầy-sinh-lực+$
+$-vile-$ $+ghê-tởm tồi-tệ rẻ-tiền không-có-giá-trị+$
+$-villager-$ $+người-sống-trong-làng+$
+$-violent-$ $+mãnh-liệt hung-tợn+$
+$-virtuous-$ $+có-đạo-đức-tốt cho-thấy-có-đạo-đức-tốt+$
+$-visible-$ $+có-thể-nhìn-thấy-được rõ-ràng+$
+$-vocal-$ $+thuộc-phát-âm liên-quan-đến-phát-âm+$
+$-voluntary-$ $+tự-ý tự-nguyện tự-giác tình-nguyện+$
+$-vow-$ $+lời-thề+$
+$-vulgar-$ $+thiếu-thẩm-mỹ khiếm-nhã tục-tĩu+$
+$-waiver-$ $+sự-bỏ sự-từ-bỏ sự-khước-từ giấy-từ-bỏ giấy-khước-từ+$
+$-wardrobe-$ $+tủ-quần-áo+$
+$-warlike-$ $+(thuộc)-chiến-tranh thích-gây-sự hiếu-chiến+$
+$-warming-$ $+ấm+$
+$-weaken-$ $+yếu-dần+$
+$-wealthy-$ $+giàu giàu-có+$
+$-weed-$ $+cỏ-dại+$
+$-weird-$ $+không-bình-thường khác-thường kỳ-lạ khó-hiểu+$
+$-well-being-$ $+tình-trạng-hạnh-phúc khỏe-mạnh+$
+$-wheat-$ $+lúa-mì+$
+$-whip-$ $+đánh-(kem,-trứng)+$
+$-wide-$ $+rộng rộng-lớn+$
+$-widespread-$ $+trên-diện-rộng+$
+$-widow-$ $+góa-phụ+$
+$-width-$ $+chiều-rộng bề-ngang+$
+$-willingly-$ $+sẵn-lòng vui-lòng tự-ý tự-nguyện+$
+$-win-$ $+sự-thắng-cuộc thắng-cuộc thắng-trận+$
+$-wisecrack-$ $+lời-nói-lém-lỉnh nói-lém-lỉnh+$
+$-withdraw-$ $+rút rút-lui+$
+$-withstand-$ $+giữ-vững trụ-lại cưỡng-lại chịu-đựng chống-lại+$
+$-woe-$ $+sự-đau-buồn nỗi-phiền-muộn+$
+$-workout-$ $+việc-luyện-tập-thân-thể+$
+$-worm-$ $+giun sâu+$
+$-worn-$ $+mòn hỏng-(vì-sử-dụng-quá-nhiều)+$
+$-worship-$ $+tôn-thờ thờ-phụng+$
+$-wrist-$ $+cổ-tay+$
+$-yell-$ $+sự-kêu-la tiếng-la-hét kêu-la la-hét+$
+$-yield-$ $+sản-lượng hoa-lợi-(thửa-ruộng) hiệu-suất-(máy…)+$

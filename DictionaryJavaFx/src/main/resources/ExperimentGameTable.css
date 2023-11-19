@@ -9,13 +9,3 @@
     -fx-border-color: black;
     -fx-border-width: 0.5;
 }
-
-.table-background {
-    -fx-background-image:  url('gameAssets/ExperimentGame/table4.png');
-}
-
-.button:hover {
-    -fx-border-color: red;
-    -fx-border-width: 4;
-}
-

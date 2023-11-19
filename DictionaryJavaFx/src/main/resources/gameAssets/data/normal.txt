@@ -820,7 +820,7 @@ $-incorrect-$ $+không đúng, sai+$
 $-increase-$ $+sự tăng lên; tăng cao, tăng lên+$
 $-index-$ $+bảng mục lục+$
 $-indication-$ $+sự biểu thị; dấu hiệu+$
-$-indicator-$ $+người chỉ; vật chỉ. vật biểu thị+$
+$-indicator-$ $+người chỉ; vật chỉ, vật biểu thị+$
 $-indifferent-$ $+lãnh đạm, thờ ơ+$
 $-indigenous-$ $+bản xứ+$
 $-indistinct-$ $+không rõ ràng, lờ mờ+$
@@ -977,14 +977,14 @@ $-middle-$ $+giữa, ở giữa+$
 $-mighty-$ $+mạnh, hùng cường, hùng mạnh, to lớn, vĩ đại, hùng vĩ+$
 $-mild-$ $+nhẹ nhàng, êm dịu, dịu dàng, hòa nhã+$
 $-militant-$ $+người chiến đấu; chiến đấu+$
-$-mill-$ $+xưởng, nhà máy (về một nghề như làm giấy, xẻ gỗ,...)+$
+$-mill-$ $+xưởng, nhà máy (giấy, xẻ gỗ)+$
 $-mimic-$ $+giả, bắt chước+$
 $-mind-$ $+tinh thần, trí tuệ, đầu óc+$
 $-miniature-$ $+bức tiểu họa, hình thu nhỏ; nhỏ, thu nhỏ lại+$
 $-minimal-$ $+tối thiểu+$
 $-minimize-$ $+giảm đến mức tối thiểu+$
 $-minnow-$ $+cá tuế (họ cá chép)+$
-$-minute-$ $+rất nhỏ (về kích thước hoặc số lượng)+$
+$-minute-$ $+rất nhỏ (kích thước, số lượng)+$
 $-miracle-$ $+phép màu, phép kì diệu+$
 $-mirage-$ $+ảo tưởng, ảo vọng+$
 $-mischievous-$ $+tinh nghịch, tinh quái, ranh mãnh, láu lỉnh+$
@@ -1070,7 +1070,7 @@ $-outfit-$ $+trang phục+$
 $-outgoing-$ $+dễ gần, thoải mái, hòa đồng+$
 $-outrage-$ $+sự xúc phạm, sự oán hận; xúc phạm, sỉ nhục+$
 $-outrageous-$ $+tàn bạo, vô nhân đạo, quá chừng, thái quá; xúc phạm, làm tổn thương+$
-$-outskirts-$ $+phạm vi ngoài (một vấn đề…), vùng ngoại ô, xa trung tâm+$
+$-outskirts-$ $+phạm vi ngoài (một vấn đề), vùng ngoại ô, xa trung tâm+$
 $-outstanding-$ $+nổi bật, đáng chú ý, nổi tiếng, vượt trội+$
 $-overjoyed-$ $+vui mừng khôn xiết+$
 $-overlook-$ $+trông nom, quan sát, xem xét; bỏ qua, tha thứ+$
@@ -1097,7 +1097,7 @@ $-patient-$ $+bệnh nhân; kiên nhẫn, nhẫn nại, bền chí+$
 $-patriotic-$ $+yêu nước, ái quốc+$
 $-pause-$ $+(sự) tạm nghỉ, tạm ngừng+$
 $-peaceful-$ $+hòa bình, thái bình, yên tĩnh+$
-$-peal-$ $+tràng hồi (sấm, cười…); rung, đánh từng hồi+$
+$-peal-$ $+tràng hồi (sấm, cười); rung, đánh từng hồi+$
 $-peasant-$ $+nông dân+$
 $-pedestrian-$ $+người đi bộ, khách bộ hành; bằng chân, đi bộ; chán ngắt, tẻ nhạt+$
 $-peer-$ $+người ngang địa vị; người ngang hàng+$
@@ -1112,11 +1112,11 @@ $-philosophical-$ $+(thuộc) triết học; theo triết học+$
 $-photo-$ $+bức ảnh, tấm ảnh+$
 $-physician-$ $+thầy thuốc+$
 $-pill-$ $+(dược phẩm) viên tròn+$
-$-pinnacle-$ $+cực điểm, đỉnh cao nhọn (núi, tảng đá…), điểm cao nhất, đỉnh cao (sự nghiệp…)+$
+$-pinnacle-$ $+cực điểm, đỉnh cao nhọn (núi, tảng đá), điểm cao nhất, đỉnh cao (sự nghiệp)+$
 $-pleasant-$ $+làm thích ý, vừa ý; vui vẻ, dễ thương+$
 $-pluck-$ $+nhổ, bứt, hái+$
 $-plump-$ $+thẳng thừng, không quanh co, úp mở; bụ bẫm, phúng phính, đầy đặn+$
-$-plunge-$ $+sự lao xuống, bước liều, sự lao đầu vào (khó khăn, nguy hiểm); nhúng, thọc, lao, đâm sâu vào+$
+$-plunge-$ $+sự lao xuống, sự lao đầu vào (khó khăn, nguy hiểm); thọc, lao, đâm sâu vào+$
 $-podium-$ $+bục đứng (cho giáo viên, người diễn thuyết)+$
 $-polite-$ $+lễ phép, lịch thiệp, lịch sự+$
 $-pond-$ $+cái ao+$
@@ -1207,7 +1207,7 @@ $-refresh-$ $+làm khoẻ người, làm tỉnh táo+$
 $-registration-$ $+sự đăng kí+$
 $-regret-$ $+lòng thương tiếc, hối tiếc, tiếc+$
 $-rehabilitation-$ $+sự phục hồi+$
-$-rejuvenate-$ $+làm (ai) trẻ lại, làm (ai) khoẻ lại..+$
+$-rejuvenate-$ $+làm (ai) trẻ lại, làm (ai) khoẻ lại+$
 $-relax-$ $+nới lỏng, buông lỏng, lơi ra+$
 $-relieve-$ $+làm dịu đi, làm nhẹ bớt cơn đau+$
 $-remainder-$ $+phần còn lại+$
@@ -1276,7 +1276,7 @@ $-scholar-$ $+nhà nghiên cứu; học giả+$
 $-scholarship-$ $+học bổng+$
 $-scratch-$ $+noun: vết xước; vết thương nhẹ+$
 $-scrawny-$ $+gầy nhẳng; gầy giơ xương;+$
-$-screening-$ $+sự chiếu một bộ phim (một chương trình..)+$
+$-screening-$ $+sự chiếu một bộ phim (một chương trình)+$
 $-scribble-$ $+viết nguệch ngoạc, chữ viết cẩu thả+$
 $-scrutinize-$ $+nhìn chăm chú, nhìn kỹ+$
 $-secluded-$ $+hẻo lánh; không có nhiều người trông thấy+$
@@ -1383,7 +1383,7 @@ $-strangle-$ $+siết cổ chết; bóp nghẹt+$
 $-strenuous-$ $+hăm hở, tích cực; hăng hái; rất cố gắng+$
 $-strike-$ $+cuộc đình công, bãi công; đánh, đập, tấn công+$
 $-striking-$ $+nổi bật, thu hút sự chú ý+$
-$-stringent-$ $+nghiêm ngặt, nghiêm khắc, chặt chẽ (về nội quy, luật pháp…)+$
+$-stringent-$ $+nghiêm ngặt, nghiêm khắc, chặt chẽ (về nội quy, luật pháp)+$
 $-strive-$ $+cố gắng, phấn đấu làm gì+$
 $-stroke-$ $+cơn đột quỵ+$
 $-struggle-$ $+sự đấu tranh, cuộc đấu tranh, cuộc chiến đấu; đấu tranh, chống lại+$
@@ -1409,18 +1409,18 @@ $-surplus-$ $+số dư, số thừa; số thặng dư+$
 $-surprising-$ $+làm ngạc nhiên, làm kinh ngạc; đáng sửng sốt+$
 $-survival-$ $+sự sống sót+$
 $-survivor-$ $+người sống sót+$
-$-suspend-$ $+đình chỉ (học, công tác...)+$
-$-suspension-$ $+sự đình chỉ (học, công tác...)+$
+$-suspend-$ $+đình chỉ (học, công tác)+$
+$-suspension-$ $+sự đình chỉ (học, công tác)+$
 $-sustain-$ $+đỡ; chống đỡ; giữ vững được (trong thời gian dài)+$
 $-sustainable-$ $+bền vững, không gây hại đến môi trường+$
-$-swallow-$ $+nuốt (đồ ăn...)+$
+$-swallow-$ $+nuốt (đồ ăn)+$
 $-swift-$ $+mau, nhanh, lẹ+$
 $-symbolic-$ $+mang tính đại diện+$
 $-symbolize-$ $+tượng trưng, biểu tượng hóa+$
 $-syndrome-$ $+hội chứng+$
 $-talkative-$ $+thích nói, hay nói; lắm mồm; ba hoa; bép xép+$
 $-tall-$ $+cao; cao hơn trung bình; cao hơn xung quanh (người, đồ vật)+$
-$-tame-$ $+thuần, đã thuần hoá (thú rừng..); dạy cho thuần+$
+$-tame-$ $+thuần hóa, đã thuần hoá (thú rừng..)+$
 $-tandem-$ $+xe hai ngựa thắng con trước con sau+$
 $-tangible-$ $+hữu hình, có thể sờ mó được+$
 $-taut-$ $+căng, không bị chùng; căng thẳng (thân kinh, cơ bắp…)+$
@@ -1488,7 +1488,7 @@ $-umbrella-$ $+ô, dù; sự bảo vệ, thế lực bảo vệ+$
 $-unchanging-$ $+không thay đổi, không đổi+$
 $-unconquerable-$ $+không thể chinh phục được, không thể chế ngự được+$
 $-uncooked-$ $+chưa nấu chín, còn sống+$
-$-undergo-$ $+trải qua (cuộc phẫu thuật...)+$
+$-undergo-$ $+trải qua+$
 $-undergraduate-$ $+sinh viên đại học+$
 $-undertake-$ $+đảm nhận, thực hiện cái gì+$
 $-unfold-$ $+để lộ, làm bộc lộ+$
@@ -1521,7 +1521,7 @@ $-variety-$ $+sự đa dạng, nhiều thứ, đủ loại, những thứ khác 
 $-vary-$ $+biến đổi, thay đổi, khác nhau+$
 $-vast-$ $+rộng lớn, mênh mông, bao la+$
 $-vein-$ $+tĩnh mạch+$
-$-vendor-$ $+người bán dạo (bán thực phẩm hoặc các thứ lặt vặt khác ở quầy ngoài trời)+$
+$-vendor-$ $+người bán dạo+$
 $-verdict-$ $+lời tuyên án, lời phán quyết+$
 $-versatile-$ $+nhiều mặt, nhiều phương diện, toàn diện+$
 $-verse-$ $+thơ+$
@@ -1548,7 +1548,7 @@ $-weed-$ $+cỏ dại+$
 $-weird-$ $+không bình thường, khác thường, kỳ lạ, khó hiểu+$
 $-well-being-$ $+tình trạng hạnh phúc, khỏe mạnh+$
 $-wheat-$ $+lúa mì+$
-$-whip-$ $+đánh (kem, trứng...)+$
+$-whip-$ $+đánh (kem, trứng)+$
 $-wide-$ $+rộng, rộng lớn+$
 $-widespread-$ $+trên diện rộng+$
 $-widow-$ $+góa phụ+$

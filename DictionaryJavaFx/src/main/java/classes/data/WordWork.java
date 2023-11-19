@@ -1,5 +1,6 @@
 package classes.data;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -23,7 +24,7 @@ public class WordWork {
                 output = output.replace(engStartKey, "").replace(engEndKey, "");
                 return output;
             } else {
-                System.out.println("Cannot find hideMeaningOnWebView English form");
+                System.out.println("Cannot find a English form");
             }
         }
 
@@ -32,31 +33,7 @@ public class WordWork {
             output = viMatcher.group();
             output = output.replace(viStartKey, "").replace(viEndKey, "");
         } else {
-            System.out.println("Cannot find hideMeaningOnWebView Vietnamese form");
-        }
-
-        return output;
-    }
-
-    public static String decodeForm(String input, boolean isKey, int line) {
-        String output = "";
-        if (isKey) {
-            Matcher engMatcher = engPattern.matcher(input);
-            if (engMatcher.find()) {
-                output = engMatcher.group();
-                output = output.replace(engStartKey, "").replace(engEndKey, "");
-                return output;
-            } else {
-                System.out.println("Cannot find hideMeaningOnWebView English form at line " + line);
-            }
-        }
-
-        Matcher viMatcher = viPattern.matcher(input);
-        if (viMatcher.find()) {
-            output = viMatcher.group();
-            output = output.replace(viStartKey, "").replace(viEndKey, "");
-        } else {
-            System.out.println("Cannot find hideMeaningOnWebView Vietnamese form at line " + line);
+            System.out.println("Cannot find a Vietnamese form");
         }
 
         return output;
@@ -68,6 +45,16 @@ public class WordWork {
         }
 
         return viStartKey + input + viEndKey;
+    }
+
+    public static ArrayList<String> separateMeaningForShootingGame(String meaning) {
+        ArrayList<String> result = new ArrayList<>();
+        Scanner meaningScanner = new Scanner(meaning);
+        while (meaningScanner.hasNext()) {
+            String eachMeaning = meaningScanner.next();
+            result.add(eachMeaning.replace("-", " "));
+        }
+        return result;
     }
 
     public static String getRidOfHTMLForm(String htmlFormString) {
