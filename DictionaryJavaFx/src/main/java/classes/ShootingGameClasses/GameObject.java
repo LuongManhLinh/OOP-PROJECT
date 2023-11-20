@@ -1,5 +1,8 @@
 package classes.ShootingGameClasses;
 
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+
 public abstract class GameObject {
     public enum Color {
         RED,
@@ -14,6 +17,7 @@ public abstract class GameObject {
     public GameObject(Color color, String showText) {
         this.color = color;
         this.showText = showText;
+        this.objectView = new ObjectView(new Label(showText), new ImageView());
         loadView();
     }
 
@@ -30,4 +34,8 @@ public abstract class GameObject {
     }
 
     public abstract void loadView();
+
+    public ObjectView getObjectView() {
+        return objectView;
+    }
 }

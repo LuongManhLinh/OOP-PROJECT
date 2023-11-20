@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.ShootingGameController" />
+<AnchorPane fx:id="gamePane" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.ShootingGameController">
+   <children>
+      <ImageView fitHeight="30.0" fitWidth="120.0" layoutX="134.0" layoutY="661.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../gameAssets/ShootingGame/bullet_blue.png" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="120.0" layoutX="203.0" layoutY="661.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../gameAssets/ShootingGame/bullet_green.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="120.0" layoutX="168.0" layoutY="661.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../gameAssets/ShootingGame/bullet_red.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-73.0" layoutY="634.0" pickOnBounds="true" preserveRatio="true" rotate="45.0">
+         <image>
+            <Image url="@../../gameAssets/ShootingGame/cannon4.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="CannonImage" fitHeight="75.0" fitWidth="180.0" layoutX="-46.0" layoutY="641.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../gameAssets/ShootingGame/cannon3.png" />
+         </image>
+      </ImageView>
+      <Line fx:id="line" endX="507.79998779296875" />
+   </children>
+</AnchorPane>
