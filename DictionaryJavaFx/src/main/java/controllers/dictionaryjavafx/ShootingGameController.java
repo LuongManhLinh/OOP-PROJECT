@@ -25,6 +25,9 @@ public class ShootingGameController implements Initializable {
     private ImageView CannonImage;
     @FXML
     private Line line;
+
+    private static final int SPIN_POINT_X = 30;
+    private static final int SPIN_POINT_Y = 672;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObjectImages.loadData();
@@ -37,33 +40,22 @@ public class ShootingGameController implements Initializable {
             double mouseX = event.getSceneX();
             double mouseY = event.getSceneY();
 
-            // Lấy tọa độ của cannon trong hệ tọa độ của scene
-            double imageViewX = CannonImage.localToScene(CannonImage.getBoundsInLocal()).getMinX() + 90;
-            double imageViewY = CannonImage.localToScene(CannonImage.getBoundsInLocal()).getMinY() + 37.5;
+            double vectorX = mouseX - SPIN_POINT_X;
+            double vectorY = mouseY - SPIN_POINT_Y;
 
-            // Tính toán góc xoay dựa trên sự khác biệt giữa vị trí di chuột và vị trí của cannon
-            double angleRadians = Math.atan2(mouseY - imageViewY, mouseX - imageViewX);
+            double length = Math.sqrt(vectorX * vectorX + vectorY * vectorY);
+            double rate = 90 / length;
+
+            vectorX *= rate;
+            vectorY *= rate;
+
+            double angleRadians = Math.atan2(vectorY, vectorX);
             double angleDegrees = Math.toDegrees(angleRadians);
 
-            // Điều chỉnh góc nếu nó vượt quá giới hạn
-            double adjustedAngle = Math.floorMod((int) angleDegrees, 360);
+            CannonImage.setRotate(angleDegrees);
 
-            CannonImage.setRotate(adjustedAngle);
-
-            Bounds bounds = CannonImage.getBoundsInParent();
-
-            // Lấy trung điểm giữa topRight và bottomRight của CannonImage
-            double topRightX = bounds.getMaxX();
-            double topRightY = bounds.getMinY();
-
-            double bottomRightX = bounds.getMaxX();
-            double bottomRightY = bounds.getMaxY();
-
-            double centerX = (topRightX + bottomRightX) / 2;
-            double centerY = (topRightY + bottomRightY) / 2;
-
-            line.setStartX(centerX);
-            line.setStartY(centerY);
+            line.setStartX(vectorX + SPIN_POINT_X);
+            line.setStartY(vectorY + SPIN_POINT_Y);
             line.setEndX(mouseX);
             line.setEndY(mouseY);
 
