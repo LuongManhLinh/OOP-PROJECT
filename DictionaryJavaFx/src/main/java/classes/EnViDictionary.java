@@ -3,8 +3,11 @@ package classes;
 import classes.data.DictionaryData;
 
 public class EnViDictionary extends Dictionary {
-    private static Dictionary instance = new EnViDictionary();
+    private static Dictionary instance = null;
     public static Dictionary getInstance() {
+        if (instance == null) {
+            instance = new EnViDictionary();
+        }
         return instance;
     }
     @Override

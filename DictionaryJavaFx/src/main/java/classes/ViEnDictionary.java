@@ -3,8 +3,11 @@ package classes;
 import classes.data.DictionaryData;
 
 public class ViEnDictionary extends Dictionary {
-    private static Dictionary instance = new ViEnDictionary();
+    private static Dictionary instance = null;
     public static Dictionary getInstance() {
+        if (instance == null) {
+            instance = new ViEnDictionary();
+        }
         return instance;
     }
 

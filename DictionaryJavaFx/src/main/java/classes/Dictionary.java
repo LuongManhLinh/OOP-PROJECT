@@ -12,7 +12,7 @@ public abstract class Dictionary {
     protected HashMap<String, String> words = new HashMap<>();
     protected ArrayList<String> keyWords = new ArrayList<>();
 
-    public Dictionary() {
+    protected Dictionary() {
         awake();
     }
 

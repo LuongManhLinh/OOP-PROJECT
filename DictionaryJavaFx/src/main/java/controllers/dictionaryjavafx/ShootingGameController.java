@@ -110,6 +110,10 @@ public class ShootingGameController implements Initializable {
             double length = Math.sqrt(vectorX * vectorX + vectorY * vectorY);
             double rate = 90 / length;
 
+            double rateForLine = 1500 / length;
+            double lineEndX = rateForLine * vectorX;
+            double lineEndY = rateForLine * vectorY;
+
             vectorX *= rate;
             vectorY *= rate;
 
@@ -118,10 +122,12 @@ public class ShootingGameController implements Initializable {
 
             CannonImage.setRotate(angleDegrees);
 
+
+
             line.setStartX(vectorX + SPIN_POINT_X);
             line.setStartY(vectorY + SPIN_POINT_Y);
-            line.setEndX(mouseX);
-            line.setEndY(mouseY);
+            line.setEndX(lineEndX + SPIN_POINT_X);
+            line.setEndY(lineEndY + SPIN_POINT_Y);
 
             // Hiển thị đoạn thẳng nét đứt
             line.getStrokeDashArray().addAll(5d, 5d);
