@@ -4,6 +4,9 @@ import classes.Dictionary;
 
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class DictionaryData {
     private static HashMap<String, String> viWords = new HashMap<>();
@@ -17,8 +20,17 @@ public class DictionaryData {
 
 
     public static void loadData() {
-        DictionaryFileWork.importAllWords(EN_VI_PATH, viWords, engKeyWords);
-        DictionaryFileWork.importAllWords(VI_EN_PATH, engWords, viKeyWords);
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        executorService.submit(() -> {
+            DictionaryFileWork.importAllWords(EN_VI_PATH, viWords, engKeyWords);
+        });
+        executorService.submit(() -> {
+            DictionaryFileWork.importAllWords(VI_EN_PATH, engWords, viKeyWords);
+        });
+        executorService.shutdown();
+        
+//        DictionaryFileWork.importAllWords(EN_VI_PATH, viWords, engKeyWords);
+//        DictionaryFileWork.importAllWords(VI_EN_PATH, engWords, viKeyWords);
     }
 
     public static void writeData(Dictionary.Type type, HashMap<String, String> words, ArrayList<String> keyWords) {

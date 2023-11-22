@@ -10,7 +10,7 @@ import javafx.util.Duration;
 public class LoadingSceneController {
     public static void onLaunch() {
         Timeline waitTimeLine = new Timeline(
-                new KeyFrame(Duration.millis(50), event -> {
+                new KeyFrame(Duration.millis(1), event -> {
                     DictionaryData.loadData();
                     SceneLoaderController.loadScene(FXMLFiles.MAIN_UI_SCENE);
                 })

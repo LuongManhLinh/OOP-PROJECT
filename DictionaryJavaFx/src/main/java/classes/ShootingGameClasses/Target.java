@@ -8,10 +8,9 @@ import javafx.scene.image.ImageView;
 public abstract class Target extends GameObject {
     private final double score;
 
-    public Target(Color color, String showText, double score, Vector spawnPoint) {
+    public Target(Color color, String showText, double score) {
         super(color, showText);
         this.score = score;
-        objectView.setPosition(spawnPoint);
     }
 
     public abstract void move();

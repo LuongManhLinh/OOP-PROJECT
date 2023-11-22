@@ -14,4 +14,6 @@ module controllers.dictionaryjavafx {
     opens classes.ExperimentGameClasses to javafx.fxml;
     exports classes.data;
     opens classes.data to javafx.fxml;
+    exports classes.ShootingGameClasses;
+    opens classes.ShootingGameClasses to javafx.fxml;
 }

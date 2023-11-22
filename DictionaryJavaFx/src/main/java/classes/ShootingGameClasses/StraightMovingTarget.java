@@ -14,9 +14,8 @@ public class StraightMovingTarget extends Target {
 
     private long timeBefore = 0;
 
-    public StraightMovingTarget(Color color, String showText, double score, Vector spawnPoint) {
-        super(color, showText, score, spawnPoint);
-        destinations.add(spawnPoint);
+    public StraightMovingTarget(Color color, String showText, double score) {
+        super(color, showText, score);
     }
 
     public List<Vector> getDestinations() {
@@ -45,8 +44,8 @@ public class StraightMovingTarget extends Target {
         AnimationTimer moveTimer = new AnimationTimer() {
             @Override
             public void handle(long timeNow) {
-                if (destinations.size() >= 2) {
-                    if (objectView.getPosition().getDistanceAsPointToPoint(destinations.get(nextDestination)) < 1) {
+                if (destinations.size() >= 2 && velocity != 0) {
+                    if (objectView.getPosition().getDistanceAsPointToPoint(destinations.get(nextDestination)) < velocity / 30) {
                         objectView.setPosition(destinations.get(nextDestination));
                         if (isIncreasingNext) {
                             nextDestination++;
@@ -74,8 +73,6 @@ public class StraightMovingTarget extends Target {
                         double x = objectView.getPosition().getX() + velocity * direction.getX() * time;
                         double y = objectView.getPosition().getY() + velocity * direction.getY() * time;
                         objectView.setPosition(new Vector(x, y));
-
-                        System.out.println(time);
                     }
 
                     timeBefore = timeNow;

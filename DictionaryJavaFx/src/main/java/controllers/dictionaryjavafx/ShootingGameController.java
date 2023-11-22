@@ -57,12 +57,21 @@ public class ShootingGameController implements Initializable {
         bulletContainer.getChildren().clear();
 
         // Test một cái di chuyển
-        StraightMovingTarget t = new StraightMovingTarget(GameObject.Color.RED, "di chuyển", 1, new Vector(0, 0));
-        gamePane.getChildren().add(t.getObjectView().getShowText());
+        StraightMovingTarget t = new StraightMovingTarget(GameObject.Color.RED, "di chuyển", 1);
+        gamePane.getChildren().add(0, t.getObjectView().getShowText());
+        t.addDestination(new Vector(0, 0));
         t.addDestination(new Vector(0, 500));
         t.addDestination(new Vector(300, 200));
-        t.setVelocity(100);
+        t.addDestination(new Vector(1300, 700));
+        t.setVelocity(500);
         t.move();
+
+        RoundMovingTarget roundMovingTarget = new RoundMovingTarget(GameObject.Color.BLUE, "round", 1, new Vector(0, 0), 100);
+        gamePane.getChildren().add(0, roundMovingTarget.getObjectView().getShowText());
+        roundMovingTarget.setRoundVelocity(120);
+        roundMovingTarget.setMoveVelocity(40);
+        roundMovingTarget.setMoveDirection(new Vector(1, 1));
+        roundMovingTarget.move();
     }
 
     public void addBullet() {
