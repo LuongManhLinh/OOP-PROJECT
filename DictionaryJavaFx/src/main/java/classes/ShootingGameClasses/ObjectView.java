@@ -42,8 +42,12 @@ public class ObjectView {
         this.object = object;
     }
 
-    public void setPosition(double x, double y) {
-        showText.setLayoutX(x);
-        showText.setLayoutY(y);
+    public void setPosition(Vector position) {
+        showText.setLayoutX(position.getX());
+        showText.setLayoutY(position.getY());
+    }
+
+    public Vector getPosition() {
+        return new Vector(showText.getLayoutX(), showText.getLayoutY());
     }
 }

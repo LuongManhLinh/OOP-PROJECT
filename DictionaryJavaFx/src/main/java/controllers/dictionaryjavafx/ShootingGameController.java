@@ -44,8 +44,8 @@ public class ShootingGameController implements Initializable {
         return instance;
     }
 
-    private static List<Bullet> bullets = new ArrayList<>();
-    private static List<Target> targets = new ArrayList<>();
+    private static final List<Bullet> bullets = new ArrayList<>();
+    private static final List<Target> targets = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -55,6 +55,14 @@ public class ShootingGameController implements Initializable {
         clickToShoot();
 
         bulletContainer.getChildren().clear();
+
+        // Test một cái di chuyển
+        StraightMovingTarget t = new StraightMovingTarget(GameObject.Color.RED, "di chuyển", 1, new Vector(0, 0));
+        gamePane.getChildren().add(t.getObjectView().getShowText());
+        t.addDestination(new Vector(0, 500));
+        t.addDestination(new Vector(300, 200));
+        t.setVelocity(100);
+        t.move();
     }
 
     public void addBullet() {
@@ -66,7 +74,7 @@ public class ShootingGameController implements Initializable {
     }
 
     public void addTarget() {
-        Target newTarget = new StillTarget(GameObject.Color.RED, "hehe", 1, MakeRandom.random(0, 1300), MakeRandom.random(0, 700));
+        Target newTarget = new StillTarget(GameObject.Color.RED, "hehe", 1, new Vector(MakeRandom.random(0, 1300), MakeRandom.random(0, 700)));
         gamePane.getChildren().add(newTarget.getObjectView().getShowText());
         targets.add(newTarget);
     }
