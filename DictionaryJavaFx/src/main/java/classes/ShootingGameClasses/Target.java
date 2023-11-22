@@ -1,27 +1,44 @@
 package classes.ShootingGameClasses;
 
+import controllers.dictionaryjavafx.ShootingGameController;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public abstract class Target extends GameObject {
-    private int score;
+    private final double score;
 
-    public Target(Color color, String showText, int score) {
+    public Target(Color color, String showText, double score, double spawnPointX, double spawnPointY) {
         super(color, showText);
         this.score = score;
+        objectView.setPosition(spawnPointX, spawnPointY);
     }
 
     public abstract void move();
 
-    public int takeDamage() {
-        return score;
+    public double takeDamage(Bullet bullet) {
+        if (bullet.getKeyText().equals(showText)) {
+            if (bullet.getColorToBeCountered() == color) {
+                return 2 * score;
+            } else if (bullet.getColorToCounter() == color) {
+                return -0.5 * score;
+            } else {
+                return score;
+            }
+        } else {
+            if (bullet.getColorToCounter() == color) {
+                return -score;
+            } else {
+                return 0;
+            }
+        }
     }
 
     public void loadView() {
         switch (color) {
-            case RED -> objectView.setObject(new ImageView(ObjectImages.redTarget));
-            case BLUE -> objectView.setObject(new ImageView(ObjectImages.blueTarget));
-            case GREEN -> objectView.setObject(new ImageView(ObjectImages.greenTarget));
+            case RED -> objectView = new ObjectView(showText, ObjectImages.redTarget);
+            case BLUE -> objectView = new ObjectView(showText, ObjectImages.blueTarget);
+            case GREEN -> objectView = new ObjectView(showText, ObjectImages.greenTarget);
         }
     }
 }

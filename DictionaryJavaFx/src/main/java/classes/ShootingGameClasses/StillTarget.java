@@ -1,8 +1,7 @@
 package classes.ShootingGameClasses;
 
-public class MovingTarget extends Target {
-
-    public MovingTarget(Color color, String showText, double score, double spawnPointX, double spawnPointY) {
+public class StillTarget extends Target{
+    public StillTarget(Color color, String showText, double score, double spawnPointX, double spawnPointY) {
         super(color, showText, score, spawnPointX, spawnPointY);
     }
 

@@ -11,16 +11,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.MainUISceneController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.MainUISceneController">
     <children>
         <ListView fx:id="searchingResultList" fixedCellSize="25.0" layoutX="208.0" layoutY="86.0" maxHeight="511.0" prefHeight="511.0" prefWidth="227.0" stylesheets="@../../ListViewStyles.css" />
-        <WebView fx:id="meaningWebView" layoutX="441.0" layoutY="86.0" prefHeight="511.0" prefWidth="558.0" stylesheets="@../../WebViewStyles.css" />
+        <WebView fx:id="meaningWebView" layoutX="438.0" layoutY="86.0" prefHeight="511.0" prefWidth="561.0" stylesheets="@../../WebViewStyles.css" />
         <AnchorPane prefHeight="86.0" prefWidth="1000.0" style="-fx-background-color: pink;">
             <children>
-                <TextField fx:id="wordEnteringField" layoutX="207.0" layoutY="37.0" prefHeight="35.0" prefWidth="227.0" promptText="Nhập từ cần tra" stylesheets="@../../TextFieldStyles.css" AnchorPane.topAnchor="37.0" />
+                <TextField fx:id="wordEnteringField" layoutX="208.0" layoutY="37.0" prefHeight="35.0" prefWidth="227.0" promptText="Nhập từ cần tra" stylesheets="@../../TextFieldStyles.css" AnchorPane.topAnchor="37.0" />
                 <AnchorPane layoutX="446.0" layoutY="-68.0" prefHeight="0.0" prefWidth="227.0">
                     <children>
-                        <Button focusTraversable="false" layoutX="79.0" layoutY="85.0" mnemonicParsing="false" onAction="#onSearchingTypeChanged" prefHeight="26.0" prefWidth="38.0" styleClass="default" stylesheets="@../../SwitchLanguege.css">
+                        <Button focusTraversable="false" layoutX="79.0" layoutY="85.0" mnemonicParsing="false" onAction="#onSearchingTypeChanged" onMouseEntered="#showCtrlD" onMouseExited="#hideCtrlD" prefHeight="26.0" prefWidth="38.0" styleClass="default" stylesheets="@../../SwitchLanguege.css">
                             <graphic>
                                 <ImageView fitHeight="33.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -56,6 +56,11 @@
                                 </ImageView>
                             </graphic>
                         </Label>
+                  <Label fx:id="CtrlDLabel" layoutX="95.0" layoutY="120.0" opacity="0.75" style="-fx-background-radius: 5;" text="Ctrl+D">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
                     </children>
                 </AnchorPane>
                 <Button fx:id="editWordButton" focusTraversable="false" layoutX="696.0" layoutY="40.0" mnemonicParsing="false" onAction="#selectUpdateWordFromMainUIFunc" onMouseEntered="#showCtrlU" onMouseExited="#hideCtrlU" prefHeight="28.0" prefWidth="154.0" stylesheets="@../../ButtonStyles.css" text="Cập nhật từ đang chọn">

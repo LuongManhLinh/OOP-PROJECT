@@ -1,10 +1,11 @@
 package classes.ShootingGameClasses;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import controllers.dictionaryjavafx.ShootingGameController;
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.Label;
 
 public class Bullet extends GameObject{
-    private String keyText;
+    private final String keyText;
 
     public Bullet(Color color, String showText, String keyText) {
         super(color, showText);
@@ -14,9 +15,13 @@ public class Bullet extends GameObject{
     @Override
     public void loadView() {
         switch (color) {
-            case RED -> objectView.setObject(new ImageView(ObjectImages.redBullet));
-            case BLUE -> objectView.setObject(new ImageView(ObjectImages.blueBullet));
-            case GREEN -> objectView.setObject(new ImageView(ObjectImages.greenBullet));
+            case RED -> objectView = new ObjectView(showText, ObjectImages.redBullet);
+            case BLUE -> objectView = new ObjectView(showText, ObjectImages.blueBullet);
+            case GREEN -> objectView = new ObjectView(showText, ObjectImages.greenBullet);
         }
+    }
+
+    public String getKeyText() {
+        return keyText;
     }
 }

@@ -45,6 +45,7 @@ public class MainUISceneController implements Initializable {
     @FXML private Label F5Label;
     @FXML private Label EscLabel;
     @FXML private Label CtrlULabel;
+    @FXML private Label CtrlDLabel;
     @FXML private Button insertWordButton;
     @FXML private Button updateWordButton;
     @FXML private Button translateTextButton;
@@ -184,6 +185,7 @@ public class MainUISceneController implements Initializable {
         F5Label.setVisible(false);
         EscLabel.setVisible(false);
         CtrlULabel.setVisible(false);
+        CtrlDLabel.setVisible(false);
     }
 
     public void show() {
@@ -302,6 +304,8 @@ public class MainUISceneController implements Initializable {
         final KeyCodeCombination goToCommandline = new KeyCodeCombination(KeyCode.F5);
         final KeyCodeCombination exitApp = new KeyCodeCombination(KeyCode.ESCAPE);
         final KeyCodeCombination updateWordFromMainUI = new KeyCodeCombination(KeyCode.U, KeyCombination.CONTROL_DOWN);
+        final KeyCodeCombination switchLanguage = new KeyCodeCombination(KeyCode.D, KeyCodeCombination.CONTROL_DOWN);
+
         anchorPane.setOnKeyPressed(keyEvent -> {
             if (goToInsertWord.match(keyEvent)) insertWordButton.fire();
             if (goToUpdateWord.match(keyEvent)) updateWordButton.fire();
@@ -310,6 +314,7 @@ public class MainUISceneController implements Initializable {
             if (goToCommandline.match(keyEvent)) commandlineButton.fire();
             if (exitApp.match(keyEvent)) exitAppButton.fire();
             if (updateWordFromMainUI.match(keyEvent)) editWordButton.fire();
+            if (switchLanguage.match(keyEvent)) onSearchingTypeChanged();
         });
     }
 
@@ -370,5 +375,13 @@ public class MainUISceneController implements Initializable {
     }
     public void hideCtrlU() {
         CtrlULabel.setVisible(false);
+    }
+
+    public void showCtrlD() {
+        CtrlDLabel.setVisible(true);
+    }
+
+    public void hideCtrlD() {
+        CtrlDLabel.setVisible(false);
     }
 }

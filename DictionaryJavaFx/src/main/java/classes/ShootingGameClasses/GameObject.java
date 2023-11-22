@@ -17,8 +17,11 @@ public abstract class GameObject {
     public GameObject(Color color, String showText) {
         this.color = color;
         this.showText = showText;
-        this.objectView = new ObjectView(new Label(showText), new ImageView());
         loadView();
+    }
+
+    public Color getColor() {
+        return color;
     }
 
     public Color getColorToCounter() {
