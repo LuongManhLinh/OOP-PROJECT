@@ -1,5 +1,6 @@
 package controllers.dictionaryjavafx;
 
+import classes.EnViBookMark;
 import classes.FXMLFiles;
 import classes.data.DictionaryData;
 import classes.data.GameData;
@@ -12,6 +13,7 @@ public class LoadingSceneController {
         Timeline waitTimeLine = new Timeline(
                 new KeyFrame(Duration.millis(1), event -> {
                     DictionaryData.loadData();
+                    EnViBookMark.loadBookMark();
                     SceneLoaderController.loadScene(FXMLFiles.MAIN_UI_SCENE);
                 })
         );
