@@ -28,9 +28,6 @@ public class DictionaryData {
             DictionaryFileWork.importAllWords(VI_EN_PATH, engWords, viKeyWords);
         });
         executorService.shutdown();
-        
-//        DictionaryFileWork.importAllWords(EN_VI_PATH, viWords, engKeyWords);
-//        DictionaryFileWork.importAllWords(VI_EN_PATH, engWords, viKeyWords);
     }
 
     public static void writeData(Dictionary.Type type, HashMap<String, String> words, ArrayList<String> keyWords) {

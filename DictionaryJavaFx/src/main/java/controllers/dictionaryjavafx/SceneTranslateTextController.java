@@ -136,6 +136,7 @@ public class SceneTranslateTextController implements Initializable{
     }
 
     public void backToMainUIScene() {
+        GgTranslateTextToSpeech.stop();
         SceneLoaderController.loadScene(FXMLFiles.MAIN_UI_SCENE);
     }
 
