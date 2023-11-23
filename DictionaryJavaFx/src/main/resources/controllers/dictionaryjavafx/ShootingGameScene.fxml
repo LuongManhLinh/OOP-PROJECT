@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane fx:id="gamePane" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.ShootingGameController">
+<AnchorPane fx:id="gamePane" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.ShootingGameController">
    <children>
       <ImageView fx:id="bullet" fitHeight="30.0" fitWidth="120.0" layoutX="-30.0" layoutY="656.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
@@ -25,7 +25,7 @@
             <Image url="@../../gameAssets/ShootingGame/cannon5.png" />
          </image>
       </ImageView>
-      <Line fx:id="line" endX="507.79998779296875" />
+      <Line fx:id="line" endX="507.79998779296875" opacity="0.5" />
       <VBox fx:id="bulletContainer" alignment="BOTTOM_CENTER" layoutX="14.0" layoutY="12.0" prefHeight="583.0" prefWidth="100.0" spacing="20.0">
          <children>
             <Label contentDisplay="BOTTOM" text="10293750912387450921384701239487" textAlignment="CENTER" wrapText="true">
@@ -97,5 +97,20 @@
       <Button layoutX="811.0" layoutY="70.0" mnemonicParsing="false" onAction="#removeBullet" text="remove bullet index 0" />
       <Button layoutX="727.0" layoutY="105.0" mnemonicParsing="false" onAction="#addTarget" text="add target" />
       <Button layoutX="811.0" layoutY="105.0" mnemonicParsing="false" onAction="#removeTarget" text="remove target index 0" />
+      <ImageView fx:id="shootBulletBlue" fitHeight="8.0" fitWidth="36.0" layoutX="12.0" layoutY="667.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../gameAssets/ShootingGame/bullet_blue1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="shootBulletRed" fitHeight="8.0" fitWidth="36.0" layoutX="12.0" layoutY="667.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../gameAssets/ShootingGame/bullet_red1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="shootBulletGreen" fitHeight="8.0" fitWidth="36.0" layoutX="12.0" layoutY="667.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../gameAssets/ShootingGame/target_green1.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

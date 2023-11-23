@@ -21,6 +21,7 @@ public class ObjectImages {
         InputStream targetRed;
         InputStream targetGreen;
         InputStream targetBlue;
+        InputStream shootBullet;
         try {
             bulletRed = new FileInputStream("src/main/resources/gameAssets/ShootingGame/bullet_red.png");
             bulletGreen = new FileInputStream("src/main/resources/gameAssets/ShootingGame/bullet_green.png");

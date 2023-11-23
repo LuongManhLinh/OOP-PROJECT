@@ -2,27 +2,15 @@ package controllers.dictionaryjavafx;
 
 import classes.ShootingGameClasses.*;
 import classes.makerandom.MakeRandom;
-import javafx.animation.TranslateTransition;
-import javafx.event.EventHandler;
+import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Bounds;
-import javafx.geometry.Point2D;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
-import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -35,6 +23,9 @@ public class ShootingGameController implements Initializable {
     @FXML private Line line;
     @FXML private ImageView bullet;
     @FXML private VBox bulletContainer;
+    @FXML private ImageView shootBulletRed;
+    @FXML private ImageView shootBulletBlue;
+    @FXML private ImageView shootBulletGreen;
 
     private static final int SPIN_POINT_X = 30;
     private static final int SPIN_POINT_Y = 671;
@@ -105,61 +96,60 @@ public class ShootingGameController implements Initializable {
     private void clickToShoot() {
         gamePane.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) { //click chuột trái
-                shootBullet(event.getSceneX(), event.getSceneY() - bullet.getFitHeight() / 2);
+                shootBullet(GameObject.Color.GREEN, event.getSceneX(), event.getSceneY());
             }
         });
     }
 
-    private void shootBullet(double targetX, double targetY) {
-        // Tạo một ImageView mới cho viên đạn
-        ImageView newBullet = new Bullet(GameObject.Color.BLUE, "", "").getObjectView().getObject();
-        newBullet.setLayoutX(bullet.getLayoutX());
-        newBullet.setLayoutY(bullet.getLayoutY());
-        newBullet.setFitWidth(bullet.getFitWidth());
-        newBullet.setFitHeight(bullet.getFitHeight());
+    private void shootBullet(GameObject.Color color, double targetX, double targetY) {
+        //tạo 1 viên đạn mới
+        ImageView newBullet;
+        if(color == GameObject.Color.RED) {
+            newBullet = new ImageView(shootBulletRed.getImage());
+        }
+        else if(color == GameObject.Color.BLUE) {
+            newBullet = new ImageView(shootBulletBlue.getImage());
+        }
+        else {
+            newBullet = new ImageView(shootBulletGreen.getImage());
+        }
+        gamePane.getChildren().add(newBullet);
+        newBullet.setLayoutX(shootBulletBlue.getLayoutX());
+        newBullet.setLayoutY(shootBulletBlue.getLayoutY());
+        newBullet.setFitWidth(shootBulletBlue.getFitWidth());
+        newBullet.setFitHeight(shootBulletBlue.getFitHeight());
+        newBullet.setRotate(shootBulletBlue.getRotate());
         newBullet.toBack();
 
-        double vectorX = targetX - SPIN_POINT_X;
-        double vectorY = targetY - SPIN_POINT_Y;
+        double vectorX = line.getEndX() - 18 - newBullet.getLayoutX();
+        double vectorY = line.getEndY() - 4 - newBullet.getLayoutY();
+        double distance = Math.sqrt(vectorX * vectorX + vectorY * vectorY);
 
-        double length = Math.sqrt(vectorX * vectorX + vectorY * vectorY);
-        double rate = 90 / length;
+        double stepDistance = 7.0;
 
-        vectorX *= rate;
-        vectorY *= rate;
+        int numSteps = (int) (distance / stepDistance);
 
-        double angleRadians = Math.atan2(vectorY, vectorX);
-        double angleDegrees = Math.toDegrees(angleRadians);
+        // khoảng cách di chuyển cho mỗi step
+        double stepX = vectorX / numSteps;
+        double stepY = vectorY / numSteps;
 
-        newBullet.setRotate(angleDegrees);
+        AnimationTimer animationTimer = new AnimationTimer() {
+            private int countStep = 0;
 
-        //điểm start là trung điểm topleft và bottomleft của đạn
-        double startX = vectorX + SPIN_POINT_X;
-        double startY = vectorY + SPIN_POINT_Y - newBullet.getFitHeight() / 2;
+            @Override
+            public void handle(long now) {
+                if (countStep < numSteps) {
+                    newBullet.setLayoutX(newBullet.getLayoutX() + stepX);
+                    newBullet.setLayoutY(newBullet.getLayoutY() + stepY);
+                    countStep++;
+                } else {
+                    gamePane.getChildren().remove(newBullet);
+                    this.stop();
+                }
+            }
+        };
 
-        // Tính toán hướng từ vị trí hiện tại đến vị trí click chuột
-        double directionX = targetX - startX;
-        double directionY = targetY - startY;
-
-        // Chuẩn hóa hướng để vector có chiều dài là 1
-        directionX /= length;
-        directionY /= length;
-
-        // cho điểm đích xa ra khỏi scene
-        double distantTargetX = startX + directionX * 2000;
-        double distantTargetY = startY + directionY * 2000;
-
-        // thời gian di chuyển đến distantTarget
-        double duration = 5.0;
-
-        //đích
-        TranslateTransition transition = new TranslateTransition(Duration.seconds(duration), newBullet);
-        transition.setToX(distantTargetX - startX);
-        transition.setToY(distantTargetY - startY);
-
-        transition.setOnFinished(e -> gamePane.getChildren().remove(newBullet));
-
-        transition.play();
+        animationTimer.start();
     }
 
     public void setCannonRotation() {
@@ -186,15 +176,17 @@ public class ShootingGameController implements Initializable {
 
             CannonImage.setRotate(angleDegrees);
 
-
-
             line.setStartX(vectorX + SPIN_POINT_X);
             line.setStartY(vectorY + SPIN_POINT_Y);
             line.setEndX(lineEndX + SPIN_POINT_X);
             line.setEndY(lineEndY + SPIN_POINT_Y);
 
+            shootBulletBlue.setLayoutX(vectorX + SPIN_POINT_X - 18);
+            shootBulletBlue.setLayoutY(vectorY + SPIN_POINT_Y - 4);
+            shootBulletBlue.setRotate(angleDegrees);
+
             // Hiển thị đoạn thẳng nét đứt
-            line.getStrokeDashArray().addAll(5d, 5d);
+            line.getStrokeDashArray().addAll(7d, 7d);
         });
     }
 
