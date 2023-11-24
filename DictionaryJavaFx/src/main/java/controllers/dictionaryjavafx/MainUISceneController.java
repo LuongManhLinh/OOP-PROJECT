@@ -1,6 +1,7 @@
 package controllers.dictionaryjavafx;
 import classes.Dictionary;
 import classes.DictionaryManagementForApp;
+import classes.EnViBookMark;
 import classes.FXMLFiles;
 import classes.data.WordWork;
 import classes.dictionarycommandline.DictionaryExecution;
@@ -35,6 +36,7 @@ public class MainUISceneController implements Initializable {
     @FXML private WebView meaningWebView;
     @FXML private Label engImage, viImage;
     @FXML private Button speaker;
+    @FXML private ImageView unmarked, marked;
 
     @FXML private Button editWordButton;
     @FXML private Label errorLabel;
@@ -61,7 +63,7 @@ public class MainUISceneController implements Initializable {
     private String selectedWord = "";
     private Dictionary.Type searchingType = Dictionary.Type.EN_VI;
     private boolean isSwitchingLang = false;
-
+    private boolean checkBookMarkIsEmpty = true;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         hideLabel();
@@ -138,14 +140,30 @@ public class MainUISceneController implements Initializable {
             public void handle(long l) {
                 String keyWord = wordEnteringField.getText();
                 oldKeyWord = keyWord;
-                ArrayList<String> searchingResult = DictionaryManagementForApp.lookUp(keyWord, searchingType);
-                if (!searchingResult.isEmpty()) {
-                    searchingResultList.setVisible(true);
-                    searchingResultList.getItems().setAll(searchingResult);
-                    searchingResultList.getSelectionModel().select(0);
-                    searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
-                } else {
-                    hide();
+                if (oldKeyWord.isEmpty()) {
+                    ArrayList<String> searchingResult = EnViBookMark.getEngKey();
+                    if(!searchingResult.isEmpty()) {
+                        checkBookMarkIsEmpty = false;
+                        searchingResultList.setVisible(true);
+                        searchingResultList.getItems().setAll(searchingResult);
+//                    searchingResultList.getSelectionModel().select(0);
+                        searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
+                    }
+                    else {
+                        checkBookMarkIsEmpty = true;
+                        hide();
+                    }
+                }
+                else {
+                    ArrayList<String> searchingResult = DictionaryManagementForApp.lookUp(keyWord, searchingType);
+                    if (!searchingResult.isEmpty()) {
+                        searchingResultList.setVisible(true);
+                        searchingResultList.getItems().setAll(searchingResult);
+                        searchingResultList.getSelectionModel().select(0);
+                        searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
+                    } else {
+                        hide();
+                    }
                 }
             }
         };
@@ -161,8 +179,11 @@ public class MainUISceneController implements Initializable {
                     wordEnteringTimer.start();
                 }
 
-                if (wordEnteringField.getText().isEmpty()) {
+                if (wordEnteringField.getText().isEmpty() && selectedWord == null) {
                     hide();
+                    if(!checkBookMarkIsEmpty) {
+                        searchingResultList.setVisible(true);
+                    }
                 }
             }
         };
@@ -176,6 +197,8 @@ public class MainUISceneController implements Initializable {
         searchingResultList.setVisible(false);
         editWordButton.setVisible(false);
         speaker.setVisible(false);
+        unmarked.setVisible(false);
+        marked.setVisible(false);
     }
 
     public void hideLabel() {
@@ -193,6 +216,13 @@ public class MainUISceneController implements Initializable {
     public void show() {
         meaningWebView.setVisible(true);
         speaker.setVisible(true);
+        if (EnViBookMark.checkInBookMark(selectedWord)) {
+            marked.setVisible(true);
+            unmarked.setVisible(false);
+        } else {
+            unmarked.setVisible(true);
+            marked.setVisible(false);
+        }
     }
 
     private void switchLanguage(Dictionary.Type type) {
@@ -278,6 +308,20 @@ public class MainUISceneController implements Initializable {
     }
     public void selectExperimentGameFunc(ActionEvent event) {
         SceneLoaderController.loadScene(FXMLFiles.EXPERIMENT_GAME_SCENE);
+    }
+
+    public void unmarkedWord(MouseEvent event) {
+        EnViBookMark.insertToBookMark(selectedWord);
+        show();
+    }
+
+    public void markedWord(MouseEvent event) {
+        EnViBookMark.remove(selectedWord);
+        show();
+    }
+
+    public void BookMarkFunc(ActionEvent event) {
+        SceneLoaderController.loadScene(FXMLFiles.BOOK_MARK_SCENE);
     }
 
     public void selectCommandline(ActionEvent event) {

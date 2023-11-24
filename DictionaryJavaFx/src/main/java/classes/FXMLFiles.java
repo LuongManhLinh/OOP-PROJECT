@@ -8,4 +8,5 @@ public class FXMLFiles {
     public static String INSERT_WORDS_SCENE =  "InsertWordsScene.fxml";
     public static String TRANSLATE_TEXT_SCENE = "translateTextScene.fxml";
     public static String LOADING_SCENE = "LoadingScene.fxml";
+    public static String BOOK_MARK_SCENE = "BookMarkScene.fxml";
 }
