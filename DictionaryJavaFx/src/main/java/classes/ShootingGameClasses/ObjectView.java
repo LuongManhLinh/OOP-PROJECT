@@ -21,6 +21,7 @@ public class ObjectView {
         showText.setContentDisplay(ContentDisplay.BOTTOM);
         showText.setTextAlignment(TextAlignment.CENTER);
         showText.setWrapText(true);
+        showText.setMaxWidth(100);
 
         object.setPreserveRatio(true);
         object.setFitWidth(100);

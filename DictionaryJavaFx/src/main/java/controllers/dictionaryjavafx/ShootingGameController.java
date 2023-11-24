@@ -14,6 +14,8 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
@@ -162,6 +164,13 @@ public class ShootingGameController implements Initializable {
                     newBullet.setLayoutX(newBullet.getLayoutX() + stepX);
                     newBullet.setLayoutY(newBullet.getLayoutY() + stepY);
                     countStep++;
+                    for(Target t : targets) {
+                        if(checkCollision(newBullet, t)) {
+                            removeTarget(t);
+                            countStep = numSteps;
+                            break;
+                        }
+                    }
                 } else {
                     gamePane.getChildren().remove(newBullet);
                     this.stop();
@@ -235,6 +244,29 @@ public class ShootingGameController implements Initializable {
 
             }
         }
+    }
+    public boolean checkCollision(ImageView bullet, Target target) {
+        //hình tròn trong target
+        double radius = target.getObjectView().getShowText().getWidth() / 2;
+        double targetCenterX = target.getObjectView().getPosition().getX() + radius;
+        double targetCenterY = target.getObjectView().getPosition().getY() + target.getObjectView().getShowText().getHeight() - radius;
+
+        double bulletRotation = Math.toRadians(-bullet.getRotate());
+        double diagonalLine = bullet.getFitWidth() / 2;
+        double bulletHeadX = bullet.getLayoutX() + bullet.getFitWidth() / 2 + Math.cos(bulletRotation) * diagonalLine;
+        double bulletHeadY = bullet.getLayoutY() + bullet.getFitHeight() / 2 - Math.sin(bulletRotation) * diagonalLine;
+//        Circle bulletHead = new Circle(bulletHeadX, bulletHeadY, 1, Color.RED);
+//        Circle targett = new Circle(targetCenterX, targetCenterY, radius, Color.BLACK);
+
+        // Tạo Circle tượng trưng cho trung tâm đối tượng bullet và đặt màu sắc
+//        Circle bulletCenter = new Circle(bullet.getLayoutX() + bullet.getFitWidth() / 2, bullet.getLayoutY() + bullet.getFitHeight() / 2, 3, Color.BLUE);
+//        gamePane.getChildren().addAll(bulletHead, targett);
+        return pointInsideCircle(bulletHeadX, bulletHeadY, targetCenterX, targetCenterY, radius);
+    }
+
+    private boolean pointInsideCircle(double pointX, double pointY, double centerX, double centerY, double radius) {
+        double distance = Math.sqrt((centerX - pointX) * (centerX - pointX) + (centerY - pointY) * (centerY - pointY));
+        return distance <= radius;
     }
 
 }
