@@ -1,9 +1,5 @@
 package classes.ShootingGameClasses;
 
-import controllers.dictionaryjavafx.ShootingGameController;
-import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.Label;
-
 public class Bullet extends GameObject{
     private final String keyText;
 

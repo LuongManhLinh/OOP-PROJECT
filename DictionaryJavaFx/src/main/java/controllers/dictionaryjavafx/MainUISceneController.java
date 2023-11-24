@@ -43,6 +43,7 @@ public class MainUISceneController implements Initializable {
     @FXML private Label F3Label;
     @FXML private Label F4Label;
     @FXML private Label F5Label;
+    @FXML private Label F6Label;
     @FXML private Label EscLabel;
     @FXML private Label CtrlULabel;
     @FXML private Label CtrlDLabel;
@@ -183,6 +184,7 @@ public class MainUISceneController implements Initializable {
         F3Label.setVisible(false);
         F4Label.setVisible(false);
         F5Label.setVisible(false);
+        F6Label.setVisible(false);
         EscLabel.setVisible(false);
         CtrlULabel.setVisible(false);
         CtrlDLabel.setVisible(false);
@@ -362,6 +364,12 @@ public class MainUISceneController implements Initializable {
     }
     public void hideF5() {
         F5Label.setVisible(false);
+    }
+    public void showF6() {
+        F6Label.setVisible(true);
+    }
+    public void hideF6() {
+        F6Label.setVisible(false);
     }
     public void showEsc() {
         EscLabel.setVisible(true);

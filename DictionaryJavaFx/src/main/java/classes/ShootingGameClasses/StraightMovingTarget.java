@@ -35,10 +35,12 @@ public class StraightMovingTarget extends Target {
     }
 
     public void addDestination(Vector destination) {
+        if (destinations.isEmpty()) {
+            objectView.setPosition(destination);
+        }
         destinations.add(destination);
     }
 
-    // t, v
     @Override
     public void move() {
         AnimationTimer moveTimer = new AnimationTimer() {

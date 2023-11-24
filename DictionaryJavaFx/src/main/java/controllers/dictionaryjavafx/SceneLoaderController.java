@@ -15,11 +15,16 @@ public class SceneLoaderController {
     private static Stage stage;
 
     public static void setStage(Stage stage) {
+        stage.setResizable(false);
         SceneLoaderController.stage = stage;
         stage.setOnCloseRequest(event -> {
 //            DictionaryData.writeData(Dictionary.Type.EN_VI, EnViDictionary.getInstance().getWords(), EnViDictionary.getInstance().getKeyWords());
 //            DictionaryData.writeData(Dictionary.Type.VI_EN, ViEnDictionary.getInstance().getWords(), ViEnDictionary.getInstance().getKeyWords());
         });
+    }
+
+    public static Stage getStage() {
+        return stage;
     }
 
     public static void exitApp() {

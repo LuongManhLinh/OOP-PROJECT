@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.MainUISceneController">
+<AnchorPane fx:id="anchorPane" maxHeight="600.0" maxWidth="1000.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.MainUISceneController">
     <children>
         <ListView fx:id="searchingResultList" fixedCellSize="25.0" layoutX="208.0" layoutY="86.0" maxHeight="511.0" prefHeight="511.0" prefWidth="227.0" stylesheets="@../../ListViewStyles.css" />
         <WebView fx:id="meaningWebView" layoutX="438.0" layoutY="86.0" prefHeight="511.0" prefWidth="561.0" stylesheets="@../../WebViewStyles.css" />
@@ -136,7 +136,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="commandlineButton" alignment="TOP_LEFT" layoutY="205.0" mnemonicParsing="false" onAction="#selectCommandline" onMouseEntered="#showF5" onMouseExited="#hideF5" prefHeight="51.0" prefWidth="208.0" stylesheets="@../../mouse1.css" text="   Bản Commandline">
+                <Button fx:id="commandlineButton" alignment="TOP_LEFT" layoutY="257.0" mnemonicParsing="false" onAction="#selectCommandline" onMouseEntered="#showF6" onMouseExited="#hideF6" prefHeight="51.0" prefWidth="208.0" stylesheets="@../../mouse1.css" text="   Bản Commandline">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
@@ -160,37 +160,52 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Label fx:id="F1Label" layoutX="143.0" layoutY="26.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 5;" text="F1">
+                <Label fx:id="F1Label" layoutX="175.0" layoutY="32.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 5;" text="F1">
                     <font>
                         <Font name="System Bold Italic" size="14.0" />
                     </font>
                 </Label>
-                <Label fx:id="F2Label" layoutX="130.0" layoutY="77.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 5;" text="F2">
+                <Label fx:id="F2Label" layoutX="175.0" layoutY="77.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 5;" text="F2">
                     <font>
                         <Font name="System Bold Italic" size="14.0" />
                     </font>
                 </Label>
-                <Label fx:id="F3Label" layoutX="143.0" layoutY="128.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 5;" text="F3">
+                <Label fx:id="F3Label" layoutX="175.0" layoutY="128.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 5;" text="F3">
                     <font>
                         <Font name="System Bold Italic" size="14.0" />
                     </font>
                 </Label>
-                <Label fx:id="F4Label" layoutX="177.0" layoutY="179.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 5;" text="F4">
+                <Label fx:id="F4Label" layoutX="175.0" layoutY="185.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 5;" text="F4">
                     <font>
                         <Font name="System Bold Italic" size="14.0" />
                     </font>
                 </Label>
-                <Label fx:id="F5Label" layoutX="181.0" layoutY="231.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 5;" text="F5">
+                <Label fx:id="F5Label" layoutX="175.0" layoutY="231.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 5;" text="F5">
                     <font>
                         <Font name="System Bold Italic" size="14.0" />
                     </font>
                 </Label>
-                <Label fx:id="EscLabel" layoutX="168.0" layoutY="487.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 5;" text="Esc">
+            <Label fx:id="F6Label" layoutX="175.0" layoutY="295.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 5;" text="F6">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+                <Label fx:id="EscLabel" layoutX="175.0" layoutY="490.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 5;" text="Esc">
                     <font>
                         <Font name="System Bold Italic" size="14.0" />
                     </font>
                 </Label>
-                <Button layoutX="61.0" layoutY="309.0" mnemonicParsing="false" onAction="#selectShootingGame" text="ShootingGame" />
+                <Button alignment="TOP_LEFT" layoutY="206.0" mnemonicParsing="false" onAction="#selectShootingGame" onMouseEntered="#showF5" onMouseExited="#hideF5" prefHeight="25.0" prefWidth="208.0" stylesheets="@../../mouse1.css" text="   Shooting Game">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../gameAssets/ShootingGame/aim.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Button>
             </children>
         </AnchorPane>
         <Button fx:id="speaker" focusTraversable="false" layoutX="936.0" layoutY="30.0" mnemonicParsing="false" onAction="#speakerFunc" styleClass="default" stylesheets="@../../SwitchLanguege.css">
