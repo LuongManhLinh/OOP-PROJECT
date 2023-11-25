@@ -61,6 +61,14 @@ public class GameData {
         return normalEnglishKeyWords;
     }
 
+    public static HashMap<String, ArrayList<String>> getShootingGameWords() {
+        return shootingGameWords;
+    }
+
+    public static ArrayList<String> getShootingGameEnglishKeyWords() {
+        return shootingGameEnglishKeyWords;
+    }
+
 
     //These used for write data
     private static ArrayList<String> separateByComma(String meaning) {

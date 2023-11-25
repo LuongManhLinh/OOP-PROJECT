@@ -22,19 +22,6 @@ public class MakeRandom {
         return random.nextInt(max - min + 1) + min;
     }
 
-    /**
-     *
-     * @param min min
-     * @param max max
-     * @param ignore require min < ignore < max
-     * @return random number between min and max, ignore cannot be chosen
-     */
-    public static int random(int min, int max, int ignore) {
-        int num1 = random(min, ignore - 1);
-        int num2 = random(ignore + 1, max);
-        return randomTwoNumber(num1, num2);
-    }
-
     public static <T> T random (ArrayList<T> target) {
         int randomIndex = random(0, target.size() - 1);
         return target.get(randomIndex);

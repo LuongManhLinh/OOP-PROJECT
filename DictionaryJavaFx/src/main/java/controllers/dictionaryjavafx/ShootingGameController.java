@@ -2,6 +2,7 @@ package controllers.dictionaryjavafx;
 
 import classes.FXMLFiles;
 import classes.ShootingGameClasses.*;
+import classes.data.GameData;
 import classes.makerandom.MakeRandom;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
@@ -51,6 +52,9 @@ public class ShootingGameController implements Initializable {
     private static final List<Bullet> bullets = new ArrayList<>();
     private static final List<Target> targets = new ArrayList<>();
 
+    private int numberShowingBullet = 0;
+    private int numberShowingTarget = 0;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         instance = this;
@@ -60,50 +64,57 @@ public class ShootingGameController implements Initializable {
 
         bulletContainer.getChildren().clear();
 
-        for (int i = 0; i < 12; i++) {
-            int colorRandom = MakeRandom.random(1, 3);
-            GameObject.Color color = GameObject.Color.RED;
-            switch (colorRandom) {
-                case 1 -> color = GameObject.Color.RED;
-                case 2 -> color = GameObject.Color.BLUE;
-                case 3 -> color = GameObject.Color.GREEN;
-            }
-            StraightMovingTarget target = new StraightMovingTarget(color, "test", 1);
-
-            int numberDis = MakeRandom.random(2, 5);
-            for (int j = 0; j < numberDis; j++) {
-                target.addDestination(new Vector(MakeRandom.random(0, 1200), MakeRandom.random(0, 600)));
-            }
-            target.setVelocity(MakeRandom.random(50, 500));
-            addTarget(target);
-        }
-
-
         gamePane.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ESCAPE) {
                 changeScene(Status.START_GAME);
             }
         });
-
+        GameData.loadShootingGameData();
+        RoundGenerator.refillIndex();
         changeScene(Status.START_GAME);
     }
 
     public void addBullet(Bullet bullet) {
-        if (bullets.size() < 8) {
+        bullets.add(bullet);
+        if (numberShowingBullet < 7) {
             bulletContainer.getChildren().add(bullet.getObjectView().getShowText());
-            bullets.add(bullet);
+            numberShowingBullet++;
         }
     }
 
     public void addTarget(Target target) {
-        gamePane.getChildren().add(0, target.getObjectView().getShowText());
         targets.add(target);
+        if (targets.size() < 13) {
+            gamePane.getChildren().add(0, target.getObjectView().getShowText());
+            numberShowingTarget++;
+        }
+    }
+
+    public void addBullet(ArrayList<Bullet> bullets) {
+        for (Bullet bullet : bullets) {
+            addBullet(bullet);
+        }
+    }
+
+    public void addTarget(ArrayList<Target> targets) {
+        for (Target target : targets) {
+            addTarget(target);
+        }
     }
 
     public void removeBullet(Bullet bullet) {
         if (bullets.contains(bullet)) {
             bullets.remove(bullet);
-            bulletContainer.getChildren().remove(bullet.getObjectView().getShowText());
+            bulletContainer.getChildren().clear();
+            int num = 0;
+            for (Bullet value : bullets) {
+                bulletContainer.getChildren().add(value.getObjectView().getShowText());
+                num++;
+                if (num >= 7) {
+                    break;
+                }
+            }
+            numberShowingBullet--;
         }
     }
 
@@ -111,6 +122,7 @@ public class ShootingGameController implements Initializable {
         if (targets.contains(target)) {
             targets.remove(target);
             gamePane.getChildren().remove(target.getObjectView().getShowText());
+            numberShowingTarget--;
         }
     }
 
@@ -125,10 +137,10 @@ public class ShootingGameController implements Initializable {
     private void shootBullet(GameObject.Color color, double targetX, double targetY) {
         //tạo 1 viên đạn mới
         ImageView newBullet;
-        if(color == GameObject.Color.RED) {
+        if (color == GameObject.Color.RED) {
             newBullet = new ImageView(shootBulletRed.getImage());
         }
-        else if(color == GameObject.Color.BLUE) {
+        else if (color == GameObject.Color.BLUE) {
             newBullet = new ImageView(shootBulletBlue.getImage());
         }
         else {
@@ -236,6 +248,7 @@ public class ShootingGameController implements Initializable {
             case IN_GAME -> {
                 menuPane.setVisible(false);
                 gamePane.setVisible(true);
+                RoundGenerator.generateEnBullet_ViTarget(1);
                 for (Target target : targets) {
                     target.move();
                 }
@@ -267,6 +280,15 @@ public class ShootingGameController implements Initializable {
     private boolean pointInsideCircle(double pointX, double pointY, double centerX, double centerY, double radius) {
         double distance = Math.sqrt((centerX - pointX) * (centerX - pointX) + (centerY - pointY) * (centerY - pointY));
         return distance <= radius;
+    }
+
+    public void clear() {
+        bulletContainer.getChildren().clear();
+        bullets.clear();
+        for (Target target : targets) {
+            gamePane.getChildren().remove(target.getObjectView().getShowText());
+        }
+        targets.clear();
     }
 
 }

@@ -43,9 +43,7 @@ public class ViEnBookMark {
         if(!vieKey.contains(word))
             vieKey.add(word);
     }
-    //    public static List<String> lookUpInBookMark(String word){
-//        List<>
-//    }
+
     public static boolean checkInBookMark(String word){
         return vieKey.contains(word);
     }

@@ -12,7 +12,6 @@ $-bedroom-$ $+phòng-ngủ+$
 $-beef-$ $+bò+$
 $-beer-$ $+bia+$
 $-bicycle-$ $+xe-đạp+$
-$-blanket-$ $++$
 $-book-$ $+sách+$
 $-bookstore-$ $+cửa-hàng-sách+$
 $-bottle-$ $+chai+$
@@ -408,7 +407,7 @@ $-bane-$ $+nguyên-do nỗi-khổ+$
 $-bang-$ $+tóc-mái đánh-mạnh đánh-đập+$
 $-banner-$ $+ngọn-cờ+$
 $-bar-$ $+quầy-bán-rượu+$
-$-barbecue-$ $++$
+$-barbecue-$ $+lợn-(bò,-cừu)-quay+$
 $-bare-$ $+trần trần-truồng trọc trần-trụi+$
 $-barely-$ $+công-khai rõ-ràng+$
 $-bargain-$ $+sự-mặc-cả sự-thoả-thuận-mua-bán+$
@@ -459,7 +458,7 @@ $-bite-$ $+cắn sự-cắn miếng-cắn+$
 $-bizarre-$ $+kỳ-quái kỳ-dị+$
 $-blameless-$ $+không-thể-chê-được+$
 $-blank-$ $+chỗ-trống để-trống trống-rỗng bần-thần+$
-$-blanket-$ $++$
+$-blanket-$ $+cái-chăn+$
 $-blasé-$ $+dửng-dưng quá-quen-rồi+$
 $-bleed-$ $+chảy-máu+$
 $-blend-$ $+hỗn-hợp trộn-lẫn pha-trộn+$
@@ -652,7 +651,7 @@ $-deadly-$ $+làm-chết-người trí-mạng chí-tử+$
 $-dearth-$ $+sự-khan-hiếm đói-kém+$
 $-debate-$ $+cuộc-tranh-luận tranh-luận+$
 $-debris-$ $+mảnh-vỡ mảnh-vụn đống-đổ-nát+$
-$-debut-$ $++$
+$-debut-$ $+bước-đầu,-buổi-đầu+$
 $-deceased-$ $+đã-chết qua-đời+$
 $-decoration-$ $+sự-trang-hoàng trang-trí+$
 $-dedicated-$ $+tận-tâm tận-tụy+$
@@ -1123,8 +1122,7 @@ $-listing-$ $+sự-lập-danh-sách+$
 $-listless-$ $+bơ-phờ lờ-phờ+$
 $-literacy-$ $+sự-biết-viết-biết-đọc+$
 $-literary-$ $+(thuộc)-văn-chương có-tính-văn-chương nghĩa-bóng+$
-$-litre-$ $+lít-(đơn-vị-đo-thể-tích)+$
-$-litter-$ $++$
+$-litter-$ $+rác-rưởi-bừa-bãi+$
 $-little-$ $+nhỏ-bé ít-ỏi+$
 $-livelihood-$ $+cách-sinh-nhai sinh-kế+$
 $-liver-$ $+gan-(của-người,-của-súc-vật)+$
@@ -1192,7 +1190,6 @@ $-miniature-$ $+bức-tiểu-họa hình-thu-nhỏ nhỏ thu-nhỏ-lại+$
 $-minimal-$ $+tối-thiểu+$
 $-minimize-$ $+giảm-đến-mức-tối-thiểu+$
 $-minnow-$ $+cá-tuế-(họ-cá-chép)+$
-$-minute-$ $++$
 $-miracle-$ $+phép-màu phép-kì-diệu+$
 $-mirage-$ $+ảo-tưởng ảo-vọng+$
 $-mischievous-$ $+tinh-nghịch tinh-quái ranh-mãnh láu-lỉnh+$
@@ -1245,7 +1242,7 @@ $-notorious-$ $+lừng-danh khét-tiếng tai-tiếng+$
 $-novelist-$ $+người-viết-tiểu-thuyết+$
 $-nuisance-$ $+sự-phiền-hà mối-phiền-toái gây-khó-chịu+$
 $-nursery-$ $+nhà-trẻ+$
-$-nursing-$ $++$
+$-nursing-$ $+sự điều dưỡng+$
 $-nurture-$ $+sự-nuôi-dưỡng giáo-dục nuôi-nấng dưỡng-giục+$
 $-nutrition-$ $+sự-dinh-dưỡng+$
 $-obesity-$ $+sự-béo-phì+$
@@ -1325,7 +1322,7 @@ $-pleasant-$ $+làm-thích-ý vừa-ý vui-vẻ dễ-thương+$
 $-pluck-$ $+nhổ bứt hái+$
 $-plump-$ $+thẳng-thừng không-quanh-co úp-mở bụ-bẫm phúng-phính đầy-đặn+$
 $-plunge-$ $+sự-lao-xuống thọc lao đâm-sâu-vào+$
-$-podium-$ $++$
+$-podium-$ $+bục-giảng,-dãy-ghế-vòng+$
 $-polite-$ $+lễ-phép lịch-thiệp lịch-sự+$
 $-pond-$ $+cái-ao+$
 $-portion-$ $+phần-chia khẩu-phần chia-phần phân-phát+$
@@ -1387,7 +1384,6 @@ $-pulse-$ $+mạch+$
 $-punch-$ $+một-cú-đấm+$
 $-punctual-$ $+đúng-giờ đúng-thời-điểm+$
 $-punishment-$ $+sự-trừng-trị sự-bị-trừng-phạt+$
-$-punk-$ $++$
 $-purchase-$ $+sự-mua-sắm vật-mua-được mua sắm tậu trả-giá+$
 $-pure-$ $+nguyên-chất tinh-khiết trong-lành thanh-khiết+$
 $-puzzle-$ $+câu-đố+$
@@ -1484,7 +1480,7 @@ $-scholar-$ $+nhà-nghiên-cứu học-giả+$
 $-scholarship-$ $+học-bổng+$
 $-scratch-$ $+noun:-vết-xước vết-thương-nhẹ+$
 $-scrawny-$ $+gầy-nhẳng gầy-giơ-xương+$
-$-screening-$ $++$
+$-screening-$ $+sự-chiếu-phim+$
 $-scribble-$ $+viết-nguệch-ngoạc chữ-viết-cẩu-thả+$
 $-scrutinize-$ $+nhìn-chăm-chú nhìn-kỹ+$
 $-secluded-$ $+hẻo-lánh+$
@@ -1510,7 +1506,7 @@ $-severe-$ $+khắt-khe gay-gắt+$
 $-severely-$ $+khắc-khe gay-gắt+$
 $-sewer-$ $+người-khâu người-may-vá+$
 $-sexy-$ $+gợi-cảm+$
-$-shaped-$ $++$
+$-shaped-$ $+có-hình-dáng+$
 $-sheer-$ $+không-giới-hạn không-kiểm-soát thẳng-đứng vuông-góc+$
 $-shield-$ $+cái-mộc cái-khiên che-chở bảo-vệ+$
 $-shiny-$ $+sáng-chói bóng+$
@@ -1629,7 +1625,6 @@ $-syndrome-$ $+hội-chứng+$
 $-talkative-$ $+thích-nói hay-nói lắm-mồm ba-hoa bép-xép+$
 $-tall-$ $+cao cao-hơn-trung-bình+$
 $-tame-$ $+thuần-hóa đã-thuần-hoá-(thú-rừng..)+$
-$-tandem-$ $++$
 $-tangible-$ $+hữu-hình có-thể-sờ-mó-được+$
 $-taut-$ $+căng không-bị-chùng+$
 $-tavern-$ $+quán-rượu quán-trọ+$
@@ -1720,7 +1715,7 @@ $-utilize-$ $+dùng sử-dụng tận-dụng+$
 $-vacant-$ $+trống rỗng+$
 $-vague-$ $+mơ-hồ lờ-mờ mập-mờ+$
 $-valiant-$ $+anh-dũng anh-hùng+$
-$-valour-$ $++$
+$-valour-$ $+sự-dũng-cảm+$
 $-vanquish-$ $+thắng đánh-bại chế-ngự khắc-phục vượt-qua+$
 $-variable-$ $+biến-động hay-thay-đổi+$
 $-variation-$ $+sự-biến-động sự-thay-đổi+$

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class EnViBookMark{
+public class EnViBookMark {
     private static ArrayList<String> engKey = new ArrayList<>();
     private static final String EN_VI_MARK = "src/main/resources/data/EnViBookMark.txt";
 
@@ -44,9 +44,7 @@ public class EnViBookMark{
         if(!engKey.contains(word))
             engKey.add(word);
     }
-    //    public static List<String> lookUpInBookMark(String word){
-//        List<>
-//    }
+
     public static boolean checkInBookMark(String word){
         return engKey.contains(word);
     }
