@@ -69,8 +69,8 @@ public class ShootingGameController implements Initializable {
                 changeScene(Status.START_GAME);
             }
         });
+
         GameData.loadShootingGameData();
-        RoundGenerator.refillIndex();
         changeScene(Status.START_GAME);
     }
 
@@ -245,14 +245,17 @@ public class ShootingGameController implements Initializable {
                 menuPane.setVisible(true);
                 gamePane.setVisible(false);
             }
+
             case IN_GAME -> {
                 menuPane.setVisible(false);
                 gamePane.setVisible(true);
+                RoundGenerator.refillIndex();
                 RoundGenerator.generateEnBullet_ViTarget(1);
                 for (Target target : targets) {
                     target.move();
                 }
             }
+
             case END_GAME -> {
 
             }
@@ -289,5 +292,7 @@ public class ShootingGameController implements Initializable {
             gamePane.getChildren().remove(target.getObjectView().getShowText());
         }
         targets.clear();
+        numberShowingBullet = 0;
+        numberShowingTarget = 0;
     }
 }

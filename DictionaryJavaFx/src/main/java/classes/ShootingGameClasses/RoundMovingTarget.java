@@ -12,6 +12,11 @@ public class RoundMovingTarget extends Target {
     private double moveVelocity = 0;
     private Vector moveDirection = new Vector(0, 0);
     private long timeBefore = 0;
+
+    public RoundMovingTarget(Color color, String showText, double score) {
+        super(color, showText, score);
+    }
+
     public RoundMovingTarget(Color color, String showText, double score, Vector center, double radius) {
         super(color, showText, score);
         this.center = center;
@@ -66,14 +71,6 @@ public class RoundMovingTarget extends Target {
 
     public void setRadius(double radius) {
         this.radius = radius;
-    }
-
-    public double getDegree() {
-        return degree;
-    }
-
-    public void setDegree(double degree) {
-        this.degree = degree;
     }
 
     public double getRoundVelocity() {
