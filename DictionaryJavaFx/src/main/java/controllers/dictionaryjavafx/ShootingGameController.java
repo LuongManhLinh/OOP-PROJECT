@@ -42,7 +42,7 @@ public class ShootingGameController implements Initializable {
     }
 
     private static final int SPIN_POINT_X = 30;
-    private static final int SPIN_POINT_Y = 671;
+    private static final int SPIN_POINT_Y = 679;
 
     private static ShootingGameController instance;
     public static ShootingGameController getInstance() {
@@ -290,5 +290,4 @@ public class ShootingGameController implements Initializable {
         }
         targets.clear();
     }
-
 }
