@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.web.*?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -19,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.MainUISceneController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.MainUISceneController">
     <children>
         <ListView fx:id="searchingResultList" fixedCellSize="25.0" layoutX="208.0" layoutY="86.0" maxHeight="511.0" prefHeight="511.0" prefWidth="227.0" stylesheets="@../../ListViewStyles.css" />
         <WebView fx:id="meaningWebView" layoutX="438.0" layoutY="86.0" prefHeight="511.0" prefWidth="561.0" stylesheets="@../../WebViewStyles.css" />
@@ -144,7 +136,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="commandlineButton" alignment="TOP_LEFT" layoutY="308.0" mnemonicParsing="false" onAction="#selectCommandline" onMouseEntered="#showF6" onMouseExited="#hideF6" prefHeight="51.0" prefWidth="208.0" stylesheets="@../../mouse1.css" text="   Bản Commandline">
+                <Button fx:id="commandlineButton" alignment="TOP_LEFT" layoutY="308.0" mnemonicParsing="false" onAction="#selectCommandline" onMouseEntered="#showF7" onMouseExited="#hideF7" prefHeight="51.0" prefWidth="208.0" stylesheets="@../../mouse1.css" text="   Bản Commandline">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
@@ -156,7 +148,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button fx:id="exitAppButton" alignment="TOP_LEFT" layoutY="461.0" mnemonicParsing="false" onAction="#selectExitApp" onMouseEntered="#showEsc" onMouseExited="#hideEsc" prefHeight="51.0" prefWidth="208.0" stylesheets="@../../mouse1.css" text="   Thoát ứng dụng">
+                <Button fx:id="exitAppButton" alignment="TOP_LEFT" layoutY="463.0" mnemonicParsing="false" onAction="#selectExitApp" onMouseEntered="#showEsc" onMouseExited="#hideEsc" prefHeight="51.0" prefWidth="208.0" stylesheets="@../../mouse1.css" text="   Thoát ứng dụng">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
@@ -193,7 +185,7 @@
                         <Font name="System Bold Italic" size="14.0" />
                     </font>
                 </Label>
-            <Label fx:id="F6Label" layoutX="177.0" layoutY="334.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 5;" text="F6">
+            <Label fx:id="F7Label" layoutX="177.0" layoutY="334.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 5;" text="F7">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>
@@ -203,7 +195,7 @@
                         <Font name="System Bold Italic" size="14.0" />
                     </font>
                 </Label>
-                <Button alignment="TOP_LEFT" layoutY="205.0" mnemonicParsing="false" onAction="#selectShootingGame" onMouseEntered="#showF5" onMouseExited="#hideF5" prefHeight="52.0" prefWidth="208.0" stylesheets="@../../mouse1.css" text="   Shooting Game">
+                <Button fx:id="shootingGameButton" alignment="TOP_LEFT" layoutY="205.0" mnemonicParsing="false" onAction="#selectShootingGame" onMouseEntered="#showF5" onMouseExited="#hideF5" prefHeight="52.0" prefWidth="208.0" stylesheets="@../../mouse1.css" text="   Shooting Game">
                <graphic>
                   <ImageView fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -214,7 +206,7 @@
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></Button>
-            <Button alignment="TOP_LEFT" layoutY="257.0" mnemonicParsing="false" onAction="#BookMarkFunc" onMouseEntered="#showF5" onMouseExited="#hideF5" prefHeight="52.0" prefWidth="208.0" stylesheets="@../../mouse1.css" text="   BookMark">
+            <Button fx:id="bookMarkButton" alignment="TOP_LEFT" layoutY="257.0" mnemonicParsing="false" onAction="#BookMarkFunc" onMouseEntered="#showF6" onMouseExited="#hideF6" prefHeight="52.0" prefWidth="208.0" stylesheets="@../../mouse1.css" text="   BookMark">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -226,6 +218,11 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Label fx:id="F6Label" layoutX="123.0" layoutY="283.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 5;" text="F6">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
         <Button fx:id="speaker" focusTraversable="false" layoutX="936.0" layoutY="30.0" mnemonicParsing="false" onAction="#speakerFunc" styleClass="default" stylesheets="@../../SwitchLanguege.css">

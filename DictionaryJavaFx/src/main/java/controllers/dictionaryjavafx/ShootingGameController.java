@@ -127,14 +127,15 @@ public class ShootingGameController implements Initializable {
         gamePane.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) { //click chuột trái
                 GameObject.Color bulletColor = bullets.get(bullets.size() - 1).getColor();
-                shootBullet(bulletColor, event.getSceneX(), event.getSceneY());
+                shootBullet(bulletColor);
             }
         });
     }
 
-    private void shootBullet(GameObject.Color color, double targetX, double targetY) {
+    private void shootBullet(GameObject.Color color) {
         if(numberShowingBullet <= 0) return;
-        removeBullet(bullets.get(bullets.size() - 1));
+        Bullet currentBullet = bullets.get(bullets.size() - 1);
+        removeBullet(currentBullet);
         //tạo 1 viên đạn mới
         ImageView newBullet;
         if (color == GameObject.Color.RED) {
@@ -179,8 +180,10 @@ public class ShootingGameController implements Initializable {
                     countStep++;
                     for(Target t : targets) {
                         if(checkCollision(newBullet, t)) {
-                            removeTarget(t);
                             countStep = numSteps;
+                            if(currentBullet.getKeyText().equalsIgnoreCase(t.getShowText())) {
+                                removeTarget(t);
+                            }
                             break;
                         }
                     }
@@ -261,7 +264,6 @@ public class ShootingGameController implements Initializable {
             case IN_GAME -> {
                 menuPane.setVisible(false);
                 gamePane.setVisible(true);
-                RoundGenerator.refillIndex();
                 changeRoundAutomatically();
             }
 
@@ -272,74 +274,81 @@ public class ShootingGameController implements Initializable {
     }
 
     private void changeRoundAutomatically() {
-        if (round < 6) {
+        if (round < 7) {
             // round đầu
             setRound(round);
             round++;
-            startRound2();
+            Timeline timeline1 = new Timeline(new KeyFrame(
+                    Duration.seconds(5),
+                    event -> {
+                        startRound2();
+                    }
+            ));
+            timeline1.play();
         }
     }
     private void startRound2() {
+        setRound(round);
+        round++;
         Timeline timeline2 = new Timeline(new KeyFrame(
-                Duration.seconds(5),
+                Duration.seconds(55),
                 event -> {
-                    setRound(round);
-                    round++;
                     startRound3();
                 }
         ));
         timeline2.play();
     }
     private void startRound3() {
+        setRound(round);
+        round++;
         Timeline timeline3 = new Timeline(new KeyFrame(
                 Duration.seconds(5),
                 event -> {
-                    setRound(round);
-                    round++;
                     startRound4();
                 }
         ));
         timeline3.play();
     }
     private void startRound4() {
+        setRound(round);
+        round++;
         Timeline timeline4 = new Timeline(new KeyFrame(
                 Duration.seconds(5),
                 event -> {
-                    setRound(round);
-                    round++;
                     startRound5();
                 }
         ));
         timeline4.play();
     }
     private void startRound5() {
+        setRound(round);
+        round++;
         Timeline timeline5 = new Timeline(new KeyFrame(
                 Duration.seconds(5),
                 event -> {
-                    setRound(round);
-                    round++;
                     startRound6();
                 }
         ));
         timeline5.play();
     }
     private void startRound6() {
+        setRound(round);
+        round++;
         Timeline timeline6 = new Timeline(new KeyFrame(
                 Duration.seconds(5),
                 event -> {
-                    setRound(round);
-                    round++;
                     startRound7();
                 }
         ));
         timeline6.play();
     }
     private void startRound7() {
+        setRound(round);
+        round++;
         Timeline timeline7 = new Timeline(new KeyFrame(
                 Duration.seconds(5),
                 event -> {
-                    setRound(round);
-                    round++;
+                    System.out.println("eeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
                 }
         ));
         timeline7.play();
@@ -347,6 +356,7 @@ public class ShootingGameController implements Initializable {
 
     private void setRound(int round) {
         clear();
+        RoundGenerator.refillIndex();
         RoundGenerator.generateEnBullet_ViTarget(round);
         for (Target target : targets) {
             target.move();

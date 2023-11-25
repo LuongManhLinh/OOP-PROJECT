@@ -33,6 +33,10 @@ public abstract class Target extends GameObject {
         }
     }
 
+    public String getShowText() {
+        return showText;
+    }
+
     public void loadView() {
         switch (color) {
             case RED -> objectView = new ObjectView(showText, ObjectImages.redTarget);

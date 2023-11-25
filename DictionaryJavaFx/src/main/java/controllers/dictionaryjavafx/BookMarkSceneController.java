@@ -17,7 +17,10 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.util.Duration;
@@ -27,6 +30,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class BookMarkSceneController implements Initializable {
+    @FXML private AnchorPane pane;
     @FXML private TextField searchWord;
     @FXML private ListView<String> listWordInSearch;
     @FXML private WebView meaningWord;
@@ -34,8 +38,10 @@ public class BookMarkSceneController implements Initializable {
     @FXML private Button speaker;
     @FXML private ImageView unmarked, marked;
     @FXML private Label errorLabel;
-    @FXML private Button backToMainUI;
+    @FXML private Button backToMainUIButton;
+    @FXML private Button changeLanguageButton;
     @FXML private Label CtrlDLabel;
+    @FXML private Label EscLabel;
     private final double FLAG_POS_X_LEFT = 15;
     private final double FLAG_POS_X_RIGHT = 150;
 
@@ -108,6 +114,25 @@ public class BookMarkSceneController implements Initializable {
         });
 
         handleSearching();
+        setOnKeyPressed();
+    }
+    private void setOnKeyPressed() {
+        pane.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ESCAPE) {
+                backToMainUI();
+            }
+        });
+        pane.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ESCAPE) {
+                backToMainUI();
+            }
+        });
+        final KeyCodeCombination backToMainUi = new KeyCodeCombination(KeyCode.ESCAPE);
+        final KeyCodeCombination changeLanguage = new KeyCodeCombination(KeyCode.D, KeyCombination.CONTROL_DOWN);
+        pane.setOnKeyPressed(keyEvent -> {
+            if (backToMainUi.match(keyEvent)) backToMainUIButton.fire();
+            if (changeLanguage.match(keyEvent)) changeLanguageButton.fire();
+        });
     }
 
     private void handleSearching() {
@@ -161,7 +186,6 @@ public class BookMarkSceneController implements Initializable {
 //        speaker.setVisible(false);
         unmarked.setVisible(false);
         marked.setVisible(false);
-        CtrlDLabel.setVisible(false);
     }
 
     public void show() {
@@ -274,7 +298,13 @@ public class BookMarkSceneController implements Initializable {
     public void hideCtrlD() {
         CtrlDLabel.setVisible(false);
     }
-    public void backToMainUI(ActionEvent event){
+    public void showEsc() {
+        EscLabel.setVisible(true);
+    }
+    public void hideEsc() {
+        EscLabel.setVisible(false);
+    }
+    public void backToMainUI(){
         SceneLoaderController.loadScene(FXMLFiles.MAIN_UI_SCENE);
     }
 }
