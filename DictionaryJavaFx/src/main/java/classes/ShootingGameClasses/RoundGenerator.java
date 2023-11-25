@@ -4,6 +4,7 @@ import classes.data.GameData;
 import classes.data.WordWork;
 import classes.makerandom.MakeRandom;
 import controllers.dictionaryjavafx.ShootingGameController;
+import javafx.scene.control.Label;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,7 +39,7 @@ public class RoundGenerator {
                 }
 
                 controller.addTarget(new StillTarget(randomColor, targetWord, 1,
-                        new Vector(MakeRandom.random(400, 800), MakeRandom.random(200, 400))));
+                        new Vector(MakeRandom.random(400, 1100), MakeRandom.random(200, 400))));
             }
 
             /*
@@ -211,59 +212,90 @@ public class RoundGenerator {
                 controller.addBullet(bullets);
             }
 
+            /*
+            Round 7 has 2 teleporting still targets, 2 still targets and 2 straight moving target and 1 round moving target
+            since there are 7 target, we have 20 bullets, each target has 2 true bullet
+             */
             case 7 -> {
+                ArrayList<Bullet> bullets = new ArrayList<>();
+                for (int i = 0; i < 2; i++) {
+                    int randomIndex = randomAndRemoveIndex();
+                    String bulletText = key.get(randomIndex);
+                    String targetText = MakeRandom.random(words.get(bulletText));
 
+                    TeleportingStillTarget target = new TeleportingStillTarget(getRandomColor(), targetText, 2);
+                    target.addPosition(new Vector(MakeRandom.random(100, 200), MakeRandom.random(0, 100)));
+                    target.addPosition(new Vector(MakeRandom.random(1000, 1200), MakeRandom.random(500, 600)));
+                    target.setTimeToJump(3);
+                    controller.addTarget(target);
+
+                    bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
+                    bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
+                }
+
+                for (int i = 0; i < 2; i++) {
+                    int randomIndex = randomAndRemoveIndex();
+                    String bulletText = key.get(randomIndex);
+                    String targetText = MakeRandom.random(words.get(bulletText));
+
+                    controller.addTarget(new StillTarget(getRandomColor(), targetText, 1,
+                            new Vector(MakeRandom.random(300, 500) + i * 300, MakeRandom.random(300, 500))));
+
+                    bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
+                    bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
+                }
+
+                for (int i = 0; i < 2; i++) {
+                    int randomIndex = randomAndRemoveIndex();
+                    String bulletText = key.get(randomIndex);
+                    String targetText = MakeRandom.random(words.get(bulletText));
+
+                    StraightMovingTarget target = new StraightMovingTarget(getRandomColor(), targetText, 3);
+                    if (i == 0) {
+                        target.addDestination(new Vector(50, 0));
+                        target.addDestination(new Vector(500, 0));
+                        target.addDestination(new Vector(300, 0));
+                        target.addDestination(new Vector(700, 0));
+                        target.addDestination(new Vector(MakeRandom.random(1000, 1200), MakeRandom.random(100, 200)));
+                        target.addDestination(new Vector(800, 100));
+                    } else {
+                        target.addDestination(new Vector(200, 250));
+                        target.addDestination(new Vector(MakeRandom.random(300, 400), MakeRandom.random(150, 350)));
+                        target.addDestination(new Vector(MakeRandom.random(350, 700), MakeRandom.random(150, 350)));
+                        target.addDestination(new Vector(200, 250));
+                    }
+                    target.setVelocity(200);
+                    controller.addTarget(target);
+
+                    bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
+                    bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
+                }
+
+                int randomIndex = randomAndRemoveIndex();
+                String bulletText = key.get(randomIndex);
+                String targetText = MakeRandom.random(words.get(bulletText));
+
+                RoundMovingTarget target = new RoundMovingTarget(getRandomColor(), targetText, 1.5, new Vector(550, 275), 100);
+                controller.addTarget(target);
+                bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
+                bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
+
+                for (int i = 0; i < 6; i++) {
+                    int randomWrongIndex = MakeRandom.random(remainIndex);
+                    bullets.add(new Bullet(getRandomColor(), key.get(randomWrongIndex), ""));
+                }
+                MakeRandom.shuffle(bullets);
+                controller.addBullet(bullets);
             }
 
+            /*
+            Round 8 has 12 random targets divided by 2 phases
+             */
             case 8 -> {
 
             }
 
             case 9 -> {
-
-            }
-
-            case 10 -> {
-
-            }
-
-            case 11 -> {
-
-            }
-
-            case 12 -> {
-
-            }
-
-            case 13 -> {
-
-            }
-
-            case 14 -> {
-
-            }
-
-            case 15 -> {
-
-            }
-
-            case 16 -> {
-
-            }
-
-            case 17 -> {
-
-            }
-
-            case 18 -> {
-
-            }
-
-            case 19 -> {
-
-            }
-
-            case 20 -> {
 
             }
 
