@@ -24,8 +24,8 @@ public class RoundGenerator {
              */
             case 1 -> {
                 int randomWordIndex = randomAndRemoveIndex();
-                String bulletWord = key.get(randomWordIndex);
-                String targetWord = MakeRandom.random(words.get(bulletWord));
+                String bulletWord = key.get(randomWordIndex); //tu tieng anh
+                String targetWord = MakeRandom.random(words.get(bulletWord));//nghia tieng viet
                 GameObject.Color randomColor = getRandomColor();
 
                 int randomBulletPos = MakeRandom.random(0, 3);
@@ -306,6 +306,7 @@ public class RoundGenerator {
     }
 
     public static void refillIndex() {
+        //tat ca cac tu
         ArrayList<Integer> result = new ArrayList<>();
         for (int i = 0; i < GameData.getShootingGameWords().size(); i++) {
             result.add(i);

@@ -53,6 +53,7 @@ public class MainUISceneController implements Initializable {
     @FXML private Button updateWordButton;
     @FXML private Button translateTextButton;
     @FXML private Button experimentGameButton;
+    @FXML private Button shootingGameButton;
     @FXML private Button commandlineButton;
     @FXML private Button exitAppButton;
 
@@ -347,7 +348,8 @@ public class MainUISceneController implements Initializable {
         final KeyCodeCombination goToUpdateWord = new KeyCodeCombination(KeyCode.F2);
         final KeyCodeCombination goToTranslateText = new KeyCodeCombination(KeyCode.F3);
         final KeyCodeCombination goToExperimentGame = new KeyCodeCombination(KeyCode.F4);
-        final KeyCodeCombination goToCommandline = new KeyCodeCombination(KeyCode.F5);
+        final KeyCodeCombination goToShootingGame = new KeyCodeCombination(KeyCode.F5);
+        final KeyCodeCombination goToCommandline = new KeyCodeCombination(KeyCode.F6);
         final KeyCodeCombination exitApp = new KeyCodeCombination(KeyCode.ESCAPE);
         final KeyCodeCombination updateWordFromMainUI = new KeyCodeCombination(KeyCode.U, KeyCombination.CONTROL_DOWN);
         final KeyCodeCombination switchLanguage = new KeyCodeCombination(KeyCode.D, KeyCodeCombination.CONTROL_DOWN);
@@ -357,6 +359,7 @@ public class MainUISceneController implements Initializable {
             if (goToUpdateWord.match(keyEvent)) updateWordButton.fire();
             if (goToTranslateText.match(keyEvent)) translateTextButton.fire();
             if (goToExperimentGame.match(keyEvent)) experimentGameButton.fire();
+            if (goToShootingGame.match(keyEvent)) shootingGameButton.fire();
             if (goToCommandline.match(keyEvent)) commandlineButton.fire();
             if (exitApp.match(keyEvent)) exitAppButton.fire();
             if (updateWordFromMainUI.match(keyEvent)) editWordButton.fire();
