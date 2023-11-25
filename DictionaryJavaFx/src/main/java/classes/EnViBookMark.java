@@ -51,4 +51,23 @@ public class EnViBookMark {
     public static void remove(String word){
         engKey.remove(word);
     }
+    public static ArrayList<String> lookUp(String engWord){
+        ArrayList<String> result = new ArrayList<>();
+        if (engWord != null && !engWord.isEmpty()) {
+            engWord = engWord.trim();
+            engWord = engWord.toLowerCase();
+            int pos = DictionaryManagementForApp.binarySearch(engWord, engKey);
+            if (pos == -1) {
+                return result;
+            }
+            for (int i = pos; i < engKey.size(); i++) {
+                if (engKey.get(i).indexOf(engWord) == 0) {
+                    result.add(engKey.get(i));
+                } else {
+                    break;
+                }
+            }
+        }
+        return result;
+    }
 }

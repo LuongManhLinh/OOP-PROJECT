@@ -8,11 +8,11 @@ import java.util.Scanner;
 
 public class ViEnBookMark {
     private static ArrayList<String> vieKey = new ArrayList<>();
-    private static final String EN_VI_MARK = "src/main/resources/data/ViEnBookMark.txt";
+    private static final String VI_EN_MARK = "src/main/resources/data/ViEnBookMark.txt";
 
     public static void loadBookMark(){
         try {
-            Scanner fileScanner = new Scanner(new FileReader(EN_VI_MARK));
+            Scanner fileScanner = new Scanner(new FileReader(VI_EN_MARK));
             String line, key;
             while (fileScanner.hasNext()) {
                 line = fileScanner.nextLine();
@@ -26,7 +26,7 @@ public class ViEnBookMark {
         }
     }
     public static void writeBookMark(){
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(EN_VI_MARK))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(VI_EN_MARK))) {
             for (String eachWord : vieKey) {
                 String vieKeyWord = WordWork.encodeForm(eachWord, true);
 
@@ -36,18 +36,38 @@ public class ViEnBookMark {
             e.printStackTrace();
         }
     }
-    public static ArrayList<String> getEngKey(){
+    public static ArrayList<String> getVieKey(){
         return vieKey;
     }
     public static void insertToBookMark(String word){
         if(!vieKey.contains(word))
             vieKey.add(word);
     }
-
     public static boolean checkInBookMark(String word){
         return vieKey.contains(word);
     }
     public static void remove(String word){
         vieKey.remove(word);
     }
+
+    public static ArrayList<String> lookUp(String engWord){
+        ArrayList<String> result = new ArrayList<>();
+        if (engWord != null && !engWord.isEmpty()) {
+            engWord = engWord.trim();
+            engWord = engWord.toLowerCase();
+            int pos = DictionaryManagementForApp.binarySearch(engWord, vieKey);
+            if (pos == -1) {
+                return result;
+            }
+            for (int i = pos; i < vieKey.size(); i++) {
+                if (vieKey.get(i).indexOf(engWord) == 0) {
+                    result.add(vieKey.get(i));
+                } else {
+                    break;
+                }
+            }
+        }
+        return result;
+    }
 }
+

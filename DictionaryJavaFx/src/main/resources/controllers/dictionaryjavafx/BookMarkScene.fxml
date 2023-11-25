@@ -1,14 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.web.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.dictionaryjavafx.BookMarkSceneController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.BookMarkSceneController">
+    <children>
+        <Button fx:id="backToMainUI" layoutX="42.0" layoutY="40.0" mnemonicParsing="false" onAction="#backToMainUI" prefHeight="36.0" prefWidth="76.0" stylesheets="@../../ButtonStyles.css" text="Quay lại" />
+        <ImageView fitHeight="71.0" fitWidth="87.0" layoutX="272.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true" />
+        <AnchorPane layoutX="218.0" layoutY="-36.0" prefHeight="132.0" prefWidth="227.0">
+            <children>
+                <Button focusTraversable="false" layoutX="79.0" layoutY="85.0" mnemonicParsing="false" onAction="#onSearchingTypeChanged" onMouseEntered="#showCtrlD" onMouseExited="#hideCtrlD" prefHeight="26.0" prefWidth="38.0" styleClass="default" stylesheets="@../../SwitchLanguege.css">
+                    <graphic>
+                        <ImageView fitHeight="33.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <image>
+                                <Image url="@../../image/tuonduong.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Label fx:id="engImage" contentDisplay="TOP" layoutX="14.0" layoutY="79.0" prefHeight="71.0" prefWidth="50.0" text="Anh">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="53.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../image/britain.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Label>
+                <Label fx:id="viImage" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="144.0" layoutY="81.0" prefHeight="71.0" prefWidth="50.0" text="Việt" textAlignment="RIGHT" textOverrun="LEADING_ELLIPSIS" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="70.0" fitWidth="50.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../image/vietnam.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Label>
+                <Label fx:id="CtrlDLabel" layoutX="95.0" layoutY="120.0" opacity="0.75" style="-fx-background-radius: 5;" text="Ctrl+D">
+                    <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <WebView fx:id="meaningWord" layoutX="448.0" layoutY="151.0" prefHeight="456.0" prefWidth="561.0" stylesheets="@../../WebViewStyles.css" />
+        <ListView fx:id="listWordInSearch" fixedCellSize="25.0" layoutX="218.0" layoutY="151.0" maxHeight="511.0" prefHeight="456.0" prefWidth="227.0" stylesheets="@../../ListViewStyles.css" />
+        <TextField fx:id="searchWord" layoutX="218.0" layoutY="116.0" prefHeight="35.0" prefWidth="227.0" promptText="Nhập từ cần tra" stylesheets="@../../TextFieldStyles.css" />
+        <ImageView fx:id="marked" fitHeight="47.0" fitWidth="50.0" layoutX="927.0" layoutY="151.0" onMouseClicked="#markedWord" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../image/marked.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="unmarked" fitHeight="51.0" fitWidth="50.0" layoutX="927.0" layoutY="151.0" onMouseClicked="#unmarkedWord" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../image/unmarked.png" />
+            </image>
+        </ImageView>
+        <Label alignment="TOP_LEFT" layoutX="505.0" layoutY="26.0" prefHeight="86.0" prefWidth="343.0" text="Đây chính là thư viện mini chứa tất cả những từ đã  lưu của bạn ở thư viện HCL. Bạn có thể sử dụng từ điển mini này để cải thiện việc học tốt hơn!" textFill="#cd2daf" wrapText="true">
+            <font>
+                <Font name="System Bold Italic" size="15.0" />
+            </font>
+        </Label>
+    </children>
 </AnchorPane>

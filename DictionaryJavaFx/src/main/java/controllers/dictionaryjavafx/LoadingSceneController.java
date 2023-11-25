@@ -2,6 +2,7 @@ package controllers.dictionaryjavafx;
 
 import classes.EnViBookMark;
 import classes.FXMLFiles;
+import classes.ViEnBookMark;
 import classes.data.DictionaryData;
 import classes.data.GameData;
 import javafx.animation.KeyFrame;
@@ -14,6 +15,7 @@ public class LoadingSceneController {
                 new KeyFrame(Duration.millis(1), event -> {
                     DictionaryData.loadData();
                     EnViBookMark.loadBookMark();
+                    ViEnBookMark.loadBookMark();
                     SceneLoaderController.loadScene(FXMLFiles.MAIN_UI_SCENE);
                 })
         );

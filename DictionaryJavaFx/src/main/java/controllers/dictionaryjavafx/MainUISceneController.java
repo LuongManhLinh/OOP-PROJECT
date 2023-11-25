@@ -1,8 +1,5 @@
 package controllers.dictionaryjavafx;
-import classes.Dictionary;
-import classes.DictionaryManagementForApp;
-import classes.EnViBookMark;
-import classes.FXMLFiles;
+import classes.*;
 import classes.data.WordWork;
 import classes.dictionarycommandline.DictionaryExecution;
 import classes.googlework.GgTranslateTextToSpeech;
@@ -64,7 +61,9 @@ public class MainUISceneController implements Initializable {
     private String selectedWord = "";
     private Dictionary.Type searchingType = Dictionary.Type.EN_VI;
     private boolean isSwitchingLang = false;
-    private boolean checkBookMarkIsEmpty = true;
+    private boolean checkEnViBookMarkIsEmpty = true;
+    private boolean checkViEnBookMarkIsEmpty = true;
+    private ArrayList<String> searchingResult = new ArrayList<>();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         hideLabel();
@@ -134,7 +133,7 @@ public class MainUISceneController implements Initializable {
         handleSearching();
     }
 
-    private void handleSearching(){
+    private void handleSearching() {
         // tạo ra vòng lặp để tìm kiếm
         AnimationTimer wordEnteringTimer = new AnimationTimer() {
             @Override
@@ -142,21 +141,34 @@ public class MainUISceneController implements Initializable {
                 String keyWord = wordEnteringField.getText();
                 oldKeyWord = keyWord;
                 if (oldKeyWord.isEmpty()) {
-                    ArrayList<String> searchingResult = EnViBookMark.getEngKey();
-                    if(!searchingResult.isEmpty()) {
-                        checkBookMarkIsEmpty = false;
-                        searchingResultList.setVisible(true);
-                        searchingResultList.getItems().setAll(searchingResult);
+                    if(searchingType == Dictionary.Type.EN_VI) {
+                        searchingResult = EnViBookMark.getEngKey();
+                        if (!searchingResult.isEmpty()) {
+                            checkEnViBookMarkIsEmpty = false;
+                            searchingResultList.setVisible(true);
+                            searchingResultList.getItems().setAll(searchingResult);
 //                    searchingResultList.getSelectionModel().select(0);
-                        searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
+                            searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
+                        } else {
+                            checkEnViBookMarkIsEmpty = true;
+                            hide();
+                        }
                     }
                     else {
-                        checkBookMarkIsEmpty = true;
-                        hide();
+                        searchingResult = ViEnBookMark.getVieKey();
+                        if (!searchingResult.isEmpty()) {
+                            checkViEnBookMarkIsEmpty = false;
+                            searchingResultList.setVisible(true);
+                            searchingResultList.getItems().setAll(searchingResult);
+//                    searchingResultList.getSelectionModel().select(0);
+                            searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
+                        } else {
+                            checkViEnBookMarkIsEmpty = true;
+                            hide();
+                        }
                     }
-                }
-                else {
-                    ArrayList<String> searchingResult = DictionaryManagementForApp.lookUp(keyWord, searchingType);
+                } else {
+                    searchingResult = DictionaryManagementForApp.lookUp(keyWord, searchingType);
                     if (!searchingResult.isEmpty()) {
                         searchingResultList.setVisible(true);
                         searchingResultList.getItems().setAll(searchingResult);
@@ -179,11 +191,15 @@ public class MainUISceneController implements Initializable {
                 } else {
                     wordEnteringTimer.start();
                 }
-
                 if (wordEnteringField.getText().isEmpty() && selectedWord == null) {
                     hide();
-                    if(!checkBookMarkIsEmpty) {
+                    if (!checkEnViBookMarkIsEmpty && searchingType == Dictionary.Type.EN_VI) {
                         searchingResultList.setVisible(true);
+                        searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
+                    }
+                    if(!checkViEnBookMarkIsEmpty && searchingType == Dictionary.Type.VI_EN){
+                        searchingResultList.setVisible(true);
+                        searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
                     }
                 }
             }
@@ -192,6 +208,7 @@ public class MainUISceneController implements Initializable {
         wordEnteringTimer.start();
         searchingManagementTimer.start();
     }
+
     
     public void hide() {
         meaningWebView.setVisible(false);
@@ -217,12 +234,23 @@ public class MainUISceneController implements Initializable {
     public void show() {
         meaningWebView.setVisible(true);
         speaker.setVisible(true);
-        if (EnViBookMark.checkInBookMark(selectedWord)) {
-            marked.setVisible(true);
-            unmarked.setVisible(false);
-        } else {
-            unmarked.setVisible(true);
-            marked.setVisible(false);
+        if(searchingType == Dictionary.Type.EN_VI) {
+            if (EnViBookMark.checkInBookMark(selectedWord)) {
+                marked.setVisible(true);
+                unmarked.setVisible(false);
+            } else {
+                unmarked.setVisible(true);
+                marked.setVisible(false);
+            }
+        }
+        else {
+            if (ViEnBookMark.checkInBookMark(selectedWord)) {
+                marked.setVisible(true);
+                unmarked.setVisible(false);
+            } else {
+                unmarked.setVisible(true);
+                marked.setVisible(false);
+            }
         }
     }
 
@@ -239,6 +267,12 @@ public class MainUISceneController implements Initializable {
                     viImage.setLayoutX(viImage.getLayoutX() - mpl);
                     if (Math.abs(engImage.getLayoutX() - viPosX) < mpl) {
                         searchingType = Dictionary.Type.VI_EN;
+                        searchingResult = ViEnBookMark.getVieKey();
+                        searchingResultList.getItems().setAll(searchingResult);
+                        searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
+                        if(!ViEnBookMark.getVieKey().isEmpty()){
+                            checkViEnBookMarkIsEmpty = false;
+                        }
                         isSwitchingLang = false;
                         viImage.setLayoutX(FLAG_POS_X_LEFT);
                         engImage.setLayoutX(FLAG_POS_X_RIGHT);
@@ -249,6 +283,12 @@ public class MainUISceneController implements Initializable {
                     viImage.setLayoutX(viImage.getLayoutX() + mpl);
                     if (Math.abs(engImage.getLayoutX() - viPosX) < mpl) {
                         searchingType = Dictionary.Type.EN_VI;
+                        searchingResult = EnViBookMark.getEngKey();
+                        searchingResultList.getItems().setAll(searchingResult);
+                        searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
+                        if(!EnViBookMark.getEngKey().isEmpty()){
+                            checkEnViBookMarkIsEmpty = false;
+                        }
                         isSwitchingLang = false;
                         viImage.setLayoutX(FLAG_POS_X_RIGHT);
                         engImage.setLayoutX(FLAG_POS_X_LEFT);
@@ -312,12 +352,22 @@ public class MainUISceneController implements Initializable {
     }
 
     public void unmarkedWord(MouseEvent event) {
-        EnViBookMark.insertToBookMark(selectedWord);
+        if(searchingType == Dictionary.Type.EN_VI) {
+            EnViBookMark.insertToBookMark(selectedWord);
+        }
+        else {
+            ViEnBookMark.insertToBookMark(selectedWord);
+        }
         show();
     }
 
     public void markedWord(MouseEvent event) {
-        EnViBookMark.remove(selectedWord);
+        if(searchingType == Dictionary.Type.EN_VI) {
+            EnViBookMark.remove(selectedWord);
+        }
+        else {
+            ViEnBookMark.remove(selectedWord);
+        }
         show();
     }
 

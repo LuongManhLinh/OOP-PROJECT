@@ -75,7 +75,7 @@ public class DictionaryManagementForApp {
         }
     }
 
-    private static int binarySearch(String keyWord, ArrayList<String> words) {
+    static int binarySearch(String keyWord, ArrayList<String> words) {
         if (keyWord == null || keyWord.isEmpty() || words.isEmpty()) {
             return -1;
         }
@@ -106,7 +106,7 @@ public class DictionaryManagementForApp {
         return result;
     }
 
-    private static void binaryInsert(String keyWord, ArrayList<String> words) {
+    static void binaryInsert(String keyWord, ArrayList<String> words) {
         if (keyWord == null || keyWord.isEmpty()) {
             return;
         }
