@@ -63,8 +63,6 @@ public class MainUISceneController implements Initializable {
     private String selectedWord = "";
     private Dictionary.Type searchingType = Dictionary.Type.EN_VI;
     private boolean isSwitchingLang = false;
-    private boolean checkEnViBookMarkIsEmpty = true;
-    private boolean checkViEnBookMarkIsEmpty = true;
     private ArrayList<String> searchingResult = new ArrayList<>();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -146,26 +144,22 @@ public class MainUISceneController implements Initializable {
                     if(searchingType == Dictionary.Type.EN_VI) {
                         searchingResult = EnViBookMark.getEngKey();
                         if (!searchingResult.isEmpty()) {
-                            checkEnViBookMarkIsEmpty = false;
                             searchingResultList.setVisible(true);
                             searchingResultList.getItems().setAll(searchingResult);
 //                    searchingResultList.getSelectionModel().select(0);
                             searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
                         } else {
-                            checkEnViBookMarkIsEmpty = true;
                             hide();
                         }
                     }
                     else {
                         searchingResult = ViEnBookMark.getVieKey();
                         if (!searchingResult.isEmpty()) {
-                            checkViEnBookMarkIsEmpty = false;
                             searchingResultList.setVisible(true);
                             searchingResultList.getItems().setAll(searchingResult);
 //                    searchingResultList.getSelectionModel().select(0);
                             searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
                         } else {
-                            checkViEnBookMarkIsEmpty = true;
                             hide();
                         }
                     }
@@ -195,11 +189,7 @@ public class MainUISceneController implements Initializable {
                 }
                 if (wordEnteringField.getText().isEmpty() && selectedWord == null) {
                     hide();
-                    if (!checkEnViBookMarkIsEmpty && searchingType == Dictionary.Type.EN_VI) {
-                        searchingResultList.setVisible(true);
-                        searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
-                    }
-                    if(!checkViEnBookMarkIsEmpty && searchingType == Dictionary.Type.VI_EN){
+                    if(!searchingResult.isEmpty()){
                         searchingResultList.setVisible(true);
                         searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
                     }
@@ -271,11 +261,9 @@ public class MainUISceneController implements Initializable {
                     if (Math.abs(engImage.getLayoutX() - viPosX) < mpl) {
                         searchingType = Dictionary.Type.VI_EN;
                         searchingResult = ViEnBookMark.getVieKey();
+                        searchingResultList.setVisible(true);
                         searchingResultList.getItems().setAll(searchingResult);
                         searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
-                        if(!ViEnBookMark.getVieKey().isEmpty()){
-                            checkViEnBookMarkIsEmpty = false;
-                        }
                         isSwitchingLang = false;
                         viImage.setLayoutX(FLAG_POS_X_LEFT);
                         engImage.setLayoutX(FLAG_POS_X_RIGHT);
@@ -287,11 +275,9 @@ public class MainUISceneController implements Initializable {
                     if (Math.abs(engImage.getLayoutX() - viPosX) < mpl) {
                         searchingType = Dictionary.Type.EN_VI;
                         searchingResult = EnViBookMark.getEngKey();
+                        searchingResultList.setVisible(true);
                         searchingResultList.getItems().setAll(searchingResult);
                         searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
-                        if(!EnViBookMark.getEngKey().isEmpty()){
-                            checkEnViBookMarkIsEmpty = false;
-                        }
                         isSwitchingLang = false;
                         viImage.setLayoutX(FLAG_POS_X_RIGHT);
                         engImage.setLayoutX(FLAG_POS_X_LEFT);

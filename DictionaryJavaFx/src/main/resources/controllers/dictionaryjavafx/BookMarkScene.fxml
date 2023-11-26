@@ -68,7 +68,7 @@
         </AnchorPane>
         <WebView fx:id="meaningWord" layoutX="445.0" layoutY="117.0" prefHeight="490.0" prefWidth="562.0" stylesheets="@../../WebViewStyles.css" />
         <ListView fx:id="listWordInSearch" fixedCellSize="25.0" layoutX="218.0" layoutY="151.0" maxHeight="511.0" prefHeight="456.0" prefWidth="227.0" stylesheets="@../../ListViewStyles.css" />
-        <TextField fx:id="searchWord" layoutX="218.0" layoutY="116.0" prefHeight="35.0" prefWidth="227.0" promptText="Nhập từ đã lưu" stylesheets="@../../TextFieldStyles.css" />
+        <TextField fx:id="searchWord" layoutX="218.0" layoutY="116.0" prefHeight="35.0" prefWidth="227.0" promptText="Tìm kiếm từ đã lưu" stylesheets="@../../TextFieldStyles.css" />
         <ImageView fx:id="marked" fitHeight="47.0" fitWidth="50.0" layoutX="957.0" layoutY="117.0" onMouseClicked="#markedWord" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/marked.png" />
@@ -84,21 +84,25 @@
                 <Font name="System Bold Italic" size="15.0" />
             </font>
         </Label>
-      <Button fx:id="backToMainUIButton" focusTraversable="false" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUI" onMouseEntered="#showEsc" onMouseExited="#hideEsc" prefHeight="35.0" prefWidth="74.0" stylesheets="@../../ButtonStyles.css" text="Quay lại">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
+        <Button fx:id="backToMainUIButton" focusTraversable="false" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUI" onMouseEntered="#showEsc" onMouseExited="#hideEsc" prefHeight="35.0" prefWidth="74.0" stylesheets="@../../ButtonStyles.css" text="Quay lại">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Button>
+        <Label fx:id="EscLabel" layoutX="78.0" layoutY="19.0" opacity="0.75" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="Esc" visible="false">
+            <font>
+                <Font name="System Bold Italic" size="12.0" />
+            </font>
+        </Label>
+        <Button layoutX="96.0" layoutY="151.0" mnemonicParsing="false" onAction="#removeAll" prefHeight="37.0" prefWidth="97.0" stylesheets="@../../ButtonStyles.css" text="Xoá tất cả" />
+      <Button fx:id="speaker" layoutX="943.0" layoutY="69.0" mnemonicParsing="false" onAction="#speakerFunc" prefHeight="47.0" prefWidth="50.0" styleClass="default" stylesheets="@../../SwitchLanguege.css">
+         <graphic>
+              <ImageView fitHeight="47.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@../../image/speakerver2.png" />
+                  </image>
+              </ImageView>
+         </graphic>
       </Button>
-      <Label fx:id="EscLabel" layoutX="78.0" layoutY="19.0" opacity="0.75" style="-fx-background-color: rgb(255, 203, 203); -fx-background-radius: 5;" text="Esc" visible="false">
-         <font>
-            <Font name="System Bold Italic" size="12.0" />
-         </font>
-      </Label>
-      <Button layoutX="96.0" layoutY="151.0" mnemonicParsing="false" onAction="#removeAll" prefHeight="37.0" prefWidth="97.0" stylesheets="@../../ButtonStyles.css" text="Xoá tất cả" />
-      <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="946.0" layoutY="65.0" onMouseClicked="#speakerFunc" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../image/speakerver2.png" />
-         </image>
-      </ImageView>
     </children>
 </AnchorPane>
