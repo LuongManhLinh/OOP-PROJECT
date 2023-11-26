@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.ShootingGameController">
+<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.ShootingGameController">
    <children>
       <AnchorPane fx:id="menuPane" prefHeight="700.0" prefWidth="1300.0" visible="false">
          <children>
@@ -125,6 +125,21 @@
                   <Image url="@../../gameAssets/ShootingGame/target_green1.png" />
                </image>
             </ImageView>
+            <Label fx:id="yourScore" layoutX="1155.0" text="Score: ">
+               <font>
+                  <Font name="System Italic" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="curRound" layoutX="609.0" text="Round: ">
+               <font>
+                  <Font name="System Italic" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="time" layoutX="858.0" text="Time: ">
+               <font>
+                  <Font name="System Italic" size="25.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

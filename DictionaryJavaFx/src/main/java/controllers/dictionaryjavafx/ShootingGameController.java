@@ -10,6 +10,7 @@ import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
@@ -36,6 +37,9 @@ public class ShootingGameController implements Initializable {
     @FXML private ImageView shootBulletRed;
     @FXML private ImageView shootBulletBlue;
     @FXML private ImageView shootBulletGreen;
+    @FXML private Label yourScore;
+    @FXML private Label curRound;
+    @FXML private Label time;
 
     private enum Status {
         START_GAME,
@@ -59,8 +63,10 @@ public class ShootingGameController implements Initializable {
 
     private int round = 1;
     private int maxRound = 10;
-
+    private int score = 0;
     private int selectingBullet = 0;
+    private int timeRemaining = 10;
+    private Timeline timeRemainingTimeline;
 
     public static ShootingGameController getInstance() {
         return instance;
@@ -72,6 +78,8 @@ public class ShootingGameController implements Initializable {
         ObjectImages.loadData();
         setCannonRotation();
         clickToShoot();
+        curRound.setText("Round " + round);
+        yourScore.setText("Score: " + score);
 
         bulletContainer.getChildren().clear();
 
@@ -84,6 +92,10 @@ public class ShootingGameController implements Initializable {
                 selectBullet(selectingBullet + 1);
             }
         });
+        timeRemainingTimeline = new Timeline(
+                new KeyFrame(Duration.seconds(1), event -> decreaseTimeRemaining())
+        );
+        timeRemainingTimeline.setCycleCount(Timeline.INDEFINITE);
 
         GameData.loadShootingGameData();
         changeScene(Status.START_GAME);
@@ -169,13 +181,16 @@ public class ShootingGameController implements Initializable {
     private void clickToShoot() {
         gamePane.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) { //click chuột trái
-                GameObject.Color bulletColor = showingBullets.get(showingBullets.size() - 1).getColor();
-                shootBullet(bulletColor);
+                if(waitingBullets.size() + showingBullets.size() > 0) {
+                    GameObject.Color bulletColor = showingBullets.get(showingBullets.size() - 1).getColor();
+                    shootBullet(bulletColor);
+                }
             }
         });
     }
 
     private void shootBullet(GameObject.Color color) {
+        System.out.println(waitingBullets.size());
         if(showingBullets.isEmpty()) return;
         Bullet currentBullet = showingBullets.get(showingBullets.size() - 1);
         removeBullet(currentBullet);
@@ -226,6 +241,12 @@ public class ShootingGameController implements Initializable {
                             countStep = numSteps;
                             if(currentBullet.getKeyText().equalsIgnoreCase(t.getShowText())) {
                                 removeTarget(t);
+                                score += 10;
+                                yourScore.setText("Score: " + score);
+                            }
+                            else {
+                                score -= 10;
+                                yourScore.setText("Score: " + score);
                             }
                             break;
                         }
@@ -237,18 +258,6 @@ public class ShootingGameController implements Initializable {
             }
         };
         animationTimer.start();
-//        if(numberShowingBullet == 0 || numberShowingTarget == 0) {
-//            System.out.println("this is round" + round);
-//            switch (round) {
-//                case 1: setRound(2);
-//                case 2: setRound(3);
-//                case 3: setRound(4);
-//                case 4: setRound(5);
-//                case 5: setRound(6);
-//                case 6: setRound(7);
-//                case 7: changeScene(Status.START_GAME);
-//            }
-//        }
     }
 
     public void setCannonRotation() {
@@ -308,7 +317,7 @@ public class ShootingGameController implements Initializable {
                 menuPane.setVisible(false);
                 gamePane.setVisible(true);
                 RoundGenerator.refillIndex();
-                changeRoundAutomatically();
+                setRound(1);
 
             }
 
@@ -318,95 +327,36 @@ public class ShootingGameController implements Initializable {
         }
     }
 
-    private void changeRoundAutomatically() {
-        if (round < 7) {
-            // round đầu
-            setRound(round);
-            round++;
-            Timeline timeline1 = new Timeline(new KeyFrame(
-                    Duration.seconds(5),
-                    event -> {
-                        startRound2();
-                    }
-            ));
-            timeline1.play();
-        }
-    }
-    private void startRound2() {
-        setRound(round);
-        round++;
-        Timeline timeline2 = new Timeline(new KeyFrame(
-                Duration.seconds(55),
-                event -> {
-                    startRound3();
-                }
-        ));
-        timeline2.play();
-    }
-    private void startRound3() {
-        setRound(round);
-        round++;
-        Timeline timeline3 = new Timeline(new KeyFrame(
-                Duration.seconds(5),
-                event -> {
-                    startRound4();
-                }
-        ));
-        timeline3.play();
-    }
-    private void startRound4() {
-        setRound(round);
-        round++;
-        Timeline timeline4 = new Timeline(new KeyFrame(
-                Duration.seconds(5),
-                event -> {
-                    startRound5();
-                }
-        ));
-        timeline4.play();
-    }
-    private void startRound5() {
-        setRound(round);
-        round++;
-        Timeline timeline5 = new Timeline(new KeyFrame(
-                Duration.seconds(5),
-                event -> {
-                    startRound6();
-                }
-        ));
-        timeline5.play();
-    }
-    private void startRound6() {
-        setRound(round);
-        round++;
-        Timeline timeline6 = new Timeline(new KeyFrame(
-                Duration.seconds(5),
-                event -> {
-                    startRound7();
-                }
-        ));
-        timeline6.play();
-    }
-    private void startRound7() {
-        setRound(round);
-        round++;
-        Timeline timeline7 = new Timeline(new KeyFrame(
-                Duration.seconds(5),
-                event -> {
-                    System.out.println("eeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-                }
-        ));
-        timeline7.play();
-    }
-
     private void setRound(int round) {
         clear();
+        curRound.setText("Round " + round);
         RoundGenerator.generateEnBullet_ViTarget(round);
         for (Target target : showingTargets) {
             target.move();
         }
         reload();
         selectBullet(0);
+
+        timeRemaining = 10; // Reset time for each round
+        timeRemainingTimeline.playFromStart();
+        time.setText("Time: " + timeRemaining);
+    }
+    private void decreaseTimeRemaining() {
+        timeRemaining--;
+        time.setText("Time: " + timeRemaining);
+        if (timeRemaining <= 0 || showingBullets.size() + waitingBullets.size() == 0 || showingTargets.size() + waitingTargets.size() == 0) {
+            // Stop counting time and move to the next round
+            timeRemainingTimeline.stop();
+            moveToNextRound();
+        }
+    }
+    private void moveToNextRound() {
+        if (round < maxRound) {
+            round++;
+            setRound(round);
+        } else {
+
+        }
     }
     public boolean checkCollision(ImageView bullet, Target target) {
         //hình tròn trong target
