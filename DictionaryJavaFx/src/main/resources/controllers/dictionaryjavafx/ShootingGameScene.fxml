@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,28 +10,188 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.ShootingGameController">
+<AnchorPane fx:id="fatherPane" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.ShootingGameController">
    <children>
       <AnchorPane fx:id="menuPane" prefHeight="700.0" prefWidth="1300.0" visible="false">
          <children>
-            <Button layoutX="591.0" layoutY="380.0" mnemonicParsing="false" onAction="#onPlay" text="PLAY">
+            <Button focusTraversable="false" layoutX="587.0" layoutY="350.0" mnemonicParsing="false" onAction="#onPlay" text="PLAY">
                <font>
-                  <Font size="33.0" />
+                  <Font name="Segoe UI Black" size="32.0" />
                </font>
             </Button>
-            <Button layoutX="596.0" layoutY="518.0" mnemonicParsing="false" onAction="#onExit" text="EXIT">
+            <Button focusTraversable="false" layoutX="578.0" layoutY="470.0" mnemonicParsing="false" onAction="#onGuide" text="GUIDE">
                <font>
-                  <Font size="33.0" />
+                  <Font name="Segoe UI Black" size="32.0" />
                </font>
             </Button>
-            <Label layoutX="406.0" layoutY="110.0" text="SHOOTING GAME">
+            <Button focusTraversable="false" layoutX="593.0" layoutY="587.0" mnemonicParsing="false" onAction="#onExit" text="EXIT">
                <font>
-                  <Font size="61.0" />
+                  <Font name="Segoe UI Black" size="32.0" />
                </font>
+            </Button>
+            <Label layoutX="406.0" layoutY="110.0" text="SHO">
+               <font>
+                  <Font name="Segoe UI Black" size="61.0" />
+               </font>
+            </Label>
+            <Label layoutX="537.0" layoutY="110.0" text="TING GAME">
+               <font>
+                  <Font name="Segoe UI Black" size="61.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../gameAssets/ShootingGame/aim.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="gamePane" focusTraversable="true" prefHeight="700.0" prefWidth="1300.0">
+      <ScrollPane fx:id="guidePane" focusTraversable="false" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: pink;">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1200.0" prefWidth="1300.0" style="-fx-background-color: pink;">
+               <children>
+                  <Label contentDisplay="BOTTOM" focusTraversable="false" layoutX="954.0" layoutY="14.0" text="SƠ ĐỒ COUNTER CỦA GAME">
+                     <graphic>
+                        <ImageView fitHeight="224.0" fitWidth="236.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../gameAssets/ShootingGame/counter.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label focusTraversable="false" layoutX="14.0" layoutY="21.0" prefHeight="111.0" prefWidth="585.0" text="Ngoài việc bạn phải đoán đúng nghĩa của từ thì cần phải để ý đến cơ chế counter của game để có thể nhận được điểm tối đa" wrapText="true">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Label focusTraversable="false" layoutX="14.0" layoutY="132.0" prefHeight="111.0" prefWidth="585.0" text="Sơ đồ counter cho ta thấy rằng màu đỏ counter màu lục, màu lục counter màu lam và màu lam counter màu đỏ. " wrapText="true">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Label focusTraversable="false" layoutX="14.0" layoutY="243.0" prefHeight="87.0" prefWidth="585.0" text="Khi một viên đạn bắn vào một bia, cộng trừ điểm được xác định như sau:" wrapText="true">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Label focusTraversable="false" layoutX="14.0" layoutY="322.0" prefHeight="103.0" prefWidth="585.0" text="Cộng điểm: đúng nghĩa, nếu màu viên đạn trùng với màu của bia thì cộng điểm, nếu màu viên đạn counter màu của bia thì cộng nhiều điểm" wrapText="true">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Label focusTraversable="false" layoutX="14.0" layoutY="425.0" prefHeight="87.0" prefWidth="585.0" text="Trừ điểm: khi màu của viên đạn bị counter bởi màu của bia thì mặc định bị trừ điểm dù có đúng nghĩa hay không" wrapText="true">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Label contentDisplay="BOTTOM" focusTraversable="false" layoutX="14.0" layoutY="512.0" prefHeight="111.0" prefWidth="585.0" text="Không thay đổi điểm: sai nghĩa và màu của viên đạn không bị counter" wrapText="true">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Label contentDisplay="BOTTOM" focusTraversable="false" layoutX="950.0" layoutY="348.0" text="tiger">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../gameAssets/ShootingGame/bullet_red.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <Label contentDisplay="BOTTOM" focusTraversable="false" layoutX="950.0" layoutY="502.0" text="tiger">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../gameAssets/ShootingGame/bullet_red.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <Label contentDisplay="BOTTOM" focusTraversable="false" layoutX="950.0" layoutY="671.0" text="tiger">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../gameAssets/ShootingGame/bullet_red.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <Label contentDisplay="BOTTOM" focusTraversable="false" layoutX="1100.0" layoutY="308.0" text="con hổ">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="1100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../gameAssets/ShootingGame/target_green.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <Label contentDisplay="BOTTOM" focusTraversable="false" layoutX="1100.0" layoutY="462.0" text="con hổ">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="1100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../gameAssets/ShootingGame/target_red.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <Label contentDisplay="BOTTOM" focusTraversable="false" layoutX="1100.0" layoutY="631.0" text="con hổ">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../gameAssets/ShootingGame/target_blue.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <Label contentDisplay="BOTTOM" focusTraversable="false" layoutX="1100.0" layoutY="782.0" text="con sư tử">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../gameAssets/ShootingGame/target_green.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <Label contentDisplay="BOTTOM" focusTraversable="false" layoutX="950.0" layoutY="822.0" text="tiger">
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../gameAssets/ShootingGame/bullet_red.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <Label focusTraversable="false" layoutX="1232.0" layoutY="347.0" text="+">
+                     <font>
+                        <Font size="37.0" />
+                     </font></Label>
+                  <Label focusTraversable="false" layoutX="1219.0" layoutY="512.0" text="++">
+                     <font>
+                        <Font size="37.0" />
+                     </font></Label>
+                  <Label focusTraversable="false" layoutX="1237.0" layoutY="671.0" text="-">
+                     <font>
+                        <Font size="37.0" />
+                     </font></Label>
+                  <Label focusTraversable="false" layoutX="1235.0" layoutY="822.0" text="0">
+                     <font>
+                        <Font size="37.0" />
+                     </font></Label>
+                  <Button focusTraversable="false" mnemonicParsing="false" onAction="#onBackToMenu" prefHeight="37.0" prefWidth="205.0" text="Back to main menu">
+                     <font>
+                        <Font name="Segoe UI Black" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <AnchorPane fx:id="gamePane" prefHeight="700.0" prefWidth="1300.0" visible="false">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-64.0" layoutY="649.0" pickOnBounds="true" preserveRatio="true" rotate="45.0">
                <image>
