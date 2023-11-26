@@ -19,6 +19,7 @@ Từ điển HCL là một ứng dụng được viết bằng ngôn ngữ Java 
 - Cập nhật từ
 - Dịch văn bản
 - Từ đã lưu
+  
   Một số hình ảnh của từ điển HCL
   ![Screenshot 2023-11-26 145708](https://github.com/LuongManhLinh/OOP-PROJECT/assets/127939164/83a30392-94de-40c2-b7af-593c1c137e44)
   ![Screenshot 2023-11-26 145753](https://github.com/LuongManhLinh/OOP-PROJECT/assets/127939164/00de11ef-3fef-4416-a504-c668deecf5ca)
