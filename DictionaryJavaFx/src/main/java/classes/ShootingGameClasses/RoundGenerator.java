@@ -15,8 +15,6 @@ public class RoundGenerator {
     private static final HashMap<String, ArrayList<String>> words = GameData.getShootingGameWords();
     private static final ShootingGameController controller = ShootingGameController.getInstance();
     public static void generateEnBullet_ViTarget(int roundNumber) {
-        controller.clear();
-        System.out.println("generating...");
         switch (roundNumber) {
             /*
             round 1 has only 1 still target and 4 bullets
@@ -111,11 +109,11 @@ public class RoundGenerator {
                     if (i == 0) {
                         target.addDestination(new Vector(50, 0));
                         target.addDestination(new Vector(1200, 600));
-                        target.setVelocity(MakeRandom.random(100, 200));
+                        target.setVelocity(MakeRandom.random(150, 300));
                     } else if (i == 1) {
                         target.addDestination(new Vector(1200, 0));
                         target.addDestination(new Vector(50, 600));
-                        target.setVelocity(MakeRandom.random(100, 200));
+                        target.setVelocity(MakeRandom.random(150, 300));
                     } else {
                         target.addDestination(new Vector(100, 600));
                         target.addDestination(new Vector(300, 0));
@@ -150,7 +148,7 @@ public class RoundGenerator {
                     String targetWord = MakeRandom.random(words.get(bulletWord));
 
                     RoundMovingTarget target = new RoundMovingTarget(getRandomColor(), targetWord, 1.5,
-                            new Vector(MakeRandom.random(300, 500), MakeRandom.random(300, 500)), MakeRandom.random(100, 200));
+                            new Vector(MakeRandom.random(300, 1000), MakeRandom.random(300, 500)), MakeRandom.random(100, 200));
                     target.setRoundVelocity(90);
                     controller.addTarget(target);
 
@@ -182,19 +180,19 @@ public class RoundGenerator {
                     RoundMovingTarget target = new RoundMovingTarget(getRandomColor(), targetWord, 1.5);
                     if (i == 2) {
                         target.setCenter(new Vector(200, 100));
-                        target.setRadius(50);
+                        target.setRadius(100);
                         target.setRoundVelocity(120);
                         target.setMoveDirection(new Vector(1, 0));
                         target.setMoveVelocity(100);
                     } else if (i == 3) {
                         target.setCenter(new Vector(200, 500));
-                        target.setRadius(50);
+                        target.setRadius(100);
                         target.setRoundVelocity(120);
                         target.setMoveDirection(new Vector(1, 0));
                         target.setMoveVelocity(100);
                     } else {
                         target.setCenter(new Vector(i * 400 + 400, 300));
-                        target.setRadius(100);
+                        target.setRadius(150);
                         target.setRoundVelocity(120);
                     }
 
@@ -224,9 +222,10 @@ public class RoundGenerator {
                     String targetText = MakeRandom.random(words.get(bulletText));
 
                     TeleportingStillTarget target = new TeleportingStillTarget(getRandomColor(), targetText, 2);
-                    target.addPosition(new Vector(MakeRandom.random(100, 200), MakeRandom.random(0, 100)));
-                    target.addPosition(new Vector(MakeRandom.random(1000, 1200), MakeRandom.random(500, 600)));
-                    target.setTimeToJump(3);
+                    target.addPosition(new Vector(MakeRandom.random(100, 1200), MakeRandom.random(0, 600)));
+                    target.addPosition(new Vector(MakeRandom.random(100, 1200), MakeRandom.random(0, 600)));
+                    target.addPosition(new Vector(MakeRandom.random(100, 1200), MakeRandom.random(0, 600)));
+                    target.setTimeToJump(2);
                     controller.addTarget(target);
 
                     bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
@@ -276,6 +275,7 @@ public class RoundGenerator {
                 String targetText = MakeRandom.random(words.get(bulletText));
 
                 RoundMovingTarget target = new RoundMovingTarget(getRandomColor(), targetText, 1.5, new Vector(550, 275), 100);
+                target.setRoundVelocity(150);
                 controller.addTarget(target);
                 bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
                 bullets.add(new Bullet(getRandomColor(), bulletText, targetText));

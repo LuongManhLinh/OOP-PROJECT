@@ -22,9 +22,7 @@ import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -48,18 +46,25 @@ public class ShootingGameController implements Initializable {
     private static final int SPIN_POINT_X = 30;
     private static final int SPIN_POINT_Y = 679;
 
+    private static final int MAX_SHOWING_BULLET_SIZE = 6;
+
+
     private static ShootingGameController instance;
+
+    private final Queue<Bullet> waitingBullets = new LinkedList<>();
+    private final Queue<Target> waitingTargets = new LinkedList<>();
+
+    private final List<Bullet> showingBullets = new ArrayList<>();
+    private final List<Target> showingTargets = new ArrayList<>();
+
+    private int round = 1;
+    private int maxRound = 10;
+
+    private int selectingBullet = 0;
+
     public static ShootingGameController getInstance() {
         return instance;
     }
-
-    private static final List<Bullet> bullets = new ArrayList<>();
-    private static final List<Target> targets = new ArrayList<>();
-
-    private int numberShowingBullet = 0;
-    private int numberShowingTarget = 0;
-    private int round = 1;
-    private int maxRound = 10;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -73,6 +78,10 @@ public class ShootingGameController implements Initializable {
         gamePane.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ESCAPE) {
                 changeScene(Status.START_GAME);
+            } else if (event.getCode() == KeyCode.UP || event.getCode() == KeyCode.W) {
+                selectBullet(selectingBullet - 1);
+            } else if (event.getCode() == KeyCode.DOWN || event.getCode() == KeyCode.S) {
+                selectBullet(selectingBullet + 1);
             }
         });
 
@@ -81,19 +90,7 @@ public class ShootingGameController implements Initializable {
     }
 
     public void addBullet(Bullet bullet) {
-        bullets.add(bullet);
-        if (numberShowingBullet < 7) {
-            bulletContainer.getChildren().add(bullet.getObjectView().getShowText());
-            numberShowingBullet++;
-        }
-    }
-
-    public void addTarget(Target target) {
-        targets.add(target);
-        if (targets.size() < 13) {
-            gamePane.getChildren().add(0, target.getObjectView().getShowText());
-            numberShowingTarget++;
-        }
+        waitingBullets.add(bullet);
     }
 
     public void addBullet(ArrayList<Bullet> bullets) {
@@ -101,40 +98,86 @@ public class ShootingGameController implements Initializable {
             addBullet(bullet);
         }
     }
-    public void removeBullet(Bullet rBullet) {
-        if(bullets.contains(rBullet)) {
-            bullets.remove(rBullet);
-            bulletContainer.getChildren().remove(rBullet.getObjectView().getShowText());
-            numberShowingBullet--;
-        }
+
+    public void addTarget(Target target) {
+        showingTargets.add(target);
+        gamePane.getChildren().add(0, target.getObjectView().getShowText());
     }
 
-    public void addTarget(ArrayList<Target> targets) {
-        for (Target target : targets) {
-            addTarget(target);
+    public void addWaitingTarget(Target target) {
+        waitingTargets.add(target);
+    }
+
+
+    public void removeBullet(Bullet rBullet) {
+        if(showingBullets.contains(rBullet)) {
+            showingBullets.remove(rBullet);
+            bulletContainer.getChildren().remove(rBullet.getObjectView().getShowText());
         }
     }
 
     public void removeTarget(Target target) {
-        if (targets.contains(target)) {
-            targets.remove(target);
+        if (showingTargets.contains(target)) {
+            showingTargets.remove(target);
             gamePane.getChildren().remove(target.getObjectView().getShowText());
-            numberShowingTarget--;
         }
     }
 
+    public void reload() {
+        if (!waitingBullets.isEmpty()) {
+            if (showingBullets.size() < MAX_SHOWING_BULLET_SIZE) {
+                while (showingBullets.size() < MAX_SHOWING_BULLET_SIZE) {
+                    if (!waitingBullets.isEmpty()) {
+                        Bullet bullet = waitingBullets.poll();
+                        bulletContainer.getChildren().add(bullet.getObjectView().getShowText());
+                        showingBullets.add(bullet);
+                    } else {
+                        return;
+                    }
+                }
+            } else {
+                for (int i = 0; i < MAX_SHOWING_BULLET_SIZE; i++) {
+                    waitingBullets.add(showingBullets.get(i));
+                }
+                showingBullets.clear();
+                bulletContainer.getChildren().clear();
+                for (int i = 0; i < MAX_SHOWING_BULLET_SIZE; i++) {
+                    if (!waitingBullets.isEmpty()) {
+                        Bullet bullet = waitingBullets.poll();
+                        bulletContainer.getChildren().add(bullet.getObjectView().getShowText());
+                        showingBullets.add(bullet);
+                    } else {
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    public void selectBullet(int pos) {
+        if (!showingBullets.isEmpty()) {
+            if (pos >= showingBullets.size()) {
+                pos = 0;
+            } else if (pos < 0) {
+                pos = showingBullets.size() - 1;
+            }
+            showingBullets.get(selectingBullet).getObjectView().getShowText().setStyle(null);
+            showingBullets.get(pos).getObjectView().getShowText().setStyle("-fx-background-color: rgba(255,255,0,0.3)");
+            selectingBullet = pos;
+        }
+    }
     private void clickToShoot() {
         gamePane.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) { //click chuột trái
-                GameObject.Color bulletColor = bullets.get(bullets.size() - 1).getColor();
+                GameObject.Color bulletColor = showingBullets.get(showingBullets.size() - 1).getColor();
                 shootBullet(bulletColor);
             }
         });
     }
 
     private void shootBullet(GameObject.Color color) {
-        if(numberShowingBullet <= 0) return;
-        Bullet currentBullet = bullets.get(bullets.size() - 1);
+        if(showingBullets.isEmpty()) return;
+        Bullet currentBullet = showingBullets.get(showingBullets.size() - 1);
         removeBullet(currentBullet);
         //tạo 1 viên đạn mới
         ImageView newBullet;
@@ -178,7 +221,7 @@ public class ShootingGameController implements Initializable {
                     newBullet.setLayoutX(newBullet.getLayoutX() + stepX);
                     newBullet.setLayoutY(newBullet.getLayoutY() + stepY);
                     countStep++;
-                    for(Target t : targets) {
+                    for(Target t : showingTargets) {
                         if(checkCollision(newBullet, t)) {
                             countStep = numSteps;
                             if(currentBullet.getKeyText().equalsIgnoreCase(t.getShowText())) {
@@ -264,7 +307,9 @@ public class ShootingGameController implements Initializable {
             case IN_GAME -> {
                 menuPane.setVisible(false);
                 gamePane.setVisible(true);
+                RoundGenerator.refillIndex();
                 changeRoundAutomatically();
+
             }
 
             case END_GAME -> {
@@ -356,11 +401,12 @@ public class ShootingGameController implements Initializable {
 
     private void setRound(int round) {
         clear();
-        RoundGenerator.refillIndex();
         RoundGenerator.generateEnBullet_ViTarget(round);
-        for (Target target : targets) {
+        for (Target target : showingTargets) {
             target.move();
         }
+        reload();
+        selectBullet(0);
     }
     public boolean checkCollision(ImageView bullet, Target target) {
         //hình tròn trong target
@@ -383,12 +429,12 @@ public class ShootingGameController implements Initializable {
 
     public void clear() {
         bulletContainer.getChildren().clear();
-        bullets.clear();
-        for (Target target : targets) {
+        showingBullets.clear();
+        waitingBullets.clear();
+        waitingTargets.clear();
+        for (Target target : showingTargets) {
             gamePane.getChildren().remove(target.getObjectView().getShowText());
         }
-        targets.clear();
-        numberShowingBullet = 0;
-        numberShowingTarget = 0;
+        showingTargets.clear();
     }
 }

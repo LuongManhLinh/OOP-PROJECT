@@ -43,26 +43,8 @@
                </image>
             </ImageView>
             <Line fx:id="line" endX="507.79998779296875" opacity="0.5" />
-            <VBox fx:id="bulletContainer" alignment="BOTTOM_CENTER" layoutX="14.0" layoutY="4.0" prefHeight="622.0" prefWidth="100.0" spacing="20.0">
+            <VBox fx:id="bulletContainer" alignment="BOTTOM_CENTER" layoutX="18.0" layoutY="7.0" prefHeight="489.0" prefWidth="100.0" spacing="22.0">
                <children>
-                  <Label contentDisplay="BOTTOM" text="101010101010101010101010101010" textAlignment="CENTER" wrapText="true">
-                     <graphic>
-                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../gameAssets/ShootingGame/bullet_blue.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Label>
-                  <Label contentDisplay="BOTTOM" layoutX="10.0" layoutY="535.0" text="101010101010101010101010101010" textAlignment="CENTER" wrapText="true">
-                     <graphic>
-                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../gameAssets/ShootingGame/bullet_blue.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Label>
                   <Label contentDisplay="BOTTOM" layoutX="10.0" layoutY="535.0" text="101010101010101010101010101010" textAlignment="CENTER" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
@@ -119,6 +101,15 @@
                   </Label>
                </children>
             </VBox>
+            <Button layoutX="18.0" layoutY="506.0" mnemonicParsing="false" onAction="#reload" styleClass="default" stylesheets="@../../SwitchLanguege.css">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../gameAssets/ShootingGame/reload.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
             <ImageView fx:id="shootBulletBlue" fitHeight="8.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../gameAssets/ShootingGame/bullet_blue1.png" />

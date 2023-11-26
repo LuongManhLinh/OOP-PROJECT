@@ -10,7 +10,7 @@ import java.util.List;
 
 public class TeleportingStillTarget extends StillTarget {
     private List<Vector> positions = new ArrayList<>();
-    private int timeToJump = 0;
+    private double timeToJump = 0;
     private int nextPosition = 0;
     private long timeBefore = 0;
     private double timeProgress = 0;
@@ -51,7 +51,7 @@ public class TeleportingStillTarget extends StillTarget {
         positions.add(position);
     }
 
-    public void setTimeToJump(int timeSecond) {
+    public void setTimeToJump(double timeSecond) {
         timeToJump = timeSecond;
     }
 
