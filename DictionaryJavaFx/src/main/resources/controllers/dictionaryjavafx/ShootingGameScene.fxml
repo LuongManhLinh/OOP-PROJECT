@@ -262,15 +262,11 @@
                   </Label>
                </children>
             </VBox>
-            <Button focusTraversable="false" layoutX="18.0" layoutY="533.0" mnemonicParsing="false" onAction="#reload" styleClass="default" stylesheets="@../../SwitchLanguege.css">
-               <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../gameAssets/ShootingGame/reload.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
+            <ImageView fx:id="reloadImage" fitHeight="150.0" fitWidth="30.0" layoutX="21.0" layoutY="545.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../gameAssets/ShootingGame/reload.png" />
+               </image>
+            </ImageView>
             <ImageView fx:id="shootBulletBlue" fitHeight="8.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../gameAssets/ShootingGame/bullet_blue1.png" />
@@ -286,22 +282,27 @@
                   <Image url="@../../gameAssets/ShootingGame/target_green1.png" />
                </image>
             </ImageView>
-            <Label fx:id="yourScore" layoutX="1155.0" text="Score: ">
+            <Label fx:id="yourScore" focusTraversable="false" layoutX="1155.0" text="Score: ">
                <font>
                   <Font name="System Italic" size="25.0" />
                </font>
             </Label>
-            <Label fx:id="curRound" layoutX="609.0" text="Round: ">
+            <Label fx:id="curRound" focusTraversable="false" layoutX="609.0" text="Round: ">
                <font>
                   <Font name="System Italic" size="25.0" />
                </font>
             </Label>
-            <Label fx:id="time" layoutX="858.0" text="Time: ">
+            <Label fx:id="time" focusTraversable="false" layoutX="858.0" text="Time: ">
                <font>
                   <Font name="System Italic" size="25.0" />
                </font>
             </Label>
             <Button focusTraversable="false" layoutX="2.0" layoutY="5.0" mnemonicParsing="false" onAction="#onBackToMenu" text="Back to menu" />
+            <Label fx:id="numberWaitingBulletLabel" focusTraversable="false" layoutX="74.0" layoutY="537.0" text="0">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

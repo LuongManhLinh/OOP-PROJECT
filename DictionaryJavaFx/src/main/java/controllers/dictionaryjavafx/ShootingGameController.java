@@ -10,6 +10,7 @@ import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -35,6 +36,7 @@ public class ShootingGameController implements Initializable {
     @FXML private ScrollPane guidePane;
     @FXML private AnchorPane gamePane;
     @FXML private ImageView CannonImage;
+    @FXML private ImageView reloadImage;
     @FXML private Line line;
     @FXML private VBox bulletContainer;
     @FXML private ImageView shootBulletRed;
@@ -43,6 +45,7 @@ public class ShootingGameController implements Initializable {
     @FXML private Label yourScore;
     @FXML private Label curRound;
     @FXML private Label time;
+    @FXML private Label numberWaitingBulletLabel;
 
     private enum Status {
         START_GAME,
@@ -148,6 +151,7 @@ public class ShootingGameController implements Initializable {
 
     public void reload() {
         if (!waitingBullets.isEmpty()) {
+            reloadAnimation();
             if (selectingBullet >= 0 && selectingBullet < showingBullets.size()) {
                 showingBullets.get(selectingBullet).getObjectView().getShowText().setStyle(null);
             }
@@ -158,7 +162,7 @@ public class ShootingGameController implements Initializable {
                         bulletContainer.getChildren().add(bullet.getObjectView().getShowText());
                         showingBullets.add(bullet);
                     } else {
-                        return;
+                        break;
                     }
                 }
             } else {
@@ -173,12 +177,29 @@ public class ShootingGameController implements Initializable {
                         bulletContainer.getChildren().add(bullet.getObjectView().getShowText());
                         showingBullets.add(bullet);
                     } else {
-                        return;
+                        break;
                     }
                 }
             }
             selectBullet(0);
         }
+        numberWaitingBulletLabel.setText(String.valueOf(waitingBullets.size()));
+    }
+
+    private void reloadAnimation() {
+        AnimationTimer reloadTimer = new AnimationTimer() {
+            double degree = 0;
+            @Override
+            public void handle(long l) {
+                degree += 6;
+                if (degree > 360) {
+                    reloadImage.setRotate(0);
+                    stop();
+                }
+                reloadImage.setRotate(degree);
+            }
+        };
+        reloadTimer.start();
     }
 
     public void selectBullet(int pos) {
