@@ -86,7 +86,7 @@
                   <Font name="Jokerman" size="30.0" />
                </font>
             </Label>
-            <Label layoutX="326.0" layoutY="135.0" stylesheets="@../../ButtonStyles.css" text="Please select mode and number of formulas" underline="true">
+            <Label layoutX="326.0" layoutY="135.0" stylesheets="@../../ButtonStyles.css" text="Please select Mode and Number of Formulas" underline="true">
                <font>
                   <Font name="System Italic" size="18.0" />
                </font>

@@ -10,6 +10,7 @@ import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -29,7 +30,9 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class ShootingGameController implements Initializable {
+    @FXML private AnchorPane fatherPane;
     @FXML private AnchorPane menuPane;
+    @FXML private ScrollPane guidePane;
     @FXML private AnchorPane gamePane;
     @FXML private ImageView CannonImage;
     @FXML private Line line;
@@ -44,6 +47,7 @@ public class ShootingGameController implements Initializable {
     private enum Status {
         START_GAME,
         IN_GAME,
+        GUIDE,
         END_GAME
     }
 
@@ -84,9 +88,7 @@ public class ShootingGameController implements Initializable {
         bulletContainer.getChildren().clear();
 
         gamePane.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ESCAPE) {
-                changeScene(Status.START_GAME);
-            } else if (event.getCode() == KeyCode.UP || event.getCode() == KeyCode.W) {
+            if (event.getCode() == KeyCode.UP || event.getCode() == KeyCode.W) {
                 selectBullet(selectingBullet - 1);
             } else if (event.getCode() == KeyCode.DOWN || event.getCode() == KeyCode.S) {
                 selectBullet(selectingBullet + 1);
@@ -96,6 +98,12 @@ public class ShootingGameController implements Initializable {
                 new KeyFrame(Duration.seconds(1), event -> decreaseTimeRemaining())
         );
         timeRemainingTimeline.setCycleCount(Timeline.INDEFINITE);
+
+        fatherPane.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ESCAPE) {
+                changeScene(Status.START_GAME);
+            }
+        });
 
         GameData.loadShootingGameData();
         changeScene(Status.START_GAME);
@@ -306,19 +314,35 @@ public class ShootingGameController implements Initializable {
         changeScene(Status.IN_GAME);
     }
 
+    public void onGuide() {
+        changeScene(Status.GUIDE);
+    }
+
+    public void onBackToMenu() {
+        changeScene(Status.START_GAME);
+    }
+
     private void changeScene(Status status) {
         switch (status) {
             case START_GAME -> {
                 menuPane.setVisible(true);
                 gamePane.setVisible(false);
+                guidePane.setVisible(false);
             }
 
             case IN_GAME -> {
                 menuPane.setVisible(false);
                 gamePane.setVisible(true);
+                guidePane.setVisible(false);
                 RoundGenerator.refillIndex();
                 setRound(1);
 
+            }
+
+            case GUIDE -> {
+                menuPane.setVisible(false);
+                gamePane.setVisible(false);
+                guidePane.setVisible(true);
             }
 
             case END_GAME -> {

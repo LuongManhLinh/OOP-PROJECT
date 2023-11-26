@@ -159,7 +159,6 @@ public class BookMarkSceneController implements Initializable {
                         if (!searchingResult.isEmpty()) {
                             listWordInSearch.setVisible(true);
                             listWordInSearch.getItems().setAll(searchingResult);
-//                    listWordInSearch.getSelectionModel().select(0);
                             listWordInSearch.setPrefHeight(searchingResult.size() * listWordInSearch.getFixedCellSize());
                         } else {
                             hide();
@@ -169,7 +168,6 @@ public class BookMarkSceneController implements Initializable {
                         if (!searchingResult.isEmpty()) {
                             listWordInSearch.setVisible(true);
                             listWordInSearch.getItems().setAll(searchingResult);
-//                    listWordInSearch.getSelectionModel().select(0);
                             listWordInSearch.setPrefHeight(searchingResult.size() * listWordInSearch.getFixedCellSize());
                         } else {
                             hide();

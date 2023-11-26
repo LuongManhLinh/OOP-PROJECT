@@ -146,18 +146,15 @@ public class MainUISceneController implements Initializable {
                         if (!searchingResult.isEmpty()) {
                             searchingResultList.setVisible(true);
                             searchingResultList.getItems().setAll(searchingResult);
-//                    searchingResultList.getSelectionModel().select(0);
                             searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
                         } else {
                             hide();
                         }
-                    }
-                    else {
+                    } else {
                         searchingResult = ViEnBookMark.getVieKey();
                         if (!searchingResult.isEmpty()) {
                             searchingResultList.setVisible(true);
                             searchingResultList.getItems().setAll(searchingResult);
-//                    searchingResultList.getSelectionModel().select(0);
                             searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
                         } else {
                             hide();
