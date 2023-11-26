@@ -19,7 +19,7 @@ public class SceneLoaderController {
         stage.setResizable(false);
         SceneLoaderController.stage = stage;
         stage.setOnCloseRequest(event -> {
-//            EnViBookMark.writeBookMark();
+            EnViBookMark.writeBookMark();
 //            DictionaryData.writeData(Dictionary.Type.EN_VI, EnViDictionary.getInstance().getWords(), EnViDictionary.getInstance().getKeyWords());
 //            DictionaryData.writeData(Dictionary.Type.VI_EN, ViEnDictionary.getInstance().getWords(), ViEnDictionary.getInstance().getKeyWords());
         });
@@ -30,7 +30,7 @@ public class SceneLoaderController {
     }
 
     public static void exitApp() {
-//        EnViBookMark.writeBookMark();
+        EnViBookMark.writeBookMark();
 //        DictionaryData.writeData(Dictionary.Type.EN_VI, EnViDictionary.getInstance().getWords(), EnViDictionary.getInstance().getKeyWords());
 //        DictionaryData.writeData(Dictionary.Type.VI_EN, ViEnDictionary.getInstance().getWords(), ViEnDictionary.getInstance().getKeyWords());
         stage.close();

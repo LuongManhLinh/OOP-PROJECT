@@ -11,10 +11,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
@@ -30,18 +27,30 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class BookMarkSceneController implements Initializable {
-    @FXML private AnchorPane pane;
-    @FXML private TextField searchWord;
-    @FXML private ListView<String> listWordInSearch;
-    @FXML private WebView meaningWord;
-    @FXML private Label engImage, viImage;
-    @FXML private Button speaker;
-    @FXML private ImageView unmarked, marked;
-    @FXML private Label errorLabel;
-    @FXML private Button backToMainUIButton;
-    @FXML private Button changeLanguageButton;
-    @FXML private Label CtrlDLabel;
-    @FXML private Label EscLabel;
+    @FXML
+    private AnchorPane pane;
+    @FXML
+    private TextField searchWord;
+    @FXML
+    private ListView<String> listWordInSearch;
+    @FXML
+    private WebView meaningWord;
+    @FXML
+    private Label engImage, viImage;
+    @FXML
+    private Button speaker;
+    @FXML
+    private ImageView unmarked, marked;
+    @FXML
+    private Label errorLabel;
+    @FXML
+    private Button backToMainUIButton;
+    @FXML
+    private Button changeLanguageButton;
+    @FXML
+    private Label CtrlDLabel;
+    @FXML
+    private Label EscLabel;
     private final double FLAG_POS_X_LEFT = 15;
     private final double FLAG_POS_X_RIGHT = 150;
 
@@ -50,6 +59,9 @@ public class BookMarkSceneController implements Initializable {
     private Dictionary.Type searchingType = Dictionary.Type.EN_VI;
     private boolean isSwitchingLang = false;
     private ArrayList<String> searchingResult = new ArrayList<>();
+    private boolean checkEnViBookMarkIsEmpty = true;
+    private boolean checkViEnBookMarkIsEmpty = true;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         hide();
@@ -116,6 +128,7 @@ public class BookMarkSceneController implements Initializable {
         handleSearching();
         setOnKeyPressed();
     }
+
     private void setOnKeyPressed() {
         pane.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ESCAPE) {
@@ -142,19 +155,46 @@ public class BookMarkSceneController implements Initializable {
             public void handle(long l) {
                 String keyWord = searchWord.getText();
                 oldKeyWord = keyWord;
-                if(searchingType == Dictionary.Type.EN_VI){
-                    searchingResult = EnViBookMark.lookUp(keyWord);
-                }
-                else {
-                    searchingResult = ViEnBookMark.lookUp(keyWord);
-                }
-                if (!searchingResult.isEmpty()) {
-                    listWordInSearch.setVisible(true);
-                    listWordInSearch.getItems().setAll(searchingResult);
-                    listWordInSearch.getSelectionModel().select(0);
-                    listWordInSearch.setPrefHeight(searchingResult.size() * listWordInSearch.getFixedCellSize());
+                if (oldKeyWord.isEmpty()) {
+                    if (searchingType == Dictionary.Type.EN_VI) {
+                        searchingResult = EnViBookMark.getEngKey();
+                        if (!searchingResult.isEmpty()) {
+                            checkEnViBookMarkIsEmpty = false;
+                            listWordInSearch.setVisible(true);
+                            listWordInSearch.getItems().setAll(searchingResult);
+//                    listWordInSearch.getSelectionModel().select(0);
+                            listWordInSearch.setPrefHeight(searchingResult.size() * listWordInSearch.getFixedCellSize());
+                        } else {
+                            checkEnViBookMarkIsEmpty = true;
+                            hide();
+                        }
+                    } else {
+                        searchingResult = ViEnBookMark.getVieKey();
+                        if (!searchingResult.isEmpty()) {
+                            checkViEnBookMarkIsEmpty = false;
+                            listWordInSearch.setVisible(true);
+                            listWordInSearch.getItems().setAll(searchingResult);
+//                    listWordInSearch.getSelectionModel().select(0);
+                            listWordInSearch.setPrefHeight(searchingResult.size() * listWordInSearch.getFixedCellSize());
+                        } else {
+                            checkViEnBookMarkIsEmpty = true;
+                            hide();
+                        }
+                    }
                 } else {
-                    hide();
+                    if (searchingType == Dictionary.Type.EN_VI) {
+                        searchingResult = EnViBookMark.lookUp(keyWord);
+                    } else {
+                        searchingResult = ViEnBookMark.lookUp(keyWord);
+                    }
+                    if (!searchingResult.isEmpty()) {
+                        listWordInSearch.setVisible(true);
+                        listWordInSearch.getItems().setAll(searchingResult);
+                        listWordInSearch.getSelectionModel().select(0);
+                        listWordInSearch.setPrefHeight(searchingResult.size() * listWordInSearch.getFixedCellSize());
+                    } else {
+                        hide();
+                    }
                 }
             }
         };
@@ -170,8 +210,16 @@ public class BookMarkSceneController implements Initializable {
                     wordEnteringTimer.start();
                 }
 
-                if (searchWord.getText().isEmpty()) {
+                if (searchWord.getText().isEmpty() && selectedWord == null) {
                     hide();
+                    if (!checkEnViBookMarkIsEmpty && searchingType == Dictionary.Type.EN_VI) {
+                        listWordInSearch.setVisible(true);
+                        listWordInSearch.setPrefHeight(searchingResult.size() * listWordInSearch.getFixedCellSize());
+                    }
+                    if(!checkViEnBookMarkIsEmpty && searchingType == Dictionary.Type.VI_EN){
+                        listWordInSearch.setVisible(true);
+                        listWordInSearch.setPrefHeight(searchingResult.size() * listWordInSearch.getFixedCellSize());
+                    }
                 }
             }
         };
@@ -191,7 +239,7 @@ public class BookMarkSceneController implements Initializable {
     public void show() {
         meaningWord.setVisible(true);
 //        speaker.setVisible(true);
-        if(searchingType == Dictionary.Type.EN_VI) {
+        if (searchingType == Dictionary.Type.EN_VI) {
             if (EnViBookMark.checkInBookMark(selectedWord)) {
                 marked.setVisible(true);
                 unmarked.setVisible(false);
@@ -199,8 +247,7 @@ public class BookMarkSceneController implements Initializable {
                 unmarked.setVisible(true);
                 marked.setVisible(false);
             }
-        }
-        else {
+        } else {
             if (ViEnBookMark.checkInBookMark(selectedWord)) {
                 marked.setVisible(true);
                 unmarked.setVisible(false);
@@ -210,6 +257,7 @@ public class BookMarkSceneController implements Initializable {
             }
         }
     }
+
     private void switchLanguage(Dictionary.Type type) {
         double viPosX = viImage.getLayoutX();
         isSwitchingLang = true;
@@ -223,6 +271,12 @@ public class BookMarkSceneController implements Initializable {
                     viImage.setLayoutX(viImage.getLayoutX() - mpl);
                     if (Math.abs(engImage.getLayoutX() - viPosX) < mpl) {
                         searchingType = Dictionary.Type.VI_EN;
+                        searchingResult = ViEnBookMark.getVieKey();
+                        listWordInSearch.getItems().setAll(searchingResult);
+                        listWordInSearch.setPrefHeight(searchingResult.size() * listWordInSearch.getFixedCellSize());
+                        if(!ViEnBookMark.getVieKey().isEmpty()){
+                            checkViEnBookMarkIsEmpty = false;
+                        }
                         isSwitchingLang = false;
                         viImage.setLayoutX(FLAG_POS_X_LEFT);
                         engImage.setLayoutX(FLAG_POS_X_RIGHT);
@@ -233,6 +287,12 @@ public class BookMarkSceneController implements Initializable {
                     viImage.setLayoutX(viImage.getLayoutX() + mpl);
                     if (Math.abs(engImage.getLayoutX() - viPosX) < mpl) {
                         searchingType = Dictionary.Type.EN_VI;
+                        searchingResult = EnViBookMark.getEngKey();
+                        listWordInSearch.getItems().setAll(searchingResult);
+                        listWordInSearch.setPrefHeight(searchingResult.size() * listWordInSearch.getFixedCellSize());
+                        if(!EnViBookMark.getEngKey().isEmpty()){
+                            checkViEnBookMarkIsEmpty = false;
+                        }
                         isSwitchingLang = false;
                         viImage.setLayoutX(FLAG_POS_X_RIGHT);
                         engImage.setLayoutX(FLAG_POS_X_LEFT);
@@ -243,6 +303,7 @@ public class BookMarkSceneController implements Initializable {
         };
         switchTimer.start();
     }
+
     public void onSearchingTypeChanged() {
         if (!isSwitchingLang) {
             oldKeyWord = "";
@@ -252,25 +313,52 @@ public class BookMarkSceneController implements Initializable {
     }
 
     public void unmarkedWord(MouseEvent event) {
-        if(searchingType == Dictionary.Type.EN_VI) {
+        if (searchingType == Dictionary.Type.EN_VI) {
             EnViBookMark.insertToBookMark(selectedWord);
-        }
-        else {
+        } else {
             ViEnBookMark.insertToBookMark(selectedWord);
         }
         show();
     }
 
     public void markedWord(MouseEvent event) {
-        if(searchingType == Dictionary.Type.EN_VI) {
-            EnViBookMark.remove(selectedWord);
-        }
-        else {
-            ViEnBookMark.remove(selectedWord);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Xoá từ đã lưu");
+        alert.setHeaderText("Bạn muốn xoá từ này khỏi danh sách từ đã lưu?");
+        if(alert.showAndWait().get() == ButtonType.OK) {
+            if (searchingType == Dictionary.Type.EN_VI) {
+                EnViBookMark.remove(selectedWord);
+                searchingResult = EnViBookMark.getEngKey();
+                listWordInSearch.getItems().setAll(searchingResult);
+                listWordInSearch.setPrefHeight(searchingResult.size() * listWordInSearch.getFixedCellSize());
+            } else {
+                ViEnBookMark.remove(selectedWord);
+                searchingResult = ViEnBookMark.getVieKey();
+                listWordInSearch.getItems().setAll(searchingResult);
+                listWordInSearch.setPrefHeight(searchingResult.size() * listWordInSearch.getFixedCellSize());
+            }
         }
         show();
     }
 
+    public void removeAll(ActionEvent event){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Xoá");
+        alert.setHeaderText("Bạn có muốn xóa tất cả từ đã lưu không?");
+        if(alert.showAndWait().get() == ButtonType.OK) {
+            if (searchingType == Dictionary.Type.EN_VI) {
+                EnViBookMark.removeAll();
+                checkEnViBookMarkIsEmpty = true;
+                hide();
+                searchingResult = EnViBookMark.getEngKey();
+            } else {
+                ViEnBookMark.removeAll();
+                checkViEnBookMarkIsEmpty = true;
+                hide();
+                searchingResult = ViEnBookMark.getVieKey();
+            }
+        }
+    }
     public void speakerFunc() {
         String paragraph = listWordInSearch.getSelectionModel().getSelectedItem();
         if (paragraph != null && !paragraph.isEmpty()) {
@@ -292,19 +380,24 @@ public class BookMarkSceneController implements Initializable {
             }
         }
     }
+
     public void showCtrlD() {
         CtrlDLabel.setVisible(true);
     }
+
     public void hideCtrlD() {
         CtrlDLabel.setVisible(false);
     }
+
     public void showEsc() {
         EscLabel.setVisible(true);
     }
+
     public void hideEsc() {
         EscLabel.setVisible(false);
     }
-    public void backToMainUI(){
+
+    public void backToMainUI() {
         SceneLoaderController.loadScene(FXMLFiles.MAIN_UI_SCENE);
     }
 }

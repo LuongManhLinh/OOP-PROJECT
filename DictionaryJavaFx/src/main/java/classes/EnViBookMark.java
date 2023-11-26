@@ -51,6 +51,9 @@ public class EnViBookMark {
     public static void remove(String word){
         engKey.remove(word);
     }
+    public static void removeAll(){
+        engKey.clear();
+    }
     public static ArrayList<String> lookUp(String engWord){
         ArrayList<String> result = new ArrayList<>();
         if (engWord != null && !engWord.isEmpty()) {

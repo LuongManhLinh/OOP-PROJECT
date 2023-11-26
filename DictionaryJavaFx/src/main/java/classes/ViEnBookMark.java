@@ -49,6 +49,9 @@ public class ViEnBookMark {
     public static void remove(String word){
         vieKey.remove(word);
     }
+    public static void removeAll(){
+        vieKey.clear();
+    }
 
     public static ArrayList<String> lookUp(String engWord){
         ArrayList<String> result = new ArrayList<>();
