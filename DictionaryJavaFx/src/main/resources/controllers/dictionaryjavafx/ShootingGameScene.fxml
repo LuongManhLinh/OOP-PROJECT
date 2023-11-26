@@ -286,6 +286,21 @@
                   <Image url="@../../gameAssets/ShootingGame/target_green1.png" />
                </image>
             </ImageView>
+            <Label fx:id="yourScore" layoutX="1155.0" text="Score: ">
+               <font>
+                  <Font name="System Italic" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="curRound" layoutX="609.0" text="Round: ">
+               <font>
+                  <Font name="System Italic" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="time" layoutX="858.0" text="Time: ">
+               <font>
+                  <Font name="System Italic" size="25.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
