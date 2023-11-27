@@ -60,19 +60,19 @@
             </children>
         </AnchorPane>
         <WebView fx:id="meaningWord" layoutX="445.0" layoutY="117.0" prefHeight="490.0" prefWidth="562.0" stylesheets="@../../WebViewStyles.css" />
-        <ListView fx:id="listWordInSearch" fixedCellSize="25.0" layoutX="218.0" layoutY="151.0" maxHeight="511.0" prefHeight="456.0" prefWidth="227.0" stylesheets="@../../ListViewStyles.css" />
+        <ListView fx:id="listWordInSearch" fixedCellSize="25.0" layoutX="218.0" layoutY="151.0" maxHeight="511.0" prefHeight="450.0" prefWidth="227.0" stylesheets="@../../ListViewStyles.css" />
         <TextField fx:id="searchWord" layoutX="218.0" layoutY="116.0" prefHeight="35.0" prefWidth="227.0" promptText="Tìm kiếm từ đã lưu" stylesheets="@../../TextFieldStyles.css" />
-        <ImageView fx:id="marked" fitHeight="47.0" fitWidth="50.0" layoutX="957.0" layoutY="117.0" onMouseClicked="#markedWord" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="marked" fitHeight="47.0" fitWidth="50.0" layoutX="950.0" layoutY="117.0" onMouseClicked="#markedWord" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/marked.png" />
             </image>
         </ImageView>
-        <ImageView fx:id="unmarked" fitHeight="51.0" fitWidth="50.0" layoutX="957.0" layoutY="117.0" onMouseClicked="#unmarkedWord" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="unmarked" fitHeight="51.0" fitWidth="50.0" layoutX="950.0" layoutY="117.0" onMouseClicked="#unmarkedWord" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../image/unmarked.png" />
             </image>
         </ImageView>
-        <Label alignment="TOP_LEFT" layoutX="541.0" layoutY="6.0" prefHeight="86.0" prefWidth="330.0" text="Đây chính là sổ tay mini chứa tất cả những từ đã  lưu của bạn ở từ điển HCL. Bạn có thể sử dụng sổ tay mini này để cải thiện việc học tốt hơn!" textFill="#cd2daf" wrapText="true">
+        <Label alignment="TOP_LEFT" layoutX="541.0" layoutY="6.0" prefHeight="86.0" prefWidth="352.0" text="Đây chính là sổ tay mini chứa tất cả những từ đã  lưu của bạn ở từ điển HCL. Bạn có thể sử dụng sổ tay mini này để cải thiện việc học tốt hơn!" textFill="#cd2daf" wrapText="true">
             <font>
                 <Font name="System Bold Italic" size="15.0" />
             </font>
@@ -87,7 +87,10 @@
                 <Font name="System Bold Italic" size="12.0" />
             </font>
         </Label>
-        <Button layoutX="96.0" layoutY="151.0" mnemonicParsing="false" onAction="#removeAll" prefHeight="37.0" prefWidth="97.0" stylesheets="@../../ButtonStyles.css" text="Xoá tất cả" />
+        <Button layoutX="14.0" layoutY="115.0" mnemonicParsing="false" onAction="#removeAll" prefHeight="37.0" prefWidth="97.0" stylesheets="@../../ButtonStyles.css" text="Xoá tất cả">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
       <Button fx:id="speaker" layoutX="943.0" layoutY="69.0" mnemonicParsing="false" onAction="#speakerFunc" prefHeight="47.0" prefWidth="50.0" styleClass="default" stylesheets="@../../SwitchLanguege.css">
          <graphic>
               <ImageView fitHeight="47.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
