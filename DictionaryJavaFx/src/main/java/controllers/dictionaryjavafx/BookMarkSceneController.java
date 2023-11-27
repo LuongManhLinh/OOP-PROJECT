@@ -260,9 +260,11 @@ public class BookMarkSceneController implements Initializable {
                     if (Math.abs(engImage.getLayoutX() - viPosX) < mpl) {
                         searchingType = Dictionary.Type.VI_EN;
                         searchingResult = ViEnBookMark.getVieKey();
-                        listWordInSearch.setVisible(true);
-                        listWordInSearch.getItems().setAll(searchingResult);
-                        listWordInSearch.setPrefHeight(searchingResult.size() * listWordInSearch.getFixedCellSize());
+                        if(!searchingResult.isEmpty()) {
+                            listWordInSearch.setVisible(true);
+                            listWordInSearch.getItems().setAll(searchingResult);
+                            listWordInSearch.setPrefHeight(searchingResult.size() * listWordInSearch.getFixedCellSize());
+                        }
                         isSwitchingLang = false;
                         viImage.setLayoutX(FLAG_POS_X_LEFT);
                         engImage.setLayoutX(FLAG_POS_X_RIGHT);
@@ -274,9 +276,11 @@ public class BookMarkSceneController implements Initializable {
                     if (Math.abs(engImage.getLayoutX() - viPosX) < mpl) {
                         searchingType = Dictionary.Type.EN_VI;
                         searchingResult = EnViBookMark.getEngKey();
-                        listWordInSearch.setVisible(true);
-                        listWordInSearch.getItems().setAll(searchingResult);
-                        listWordInSearch.setPrefHeight(searchingResult.size() * listWordInSearch.getFixedCellSize());
+                        if(!searchingResult.isEmpty()) {
+                            listWordInSearch.setVisible(true);
+                            listWordInSearch.getItems().setAll(searchingResult);
+                            listWordInSearch.setPrefHeight(searchingResult.size() * listWordInSearch.getFixedCellSize());
+                        }
                         isSwitchingLang = false;
                         viImage.setLayoutX(FLAG_POS_X_RIGHT);
                         engImage.setLayoutX(FLAG_POS_X_LEFT);

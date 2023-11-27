@@ -33,6 +33,7 @@ public class SceneTranslateTextController implements Initializable{
     @FXML private Label errorLabel;
     @FXML private Label EscLabel;
     @FXML private Button backToMainUIButton;
+    @FXML private ImageView speakerIn, speakerOut, speakerTranslateIn, speakerTranslateOut;
     private Timeline errorTimeLine;
 
     private String langFrom;
@@ -57,6 +58,10 @@ public class SceneTranslateTextController implements Initializable{
 
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle){
+        speakerOut.setVisible(true);
+        speakerIn.setVisible(false);
+        speakerTranslateOut.setVisible(true);
+        speakerTranslateIn.setVisible(false);
         setOnKeyPress();
         instance = this;
         symbol.put(languages[0], "vi");
@@ -111,11 +116,29 @@ public class SceneTranslateTextController implements Initializable{
         }
     }
 
-    public void translate(ActionEvent event) {
+    public void translate(MouseEvent event) {
         translate();
     }
 
-    public void speakLangFromText(ActionEvent event) {
+    public void moveInSpeakerOut(){
+        speakerIn.setVisible(true);
+        speakerOut.setVisible(false);
+    }
+
+    public void moveOutSpeakerIn(){
+        speakerIn.setVisible(false);
+        speakerOut.setVisible(true);
+    }
+
+    public void moveInSpeakerTranslateOut(){
+        speakerTranslateIn.setVisible(true);
+        speakerTranslateOut.setVisible(false);
+    }
+    public void moveOutSpeakerTranslateIn(){
+        speakerTranslateIn.setVisible(false);
+        speakerTranslateOut.setVisible(true);
+    }
+    public void speakLangFromText() {
         String paragraph = textTranslateArea.getText();
         if (paragraph != null && !paragraph.isEmpty()) {
             String response = GgTranslateTextToSpeech.play(paragraph, langFrom);
@@ -125,7 +148,7 @@ public class SceneTranslateTextController implements Initializable{
         }
     }
 
-    public void speakLangToText(ActionEvent event) {
+    public void speakLangToText() {
         String paragraph = textResultArea.getText();
         if (paragraph != null && !paragraph.isEmpty()) {
             String response = GgTranslateTextToSpeech.play(paragraph, langTo);

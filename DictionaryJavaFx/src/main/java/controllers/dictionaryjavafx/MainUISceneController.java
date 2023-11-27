@@ -260,9 +260,11 @@ public class MainUISceneController implements Initializable {
                     if (Math.abs(engImage.getLayoutX() - viPosX) < mpl) {
                         searchingType = Dictionary.Type.VI_EN;
                         searchingResult = ViEnBookMark.getVieKey();
-                        searchingResultList.setVisible(true);
-                        searchingResultList.getItems().setAll(searchingResult);
-                        searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
+                        if(!searchingResult.isEmpty()) {
+                            searchingResultList.setVisible(true);
+                            searchingResultList.getItems().setAll(searchingResult);
+                            searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
+                        }
                         isSwitchingLang = false;
                         viImage.setLayoutX(FLAG_POS_X_LEFT);
                         engImage.setLayoutX(FLAG_POS_X_RIGHT);
@@ -274,9 +276,11 @@ public class MainUISceneController implements Initializable {
                     if (Math.abs(engImage.getLayoutX() - viPosX) < mpl) {
                         searchingType = Dictionary.Type.EN_VI;
                         searchingResult = EnViBookMark.getEngKey();
-                        searchingResultList.setVisible(true);
-                        searchingResultList.getItems().setAll(searchingResult);
-                        searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
+                        if(!searchingResult.isEmpty()) {
+                            searchingResultList.setVisible(true);
+                            searchingResultList.getItems().setAll(searchingResult);
+                            searchingResultList.setPrefHeight(searchingResult.size() * searchingResultList.getFixedCellSize());
+                        }
                         isSwitchingLang = false;
                         viImage.setLayoutX(FLAG_POS_X_RIGHT);
                         engImage.setLayoutX(FLAG_POS_X_LEFT);
