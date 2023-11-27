@@ -224,7 +224,6 @@ public class ShootingGameController implements Initializable {
     }
 
     private void shootBullet(GameObject.Color color) {
-        System.out.println(waitingBullets.size());
         if(showingBullets.isEmpty()) return;
         Bullet currentBullet = showingBullets.get(selectingBullet);
         removeBullet(currentBullet);
