@@ -13,7 +13,7 @@
 
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.MainUISceneController">
     <children>
-        <ListView fx:id="searchingResultList" fixedCellSize="25.0" layoutX="208.0" layoutY="86.0" maxHeight="511.0" prefHeight="511.0" prefWidth="227.0" stylesheets="@../../ListViewStyles.css" />
+        <ListView fx:id="searchingResultList" fixedCellSize="25.0" focusTraversable="false" layoutX="208.0" layoutY="86.0" maxHeight="511.0" prefHeight="511.0" prefWidth="227.0" stylesheets="@../../ListViewStyles.css" />
         <WebView fx:id="meaningWebView" layoutX="438.0" layoutY="86.0" prefHeight="511.0" prefWidth="561.0" stylesheets="@../../WebViewStyles.css" />
         <AnchorPane prefHeight="86.0" prefWidth="1000.0" style="-fx-background-color: pink;">
             <children>

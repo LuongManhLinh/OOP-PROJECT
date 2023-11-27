@@ -130,6 +130,7 @@ public class MainUISceneController implements Initializable {
             }
         });
 
+        wordEnteringField.requestFocus();
         handleSearching();
     }
 
@@ -140,8 +141,9 @@ public class MainUISceneController implements Initializable {
             public void handle(long l) {
                 String keyWord = wordEnteringField.getText();
                 oldKeyWord = keyWord;
+
                 if (oldKeyWord.isEmpty()) {
-                    if(searchingType == Dictionary.Type.EN_VI) {
+                    if (searchingType == Dictionary.Type.EN_VI) {
                         searchingResult = EnViBookMark.getEngKey();
                         if (!searchingResult.isEmpty()) {
                             searchingResultList.setVisible(true);

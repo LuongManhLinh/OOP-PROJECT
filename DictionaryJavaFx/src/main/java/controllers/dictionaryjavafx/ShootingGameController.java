@@ -10,6 +10,7 @@ import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -35,6 +36,7 @@ public class ShootingGameController implements Initializable {
     @FXML private ScrollPane guidePane;
     @FXML private AnchorPane gamePane;
     @FXML private ImageView CannonImage;
+    @FXML private ImageView reloadImage;
     @FXML private Line line;
     @FXML private VBox bulletContainer;
     @FXML private ImageView shootBulletRed;
@@ -43,6 +45,7 @@ public class ShootingGameController implements Initializable {
     @FXML private Label yourScore;
     @FXML private Label curRound;
     @FXML private Label time;
+    @FXML private Label numberWaitingBulletLabel;
 
     private enum Status {
         START_GAME,
@@ -92,8 +95,11 @@ public class ShootingGameController implements Initializable {
                 selectBullet(selectingBullet - 1);
             } else if (event.getCode() == KeyCode.DOWN || event.getCode() == KeyCode.S) {
                 selectBullet(selectingBullet + 1);
+            } else if (event.getCode() == KeyCode.R) {
+                reload();
             }
         });
+
         timeRemainingTimeline = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> decreaseTimeRemaining())
         );
@@ -145,6 +151,10 @@ public class ShootingGameController implements Initializable {
 
     public void reload() {
         if (!waitingBullets.isEmpty()) {
+            reloadAnimation();
+            if (selectingBullet >= 0 && selectingBullet < showingBullets.size()) {
+                showingBullets.get(selectingBullet).getObjectView().getShowText().setStyle(null);
+            }
             if (showingBullets.size() < MAX_SHOWING_BULLET_SIZE) {
                 while (showingBullets.size() < MAX_SHOWING_BULLET_SIZE) {
                     if (!waitingBullets.isEmpty()) {
@@ -152,7 +162,7 @@ public class ShootingGameController implements Initializable {
                         bulletContainer.getChildren().add(bullet.getObjectView().getShowText());
                         showingBullets.add(bullet);
                     } else {
-                        return;
+                        break;
                     }
                 }
             } else {
@@ -167,11 +177,29 @@ public class ShootingGameController implements Initializable {
                         bulletContainer.getChildren().add(bullet.getObjectView().getShowText());
                         showingBullets.add(bullet);
                     } else {
-                        return;
+                        break;
                     }
                 }
             }
+            selectBullet(0);
         }
+        numberWaitingBulletLabel.setText(String.valueOf(waitingBullets.size()));
+    }
+
+    private void reloadAnimation() {
+        AnimationTimer reloadTimer = new AnimationTimer() {
+            double degree = 0;
+            @Override
+            public void handle(long l) {
+                degree += 6;
+                if (degree > 360) {
+                    reloadImage.setRotate(0);
+                    stop();
+                }
+                reloadImage.setRotate(degree);
+            }
+        };
+        reloadTimer.start();
     }
 
     public void selectBullet(int pos) {
@@ -181,17 +209,23 @@ public class ShootingGameController implements Initializable {
             } else if (pos < 0) {
                 pos = showingBullets.size() - 1;
             }
-            showingBullets.get(selectingBullet).getObjectView().getShowText().setStyle(null);
+            if (selectingBullet >= 0 && selectingBullet < showingBullets.size()) {
+                showingBullets.get(selectingBullet).getObjectView().getShowText().setStyle(null);
+            }
             showingBullets.get(pos).getObjectView().getShowText().setStyle("-fx-background-color: rgba(255,255,0,0.3)");
             selectingBullet = pos;
         }
     }
+
     private void clickToShoot() {
         gamePane.setOnMouseClicked(event -> {
             if (event.getButton() == MouseButton.PRIMARY) { //click chuột trái
-                if(waitingBullets.size() + showingBullets.size() > 0) {
-                    GameObject.Color bulletColor = showingBullets.get(showingBullets.size() - 1).getColor();
+                if(!showingBullets.isEmpty()) {
+                    GameObject.Color bulletColor = showingBullets.get(selectingBullet).getColor();
                     shootBullet(bulletColor);
+                    if (!showingBullets.isEmpty()) {
+                        selectBullet(0);
+                    }
                 }
             }
         });
@@ -200,7 +234,7 @@ public class ShootingGameController implements Initializable {
     private void shootBullet(GameObject.Color color) {
         System.out.println(waitingBullets.size());
         if(showingBullets.isEmpty()) return;
-        Bullet currentBullet = showingBullets.get(showingBullets.size() - 1);
+        Bullet currentBullet = showingBullets.get(selectingBullet);
         removeBullet(currentBullet);
         //tạo 1 viên đạn mới
         ImageView newBullet;
@@ -361,7 +395,7 @@ public class ShootingGameController implements Initializable {
         reload();
         selectBullet(0);
 
-        timeRemaining = 10; // Reset time for each round
+        timeRemaining = 30; // Reset time for each round
         timeRemainingTimeline.playFromStart();
         time.setText("Time: " + timeRemaining);
     }
