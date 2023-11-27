@@ -3,6 +3,8 @@ package classes.ShootingGameClasses;
 import classes.data.GameData;
 import classes.makerandom.MakeRandom;
 import controllers.dictionaryjavafx.ShootingGameController;
+import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 import kotlin.collections.MapsKt;
 
 import java.util.ArrayList;
@@ -225,7 +227,7 @@ public class RoundGenerator {
                     target.addPosition(new Vector(MakeRandom.random(100, 1200), MakeRandom.random(0, 600)));
                     target.addPosition(new Vector(MakeRandom.random(100, 1200), MakeRandom.random(0, 600)));
                     target.addPosition(new Vector(MakeRandom.random(100, 1200), MakeRandom.random(0, 600)));
-                    target.setTimeToJump(2);
+                    target.setTimeToJump(2000);
                     controller.addTarget(target);
 
                     bullets.add(new Bullet(getRandomColor(target.getColorToBeCountered()), bulletText, targetText));
@@ -329,7 +331,7 @@ public class RoundGenerator {
                             target.addDestination(new Vector(MakeRandom.random(0, 1300), MakeRandom.random(0, 700)));
                         }
                         target.setVelocity(MakeRandom.random(50, 300));
-                        controller.addTarget(target);
+                        controller.addWaitingTarget(target);
                         bullets.add(new Bullet(getRandomColor(target.getColorToBeCountered()), bulletText, targetText));
                         bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
                     } else {
@@ -338,8 +340,8 @@ public class RoundGenerator {
                         for (int j = 0; j < randomNumberPos; j++) {
                             target.addPosition(new Vector(MakeRandom.random(0, 1200), MakeRandom.random(0, 600)));
                         }
-                        target.setTimeToJump(MakeRandom.random(2, 4));
-                        controller.addTarget(target);
+                        target.setTimeToJump(MakeRandom.random(2000, 4000));
+                        controller.addWaitingTarget(target);
                         bullets.add(new Bullet(getRandomColor(target.getColorToBeCountered()), bulletText, targetText));
                         bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
                     }
@@ -349,12 +351,107 @@ public class RoundGenerator {
                 controller.addBullet(bullets);
             }
 
-            case 9 -> {
-
-            }
-
+            /*
+            Round 9 and next have 2 phases with 12 random targets:
+            40% chance of still target and static round moving target
+            60% chance of moving and teleporting target
+             */
             default -> {
+                ArrayList<Integer> randomIndexes = randomAndRemoveIndex(12);
+                ArrayList<Bullet> bullets = new ArrayList<>();
 
+                for (int i = 0; i < 12; i++) {
+                    int randomValue = MakeRandom.random(1, 10);
+                    String bulletText = key.get(randomIndexes.get(i));
+                    String targetText = MakeRandom.random(words.get(bulletText));
+                    GameObject.Color targetColor = getRandomColor();
+
+                    Target checkColorTarget;
+
+                    if (randomValue <= 4) {
+                        int randomType = MakeRandom.random(0, 1);
+                        if (randomType == 0) {
+                            StillTarget target = new StillTarget(targetColor, targetText, 10,
+                                    new Vector(MakeRandom.random(0, 1200), MakeRandom.random(0, 600)));
+                            if (i < 6) {
+                                controller.addTarget(target);
+                            } else {
+                                controller.addWaitingTarget(target);
+                            }
+                            checkColorTarget = target;
+                        } else {
+                            RoundMovingTarget target = new RoundMovingTarget(targetColor, targetText, 15,
+                                    new Vector(MakeRandom.random(150, 1150), MakeRandom.random(150, 550)), MakeRandom.random(150, 300));
+                            target.setRoundVelocity(MakeRandom.random(60, 180));
+
+                            if (i < 6) {
+                                controller.addTarget(target);
+                            } else {
+                                controller.addWaitingTarget(target);
+                            }
+                            checkColorTarget = target;
+                        }
+                    } else {
+                        int randomType = MakeRandom.random(0, 2);
+                        if (randomType == 0) {
+                            RoundMovingTarget target = new RoundMovingTarget(targetColor, targetText, 25);
+                            target.setCenter(new Vector(MakeRandom.random(0, 650), MakeRandom.random(0, 700)));
+                            target.setRoundVelocity(MakeRandom.random(45, 180));
+
+                            int moveDirY = MakeRandom.random(0, 10);
+                            if (target.getCenter().getY() > 350) {
+                               moveDirY = -moveDirY;
+                            }
+                            int moveDirX = MakeRandom.random(1, 10);
+                            if (MakeRandom.random(0, 1) == 0) {
+                                moveDirX = -moveDirX;
+                            }
+                            target.setMoveDirection(new Vector(moveDirX, moveDirY));
+                            target.setMoveVelocity(MakeRandom.random(10, 200));
+
+                            if (i < 6) {
+                                controller.addTarget(target);
+                            } else {
+                                controller.addWaitingTarget(target);
+                            }
+                            checkColorTarget = target;
+                        } else if (randomType == 1) {
+                            StraightMovingTarget target = new StraightMovingTarget(targetColor, targetText, 30);
+                            target.setVelocity(MakeRandom.random(50, 300));
+                            int randomNumberDes = MakeRandom.random(2, 6);
+                            for (int j = 0; j < randomNumberDes; j++) {
+                                target.addDestination(new Vector(MakeRandom.random(0, 1300), MakeRandom.random(0, 700)));
+                            }
+
+                            if (i < 6) {
+                                controller.addTarget(target);
+                            } else {
+                                controller.addWaitingTarget(target);
+                            }
+                            checkColorTarget = target;
+                        } else {
+                            TeleportingStillTarget target = new TeleportingStillTarget(targetColor, targetText, 30);
+                            target.setTimeToJump(MakeRandom.random(1500, 4000));
+                            int randomNumberPos = MakeRandom.random(2, 4);
+                            for (int j = 0; j < randomNumberPos; j++) {
+                                target.addPosition(new Vector(MakeRandom.random(0, 1250), MakeRandom.random(0, 650)));
+                            }
+
+                            if (i < 6) {
+                                controller.addTarget(target);
+                            } else {
+                                controller.addWaitingTarget(target);
+                            }
+                            checkColorTarget = target;
+                        }
+                    }
+
+                    bullets.add(new Bullet(getRandomColor(checkColorTarget.getColorToBeCountered()), bulletText, targetText));
+                    bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
+                }
+
+                MakeRandom.shuffle(bullets);
+                controller.addBullet(bullets);
             }
         }
     }

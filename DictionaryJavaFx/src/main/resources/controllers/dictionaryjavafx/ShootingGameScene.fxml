@@ -48,7 +48,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <ScrollPane fx:id="guidePane" focusTraversable="false" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: pink;" visible="false">
+      <ScrollPane fx:id="guidePane" focusTraversable="false" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: pink;">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1200.0" prefWidth="1300.0" style="-fx-background-color: pink;">
                <children>
@@ -89,7 +89,7 @@
                         <Font size="21.0" />
                      </font>
                   </Label>
-                  <Label contentDisplay="BOTTOM" focusTraversable="false" layoutX="14.0" layoutY="512.0" prefHeight="111.0" prefWidth="585.0" text="Không thay đổi điểm: sai nghĩa và màu của viên đạn không bị counter" wrapText="true">
+                  <Label contentDisplay="BOTTOM" focusTraversable="false" layoutX="14.0" layoutY="512.0" prefHeight="87.0" prefWidth="585.0" text="Không thay đổi điểm: sai nghĩa và màu của viên đạn không bị counter" wrapText="true">
                      <font>
                         <Font size="21.0" />
                      </font>
@@ -187,11 +187,16 @@
                         <Font name="Segoe UI Black" size="18.0" />
                      </font>
                   </Button>
+                  <Label contentDisplay="BOTTOM" focusTraversable="false" layoutX="14.0" layoutY="587.0" prefHeight="87.0" prefWidth="585.0" text="Bia sẽ bị phá hủy nếu như viên đạn bắn vào nó là viên đạn đúng." wrapText="true">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
         </content>
       </ScrollPane>
-      <AnchorPane fx:id="gamePane" focusTraversable="true" prefHeight="700.0" prefWidth="1300.0">
+      <AnchorPane fx:id="gamePane" focusTraversable="true" prefHeight="700.0" prefWidth="1300.0" visible="false">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-64.0" layoutY="649.0" pickOnBounds="true" preserveRatio="true" rotate="45.0">
                <image>

@@ -390,16 +390,10 @@ public class ShootingGameController implements Initializable {
             case 1:
                 timeRemaining = 20;
                 break;
-            case 2:
+            case 2, 3:
                 timeRemaining = 40;
                 break;
-            case 3:
-                timeRemaining = 40;
-                break;
-            case 4:
-                timeRemaining = 50;
-                break;
-            case 5:
+            case 4, 5:
                 timeRemaining = 50;
                 break;
             case 6:
@@ -409,7 +403,7 @@ public class ShootingGameController implements Initializable {
                 timeRemaining = 100;
                 break;
             default:
-                timeRemaining = 100;
+                timeRemaining = 120;
                 break;
         }
 //        timeRemaining = 10; // Reset time for each round
