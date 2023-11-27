@@ -3,32 +3,23 @@ package controllers.dictionaryjavafx;
 import classes.FXMLFiles;
 import classes.ShootingGameClasses.*;
 import classes.data.GameData;
-import classes.makerandom.MakeRandom;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.*;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public class ShootingGameController implements Initializable {
     @FXML private AnchorPane fatherPane;
@@ -70,10 +61,11 @@ public class ShootingGameController implements Initializable {
 
     private int round = 1;
     private int maxRound = 10;
-    private int score = 0;
+    private double curScore = 0;
     private int selectingBullet = 0;
-    private int timeRemaining = 10;
+    private int timeRemaining = 15;
     private Timeline timeRemainingTimeline;
+    private boolean canChangeRound = true;
 
     public static ShootingGameController getInstance() {
         return instance;
@@ -86,7 +78,7 @@ public class ShootingGameController implements Initializable {
         setCannonRotation();
         clickToShoot();
         curRound.setText("Round " + round);
-        yourScore.setText("Score: " + score);
+        yourScore.setText("Score: " + curScore);
 
         bulletContainer.getChildren().clear();
 
@@ -232,7 +224,7 @@ public class ShootingGameController implements Initializable {
     }
 
     private void shootBullet(GameObject.Color color) {
-        System.out.println(waitingBullets.size());
+        canChangeRound = false;
         if(showingBullets.isEmpty()) return;
         Bullet currentBullet = showingBullets.get(selectingBullet);
         removeBullet(currentBullet);
@@ -260,7 +252,7 @@ public class ShootingGameController implements Initializable {
         double vectorY = line.getEndY() - 4 - newBullet.getLayoutY();
         double distance = Math.sqrt(vectorX * vectorX + vectorY * vectorY);
 
-        double stepDistance = 7.0;
+        double stepDistance = 9.0;
 
         int numSteps = (int) (distance / stepDistance);
 
@@ -278,22 +270,19 @@ public class ShootingGameController implements Initializable {
                     newBullet.setLayoutX(newBullet.getLayoutX() + stepX);
                     newBullet.setLayoutY(newBullet.getLayoutY() + stepY);
                     countStep++;
-                    for(Target t : showingTargets) {
-                        if(checkCollision(newBullet, t)) {
+                    for(Target tar : showingTargets) {
+                        if(checkCollision(newBullet, tar)) {
                             countStep = numSteps;
-                            if(currentBullet.getKeyText().equalsIgnoreCase(t.getShowText())) {
-                                removeTarget(t);
-                                score += 10;
-                                yourScore.setText("Score: " + score);
-                            }
-                            else {
-                                score -= 10;
-                                yourScore.setText("Score: " + score);
+                            if(currentBullet.getKeyText().equalsIgnoreCase(tar.getShowText())) {
+                                removeTarget(tar);
+                                curScore += tar.takeDamage(currentBullet);
+                                yourScore.setText("Score: " + curScore);
                             }
                             break;
                         }
                     }
                 } else {
+                    canChangeRound = true;
                     gamePane.getChildren().remove(newBullet);
                     this.stop();
                 }
@@ -362,6 +351,8 @@ public class ShootingGameController implements Initializable {
                 menuPane.setVisible(true);
                 gamePane.setVisible(false);
                 guidePane.setVisible(false);
+                round = 1;
+                curScore = 0;
             }
 
             case IN_GAME -> {
@@ -370,7 +361,7 @@ public class ShootingGameController implements Initializable {
                 guidePane.setVisible(false);
                 RoundGenerator.refillIndex();
                 setRound(1);
-
+                yourScore.setText("Score: " + curScore);
             }
 
             case GUIDE -> {
@@ -395,15 +386,41 @@ public class ShootingGameController implements Initializable {
         reload();
         selectBullet(0);
 
-        timeRemaining = 30; // Reset time for each round
+        switch (round) {
+            case 1:
+                timeRemaining = 20;
+                break;
+            case 2, 3:
+                timeRemaining = 40;
+                break;
+            case 4, 5:
+                timeRemaining = 50;
+                break;
+            case 6:
+                timeRemaining = 60;
+                break;
+            case 7:
+                timeRemaining = 100;
+                break;
+            default:
+                timeRemaining = 120;
+                break;
+        }
+//        timeRemaining = 10; // Reset time for each round
         timeRemainingTimeline.playFromStart();
         time.setText("Time: " + timeRemaining);
     }
     private void decreaseTimeRemaining() {
         timeRemaining--;
         time.setText("Time: " + timeRemaining);
-        if (timeRemaining <= 0 || showingBullets.size() + waitingBullets.size() == 0 || showingTargets.size() + waitingTargets.size() == 0) {
+        if ((timeRemaining <= 0 || showingBullets.size() + waitingBullets.size() == 0 || showingTargets.size() + waitingTargets.size() == 0)
+            && canChangeRound) {
+            if(showingTargets.size() + waitingTargets.size() == 0) {
+                int bonusScore = timeRemaining / 10;
+                curScore += bonusScore;
+            }
             // Stop counting time and move to the next round
+            yourScore.setText("Score: " + curScore);
             timeRemainingTimeline.stop();
             moveToNextRound();
         }

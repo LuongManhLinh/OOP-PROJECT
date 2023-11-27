@@ -25,7 +25,7 @@ public class TeleportingStillTarget extends StillTarget {
             @Override
             public void handle(long timeNow) {
                 if (timeBefore != 0) {
-                    timeProgress += (double) (timeNow - timeBefore) / 1000000000;
+                    timeProgress += (double) (timeNow - timeBefore) / 1000000;
                     if (timeProgress >= timeToJump) {
                         objectView.setPosition(positions.get(nextPosition));
                         nextPosition++;
@@ -51,8 +51,8 @@ public class TeleportingStillTarget extends StillTarget {
         positions.add(position);
     }
 
-    public void setTimeToJump(double timeSecond) {
-        timeToJump = timeSecond;
+    public void setTimeToJump(double timeMiliSecond) {
+        timeToJump = timeMiliSecond;
     }
 
 }

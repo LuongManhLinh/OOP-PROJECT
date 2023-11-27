@@ -1,10 +1,5 @@
 package classes.ShootingGameClasses;
 
-import controllers.dictionaryjavafx.ShootingGameController;
-import javafx.scene.control.ContentDisplay;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
 public abstract class Target extends GameObject {
     private final double score;
 

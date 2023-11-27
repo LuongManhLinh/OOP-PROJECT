@@ -1,7 +1,5 @@
 package classes.ShootingGameClasses;
 
-import classes.ShootingGameClasses.Target;
-import classes.ShootingGameClasses.Vector;
 import javafx.animation.AnimationTimer;
 
 public class RoundMovingTarget extends Target {
@@ -42,13 +40,24 @@ public class RoundMovingTarget extends Target {
 
                     if (timeBefore != 0) {
                         double time = (double) (timeNow - timeBefore) / 1000000000;
-                        degree += time * roundVelocity;
-                        center.setX(center.getX() + moveVelocity * time * moveDirection.getX());
-                        center.setY(center.getY() + moveVelocity * time * moveDirection.getY());
 
+                        degree += time * roundVelocity;
                         if (degree >= 360) {
                             degree -= 360;
                         }
+
+                        center.setX(center.getX() + moveVelocity * time * moveDirection.getX());
+                        center.setY(center.getY() + moveVelocity * time * moveDirection.getY());
+                        if (center.getX() > 1300) {
+                            double newY = ((-100 - center.getX()) * moveDirection.getY()) / moveDirection.getX() + center.getY();
+                            center.setX(-100);
+                            center.setY(newY);
+                        } else if (center.getY() > 700) {
+                            double newX = ((-100 - center.getY()) * moveDirection.getX()) / moveDirection.getY() + center.getX();
+                            center.setX(newX);
+                            center.setY(-100);
+                        }
+
                     }
                     timeBefore = timeNow;
                 }
