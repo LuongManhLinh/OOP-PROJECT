@@ -49,7 +49,6 @@ public class ShootingGameController implements Initializable {
     private static final int SPIN_POINT_Y = 679;
 
     private static final int MAX_SHOWING_BULLET_SIZE = 6;
-    private static final int score = 10;
 
 
     private static ShootingGameController instance;
@@ -62,10 +61,11 @@ public class ShootingGameController implements Initializable {
 
     private int round = 1;
     private int maxRound = 10;
-    private int curScore = 0;
+    private double curScore = 0;
     private int selectingBullet = 0;
     private int timeRemaining = 15;
     private Timeline timeRemainingTimeline;
+    private boolean canChangeRound = true;
 
     public static ShootingGameController getInstance() {
         return instance;
@@ -224,6 +224,7 @@ public class ShootingGameController implements Initializable {
     }
 
     private void shootBullet(GameObject.Color color) {
+        canChangeRound = false;
         if(showingBullets.isEmpty()) return;
         Bullet currentBullet = showingBullets.get(selectingBullet);
         removeBullet(currentBullet);
@@ -274,21 +275,14 @@ public class ShootingGameController implements Initializable {
                             countStep = numSteps;
                             if(currentBullet.getKeyText().equalsIgnoreCase(tar.getShowText())) {
                                 removeTarget(tar);
-                                if(color == tar.getColorToBeCountered()) {
-                                    curScore += 2 * score;
-                                }
-                                else if(color == tar.getColorToCounter()) {
-                                    curScore -= score;
-                                }
-                                else {
-                                    curScore += score;
-                                }
+                                curScore += tar.takeDamage(currentBullet);
                                 yourScore.setText("Score: " + curScore);
                             }
                             break;
                         }
                     }
                 } else {
+                    canChangeRound = true;
                     gamePane.getChildren().remove(newBullet);
                     this.stop();
                 }
@@ -394,28 +388,28 @@ public class ShootingGameController implements Initializable {
 
         switch (round) {
             case 1:
-                timeRemaining = 15;
+                timeRemaining = 20;
                 break;
             case 2:
-                timeRemaining = 30;
+                timeRemaining = 40;
                 break;
             case 3:
-                timeRemaining = 30;
+                timeRemaining = 40;
                 break;
             case 4:
-                timeRemaining = 40;
-                break;
-            case 5:
-                timeRemaining = 40;
-                break;
-            case 6:
                 timeRemaining = 50;
                 break;
+            case 5:
+                timeRemaining = 50;
+                break;
+            case 6:
+                timeRemaining = 60;
+                break;
             case 7:
-                timeRemaining = 70;
+                timeRemaining = 100;
                 break;
             default:
-                timeRemaining = 70;
+                timeRemaining = 100;
                 break;
         }
 //        timeRemaining = 10; // Reset time for each round
@@ -425,8 +419,14 @@ public class ShootingGameController implements Initializable {
     private void decreaseTimeRemaining() {
         timeRemaining--;
         time.setText("Time: " + timeRemaining);
-        if (timeRemaining <= 0 || showingBullets.size() + waitingBullets.size() == 0 || showingTargets.size() + waitingTargets.size() == 0) {
+        if ((timeRemaining <= 0 || showingBullets.size() + waitingBullets.size() == 0 || showingTargets.size() + waitingTargets.size() == 0)
+            && canChangeRound) {
+            if(showingTargets.size() + waitingTargets.size() == 0) {
+                int bonusScore = timeRemaining / 10;
+                curScore += bonusScore;
+            }
             // Stop counting time and move to the next round
+            yourScore.setText("Score: " + curScore);
             timeRemainingTimeline.stop();
             moveToNextRound();
         }
