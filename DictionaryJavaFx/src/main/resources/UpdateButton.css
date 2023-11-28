@@ -1,8 +1,8 @@
 .button {
-    -fx-background-color: #FA8072;
+    -fx-background-color:rgb(230, 230, 255);
     -fx-border-color: rgb(100, 100, 100);
-    -fx-background-radius: 10;
-    -fx-border-radius: 10;
+    -fx-background-radius: 10 0 0 0;
+    -fx-border-radius: 10 0 0 0;
 }
 
 .button:hover {
@@ -12,3 +12,4 @@
 .button:pressed {
     -fx-background-color: rgb(255, 128, 0);
 }
+

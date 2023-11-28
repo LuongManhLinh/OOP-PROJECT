@@ -11,13 +11,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.MainUISceneController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.MainUISceneController">
     <children>
         <ListView fx:id="searchingResultList" fixedCellSize="25.0" focusTraversable="false" layoutX="208.0" layoutY="87.0" maxHeight="511.0" prefHeight="511.0" prefWidth="227.0" stylesheets="@../../ListViewStyles.css" />
-        <WebView fx:id="meaningWebView" layoutX="438.0" layoutY="86.0" prefHeight="511.0" prefWidth="561.0" stylesheets="@../../WebViewStyles.css" />
+        <WebView fx:id="meaningWebView" layoutX="438.0" layoutY="86.0" prefHeight="511.0" prefWidth="561.0" />
         <AnchorPane prefHeight="86.0" prefWidth="1000.0" style="-fx-background-color: pink;">
             <children>
-                <Label fx:id="CtrlULabel" layoutX="836.0" layoutY="51.0" opacity="0.75" style="-fx-background-radius: 5;" text="Ctrl+U">
+                <Label fx:id="CtrlULabel" layoutX="832.0" layoutY="35.0" opacity="0.75" style="-fx-background-radius: 5;" text="Ctrl+U">
                     <font>
                         <Font name="System Bold Italic" size="12.0" />
                     </font>
@@ -32,17 +32,12 @@
                         <Font name="System Italic" size="27.0" />
                     </font>
                 </Label>
-                <Button fx:id="editWordButton" focusTraversable="false" layoutX="682.0" layoutY="46.0" mnemonicParsing="false" onAction="#selectUpdateWordFromMainUIFunc" onMouseEntered="#showCtrlU" onMouseExited="#hideCtrlU" prefHeight="28.0" prefWidth="154.0" stylesheets="@../../UpdateButton.css" text="Cập nhật từ đang chọn">
+                <Button fx:id="editWordButton" focusTraversable="false" layoutX="830.0" layoutY="55.0" mnemonicParsing="false" onAction="#selectUpdateWordFromMainUIFunc" onMouseEntered="#showCtrlU" onMouseExited="#hideCtrlU" prefHeight="33.0" prefWidth="171.0" stylesheets="@../../UpdateButton.css" text="Cập nhật từ đang chọn">
                     <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <TextField fx:id="wordEnteringField" layoutX="209.0" layoutY="42.0" prefHeight="35.0" prefWidth="227.0" promptText="Nhập từ cần tra" stylesheets="@../../TextFieldStyles.css" AnchorPane.topAnchor="42.0" />
-            <ImageView fitHeight="31.0" fitWidth="25.0" layoutX="411.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../image/iconLookUp.png" />
-               </image>
-            </ImageView>
+                <TextField fx:id="wordEnteringField" layoutX="209.0" layoutY="42.0" prefColumnCount="10" prefHeight="35.0" prefWidth="227.0" promptText="Nhập từ cần tra" stylesheets="@../../TextFieldStyles.css" AnchorPane.topAnchor="42.0" />
                 <AnchorPane layoutX="446.0" layoutY="-67.0" prefHeight="152.0" prefWidth="208.0" AnchorPane.leftAnchor="446.0" AnchorPane.rightAnchor="346.79999999999995">
                     <children>
                         <Button focusTraversable="false" layoutX="79.0" layoutY="85.0" mnemonicParsing="false" onAction="#onSearchingTypeChanged" onMouseEntered="#showCtrlD" onMouseExited="#hideCtrlD" prefHeight="26.0" prefWidth="38.0" styleClass="default" stylesheets="@../../SwitchLanguege.css">
@@ -235,7 +230,7 @@
             <Image url="@../../image/unmarked.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="marked" fitHeight="47.0" fitWidth="50.0" layoutX="945.0" layoutY="98.0" onMouseClicked="#markedWord" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="90.0">
+      <ImageView fx:id="marked" fitHeight="47.0" fitWidth="50.0" layoutX="943.0" layoutY="98.0" onMouseClicked="#markedWord" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="90.0">
          <image>
             <Image url="@../../image/marked.png" />
          </image>
