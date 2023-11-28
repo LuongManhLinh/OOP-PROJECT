@@ -45,5 +45,6 @@ public class SceneLoaderController {
         }
         stage.setScene(scene);
         stage.show();
+        stage.centerOnScreen();
     }
 }
