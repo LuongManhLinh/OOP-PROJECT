@@ -12,15 +12,15 @@ public abstract class Target extends GameObject {
 
     public double takeDamage(Bullet bullet) {
         if (bullet.getKeyText().equals(showText)) {
-            if (bullet.getColorToBeCountered() == color) {
+            if (bullet.getColorToCounter() == color) {
                 return 2 * score;
-            } else if (bullet.getColorToCounter() == color) {
+            } else if (bullet.getColorToBeCountered() == color) {
                 return -0.5 * score;
             } else {
                 return score;
             }
         } else {
-            if (bullet.getColorToCounter() == color) {
+            if (bullet.getColorToBeCountered() == color) {
                 return -score;
             } else {
                 return 0;

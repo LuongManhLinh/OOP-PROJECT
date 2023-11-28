@@ -233,7 +233,6 @@ public class ShootingGameController implements Initializable {
     }
 
     private void shootBullet(GameObject.Color color) {
-        System.out.println(waitingTargets.size() + " " + MAX_SHOWING_TARGET_SIZE + " " + showingTargets.size());
         gamePane.requestFocus();
         canChangeRound = false;
         if(showingBullets.isEmpty()) return;
@@ -284,10 +283,10 @@ public class ShootingGameController implements Initializable {
                     for(Target tar : showingTargets) {
                         if(checkCollision(newBullet, tar)) {
                             countStep = numSteps;
+                            curScore += tar.takeDamage(currentBullet);
+                            yourScore.setText("Score: " + curScore);
                             if(currentBullet.getKeyText().equalsIgnoreCase(tar.getShowText())) {
                                 removeTarget(tar);
-                                curScore += tar.takeDamage(currentBullet);
-                                yourScore.setText("Score: " + curScore);
                                 addTargetAutomatically();
                             }
                             break;
@@ -395,7 +394,12 @@ public class ShootingGameController implements Initializable {
                 gamePane.setVisible(false);
                 guidePane.setVisible(false);
                 endGame.setVisible(true);
-                endGameLabel.setText("Congratulations, you got " + curScore + " points");
+                if(curScore > 0) {
+                    endGameLabel.setText("Congratulations, you got " + curScore + " points");
+                }
+                else {
+                    endGameLabel.setText("Oops, you got " + curScore + " points");
+                }
             }
         }
     }
