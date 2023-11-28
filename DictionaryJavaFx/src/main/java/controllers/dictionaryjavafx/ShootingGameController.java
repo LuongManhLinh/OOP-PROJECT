@@ -16,6 +16,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
@@ -40,6 +42,7 @@ public class ShootingGameController implements Initializable {
     @FXML private Label time;
     @FXML private Label numberWaitingBulletLabel;
     @FXML private Label endGameLabel;
+    @FXML private Label scoreLabel;
 
     private enum Status {
         START_GAME,
@@ -283,8 +286,10 @@ public class ShootingGameController implements Initializable {
                     for(Target tar : showingTargets) {
                         if(checkCollision(newBullet, tar)) {
                             countStep = numSteps;
-                            curScore += tar.takeDamage(currentBullet);
+                            double scoreTaken = tar.takeDamage(currentBullet);
+                            curScore += scoreTaken;
                             yourScore.setText("Score: " + curScore);
+                            showScoreLabel(scoreTaken, tar.getObjectView().getPosition().getX(), tar.getObjectView().getPosition().getY());
                             if(currentBullet.getKeyText().equalsIgnoreCase(tar.getShowText())) {
                                 removeTarget(tar);
                                 addTargetAutomatically();
@@ -480,6 +485,28 @@ public class ShootingGameController implements Initializable {
     private boolean pointInsideCircle(double pointX, double pointY, double centerX, double centerY, double radius) {
         double distance = Math.sqrt((centerX - pointX) * (centerX - pointX) + (centerY - pointY) * (centerY - pointY));
         return distance <= radius;
+    }
+
+    public void showScoreLabel(double score, double x, double y) {
+        if (score != 0) {
+            scoreLabel.setVisible(true);
+            if (score > 0) {
+                scoreLabel.setText("+" + score);
+                scoreLabel.setTextFill(Color.rgb(26, 197, 83));
+            } else {
+                scoreLabel.setText(String.valueOf(score));
+                scoreLabel.setTextFill(Color.BLACK);
+            }
+            scoreLabel.setLayoutX(x);
+            scoreLabel.setLayoutY(y);
+            Timeline waitToDisappear = new Timeline(
+                    new KeyFrame(Duration.millis(500), event -> {
+                        scoreLabel.setVisible(false);
+                    })
+            );
+            waitToDisappear.play();
+        }
+
     }
 
     public void clear() {
