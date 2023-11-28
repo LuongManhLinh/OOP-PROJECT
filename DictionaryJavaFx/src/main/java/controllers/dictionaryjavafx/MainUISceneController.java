@@ -32,7 +32,7 @@ public class MainUISceneController implements Initializable {
     @FXML private ListView<String> searchingResultList;
     @FXML private WebView meaningWebView;
     @FXML private Label engImage, viImage;
-    @FXML private Button speaker;
+    @FXML private ImageView speakerIn, speakerOut;
     @FXML private ImageView unmarked, marked;
 
     @FXML private Button editWordButton;
@@ -205,7 +205,8 @@ public class MainUISceneController implements Initializable {
         meaningWebView.setVisible(false);
         searchingResultList.setVisible(false);
         editWordButton.setVisible(false);
-        speaker.setVisible(false);
+        speakerOut.setVisible(false);
+        speakerIn.setVisible(false);
         unmarked.setVisible(false);
         marked.setVisible(false);
     }
@@ -225,7 +226,7 @@ public class MainUISceneController implements Initializable {
 
     public void show() {
         meaningWebView.setVisible(true);
-        speaker.setVisible(true);
+        speakerOut.setVisible(true);
         if(searchingType == Dictionary.Type.EN_VI) {
             if (EnViBookMark.checkInBookMark(selectedWord)) {
                 marked.setVisible(true);
@@ -299,6 +300,15 @@ public class MainUISceneController implements Initializable {
         }
     }
 
+    public void moveInSpeakerOut(){
+        speakerIn.setVisible(true);
+        speakerOut.setVisible(false);
+    }
+
+    public void moveOutSpeakerIn(){
+        speakerIn.setVisible(false);
+        speakerOut.setVisible(true);
+    }
     public void speakerFunc() {
         String paragraph = searchingResultList.getSelectionModel().getSelectedItem();
         if (paragraph != null && !paragraph.isEmpty()) {

@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
@@ -38,7 +39,7 @@ public class BookMarkSceneController implements Initializable {
     @FXML
     private Label engImage, viImage;
     @FXML
-    private Button speaker;
+    private ImageView speakerIn, speakerOut;
     @FXML
     private ImageView unmarked, marked;
     @FXML
@@ -219,14 +220,15 @@ public class BookMarkSceneController implements Initializable {
     public void hide() {
         meaningWord.setVisible(false);
         listWordInSearch.setVisible(false);
-        speaker.setVisible(false);
+        speakerIn.setVisible(false);
+        speakerOut.setVisible(false);
         unmarked.setVisible(false);
         marked.setVisible(false);
     }
 
     public void show() {
         meaningWord.setVisible(true);
-        speaker.setVisible(true);
+        speakerOut.setVisible(true);
         if (searchingType == Dictionary.Type.EN_VI) {
             if (EnViBookMark.checkInBookMark(selectedWord)) {
                 marked.setVisible(true);
@@ -344,6 +346,15 @@ public class BookMarkSceneController implements Initializable {
                 searchingResult = ViEnBookMark.getVieKey();
             }
         }
+    }
+    public void moveIn(){
+        speakerIn.setVisible(true);
+        speakerOut.setVisible(false);
+    }
+
+    public void moveOut(){
+        speakerIn.setVisible(false);
+        speakerOut.setVisible(true);
     }
     public void speakerFunc() {
         String paragraph = listWordInSearch.getSelectionModel().getSelectedItem();

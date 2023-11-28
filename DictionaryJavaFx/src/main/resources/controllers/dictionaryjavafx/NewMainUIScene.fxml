@@ -24,11 +24,6 @@
         <WebView fx:id="meaningWebView" layoutX="438.0" layoutY="86.0" prefHeight="511.0" prefWidth="561.0" stylesheets="@../../WebViewStyles.css" />
         <AnchorPane prefHeight="86.0" prefWidth="1000.0" style="-fx-background-color: pink;">
             <children>
-                <Button fx:id="editWordButton" focusTraversable="false" layoutX="451.0" layoutY="48.0" mnemonicParsing="false" onAction="#selectUpdateWordFromMainUIFunc" onMouseEntered="#showCtrlU" onMouseExited="#hideCtrlU" prefHeight="28.0" prefWidth="154.0" stylesheets="@../../ButtonStyles.css" text="Cập nhật từ đang chọn">
-                    <font>
-                        <Font name="System Bold" size="12.0" />
-                    </font>
-                </Button>
                 <Label fx:id="CtrlULabel" layoutX="605.0" layoutY="54.0" opacity="0.75" style="-fx-background-radius: 5;" text="Ctrl+U">
                     <font>
                         <Font name="System Bold Italic" size="12.0" />
@@ -44,6 +39,11 @@
                         <Font name="System Italic" size="27.0" />
                     </font>
                 </Label>
+                <Button fx:id="editWordButton" focusTraversable="false" layoutX="451.0" layoutY="46.0" mnemonicParsing="false" onAction="#selectUpdateWordFromMainUIFunc" onMouseEntered="#showCtrlU" onMouseExited="#hideCtrlU" prefHeight="28.0" prefWidth="154.0" stylesheets="@../../UpdateButton.css" text="Cập nhật từ đang chọn">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
             </children>
         </AnchorPane>
         <AnchorPane layoutY="86.0" prefHeight="514.0" prefWidth="208.0" style="-fx-background-color: rgb(230, 230, 265);">
@@ -185,27 +185,29 @@
             </Label>
             </children>
         </AnchorPane>
-        <Button fx:id="speaker" focusTraversable="false" layoutX="936.0" layoutY="30.0" mnemonicParsing="false" onAction="#speakerFunc" styleClass="default" stylesheets="@../../SwitchLanguege.css">
-            <graphic>
-                <ImageView fitHeight="48.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../image/speakerver2.png" />
-                    </image>
-                </ImageView>
-            </graphic>
-        </Button>
-      <ImageView fx:id="unmarked" fitHeight="51.0" fitWidth="50.0" layoutX="943.0" layoutY="96.0" onMouseClicked="#unmarkedWord" pickOnBounds="true" preserveRatio="true">
+        <Button fx:id="speaker" focusTraversable="false" layoutX="936.0" layoutY="30.0" mnemonicParsing="false" onAction="#speakerFunc" styleClass="default" stylesheets="@../../SwitchLanguege.css" />
+      <ImageView fx:id="unmarked" fitHeight="51.0" fitWidth="50.0" layoutX="943.0" layoutY="96.0" onMouseClicked="#unmarkedWord" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="90.0">
          <image>
             <Image url="@../../image/unmarked.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="marked" fitHeight="47.0" fitWidth="50.0" layoutX="945.0" layoutY="98.0" onMouseClicked="#markedWord" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="marked" fitHeight="47.0" fitWidth="50.0" layoutX="945.0" layoutY="98.0" onMouseClicked="#markedWord" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="90.0">
          <image>
             <Image url="@../../image/marked.png" />
          </image>
       </ImageView>
           <TextField fx:id="wordEnteringField" layoutX="208.0" layoutY="85.0" prefHeight="35.0" prefWidth="227.0" promptText="Nhập từ cần tra" stylesheets="@../../TextFieldStyles.css" AnchorPane.topAnchor="85.0" />
-          <AnchorPane layoutX="211.0" layoutY="-67.0" prefHeight="0.0" prefWidth="227.0">
+      <ImageView fx:id="speakerIn" fitHeight="20.0" fitWidth="20.0" layoutX="446.0" layoutY="142.0" onMouseClicked="#speakerFunc" onMouseExited="#moveOutSpeakerIn" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="145.0">
+         <image>
+            <Image url="@../../image/speakerin.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="speakerOut" fitHeight="20.0" fitWidth="20.0" layoutX="446.0" layoutY="142.0" onMouseEntered="#moveInSpeakerOut" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="145.0">
+         <image>
+            <Image url="@../../image/speakerout.png" />
+         </image>
+      </ImageView>
+          <AnchorPane layoutX="218.0" layoutY="-67.0" prefHeight="152.0" prefWidth="208.0" AnchorPane.leftAnchor="218.0" AnchorPane.rightAnchor="574.0">
               <children>
                   <Button focusTraversable="false" layoutX="79.0" layoutY="85.0" mnemonicParsing="false" onAction="#onSearchingTypeChanged" onMouseEntered="#showCtrlD" onMouseExited="#hideCtrlD" prefHeight="26.0" prefWidth="38.0" styleClass="default" stylesheets="@../../SwitchLanguege.css">
                       <graphic>
@@ -250,5 +252,10 @@
             </Label>
               </children>
           </AnchorPane>
+      <ImageView fitHeight="31.0" fitWidth="25.0" layoutX="401.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/iconLookUp.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
