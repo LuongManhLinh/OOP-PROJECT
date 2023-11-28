@@ -128,20 +128,16 @@ public class InsertWordsSceneController implements Initializable {
     }
 
     private void showConfirmationAlert(String word, ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Xong!");
         alert.setHeaderText("Bạn đã thêm '" + word + "' vào từ điển");
-        alert.setContentText("Vui lòng nhấn OK để tiếp tục thêm từ \n hoặc nhấn Cancel để quay lại tìm kiếm!");
+        alert.setContentText("Vui lòng nhấn OK để tiếp tục thêm từ");
 
-        ButtonType selectedButton = alert.showAndWait().get();
+        alert.showAndWait();
 
-        if(selectedButton == ButtonType.CANCEL) {
-            backToMainUIScene(event);
-        }
-        else if(selectedButton == ButtonType.OK) {
-            enterWordField.clear();
-            enterMeaningArea.clear();
-        }
+        enterWordField.clear();
+        enterMeaningArea.clear();
+
     }
 
     public void onAddingTypeChanged(ActionEvent event) {

@@ -17,7 +17,7 @@
         <WebView fx:id="meaningWebView" layoutX="438.0" layoutY="86.0" prefHeight="511.0" prefWidth="561.0" />
         <AnchorPane prefHeight="86.0" prefWidth="1000.0" style="-fx-background-color: pink;">
             <children>
-                <Label fx:id="CtrlULabel" layoutX="832.0" layoutY="35.0" opacity="0.75" style="-fx-background-radius: 5;" text="Ctrl+U">
+                <Label fx:id="CtrlULabel" layoutX="820.0" layoutY="34.0" opacity="0.75" style="-fx-background-radius: 5;" text="Ctrl+U">
                     <font>
                         <Font name="System Bold Italic" size="12.0" />
                     </font>
@@ -32,11 +32,6 @@
                         <Font name="System Italic" size="27.0" />
                     </font>
                 </Label>
-                <Button fx:id="editWordButton" focusTraversable="false" layoutX="830.0" layoutY="55.0" mnemonicParsing="false" onAction="#selectUpdateWordFromMainUIFunc" onMouseEntered="#showCtrlU" onMouseExited="#hideCtrlU" prefHeight="33.0" prefWidth="171.0" stylesheets="@../../UpdateButton.css" text="Cập nhật từ đang chọn">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
-                </Button>
                 <TextField fx:id="wordEnteringField" layoutX="209.0" layoutY="42.0" prefColumnCount="10" prefHeight="35.0" prefWidth="227.0" promptText="Nhập từ cần tra" stylesheets="@../../TextFieldStyles.css" AnchorPane.topAnchor="42.0" />
                 <AnchorPane layoutX="446.0" layoutY="-67.0" prefHeight="152.0" prefWidth="208.0" AnchorPane.leftAnchor="446.0" AnchorPane.rightAnchor="346.79999999999995">
                     <children>
@@ -83,6 +78,11 @@
                   </Label>
                     </children>
                 </AnchorPane>
+                <Button fx:id="editWordButton" focusTraversable="false" layoutX="820.0" layoutY="51.0" mnemonicParsing="false" onAction="#selectUpdateWordFromMainUIFunc" onMouseEntered="#showCtrlU" onMouseExited="#hideCtrlU" prefHeight="34.0" prefWidth="180.0" stylesheets="@../../UpdateButton.css" text="Cập nhật từ đang chọn">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
             </children>
         </AnchorPane>
         <AnchorPane layoutY="86.0" prefHeight="514.0" prefWidth="208.0" style="-fx-background-color: rgb(230, 230, 265);">
@@ -189,7 +189,7 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
-                <Label fx:id="EscLabel" layoutX="164.0" layoutY="489.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 5;" text="Esc">
+                <Label fx:id="EscLabel" layoutX="164.0" layoutY="488.0" opacity="0.75" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 5;" text="Esc">
                     <font>
                         <Font name="System Bold Italic" size="14.0" />
                     </font>
@@ -224,7 +224,6 @@
             </Label>
             </children>
         </AnchorPane>
-        <Button fx:id="speaker" focusTraversable="false" layoutX="936.0" layoutY="30.0" mnemonicParsing="false" onAction="#speakerFunc" styleClass="default" stylesheets="@../../SwitchLanguege.css" />
       <ImageView fx:id="unmarked" fitHeight="51.0" fitWidth="50.0" layoutX="943.0" layoutY="96.0" onMouseClicked="#unmarkedWord" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="90.0">
          <image>
             <Image url="@../../image/unmarked.png" />

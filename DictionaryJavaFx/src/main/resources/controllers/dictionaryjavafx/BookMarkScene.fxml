@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.BookMarkSceneController">
+<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.BookMarkSceneController">
     <children>
         <ImageView fitHeight="71.0" fitWidth="87.0" layoutX="272.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true" />
         <AnchorPane layoutX="228.0" layoutY="-35.0" prefHeight="152.0" prefWidth="207.0">
@@ -59,8 +59,8 @@
                 </Label>
             </children>
         </AnchorPane>
-        <WebView fx:id="meaningWord" layoutX="445.0" layoutY="117.0" prefHeight="490.0" prefWidth="562.0" stylesheets="@../../WebViewStyles.css" />
-        <ListView fx:id="listWordInSearch" fixedCellSize="25.0" layoutX="218.0" layoutY="151.0" maxHeight="450.0" prefHeight="450.0" prefWidth="227.0" stylesheets="@../../ListViewStyles.css" />
+        <WebView fx:id="meaningWord" layoutX="445.0" layoutY="117.0" prefHeight="479.0" prefWidth="555.0" />
+        <ListView fx:id="listWordInSearch" fixedCellSize="25.0" layoutX="218.0" layoutY="151.0" maxHeight="445.0" maxWidth="227.0" prefHeight="445.0" prefWidth="227.0" stylesheets="@../../ListViewStyles.css" />
         <TextField fx:id="searchWord" layoutX="218.0" layoutY="116.0" prefHeight="35.0" prefWidth="227.0" promptText="Tìm kiếm từ đã lưu" stylesheets="@../../TextFieldStyles.css" />
         <ImageView fx:id="marked" fitHeight="47.0" fitWidth="50.0" layoutX="950.0" layoutY="117.0" onMouseClicked="#markedWord" pickOnBounds="true" preserveRatio="true">
             <image>
