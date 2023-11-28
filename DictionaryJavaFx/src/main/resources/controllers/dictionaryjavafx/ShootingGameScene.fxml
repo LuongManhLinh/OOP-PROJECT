@@ -10,8 +10,27 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="fatherPane" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.ShootingGameController">
+<AnchorPane fx:id="fatherPane" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.ShootingGameController">
    <children>
+      <AnchorPane fx:id="endGame" prefHeight="700.0" prefWidth="1300.0">
+         <children>
+            <Label fx:id="endGameLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="168.0" prefHeight="76.0" prefWidth="1300.0" text="Congratulations, you got 100 points" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="40.0" />
+               </font>
+            </Label>
+            <Button focusTraversable="false" layoutX="465.0" layoutY="388.0" mnemonicParsing="false" onAction="#onBackToMenu" text="BACK TO MAIN MENU">
+               <font>
+                  <Font name="Segoe UI Black" size="32.0" />
+               </font>
+            </Button>
+            <Button focusTraversable="false" layoutX="580.0" layoutY="298.0" mnemonicParsing="false" onAction="#onPlay" text="REPLAY">
+               <font>
+                  <Font name="Segoe UI Black" size="32.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
       <AnchorPane fx:id="menuPane" prefHeight="700.0" prefWidth="1300.0" visible="false">
          <children>
             <Button focusTraversable="false" layoutX="587.0" layoutY="350.0" mnemonicParsing="false" onAction="#onPlay" text="PLAY">
@@ -48,7 +67,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <ScrollPane fx:id="guidePane" focusTraversable="false" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: pink;">
+      <ScrollPane fx:id="guidePane" focusTraversable="false" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: pink;" visible="false">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1200.0" prefWidth="1300.0" style="-fx-background-color: pink;">
                <children>
@@ -287,7 +306,7 @@
                   <Image url="@../../gameAssets/ShootingGame/target_green1.png" />
                </image>
             </ImageView>
-            <Label fx:id="yourScore" focusTraversable="false" layoutX="1155.0" text="Score: ">
+            <Label fx:id="yourScore" focusTraversable="false" layoutX="1120.0" text="Score: ">
                <font>
                   <Font name="System Italic" size="25.0" />
                </font>
@@ -302,12 +321,13 @@
                   <Font name="System Italic" size="25.0" />
                </font>
             </Label>
-            <Button focusTraversable="false" layoutX="2.0" layoutY="5.0" mnemonicParsing="false" onAction="#onBackToMenu" text="Back to menu" />
+            <Button focusTraversable="false" layoutX="2.0" layoutY="5.0" mnemonicParsing="false" onAction="#goToEndGame" text="Give Up Game" />
             <Label fx:id="numberWaitingBulletLabel" focusTraversable="false" layoutX="74.0" layoutY="537.0" text="0">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
+            <Button fx:id="giveUpRound" layoutX="101.0" layoutY="5.0" mnemonicParsing="false" onAction="#setGiveUpRound" text="Give Up Round" />
          </children>
       </AnchorPane>
    </children>

@@ -8,6 +8,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -26,6 +27,7 @@ public class ShootingGameController implements Initializable {
     @FXML private AnchorPane menuPane;
     @FXML private ScrollPane guidePane;
     @FXML private AnchorPane gamePane;
+    @FXML private AnchorPane endGame;
     @FXML private ImageView CannonImage;
     @FXML private ImageView reloadImage;
     @FXML private Line line;
@@ -37,6 +39,7 @@ public class ShootingGameController implements Initializable {
     @FXML private Label curRound;
     @FXML private Label time;
     @FXML private Label numberWaitingBulletLabel;
+    @FXML private Label endGameLabel;
 
     private enum Status {
         START_GAME,
@@ -49,6 +52,7 @@ public class ShootingGameController implements Initializable {
     private static final int SPIN_POINT_Y = 679;
 
     private static final int MAX_SHOWING_BULLET_SIZE = 6;
+    private int MAX_SHOWING_TARGET_SIZE;
 
 
     private static ShootingGameController instance;
@@ -60,7 +64,6 @@ public class ShootingGameController implements Initializable {
     private final List<Target> showingTargets = new ArrayList<>();
 
     private int round = 1;
-    private int maxRound = 10;
     private double curScore = 0;
     private int selectingBullet = 0;
     private int timeRemaining = 15;
@@ -177,6 +180,12 @@ public class ShootingGameController implements Initializable {
         }
         numberWaitingBulletLabel.setText(String.valueOf(waitingBullets.size()));
     }
+    private void addTargetAutomatically() {
+        if(showingTargets.size() < MAX_SHOWING_TARGET_SIZE && !waitingTargets.isEmpty()) {
+            showingTargets.add(waitingTargets.poll());
+            gamePane.getChildren().add(0, showingTargets.get(showingTargets.size() - 1).getObjectView().getShowText());
+        }
+    }
 
     private void reloadAnimation() {
         AnimationTimer reloadTimer = new AnimationTimer() {
@@ -224,6 +233,8 @@ public class ShootingGameController implements Initializable {
     }
 
     private void shootBullet(GameObject.Color color) {
+        System.out.println(waitingTargets.size() + " " + MAX_SHOWING_TARGET_SIZE + " " + showingTargets.size());
+        gamePane.requestFocus();
         canChangeRound = false;
         if(showingBullets.isEmpty()) return;
         Bullet currentBullet = showingBullets.get(selectingBullet);
@@ -277,6 +288,7 @@ public class ShootingGameController implements Initializable {
                                 removeTarget(tar);
                                 curScore += tar.takeDamage(currentBullet);
                                 yourScore.setText("Score: " + curScore);
+                                addTargetAutomatically();
                             }
                             break;
                         }
@@ -341,6 +353,9 @@ public class ShootingGameController implements Initializable {
         changeScene(Status.GUIDE);
     }
 
+    public void goToEndGame() {
+        changeScene(Status.END_GAME);
+    }
     public void onBackToMenu() {
         changeScene(Status.START_GAME);
     }
@@ -351,6 +366,7 @@ public class ShootingGameController implements Initializable {
                 menuPane.setVisible(true);
                 gamePane.setVisible(false);
                 guidePane.setVisible(false);
+                endGame.setVisible(false);
                 round = 1;
                 curScore = 0;
             }
@@ -359,8 +375,11 @@ public class ShootingGameController implements Initializable {
                 menuPane.setVisible(false);
                 gamePane.setVisible(true);
                 guidePane.setVisible(false);
+                endGame.setVisible(false);
                 RoundGenerator.refillIndex();
-                setRound(1);
+                round = 1;
+                setRound(round);
+                curScore = 0;
                 yourScore.setText("Score: " + curScore);
             }
 
@@ -368,10 +387,15 @@ public class ShootingGameController implements Initializable {
                 menuPane.setVisible(false);
                 gamePane.setVisible(false);
                 guidePane.setVisible(true);
+                endGame.setVisible(false);
             }
 
             case END_GAME -> {
-
+                menuPane.setVisible(false);
+                gamePane.setVisible(false);
+                guidePane.setVisible(false);
+                endGame.setVisible(true);
+                endGameLabel.setText("Congratulations, you got " + curScore + " points");
             }
         }
     }
@@ -383,6 +407,7 @@ public class ShootingGameController implements Initializable {
         for (Target target : showingTargets) {
             target.move();
         }
+        MAX_SHOWING_TARGET_SIZE = showingTargets.size();
         reload();
         selectBullet(0);
 
@@ -425,13 +450,14 @@ public class ShootingGameController implements Initializable {
             moveToNextRound();
         }
     }
-    private void moveToNextRound() {
-        if (round < maxRound) {
-            round++;
-            setRound(round);
-        } else {
 
-        }
+    public void setGiveUpRound() {
+        timeRemainingTimeline.stop();
+        moveToNextRound();
+    }
+    private void moveToNextRound() {
+        round++;
+        setRound(round);
     }
     public boolean checkCollision(ImageView bullet, Target target) {
         //hình tròn trong target
