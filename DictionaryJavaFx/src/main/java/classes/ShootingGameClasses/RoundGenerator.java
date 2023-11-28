@@ -227,7 +227,7 @@ public class RoundGenerator {
                     target.addPosition(new Vector(MakeRandom.random(100, 1200), MakeRandom.random(0, 600)));
                     target.addPosition(new Vector(MakeRandom.random(100, 1200), MakeRandom.random(0, 600)));
                     target.addPosition(new Vector(MakeRandom.random(100, 1200), MakeRandom.random(0, 600)));
-                    target.setTimeToJump(2000);
+                    target.setTimeToJump(MakeRandom.random(1500, 2500));
                     controller.addTarget(target);
 
                     bullets.add(new Bullet(getRandomColor(target.getColorToBeCountered()), bulletText, targetText));
@@ -313,6 +313,7 @@ public class RoundGenerator {
                     } else {
                         RoundMovingTarget target = new RoundMovingTarget(getRandomColor(), targetText, 15,
                                 new Vector(MakeRandom.random(200, 1100), MakeRandom.random(100, 400)), MakeRandom.random(100, 200));
+                        target.setRoundVelocity(MakeRandom.random(45, 180));
                         controller.addTarget(target);
                         bullets.add(new Bullet(getRandomColor(target.getColorToBeCountered()), bulletText, targetText));
                         bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
@@ -372,7 +373,7 @@ public class RoundGenerator {
                         int randomType = MakeRandom.random(0, 1);
                         if (randomType == 0) {
                             StillTarget target = new StillTarget(targetColor, targetText, 10,
-                                    new Vector(MakeRandom.random(0, 1200), MakeRandom.random(0, 600)));
+                                    new Vector(MakeRandom.random(100, 1200), MakeRandom.random(0, 600)));
                             if (i < 6) {
                                 controller.addTarget(target);
                             } else {
@@ -395,8 +396,15 @@ public class RoundGenerator {
                         int randomType = MakeRandom.random(0, 2);
                         if (randomType == 0) {
                             RoundMovingTarget target = new RoundMovingTarget(targetColor, targetText, 25);
-                            target.setCenter(new Vector(MakeRandom.random(0, 650), MakeRandom.random(0, 700)));
-                            target.setRoundVelocity(MakeRandom.random(45, 180));
+//                            target.setCenter(new Vector(200, 100));
+//                            target.setRadius(100);
+//                            target.setRoundVelocity(120);
+//                            target.setMoveDirection(new Vector(1, 0));
+//                            target.setMoveVelocity(100);
+
+                            target.setCenter(new Vector(MakeRandom.random(300, 800), MakeRandom.random(0, 700)));
+                            target.setRadius(MakeRandom.random(50, 150));
+                            target.setRoundVelocity(MakeRandom.random(45, 120));
 
                             int moveDirY = MakeRandom.random(0, 10);
                             if (target.getCenter().getY() > 350) {
@@ -406,8 +414,9 @@ public class RoundGenerator {
                             if (MakeRandom.random(0, 1) == 0) {
                                 moveDirX = -moveDirX;
                             }
-                            target.setMoveDirection(new Vector(moveDirX, moveDirY));
-                            target.setMoveVelocity(MakeRandom.random(10, 200));
+
+                            target.setMoveDirection(new Vector( moveDirX, moveDirY));
+                            target.setMoveVelocity(MakeRandom.random(50, 100));
 
                             if (i < 6) {
                                 controller.addTarget(target);
@@ -434,7 +443,7 @@ public class RoundGenerator {
                             target.setTimeToJump(MakeRandom.random(1500, 4000));
                             int randomNumberPos = MakeRandom.random(2, 4);
                             for (int j = 0; j < randomNumberPos; j++) {
-                                target.addPosition(new Vector(MakeRandom.random(0, 1250), MakeRandom.random(0, 650)));
+                                target.addPosition(new Vector(MakeRandom.random(100, 1250), MakeRandom.random(0, 650)));
                             }
 
                             if (i < 6) {
