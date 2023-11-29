@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -16,21 +11,44 @@
 
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.SceneTranslateTextController">
    <children>
-      <TextArea fx:id="textTranslateArea" layoutX="40.0" layoutY="169.0" prefHeight="324.0" prefWidth="461.0" promptText="Nhập văn bản cần dịch" wrapText="true">
+      <TextArea fx:id="textTranslateArea" layoutX="76.0" layoutY="90.0" prefHeight="400.0" prefWidth="421.0" promptText="Nhập văn bản cần dịch" wrapText="true">
          <font>
             <Font size="24.0" />
          </font></TextArea>
-      <Button fx:id="backToMainUIButton" focusTraversable="false" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#backToMainUIScene" onMouseEntered="#showEsc" onMouseExited="#hideEsc" prefHeight="31.0" prefWidth="65.0" stylesheets="@../../ButtonStyles.css" text="Quay lại">
+      <Button fx:id="backToMainUIButton" focusTraversable="false" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUIScene" onMouseEntered="#showEsc" onMouseExited="#hideEsc" stylesheets="@../../ButtonStyles.css" text="Quay lại">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <TextArea fx:id="textResultArea" editable="false" focusTraversable="false" layoutX="508.0" layoutY="169.0" prefHeight="324.0" prefWidth="461.0" promptText="Bản dịch" wrapText="true">
+      <Button focusTraversable="false" layoutX="252.0" layoutY="508.0" mnemonicParsing="false" onAction="#speakLangFromText" stylesheets="@../../ButtonStyles.css">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/speakerver2.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button focusTraversable="false" layoutX="684.0" layoutY="508.0" mnemonicParsing="false" onAction="#speakLangToText" stylesheets="@../../ButtonStyles.css">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../image/speakerver2.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <TextArea fx:id="textResultArea" editable="false" focusTraversable="false" layoutX="508.0" layoutY="90.0" prefHeight="400.0" prefWidth="421.0" promptText="Bản dịch" wrapText="true">
          <font>
             <Font size="24.0" />
          </font>
       </TextArea>
-      <ChoiceBox fx:id="langFromChoiceBox" focusTraversable="false" layoutX="196.0" layoutY="129.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="langToChoiceBox" focusTraversable="false" layoutX="664.0" layoutY="129.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="langFromChoiceBox" focusTraversable="false" layoutX="212.0" layoutY="56.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="langToChoiceBox" focusTraversable="false" layoutX="644.0" layoutY="56.0" prefWidth="150.0" />
+      <Button focusTraversable="false" layoutX="457.0" layoutY="514.0" mnemonicParsing="false" onAction="#translate" stylesheets="@../../ButtonStyles.css" text="DỊCH">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Button>
       <Label fx:id="errorLabel" layoutX="440.0" layoutY="280.0" opacity="0.3" style="-fx-background-color: black;" text="Lỗi kết nối" textFill="WHITE" visible="false">
          <font>
             <Font name="System Italic" size="27.0" />
@@ -41,39 +59,5 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <ImageView fx:id="speakerOut" fitHeight="30.0" fitWidth="30.0" layoutX="64.0" layoutY="451.0" onMouseEntered="#moveInSpeakerOut" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../image/speakerout.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="speakerIn" fitHeight="30.0" fitWidth="30.0" layoutX="64.0" layoutY="451.0" onMouseClicked="#speakLangFromText" onMouseExited="#moveOutSpeakerIn" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../image/speakerin.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="speakerTranslateOut" fitHeight="30.0" fitWidth="30.0" layoutX="531.0" layoutY="451.0" onMouseEntered="#moveInSpeakerTranslateOut" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../image/speakerout.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="speakerTranslateIn" fitHeight="30.0" fitWidth="30.0" layoutX="531.0" layoutY="451.0" onMouseClicked="#speakLangToText" onMouseExited="#moveOutSpeakerTranslateIn" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../image/speakerin.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="425.0" layoutY="448.0" mnemonicParsing="false" onMouseClicked="#translate" prefHeight="35.0" prefWidth="65.0" stylesheets="@../../ButtonStyles.css" text="Dịch">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Button>
-      <Label layoutX="146.0" layoutY="21.0" prefHeight="47.0" prefWidth="160.0" styleClass="myElement" stylesheets="@../../FontWord.css" text="Translator ">
-         <font>
-            <Font name="Arial" size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="146.0" layoutY="68.0" prefHeight="30.0" prefWidth="538.0" styleClass="myElement" stylesheets="@../../FontWord.css" text="Nhập văn bản của bạn và nhấp vào Dịch để xem bản dịch">
-         <font>
-            <Font name="Arial" size="18.0" />
-         </font></Label>
    </children>
 </AnchorPane>
