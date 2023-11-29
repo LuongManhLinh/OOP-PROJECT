@@ -1,8 +1,6 @@
 package classes.dictionarycommandline;
 
 
-
-import classes.Dictionary;
 import classes.EnViDictionary;
 
 import java.util.Scanner;

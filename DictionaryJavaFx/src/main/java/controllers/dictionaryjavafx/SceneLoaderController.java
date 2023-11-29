@@ -1,7 +1,6 @@
 package controllers.dictionaryjavafx;
 
 import classes.*;
-import classes.data.DictionaryData;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -17,8 +16,8 @@ public class SceneLoaderController {
         stage.setOnCloseRequest(event -> {
             EnViBookMark.writeBookMark();
             ViEnBookMark.writeBookMark();
-            DictionaryData.writeData(Dictionary.Type.EN_VI, EnViDictionary.getInstance().getWords(), EnViDictionary.getInstance().getKeyWords());
-            DictionaryData.writeData(Dictionary.Type.VI_EN, ViEnDictionary.getInstance().getWords(), ViEnDictionary.getInstance().getKeyWords());
+            EnViDictionary.getInstance().exit();
+            ViEnDictionary.getInstance().exit();
         });
     }
 
@@ -29,8 +28,8 @@ public class SceneLoaderController {
     public static void exitApp() {
         EnViBookMark.writeBookMark();
         ViEnBookMark.writeBookMark();
-        DictionaryData.writeData(Dictionary.Type.EN_VI, EnViDictionary.getInstance().getWords(), EnViDictionary.getInstance().getKeyWords());
-        DictionaryData.writeData(Dictionary.Type.VI_EN, ViEnDictionary.getInstance().getWords(), ViEnDictionary.getInstance().getKeyWords());
+        EnViDictionary.getInstance().exit();
+        ViEnDictionary.getInstance().exit();
         stage.close();
     }
 
