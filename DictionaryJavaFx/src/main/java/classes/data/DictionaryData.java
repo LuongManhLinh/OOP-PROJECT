@@ -4,7 +4,6 @@ import classes.Dictionary;
 
 import java.util.HashMap;
 import java.util.ArrayList;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 

@@ -14,11 +14,10 @@ public class EnViBookMark {
     public static void loadBookMark(){
         try {
             Scanner fileScanner = new Scanner(new FileReader(EN_VI_MARK));
-            String line, key;
+            String key;
             while (fileScanner.hasNext()) {
-                line = fileScanner.nextLine();
+                key = fileScanner.nextLine();
 
-                key = WordWork.decodeForm(line, true);
                 engKey.add(key);
             }
             fileScanner.close();
@@ -29,9 +28,8 @@ public class EnViBookMark {
     public static void writeBookMark(){
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(EN_VI_MARK))) {
             for (String eachWord : engKey) {
-                String englishKeyWord = WordWork.encodeForm(eachWord, true);
 
-                bw.write(englishKeyWord + " " + "\n");
+                bw.write(eachWord + " " + "\n");
             }
         } catch (IOException e) {
             e.printStackTrace();

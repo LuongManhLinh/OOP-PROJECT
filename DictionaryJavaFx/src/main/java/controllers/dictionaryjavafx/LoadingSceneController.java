@@ -4,7 +4,6 @@ import classes.EnViBookMark;
 import classes.FXMLFiles;
 import classes.ViEnBookMark;
 import classes.data.DictionaryData;
-import classes.data.GameData;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;

@@ -3,9 +3,6 @@ package classes.ShootingGameClasses;
 import classes.data.GameData;
 import classes.makerandom.MakeRandom;
 import controllers.dictionaryjavafx.ShootingGameController;
-import javafx.scene.control.Label;
-import javafx.scene.text.Text;
-import kotlin.collections.MapsKt;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -396,11 +393,6 @@ public class RoundGenerator {
                         int randomType = MakeRandom.random(0, 2);
                         if (randomType == 0) {
                             RoundMovingTarget target = new RoundMovingTarget(targetColor, targetText, 25);
-//                            target.setCenter(new Vector(200, 100));
-//                            target.setRadius(100);
-//                            target.setRoundVelocity(120);
-//                            target.setMoveDirection(new Vector(1, 0));
-//                            target.setMoveVelocity(100);
 
                             target.setCenter(new Vector(MakeRandom.random(300, 800), MakeRandom.random(0, 700)));
                             target.setRadius(MakeRandom.random(50, 150));

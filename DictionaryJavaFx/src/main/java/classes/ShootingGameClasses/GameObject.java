@@ -1,8 +1,5 @@
 package classes.ShootingGameClasses;
 
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-
 public abstract class GameObject {
     public enum Color {
         RED,

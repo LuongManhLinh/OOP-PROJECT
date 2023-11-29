@@ -48,7 +48,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <ScrollPane fx:id="guidePane" focusTraversable="false" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: pink;" visible="false">
+      <ScrollPane fx:id="guidePane" focusTraversable="false" prefHeight="700.0" prefWidth="1300.0" style="-fx-background-color: pink;" vvalue="0.95">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1200.0" prefWidth="1300.0" style="-fx-background-color: pink;">
                <children>
@@ -192,11 +192,21 @@
                         <Font size="21.0" />
                      </font>
                   </Label>
+                  <Label contentDisplay="BOTTOM" focusTraversable="false" layoutX="14.0" layoutY="738.0" prefHeight="87.0" prefWidth="585.0" text="SỬ DỤNG CHUỘT ĐỂ DI CHUYỂN HƯỚNG BẮN VÀ CHUỘT TRÁI ĐỂ BẮN" wrapText="true">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Label contentDisplay="BOTTOM" focusTraversable="false" layoutX="14.0" layoutY="805.0" prefHeight="87.0" prefWidth="585.0" text="NHẤN R ĐỂ RELOAD LẠI ĐẠN" wrapText="true">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
         </content>
       </ScrollPane>
-      <AnchorPane fx:id="gamePane" focusTraversable="true" prefHeight="700.0" prefWidth="1300.0">
+      <AnchorPane fx:id="gamePane" focusTraversable="true" prefHeight="700.0" prefWidth="1300.0" visible="false">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-64.0" layoutY="649.0" pickOnBounds="true" preserveRatio="true" rotate="45.0">
                <image>
@@ -322,7 +332,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="endGame" prefHeight="700.0" prefWidth="1300.0">
+      <AnchorPane fx:id="endGame" prefHeight="700.0" prefWidth="1300.0" visible="false">
          <children>
             <Label fx:id="endGameLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="168.0" prefHeight="76.0" prefWidth="1300.0" text="Congratulations, you got 100 points" textAlignment="CENTER">
                <font>

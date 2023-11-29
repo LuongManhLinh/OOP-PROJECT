@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.web.*?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -18,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.BookMarkSceneController">
+<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: rgb(200,230,255);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.dictionaryjavafx.BookMarkSceneController">
     <children>
         <ImageView fitHeight="71.0" fitWidth="87.0" layoutX="272.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true" />
         <AnchorPane layoutX="228.0" layoutY="-35.0" prefHeight="152.0" prefWidth="207.0">
@@ -84,7 +77,7 @@
                 <Font name="Times New Roman Bold Italic" size="20.0" />
             </font>
         </Label>
-        <Button fx:id="backToMainUIButton" focusTraversable="false" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUI" onMouseEntered="#showEsc" onMouseExited="#hideEsc" prefHeight="35.0" prefWidth="74.0" stylesheets="@../../ButtonStyles.css" text="Quay lại">
+        <Button fx:id="backToMainUIButton" focusTraversable="false" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainUI" onMouseEntered="#showEsc" onMouseExited="#hideEsc" stylesheets="@../../ButtonStyles.css" text="Quay lại">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font>
@@ -94,7 +87,7 @@
                 <Font name="System Bold Italic" size="12.0" />
             </font>
         </Label>
-        <Button layoutX="14.0" layoutY="115.0" mnemonicParsing="false" onAction="#removeAll" prefHeight="37.0" prefWidth="97.0" stylesheets="@../../ButtonStyles.css" text="Xoá tất cả">
+        <Button layoutX="130.0" layoutY="120.0" mnemonicParsing="false" onAction="#removeAll" stylesheets="@../../ButtonStyles.css" text="Xoá tất cả">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>

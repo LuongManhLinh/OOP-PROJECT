@@ -1,9 +1,6 @@
 package classes.ShootingGameClasses;
 
 import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.List;

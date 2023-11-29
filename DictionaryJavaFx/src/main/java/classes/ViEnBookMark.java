@@ -13,11 +13,10 @@ public class ViEnBookMark {
     public static void loadBookMark(){
         try {
             Scanner fileScanner = new Scanner(new FileReader(VI_EN_MARK));
-            String line, key;
+            String key;
             while (fileScanner.hasNext()) {
-                line = fileScanner.nextLine();
+                key = fileScanner.nextLine();
 
-                key = WordWork.decodeForm(line, true);
                 vieKey.add(key);
             }
             fileScanner.close();
@@ -28,9 +27,8 @@ public class ViEnBookMark {
     public static void writeBookMark(){
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(VI_EN_MARK))) {
             for (String eachWord : vieKey) {
-                String vieKeyWord = WordWork.encodeForm(eachWord, true);
 
-                bw.write(vieKeyWord + " " + "\n");
+                bw.write(eachWord + " " + "\n");
             }
         } catch (IOException e) {
             e.printStackTrace();

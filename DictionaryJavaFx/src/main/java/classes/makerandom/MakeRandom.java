@@ -11,7 +11,7 @@ public class MakeRandom {
         }
     }
 
-    public static  <T> void swap(ArrayList<T> target, int i, int j) {
+    private static  <T> void swap(ArrayList<T> target, int i, int j) {
         T temp = target.get(i);
         target.set(i, target.get(j));
         target.set(j, temp);

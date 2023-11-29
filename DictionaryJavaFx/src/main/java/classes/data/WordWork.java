@@ -24,7 +24,7 @@ public class WordWork {
                 output = output.replace(engStartKey, "").replace(engEndKey, "");
                 return output;
             } else {
-                System.out.println("Cannot find a English form");
+                System.out.println("Cannot find a English form " + input);
             }
         }
 
@@ -33,7 +33,7 @@ public class WordWork {
             output = viMatcher.group();
             output = output.replace(viStartKey, "").replace(viEndKey, "");
         } else {
-            System.out.println("Cannot find a Vietnamese form");
+            System.out.println("Cannot find a Vietnamese form " + input);
         }
 
         return output;

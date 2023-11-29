@@ -1,14 +1,12 @@
 package controllers.dictionaryjavafx;
 
 import classes.*;
-import classes.data.DictionaryData;
 import classes.data.WordWork;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;

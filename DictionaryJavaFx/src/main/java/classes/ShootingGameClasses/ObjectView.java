@@ -1,12 +1,9 @@
 package classes.ShootingGameClasses;
 
-import controllers.dictionaryjavafx.ShootingGameController;
-import javafx.fxml.FXML;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.TextAlignment;
 
 public class ObjectView {
