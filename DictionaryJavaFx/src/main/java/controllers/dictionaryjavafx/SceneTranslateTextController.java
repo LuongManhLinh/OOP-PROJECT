@@ -1,23 +1,17 @@
-
 package controllers.dictionaryjavafx;
+
 import classes.FXMLFiles;
 import classes.googlework.GgTranslateAPI;
 import classes.googlework.GgTranslateTextToSpeech;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -32,8 +26,6 @@ public class SceneTranslateTextController implements Initializable{
     @FXML private ChoiceBox<String> langToChoiceBox;
     @FXML private Label errorLabel;
     @FXML private Label EscLabel;
-    @FXML private Button backToMainUIButton;
-    @FXML private ImageView speakerIn, speakerOut, speakerTranslateIn, speakerTranslateOut;
     private Timeline errorTimeLine;
 
     private String langFrom;
@@ -58,10 +50,6 @@ public class SceneTranslateTextController implements Initializable{
 
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle){
-        speakerOut.setVisible(true);
-        speakerIn.setVisible(false);
-        speakerTranslateOut.setVisible(true);
-        speakerTranslateIn.setVisible(false);
         setOnKeyPress();
         instance = this;
         symbol.put(languages[0], "vi");
@@ -116,28 +104,6 @@ public class SceneTranslateTextController implements Initializable{
         }
     }
 
-    public void translate(MouseEvent event) {
-        translate();
-    }
-
-    public void moveInSpeakerOut(){
-        speakerIn.setVisible(true);
-        speakerOut.setVisible(false);
-    }
-
-    public void moveOutSpeakerIn(){
-        speakerIn.setVisible(false);
-        speakerOut.setVisible(true);
-    }
-
-    public void moveInSpeakerTranslateOut(){
-        speakerTranslateIn.setVisible(true);
-        speakerTranslateOut.setVisible(false);
-    }
-    public void moveOutSpeakerTranslateIn(){
-        speakerTranslateIn.setVisible(false);
-        speakerTranslateOut.setVisible(true);
-    }
     public void speakLangFromText() {
         String paragraph = textTranslateArea.getText();
         if (paragraph != null && !paragraph.isEmpty()) {
