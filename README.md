@@ -8,9 +8,6 @@
 Trường Đại học Công Nghệ - Đại Học Quốc Gia Hà Nội 
 
 Từ điển HCL là một ứng dụng được viết bằng ngôn ngữ Java và sử dụng đồ hoạ JavaFX. Bạn có thể sử dụng để tra từ một cách chính xác và dịch văn bản hiệu quả dựa trên API của translate Gg. Ngoài ra ứng dụng còn cho ta những tựa game hấp dẫn để giúp ta vừa có thể vui chơi thư giãn mà còn rèn luyện tư duy phản xạ và ghi nhớ từ vựng lâu dài.
-## Cách cài đặt 
-- Bước 1
-- Bước 2
 
 ## Từ điển HCL
 ### Chức năng 
