@@ -206,7 +206,7 @@
             </AnchorPane>
         </content>
       </ScrollPane>
-      <AnchorPane fx:id="gamePane" focusTraversable="true" prefHeight="700.0" prefWidth="1300.0" visible="false">
+      <AnchorPane fx:id="gamePane" focusTraversable="true" prefHeight="700.0" prefWidth="1300.0">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-64.0" layoutY="649.0" pickOnBounds="true" preserveRatio="true" rotate="45.0">
                <image>
@@ -297,17 +297,17 @@
                   <Image url="@../../gameAssets/ShootingGame/target_green1.png" />
                </image>
             </ImageView>
-            <Label fx:id="yourScore" focusTraversable="false" layoutX="1120.0" text="Score: ">
+            <Label fx:id="yourScore" focusTraversable="false" layoutX="1120.0" opacity="0.8" text="Score: ">
                <font>
                   <Font name="System Italic" size="25.0" />
                </font>
             </Label>
-            <Label fx:id="curRound" focusTraversable="false" layoutX="609.0" text="Round: ">
+            <Label fx:id="curRound" focusTraversable="false" layoutX="609.0" opacity="0.8" text="Round: ">
                <font>
                   <Font name="System Italic" size="25.0" />
                </font>
             </Label>
-            <Label fx:id="time" focusTraversable="false" layoutX="858.0" text="Time: ">
+            <Label fx:id="time" focusTraversable="false" layoutX="858.0" opacity="0.8" text="Time: ">
                <font>
                   <Font name="System Italic" size="25.0" />
                </font>
@@ -317,11 +317,11 @@
                   <Font size="30.0" />
                </font>
             </Label>
-            <Button focusTraversable="false" layoutX="2.0" layoutY="5.0" mnemonicParsing="false" onAction="#goToEndGame" stylesheets="@../../ShootingGameButton.css" text="Give Up Game">
+            <Button focusTraversable="false" layoutX="2.0" layoutY="5.0" mnemonicParsing="false" onAction="#goToEndGame" opacity="0.5" stylesheets="@../../ShootingGameButton.css" text="Give Up Game">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Button>
-            <Button fx:id="giveUpRound" layoutX="101.0" layoutY="5.0" mnemonicParsing="false" onAction="#setGiveUpRound" stylesheets="@../../ShootingGameButton.css" text="Give Up Round">
+            <Button fx:id="giveUpRound" layoutX="101.0" layoutY="5.0" mnemonicParsing="false" onAction="#setGiveUpRound" opacity="0.5" stylesheets="@../../ShootingGameButton.css" text="Give Up Round">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font></Button>
