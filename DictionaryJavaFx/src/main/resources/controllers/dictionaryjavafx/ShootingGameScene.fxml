@@ -202,6 +202,11 @@
                         <Font size="21.0" />
                      </font>
                   </Label>
+                  <Label contentDisplay="BOTTOM" focusTraversable="false" layoutX="14.0" layoutY="876.0" prefHeight="87.0" prefWidth="585.0" text="NHẤN W, S HOẶC UP, DOWN ĐỂ THAY ĐỔI ĐẠN ĐƯỢC CHỌN" wrapText="true">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
         </content>

@@ -54,7 +54,7 @@ public class RoundGenerator {
                             new Vector(MakeRandom.random(100 + range, 400 + range), MakeRandom.random(0, 600)));
                     controller.addTarget(target);
 
-                    bullets.add(new Bullet(getRandomColor(target.getColorToBeCountered()), bulletWord, targetWord));
+                    bullets.add(new Bullet(getRandomColor(target.getColorToCounter()), bulletWord, targetWord));
                     bullets.add(new Bullet(getRandomColor(), bulletWord, targetWord));
                 }
 
@@ -85,7 +85,7 @@ public class RoundGenerator {
                 int randomWrongIndex = MakeRandom.random(remainIndex);
                 String wrongBulletWord = key.get(randomWrongIndex);
                 ArrayList<Bullet> bullets = new ArrayList<>();
-                bullets.add(new Bullet(getRandomColor(target.getColorToBeCountered()), bulletWord, targetWord));
+                bullets.add(new Bullet(getRandomColor(target.getColorToCounter()), bulletWord, targetWord));
                 bullets.add(new Bullet(getRandomColor(), bulletWord, targetWord));
                 bullets.add(new Bullet(getRandomColor(), wrongBulletWord, ""));
                 bullets.add(new Bullet(getRandomColor(), wrongBulletWord, ""));
@@ -123,7 +123,7 @@ public class RoundGenerator {
                     }
                     controller.addTarget(target);
 
-                    bullets.add(new Bullet(getRandomColor(target.getColorToBeCountered()), bulletWord, targetWord));
+                    bullets.add(new Bullet(getRandomColor(target.getColorToCounter()), bulletWord, targetWord));
                     bullets.add(new Bullet(getRandomColor(), bulletWord, targetWord));
                 }
 
@@ -151,7 +151,7 @@ public class RoundGenerator {
                     target.setRoundVelocity(90);
                     controller.addTarget(target);
 
-                    bullets.add(new Bullet(getRandomColor(target.getColorToBeCountered()), bulletWord, targetWord));
+                    bullets.add(new Bullet(getRandomColor(target.getColorToCounter()), bulletWord, targetWord));
                     bullets.add(new Bullet(getRandomColor(), bulletWord, targetWord));
                 }
 
@@ -197,7 +197,7 @@ public class RoundGenerator {
 
                     controller.addTarget(target);
 
-                    bullets.add(new Bullet(getRandomColor(target.getColorToBeCountered()), bulletWord, targetWord));
+                    bullets.add(new Bullet(getRandomColor(target.getColorToCounter()), bulletWord, targetWord));
                     bullets.add(new Bullet(getRandomColor(), bulletWord, targetWord));
                 }
 
@@ -227,7 +227,7 @@ public class RoundGenerator {
                     target.setTimeToJump(MakeRandom.random(1500, 2500));
                     controller.addTarget(target);
 
-                    bullets.add(new Bullet(getRandomColor(target.getColorToBeCountered()), bulletText, targetText));
+                    bullets.add(new Bullet(getRandomColor(target.getColorToCounter()), bulletText, targetText));
                     bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
                 }
 
@@ -240,7 +240,7 @@ public class RoundGenerator {
                             new Vector(MakeRandom.random(300, 500) + i * 300, MakeRandom.random(300, 500)));
                     controller.addTarget(target);
 
-                    bullets.add(new Bullet(getRandomColor(target.getColorToBeCountered()), bulletText, targetText));
+                    bullets.add(new Bullet(getRandomColor(target.getColorToCounter()), bulletText, targetText));
                     bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
                 }
 
@@ -266,7 +266,7 @@ public class RoundGenerator {
                     target.setVelocity(200);
                     controller.addTarget(target);
 
-                    bullets.add(new Bullet(getRandomColor(target.getColorToBeCountered()), bulletText, targetText));
+                    bullets.add(new Bullet(getRandomColor(target.getColorToCounter()), bulletText, targetText));
                     bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
                 }
 
@@ -277,7 +277,7 @@ public class RoundGenerator {
                 RoundMovingTarget target = new RoundMovingTarget(getRandomColor(), targetText, 15, new Vector(550, 275), 100);
                 target.setRoundVelocity(150);
                 controller.addTarget(target);
-                bullets.add(new Bullet(getRandomColor(target.getColorToBeCountered()), bulletText, targetText));
+                bullets.add(new Bullet(getRandomColor(target.getColorToCounter()), bulletText, targetText));
                 bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
 
                 for (int i = 0; i < 6; i++) {
@@ -305,14 +305,14 @@ public class RoundGenerator {
                         StillTarget target = new StillTarget(getRandomColor(), targetText, 10,
                                 new Vector(MakeRandom.random(50, 1200), MakeRandom.random(0, 600)));
                         controller.addTarget(target);
-                        bullets.add(new Bullet(getRandomColor(target.getColorToBeCountered()), bulletText, targetText));
+                        bullets.add(new Bullet(getRandomColor(target.getColorToCounter()), bulletText, targetText));
                         bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
                     } else {
                         RoundMovingTarget target = new RoundMovingTarget(getRandomColor(), targetText, 15,
                                 new Vector(MakeRandom.random(200, 1100), MakeRandom.random(100, 400)), MakeRandom.random(100, 200));
                         target.setRoundVelocity(MakeRandom.random(45, 180));
                         controller.addTarget(target);
-                        bullets.add(new Bullet(getRandomColor(target.getColorToBeCountered()), bulletText, targetText));
+                        bullets.add(new Bullet(getRandomColor(target.getColorToCounter()), bulletText, targetText));
                         bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
                     }
                 }
@@ -330,7 +330,7 @@ public class RoundGenerator {
                         }
                         target.setVelocity(MakeRandom.random(50, 300));
                         controller.addWaitingTarget(target);
-                        bullets.add(new Bullet(getRandomColor(target.getColorToBeCountered()), bulletText, targetText));
+                        bullets.add(new Bullet(getRandomColor(target.getColorToCounter()), bulletText, targetText));
                         bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
                     } else {
                         TeleportingStillTarget target = new TeleportingStillTarget(getRandomColor(), targetText, 30);
@@ -340,7 +340,7 @@ public class RoundGenerator {
                         }
                         target.setTimeToJump(MakeRandom.random(2000, 4000));
                         controller.addWaitingTarget(target);
-                        bullets.add(new Bullet(getRandomColor(target.getColorToBeCountered()), bulletText, targetText));
+                        bullets.add(new Bullet(getRandomColor(target.getColorToCounter()), bulletText, targetText));
                         bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
                     }
                 }
@@ -447,7 +447,7 @@ public class RoundGenerator {
                         }
                     }
 
-                    bullets.add(new Bullet(getRandomColor(checkColorTarget.getColorToBeCountered()), bulletText, targetText));
+                    bullets.add(new Bullet(getRandomColor(checkColorTarget.getColorToCounter()), bulletText, targetText));
                     bullets.add(new Bullet(getRandomColor(), bulletText, targetText));
                 }
 
